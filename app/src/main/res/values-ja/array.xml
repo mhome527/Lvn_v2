@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <integer-array name="number">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>20</item>
+        <item>25</item>
+        <item>30</item>
+        <item>40</item>
+        <item>100</item>
+        <item>200</item>
+        <item>1000</item>
+        <item>10000</item>
+        <item>100000</item>
+        <item>1000000</item>
+        <item>10000000</item>
+        <item>100000000</item>
+        <item>1000000000</item>
+    </integer-array>
+
+    <string-array name="color_name">
+        <item>màu trắng</item>
+        <item>màu đen</item>
+        <item>màu đỏ</item>
+        <item>màu xanh lá cây</item>
+        <item>màu xanh dương</item>
+        <item>màu vàng</item>
+        <item>màu tím</item>
+        <item>màu nâu</item>
+        <item>màu cam</item>
+        <item>màu xám</item>
+        <item>màu hồng</item>
+        <item>màu đỏ thẫm</item>
+    </string-array>
+
+    <string-array name="color_value">
+        <item>white</item>
+        <item>black</item>
+        <item>red</item>
+        <item>green</item>
+        <item>blue</item>
+        <item>yellow</item>
+        <item>purple</item>
+        <item>brown</item>
+        <item>orange_color</item>
+        <item>gray</item>
+        <item>pink</item>
+        <item>carmine</item>
+    </string-array>
+
+    <string-array name="alphabet">
+        <item>a</item>
+        <item>ă</item>
+        <item>â</item>
+        <item>b</item>
+        <item>c</item>
+        <item>ch</item>
+        <item>d</item>
+        <item>đ</item>
+        <item>e</item>
+        <item>ê</item>
+        <item>g</item>
+        <item>gi</item>
+        <item>h</item>
+        <item>i</item>
+        <item>k</item>
+        <item>kh</item>
+        <item>l</item>
+        <item>m</item>
+        <item>n</item>
+        <item>ng</item>
+        <item>nh</item>
+        <item>o</item>
+        <item>ơ</item>
+        <item>p</item>
+        <item>ph</item>
+        <item>q</item>
+        <item>r</item>
+        <item>s</item>
+        <item>t</item>
+        <item>th</item>
+        <item>tr</item>
+        <item>u</item>
+        <item>ư</item>
+        <item>v</item>
+        <item>x</item>
+        <item>y</item>
+        <item>sắc</item>
+        <item>huyền</item>
+        <item>hỏi</item>
+        <item>ngã</item>
+        <item>nặng</item>
+    </string-array>
+
+    <string-array name="arr_grammar">
+        <item>レッスン 1</item>
+        <item>レッスン 2</item>
+        <item>レッスン 3</item>
+        <item>レッスン 4</item>
+        <item>レッスン 5</item>
+        <item>レッスン 6</item>
+        <item>レッスン 7</item>
+        <item>レッスン 8</item>
+        <item>レッスン 9</item>
+
+    </string-array>
+
+    <string-array name="arr_name_grammar">
+        <item>jp1</item>
+        <item>jp2</item>
+        <item>jp3</item>
+        <item>jp4</item>
+        <item>jp5</item>
+        <item>jp6</item>
+        <item>jp7</item>
+        <item>jp8</item>
+        <item>jp9</item>
+
+    </string-array>
+
+</resources>

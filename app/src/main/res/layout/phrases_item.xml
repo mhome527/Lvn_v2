@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingBottom="5dp" >
+
+    <Button
+        android:id="@+id/btnSpeak"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/button_volume_selector"
+        android:padding="0dp"
+        android:scaleType="fitXY" />
+
+    <RelativeLayout
+        android:id="@+id/llWord"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingTop="5dp" >
+
+        <!--<ImageView-->
+            <!--android:id="@+id/imgSearch"-->
+            <!--android:layout_width="30dp"-->
+            <!--android:layout_height="30dp"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:alpha=".4"-->
+            <!--android:background="@drawable/add_search"-->
+            <!--android:contentDescription="@string/app_name" />-->
+
+        <TextView
+            android:id="@+id/tvViet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:hint="@string/app_name"
+            android:textColor="@color/white"
+            android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/tvOther"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvViet"
+            android:hint="@string/app_name"
+            android:textColor="@color/white_alpha_i_50"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+</LinearLayout>

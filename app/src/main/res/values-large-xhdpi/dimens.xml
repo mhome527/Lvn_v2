@@ -1,0 +1,16 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="home_menu_width">80dp</dimen>
+    <dimen name="home_menu_left_width">110dp</dimen>
+    <dimen name="home_menu_bottom_width">200dp</dimen>
+    <dimen name="food_heigth_detail">400dp</dimen>
+    <dimen name="food_heigth_gra">120dp</dimen>
+    <dimen name="body_img_width">380dp</dimen>
+    <dimen name="color_height_item">120dp</dimen>
+	<dimen name="practice_height_item">150dp</dimen>
+    <dimen name="splash_height">550dp</dimen>
+
+</resources>

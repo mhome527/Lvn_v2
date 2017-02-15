@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Prononciation vietnamienne</string>
+    <string name="db_value">3</string>
+    <string name="db_value_rc">2</string>
+
+    <string name="language">fr</string>
+
+    <string name="tiengviet">Tiếng Việt</string>
+    <string name="adUnitId">ca-app-pub-2668784685856471/6937421141</string>
+    <!--<string name="action_settings">Settings</string>-->
+
+    <string name="cancel">annuler</string>
+    <string name="save">Sauvegarder</string>
+    <string name="ok">OK</string>
+    <string name="yes">oui</string>
+    <string name="no">aucun</string>
+    <string name="edit">éditer</string>
+    <string name="delete">effacer</string>
+    <string name="configm_replay">êtes-vous sûr de vouloir quitter?</string>
+    <string name="connect_wifi">se connecter à Internet</string>
+    <string name="turn_on_wifi">allumer Wifi</string>
+    <string name="exceriese">Exceriese</string>
+    <string name="speak_all">Parlez tout</string>
+    <string name="speech_prompt">dire quelque chose…</string>
+    <string name="speech_prompt_recognize">parler le vietnamien</string>
+    <string name="speech_not_supported">Sorry! Your device doesn\'t support speech input</string>
+    <string name="tap_on_mic">Tap on mic to speak</string>
+    <string name="msg_recognition_voice">For recognition it\'s necessary to install Google Voice Search</string>
+    <string name="msg_title_recognition">Install Voice Search from Google Play?</string>
+    <string name="msg_premium_app">Please install the Professional version from Google Play</string>
+    <string name="msg_update_app">Please update new version from Google Play</string>
+    <string name="msg_title_premium">Upgrade to the Pro version</string>
+    <string name="msg_title_update">Update</string>
+    <string name="install">installer</string>
+    <string name="update">mettre à jour</string>
+
+    <string name="gender_male">male</string>
+    <string name="gender_female">female</string>
+    <string name="number">number</string>
+    <string name="level">Level</string>
+    <string name="talk_number">Numéro de conversation</string>
+    <string name="search">recherche</string>
+
+    <!-- BODY -->
+    <string name="head">tête</string>
+    <string name="hair">cheveux</string>
+    <string name="eyebrow">sourcil</string>
+    <string name="eye">œil</string>
+    <string name="cheek">joue</string>
+    <string name="neck">cou</string>
+    <string name="chest">poitrine</string>
+    <string name="arm">bras</string>
+    <string name="hand">main</string>
+    <string name="knee">genou</string>
+    <string name="foot">pied</string>
+    <string name="forehead">front</string>
+    <string name="ear">oreille</string>
+    <string name="nose">nez</string>
+    <string name="mouth">bouche</string>
+    <string name="shoulder">épaule</string>
+    <string name="hip">hanche</string>
+    <string name="fingers">doigts</string>
+    <string name="wrist">poignet</string>
+    <string name="leg">jambe</string>
+    <string name="toes">orteils</string>
+    <string name="heel">talon</string>
+    <!-- Viet -->
+    <string name="head_vn">đầu</string>
+    <string name="hair_vn">tóc</string>
+    <string name="eyebrow_vn">chân mài</string>
+    <string name="eye_vn">mắt</string>
+    <string name="cheek_vn">gò má</string>
+    <string name="neck_vn">cổ</string>
+    <string name="chest_vn">ngực</string>
+    <string name="arm_vn">cánh tay</string>
+    <string name="hand_vn">bàn tay</string>
+    <string name="knee_vn">đầu gối</string>
+    <string name="foot_vn">bàn chân</string>
+    <string name="forehead_vn">trán</string>
+    <string name="ear_vn">lổ tai</string>
+    <string name="nose_vn">lổ mũi</string>
+    <string name="mouth_vn">cái miệng</string>
+    <string name="shoulder_vn">vai</string>
+    <string name="hip_vn">hông</string>
+    <string name="fingers_vn">ngón tay</string>
+    <string name="wrist_vn">cổ tay</string>
+    <string name="leg_vn">cái chân</string>
+    <string name="toes_vn">ngón chân</string>
+    <string name="heel_vn">gót chân</string>
+
+    <!-- End BODY -->
+
+    <string name="sysbol_dot">:</string>
+    <string name="msg_now_loading">chargement......</string>
+    <string name="viet_food">alimentaire vietnamien</string>
+    <string name="title_color">color</string>
+    <string name="speed">parlez lentement</string>
+
+    <string name="page">page</string>
+    <string name="page_number">0</string>
+    <string name="page_splash">/</string>
+
+    <string name="test">Test</string>
+    <string name="learn">Apprendre</string>
+
+</resources>

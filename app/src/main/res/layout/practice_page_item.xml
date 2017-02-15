@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <ImageView
+                android:id="@+id/imgE1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/f_orange_juice"
+                android:contentDescription="@string/app_name"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:id="@+id/tvText1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imgE1"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"
+                android:hint="@string/app_name"
+                android:textSize="18sp" />
+
+            <ImageButton
+                android:id="@+id/imgCheck1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/o"
+                android:contentDescription="@string/app_name"
+                android:visibility="gone" />
+
+            <ImageButton
+                android:id="@+id/imgCheck1x"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/x"
+                android:contentDescription="@string/app_name"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <ImageButton
+                android:id="@+id/imgE2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/rabbit"
+                android:contentDescription="@string/app_name"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:id="@+id/tvText2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imgE2"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"
+                android:hint="@string/app_name"
+                android:textSize="18sp" />
+
+            <ImageButton
+                android:id="@+id/imgCheck2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/o"
+                android:contentDescription="@string/app_name"
+                android:visibility="gone" />
+
+            <ImageButton
+                android:id="@+id/imgCheck2x"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/x"
+                android:contentDescription="@string/app_name"
+                android:visibility="gone" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <ImageButton
+                android:id="@+id/imgE3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/meat"
+                android:contentDescription="@string/app_name"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:id="@+id/tvText3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imgE3"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"
+                android:hint="@string/app_name"
+                android:textSize="18sp" />
+
+            <ImageButton
+                android:id="@+id/imgCheck3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/o"
+                android:contentDescription="@string/app_name"
+                android:visibility="gone" />
+
+            <ImageButton
+                android:id="@+id/imgCheck3x"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/x"
+                android:contentDescription="@string/app_name"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <ImageButton
+                android:id="@+id/imgE4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/refrigerator"
+                android:contentDescription="@string/app_name"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:id="@+id/tvText4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imgE4"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"
+                android:hint="@string/app_name"
+                android:textSize="18sp" />
+
+            <ImageButton
+                android:id="@+id/imgCheck4"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/o"
+                android:contentDescription="@string/app_name"
+                android:visibility="gone" />
+
+            <ImageButton
+                android:id="@+id/imgCheck4x"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/x"
+                android:contentDescription="@string/app_name"
+                android:visibility="gone" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

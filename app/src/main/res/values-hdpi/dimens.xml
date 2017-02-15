@@ -1,0 +1,7 @@
+<resources>
+
+
+    <dimen name="body_img_width">330dp</dimen>
+    <dimen name="splash_height">400dp</dimen>
+
+</resources>

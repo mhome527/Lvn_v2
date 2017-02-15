@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+
+    <string name="app_name">ベトナム語発音</string>
+    <string name="db_value">2</string>
+    <string name="db_value_rc">1</string>
+
+    <string name="language">ja</string>
+
+    <string name="tiengviet">Tiếng Việt</string>
+    <string name="adUnitId">ca-app-pub-2668784685856471/6937421141</string>
+    <!--<string name="action_settings">Settings</string>-->
+
+    <!--<string name="msg_alert_gps">Turn On Location Services to Allow \"%s\" to \n Determine Your Location</string>-->
+    <string name="configm_replay">アプリを終わります。\nよろしいですか？</string>
+    <string name="connect_wifi">ネットワーク接続エラー</string>
+    <string name="turn_on_wifi">turn on Wifi</string>
+    <string name="exceriese">Exceriese</string>
+    <string name="speak_all">Speak all</string>
+    <string name="speech_prompt">何か言って</string>
+    <string name="speech_prompt_recognize">ベトナム語で言って</string>
+
+    <string name="speech_not_supported">Sorry! Your device doesn\'t support speech input</string>
+    <string name="tap_on_mic">Tap on mic to speak</string>
+    <string name="msg_recognition_voice">このアプリケーションを事行するには、Google Voice Searchが必要です。\n 続行するには、このデバイスにGoogle Voice Searchをインストールします。 </string>
+    <string name="msg_title_recognition">Install Voice Search from Google Play?</string>
+
+    <string name="msg_premium_app">Playストアからプロのバージョンをインストールしてください。</string>
+    <string name="msg_title_premium">プロのバージョンにアップグレードして下さい。</string>
+    <string name="install">インストール</string>
+    <string name="number">number</string>
+    <string name="level">Level</string>
+    <string name="talk_number">Please talk number</string>
+
+    <!-- Viet -->
+    <string name="head_vn">đầu</string>
+    <string name="hair_vn">tóc</string>
+    <string name="eyebrow_vn">chân mài</string>
+    <string name="eye_vn">mắt</string>
+    <string name="cheek_vn">gò má</string>
+    <string name="neck_vn">cổ</string>
+    <string name="chest_vn">ngực</string>
+    <string name="arm_vn">cánh tay</string>
+    <string name="hand_vn">bàn tay</string>
+    <string name="knee_vn">đầu gối</string>
+    <string name="foot_vn">bàn chân</string>
+    <string name="forehead_vn">trán</string>
+    <string name="ear_vn">lổ tai</string>
+    <string name="nose_vn">lổ mũi</string>
+    <string name="mouth_vn">cái miệng</string>
+    <string name="shoulder_vn">vai</string>
+    <string name="hip_vn">hông</string>
+    <string name="fingers_vn">ngón tay</string>
+    <string name="wrist_vn">cổ tay</string>
+    <string name="leg_vn">cái chân</string>
+    <string name="toes_vn">ngón chân</string>
+    <string name="heel_vn">gót chân</string>
+    <string name="sysbol_dot">:</string>
+
+
+    <string name="vietnamese">ベトナム語</string>
+    <string name="msg_now_loading">処理中..</string>
+    <string name="ok">OK</string>
+    <string name="cancel">キャンセル</string>
+    <string name="save">保存</string>
+    <string name="yes">はい</string>
+    <string name="no">いいえ</string>
+    <string name="edit">編集</string>
+    <string name="delete">削除</string>
+    <!--
+        <string name="send">送る</string>
+
+        <string name="next">次へ</string>
+        <string name="back">戻る</string>
+        <string name="network_unavailable_title">ネットワーク接続エラー</string>
+        <string name="network_unavailable_message">ネットワークに繋がっていることを確認してください。</string>
+        <string name="network_unavailable">ネットワークに接続できません。別の場所でもう一度お試しください。 </string>
+
+        <string name="confirmation">確認</string>
+        <string name="warning">警告</string>
+        <string name="error">エラー</string>
+        <string name="success">成功</string>
+        <string name="close">閉じる</string>
+        <string name="done">完了</string>
+        <string name="refresh">更新</string>-->
+
+    <!-- date format -->
+    <string name="search">検索</string>
+    <!-- Error Messages -->
+    <!-- <string name="error_general">申し訳ございません。予期せぬエラーが発生しました。しばらくしてから再度お試しください。</string>
+     <string name="error_connect_timeout">サーバーに接続できません。通信状態のよいところで再度お試しください。</string>
+     <string name="error_socket_timeout">処理がタイムアウトしました。しばらくしてから再度お試しください。</string>
+     <string name="check_gps_title">GPSが無効です</string>
+     <string name="check_gps_message">GPSが有効になっていないため、一部の機能が使用できません。\n\n設定画面からGPSを有効にしますか？</string>
+     <string name="golfnavi_market">Androidマーケット</string>
+     <string name="keyword_label">キーワード（コース名の一部でも検索可能。英語のみ対応）</string>-->
+
+    <!-- <string name="more_results">もっと見る</string>
+     <string name="download">ダウンロード</string>
+     <string name="address">アドレス</string>
+     <string name="phone">電話</string>
+     <string name="more_info">もっと詳しく見る </string>
+     <string name="more_info_extra">※PCサイトへ遷移します</string>
+     <string name="more_info_none">このコースについての詳細情報は登録されておりません。</string>
+
+     <string name="dialog_gps_status">ショット位置保存設定</string>
+     <string name="dialog_gps_explaination">*ショット位置を記録したい場合のみ、\nチェックボックスをONにしてください。</string>
+     <string name="dialog_gps_off_title">ショット位置取得失敗</string>
+     <string name="dialog_gps_off_msg">GPSが有効でない場合は、設定画面からGPSを有効にしてから、再度お試しください。</string>
+     <string name="dialog_gps_setting">GPS設定画面</string>
+     <string name="dialog_gps_not_location">位置情報の取得に失敗しました</string>
+     <string name="got_gps_loc">位置情報の取得準備ができました。\nショット位置の記録が可能です。</string>
+     <string name="off_gps_loc">ショット位置を記録しないモードに変更されました。</string>
+     <string name="save_msg">入力データが保存されました。</string>
+     <string name="unsaved_msg">変更したデータは保存されていません。保存しますか？</string>-->
+    <!--<string name="dialog_delete_title">確認</string>
+    <string name="dialog_delete_text">本当に削除してもよろしいですか？</string>-->
+    <string name="gender_male">男性</string>
+    <string name="gender_female">女性</string>
+
+    <!-- BODY -->
+    <string name="head">頭</string>
+    <string name="hair">髪</string>
+    <string name="eyebrow">眉毛</string>
+    <string name="eye">目</string>
+    <string name="cheek">頬</string>
+    <string name="neck">首</string>
+    <string name="chest">胸</string>
+    <string name="arm">腕</string>
+    <string name="hand">手</string>
+    <string name="knee">膝</string>
+    <string name="foot">足</string>
+    <string name="forehead">額</string>
+    <string name="ear">耳</string>
+    <string name="nose">鼻</string>
+    <string name="mouth">口</string>
+    <string name="shoulder">肩</string>
+    <string name="hip">腰</string>
+    <string name="fingers">指</string>
+    <string name="wrist">手首</string>
+    <string name="leg">脚</string>
+    <string name="toes">足の指</string>
+    <string name="heel">踵</string>
+
+    <!-- End BODY -->
+    <string name="viet_food">ベトナム食品</string>
+    <string name="title_color">色</string>
+    <string name="speed">ゆっくり話す</string>
+
+    <string name="page">ページ</string>
+    <string name="page_number">0</string>
+    <string name="page_splash">/</string>
+
+    <string name="test">テスト</string>
+    <string name="learn">学ぶ</string>
+</resources>

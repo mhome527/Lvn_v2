@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black_alpha_i_20">
+
+        <ImageButton
+            android:layout_alignParentRight="true"
+            android:id="@+id/imgRecording"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/button_mic_selector"
+            android:contentDescription="@string/app_name" />
+
+        <EditText
+            android:id="@+id/edtSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_toLeftOf="@+id/imgRecording"
+            android:hint="@string/search"
+            android:maxLines="1"
+            android:singleLine="true"></EditText>
+
+        <LinearLayout
+            android:id="@+id/llSpeed"
+            android:layout_width="wrap_content"
+            android:layout_below="@+id/edtSearch"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/ckbSpeed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false" />
+
+            <TextView
+                android:paddingLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/speed" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_shape_selector"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:paddingRight="15dp"
+            android:paddingLeft="15dp"
+            android:textSize="16sp"
+            android:text="@string/vietnamese"
+            android:textColor="@color/white"
+            android:visibility="gone"
+            android:textStyle="bold"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/edtSearch" />
+    </RelativeLayout>
+
+
+    <ListView
+        android:id="@+id/lstPhrases"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fastScrollEnabled="true"></ListView>
+
+</LinearLayout>

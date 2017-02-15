@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingRight="30dp"
+    android:orientation="vertical" android:background="@color/ALL_lightGray" android:gravity="center">
+
+    <LinearLayout
+        android:id="@+id/llVietEnglish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView android:id="@+id/imgCheckEn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/check_green"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/vietnam"
+            android:text="@string/tiengviet"/>
+
+        <View
+            android:layout_width="10dp"
+            android:layout_height="1dp"
+            android:layout_margin="20dp"
+            android:background="@color/ALL_gray" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/english"
+            android:text="@string/english"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llVietJapan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView android:id="@+id/imgCheckJa"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/check_green" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/vietnam"
+            android:text="@string/tiengviet"/>
+
+        <View
+            android:layout_width="10dp"
+            android:layout_height="1dp"
+            android:layout_margin="20dp"
+            android:background="@color/ALL_gray" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/japan"
+            android:text="@string/japanese"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llVietKorean"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView android:id="@+id/imgCheckKo"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/check_green" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/vietnam"
+            android:text="@string/tiengviet"/>
+
+        <View
+            android:layout_width="10dp"
+            android:layout_height="1dp"
+            android:layout_margin="20dp"
+            android:background="@color/ALL_gray" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/korea"
+            android:text="@string/korea"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llVietFrance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView android:id="@+id/imgCheckFr"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/check_green" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/vietnam"
+            android:text="@string/tiengviet"/>
+
+        <View
+            android:layout_width="10dp"
+            android:layout_height="1dp"
+            android:layout_margin="20dp"
+            android:background="@color/ALL_gray" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/france"
+            android:text="@string/france"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llVietRussia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView android:id="@+id/imgCheckRu"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/check_green" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/vietnam"
+            android:text="@string/tiengviet"/>
+
+        <View
+            android:layout_width="10dp"
+            android:layout_height="1dp"
+            android:layout_margin="20dp"
+            android:background="@color/ALL_gray" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/russia"
+            android:text="@string/france"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnChangeLang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="30dp"
+        android:text="OK" />
+</LinearLayout>

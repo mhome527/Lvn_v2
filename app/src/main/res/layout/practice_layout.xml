@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/ll1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:padding="10dp" >
+
+        <Button
+            android:id="@+id/btnFruit"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/practice_height_item"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_fruit_selector" />
+
+        <Button
+            android:id="@+id/btnVegetables"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/practice_height_item"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_vegetables_selector" />
+
+        <Button
+            android:id="@+id/btnFood"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/practice_height_item"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_food_selector" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" >
+
+        <Button
+            android:id="@+id/btnAnimal"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/practice_height_item"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_animal_selector" />
+
+        <Button
+            android:id="@+id/btnFurniture"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/practice_height_item"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_furniture_selector" />
+
+        <Button
+            android:id="@+id/btnOther"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/practice_height_item"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_other_selector" />
+    </LinearLayout>
+    <!--
+    <ListView
+        android:id="@+id/lstKind"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </ListView>
+    -->
+
+</LinearLayout>

@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp" >
+
+        <ImageButton
+            android:id="@+id/imgSpeak"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/button_volume_selector"
+            android:contentDescription="@string/app_name" />
+
+        <TextView
+            android:id="@+id/tvViet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="@string/ear"
+            android:textColor="@color/crimson"
+            android:textSize="22sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="7dp"
+            android:text="@string/sysbol_dot"
+            android:textColor="@color/crimson"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tvOther"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ear_vn"
+            android:textColor="@color/crimson"
+            android:textSize="22sp" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" >
+
+        <RelativeLayout
+            android:layout_width="@dimen/body_img_width"
+            android:layout_height="600dp"
+            android:padding="5dp" >
+
+            <ImageView
+                android:layout_width="260dp"
+                android:layout_height="500dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/body"
+                android:contentDescription="@string/app_name" />
+
+            <Button
+                android:id="@+id/btnHead"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_button_selector"
+                android:padding="0dp"
+                android:tag="@string/head"
+                android:text="@string/head_vn"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btnHair"
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/bg_button_selector"
+                android:tag="@string/hair"
+                android:text="@string/hair_vn" />
+
+            <Button
+                android:id="@+id/btnEyebrow"
+                android:layout_width="90dp"
+                android:layout_height="30dp"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/btnHair"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/bg_button_selector"
+                android:tag="@string/eyebrow"
+                android:text="@string/eyebrow_vn" />
+
+            <Button
+                android:id="@+id/btnEye"
+                android:layout_width="60dp"
+                android:layout_height="25dp"
+                android:layout_below="@+id/btnEyebrow"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="2dp"
+                android:background="@drawable/bg_button_selector"
+                android:src="@drawable/apple"
+                android:tag="@string/eye"
+                android:text="@string/eye_vn" />
+
+            <Button
+                android:id="@+id/btnCheek"
+                android:layout_width="70dp"
+                android:layout_height="30dp"
+                android:layout_below="@+id/btnEye"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/bg_button_selector"
+                android:padding="0dp"
+                android:tag="@string/cheek"
+                android:text="@string/cheek_vn" />
+
+            <Button
+                android:id="@+id/btnNeck"
+                android:layout_width="50dp"
+                android:layout_height="25dp"
+                android:layout_below="@+id/btnEye"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="14dp"
+                android:layout_toRightOf="@+id/btnCheek"
+                android:background="@drawable/bg_button_selector"
+                android:padding="0dp"
+                android:tag="@string/neck"
+                android:text="@string/neck_vn" />
+
+            <Button
+                android:id="@+id/btnChest"
+                android:layout_width="70dp"
+                android:layout_height="30dp"
+                android:layout_below="@+id/btnNeck"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_button_selector"
+                android:padding="0dp"
+                android:tag="@string/chest"
+                android:text="@string/chest_vn" />
+
+            <Button
+                android:id="@+id/btnArm"
+                android:layout_width="70dp"
+                android:layout_height="30dp"
+                android:layout_below="@+id/btnChest"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/bg_button_selector"
+                android:padding="0dp"
+                android:tag="@string/arm"
+                android:text="@string/arm_vn" />
+
+            <Button
+                android:id="@+id/btnHand"
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:layout_below="@+id/btnArm"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="55dp"
+                android:background="@drawable/bg_button_selector"
+                android:padding="0dp"
+                android:tag="@string/hand"
+                android:text="@string/hand_vn" />
+
+            <Button
+                android:id="@+id/btnknee"
+                android:layout_width="70dp"
+                android:layout_height="30dp"
+                android:layout_below="@+id/btnHand"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="35dp"
+                android:background="@drawable/bg_button_selector"
+                android:padding="0dp"
+                android:tag="@string/knee"
+                android:text="@string/knee_vn" />
+
+            <Button
+                android:id="@+id/btnFoot"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:layout_below="@+id/btnknee"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="60dp"
+                android:background="@drawable/bg_button_selector"
+                android:padding="0dp"
+                android:tag="@string/foot"
+                android:text="@string/foot_vn" />
+
+            <LinearLayout
+                android:id="@+id/llForehead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/btnHead" >
+
+                <Button
+                    android:id="@+id/btnForehead"
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/bg_button_selector"
+                    android:padding="0dp"
+                    android:tag="@string/forehead"
+                    android:text="@string/forehead_vn" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llEar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/llForehead" >
+
+                <Button
+                    android:id="@+id/btnEar"
+                    android:layout_width="60dp"
+                    android:layout_height="25dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginTop="18dp"
+                    android:background="@drawable/bg_button_selector"
+                    android:padding="0dp"
+                    android:tag="@string/ear"
+                    android:text="@string/ear_vn" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llNose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/llEar" >
+
+                <Button
+                    android:id="@+id/btnNose"
+                    android:layout_width="50dp"
+                    android:layout_height="25dp"
+                    android:layout_marginRight="55dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/bg_button_selector"
+                    android:padding="0dp"
+                    android:tag="@string/nose"
+                    android:text="@string/nose_vn" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llMouth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/llNose" >
+
+                <Button
+                    android:id="@+id/btnMouth"
+                    android:layout_width="80dp"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/bg_button_selector"
+                    android:padding="0dp"
+                    android:tag="@string/mouth"
+                    android:text="@string/mouth_vn" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llShoulder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/llMouth" >
+
+                <Button
+                    android:id="@+id/btnShoulder"
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/bg_button_selector"
+                    android:padding="0dp"
+                    android:tag="@string/shoulder"
+                    android:text="@string/shoulder_vn" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnHip"
+                android:layout_width="70dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/llShoulder"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/bg_button_selector"
+                android:padding="0dp"
+                android:tag="@string/hip"
+                android:text="@string/hip_vn" />
+
+            <Button
+                android:id="@+id/btnFinger"
+                android:layout_width="70dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/btnHip"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/bg_button_selector"
+                android:padding="0dp"
+                android:tag="@string/fingers"
+                android:text="@string/fingers_vn" />
+
+            <Button
+                android:id="@+id/btnWrist"
+                android:layout_width="70dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/btnFinger"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/bg_button_selector"
+                android:padding="0dp"
+                android:tag="@string/wrist"
+                android:text="@string/wrist_vn" />
+
+            <LinearLayout
+                android:id="@+id/llHeel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true" >
+
+                <Button
+                    android:id="@+id/btnHeel"
+                    android:layout_width="70dp"
+                    android:layout_height="30dp"
+                    android:layout_marginBottom="110dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/bg_button_selector"
+                    android:padding="0dp"
+                    android:tag="@string/heel"
+                    android:text="@string/heel_vn" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true" >
+
+                <Button
+                    android:id="@+id/btnToes"
+                    android:layout_width="50dp"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="70dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/bg_button_selector"
+                    android:padding="0dp"
+                    android:tag="@string/toes"
+                    android:text="@string/toes_vn" />
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+</LinearLayout>

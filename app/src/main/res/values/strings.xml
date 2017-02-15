@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">VN Pronunciation</string>
+    <string name="db_value">7</string>
+    <string name="db_value_rc">3</string>
+    <string name="language">en</string>
+    <!--<string name="language">fr</string>-->
+    <string name="vietnamese">Vietnamese</string>
+    <string name="tiengviet">Tiếng Việt</string>
+    <string name="japanese">日本語</string>
+    <string name="korea">한국어</string>
+    <string name="france">français</string>
+    <string name="russia">русский</string>
+    <string name="english">English</string>
+
+    <string name="adUnitId">ca-app-pub-2668784685856471/6937421141</string>
+    <!--<string name="action_settings">Settings</string>-->
+    <!--<string name="msg_alert_gps">Turn On Location Services to Allow \"%s\" to \n Determine Your Location</string>-->
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="ok">OK</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="configm_replay">Are you want to quit application?</string>
+    <string name="connect_wifi">Please connect to internet</string>
+    <string name="turn_on_wifi">turn on Wifi</string>
+    <string name="exceriese">Exceriese</string>
+    <string name="speak_all">Speak all</string>
+    <string name="speech_prompt">Say something…</string>
+    <string name="speech_prompt_recognize">Speak Vietnamese</string>
+    <string name="speech_not_supported">Sorry! Your device doesn\'t support speech input</string>
+    <string name="tap_on_mic">Tap on mic to speak</string>
+    <string name="msg_recognition_voice">For recognition it\'s necessary to install Google Voice Search</string>
+    <string name="msg_title_recognition">Install Voice Search from Google Play?</string>
+    <string name="msg_premium_app">Please install the Professional version from Google Play</string>
+    <string name="msg_update_app">Please update new version from Google Play</string>
+    <string name="msg_title_premium">Upgrade to the Pro version</string>
+    <string name="msg_title_update">Update</string>
+    <string name="install">Install</string>
+    <string name="update">Update</string>
+
+    <string name="gender_male">male</string>
+    <string name="gender_female">female</string>
+    <string name="number">number</string>
+    <string name="level">Level</string>
+    <string name="talk_number">Please talk number</string>
+    <string name="search">search</string>
+
+    <!-- BODY -->
+    <string name="head">head</string>
+    <string name="hair">hair</string>
+    <string name="eyebrow">eyebrow</string>
+    <string name="eye">eye</string>
+    <string name="cheek">cheek</string>
+    <string name="neck">neck</string>
+    <string name="chest">chest</string>
+    <string name="arm">arm</string>
+    <string name="hand">hand</string>
+    <string name="knee">knee</string>
+    <string name="foot">foot</string>
+    <string name="forehead">forehead</string>
+    <string name="ear">ear</string>
+    <string name="nose">nose</string>
+    <string name="mouth">mouth</string>
+    <string name="shoulder">shoulder</string>
+    <string name="hip">hip</string>
+    <string name="fingers">fingers</string>
+    <string name="wrist">wrist</string>
+    <string name="leg">leg</string>
+    <string name="toes">toes</string>
+    <string name="heel">heel</string>
+    <!-- Viet -->
+    <string name="head_vn">đầu</string>
+    <string name="hair_vn">tóc</string>
+    <string name="eyebrow_vn">chân mài</string>
+    <string name="eye_vn">mắt</string>
+    <string name="cheek_vn">gò má</string>
+    <string name="neck_vn">cổ</string>
+    <string name="chest_vn">ngực</string>
+    <string name="arm_vn">cánh tay</string>
+    <string name="hand_vn">bàn tay</string>
+    <string name="knee_vn">đầu gối</string>
+    <string name="foot_vn">bàn chân</string>
+    <string name="forehead_vn">trán</string>
+    <string name="ear_vn">lổ tai</string>
+    <string name="nose_vn">lổ mũi</string>
+    <string name="mouth_vn">cái miệng</string>
+    <string name="shoulder_vn">vai</string>
+    <string name="hip_vn">hông</string>
+    <string name="fingers_vn">ngón tay</string>
+    <string name="wrist_vn">cổ tay</string>
+    <string name="leg_vn">cái chân</string>
+    <string name="toes_vn">ngón chân</string>
+    <string name="heel_vn">gót chân</string>
+
+    <!--japan-->
+    <!--<string name="head">頭</string>-->
+    <!--<string name="hair">髪</string>-->
+    <!--<string name="eyebrow">眉毛</string>-->
+    <!--<string name="eye">目</string>-->
+    <!--<string name="cheek">頬</string>-->
+    <!--<string name="neck">首</string>-->
+    <!--<string name="chest">胸</string>-->
+    <!--<string name="arm">腕</string>-->
+    <!--<string name="hand">手</string>-->
+    <!--<string name="knee">膝</string>-->
+    <!--<string name="foot">足</string>-->
+    <!--<string name="forehead">額</string>-->
+    <!--<string name="ear">耳</string>-->
+    <!--<string name="nose">鼻</string>-->
+    <!--<string name="mouth">口</string>-->
+    <!--<string name="shoulder">肩</string>-->
+    <!--<string name="hip">腰</string>-->
+    <!--<string name="fingers">指</string>-->
+    <!--<string name="wrist">手首</string>-->
+    <!--<string name="leg">脚</string>-->
+    <!--<string name="toes">足の指</string>-->
+    <!--<string name="heel">踵</string>-->
+
+
+    <!-- End BODY -->
+
+    <string name="sysbol_dot">:</string>
+    <string name="msg_now_loading">Loading......</string>
+    <string name="viet_food">Vietnamese Food</string>
+    <string name="title_color">color</string>
+    <string name="speed">Speak slowly</string>
+
+    <string name="page">page</string>
+    <string name="page_number">0</string>
+    <string name="page_splash">/</string>
+
+    <string name="test">Test</string>
+    <string name="learn">Learn</string>
+    <string name="title_activity_translate">TranslateActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_main2">Main2Activity</string>
+
+    <string name="title_dashboard">Learn Japanese</string>
+    <string name="title_kanji">漢字</string>
+    <string name="title_alphabet">Alphabet</string>
+    <string name="title_grammar">Grammar</string>
+    <string name="title_word">Words</string>
+    <string name="title_phrase">Phrase</string>
+    <string name="title_coming_soon">Coming soon</string>
+
+
+    <string name="title_animal">ANIMAL</string>
+    <string name="title_fruit">FRUITS</string>
+    <string name="title_other">OTHER</string>
+    <string name="title_counter">Counters</string>
+    <string name="title_date">Dates</string>
+
+    <string name="msg_title_ljp">Learn Vietnamese Pronunciation App</string>
+    <string name="msg_content_ljp">Do you want to install this application?</string>
+
+    <string name="title_button_alphabet">Alphabet</string>
+    <string name="title_button_number">Number</string>
+    <string name="title_button_phrase">Phrases</string>
+    <string name="title_button_word">Animal</string>
+    <string name="title_button_house">House</string>
+    <string name="title_button_grammar">Grammar</string>
+    <string name="title_button_date">Date</string>
+
+</resources>

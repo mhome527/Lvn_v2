@@ -1,0 +1,121 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LearnRecoginzeFragment"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp">
+
+        <ImageButton
+            android:id="@+id/imgMenu"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/icon_recognize" />
+
+        <TextView
+            android:id="@+id/tvNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/TvSplash"
+            android:layout_marginTop="10dp"
+            android:textSize="22sp"
+            android:text="@string/page_number" />
+
+        <TextView
+            android:id="@+id/TvSplash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="25sp"
+            android:layout_toLeftOf="@+id/tvAmount"
+            android:text="@string/page_splash" />
+
+        <TextView
+            android:id="@+id/tvAmount"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="22sp"
+            android:text="@string/page_number" />
+
+        <Button
+            android:id="@+id/btnTest"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="@string/test"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:padding="5dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/btn_red_selector" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/pagerRecognize"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <ImageButton
+            android:id="@+id/imgLeft"
+            android:layout_width="10dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/btn_arrow_left_selector" />
+
+        <ImageButton
+            android:id="@+id/imgRight"
+            android:layout_width="10dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/btn_arrow_right_selector" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/llRecognize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_red_selector"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp">
+
+        <TextView
+            android:id="@+id/tvSearch"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@+id/imgRecording"
+            android:textColor="@color/white"
+            android:textSize="22sp" android:layout_centerVertical="true"
+            android:gravity="center_horizontal|bottom"
+            android:hint="@string/speech_prompt_recognize" />
+
+        <ImageButton
+            android:id="@+id/imgRecording"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/button_mic_selector"
+            android:contentDescription="@string/app_name" />
+    </RelativeLayout>
+
+</LinearLayout>

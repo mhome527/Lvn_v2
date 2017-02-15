@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/imgColor"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/color_height_item"
+        android:contentDescription="@string/app_name"
+        android:scaleType="fitXY" />
+
+    <TextView
+        android:id="@+id/tvColorName"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="top|center_horizontal"
+        android:hint="@string/app_name"
+        android:text="@string/ok"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+</LinearLayout>
