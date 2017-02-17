@@ -326,7 +326,7 @@ public class Utility {
             PackageManager pm = context.getPackageManager();
             List<ResolveInfo> activities = pm.queryIntentActivities(new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH), 0);
             if (activities == null || activities.size() == 0) {
-                ULog.e(Utility.class, "checkSpeed NOT SUPORT!!!");
+                Log.e(Utility.class, "checkSpeed NOT SUPORT!!!");
                 return false;
             } else
                 return true;
@@ -457,7 +457,7 @@ public class Utility {
      * Showing google speech input dialog
      */
     public static void promptSpeechInput(Activity activity, int result) {
-        ULog.i(Utility.class, "input locate: " + Locale.getDefault());
+        Log.i(Utility.class, "input locate: " + Locale.getDefault());
         if (!Utility.isSpeechRecognition(activity)) {
             Utility.installGoogleVoiceSearch(activity);
             return;
@@ -508,15 +508,15 @@ public class Utility {
         }
         return sb.toString();
     }
-//
-//    public static long convertToLong(String number) {
-//        try {
-//            return Long.parseLong(number);
-//        } catch (Exception e) {
-//            return -1;
-//        }
-//    }
-//
+
+    public static long convertToLong(String number) {
+        try {
+            return Long.parseLong(number);
+        } catch (Exception e) {
+            return -1;
+        }
+    }
+
 ////    public static String getMacAddress(Context context) {
 ////        try {
 ////            WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);

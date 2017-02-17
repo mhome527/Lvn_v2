@@ -18,12 +18,14 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.sound.AudioPlayer;
+import teach.vietnam.asia.utils.Log;
 import teach.vietnam.asia.utils.NumberToWord;
-import teach.vietnam.asia.utils.ULog;
 import teach.vietnam.asia.utils.Utility;
 import teach.vietnam.asia.view.BaseActivity;
 
 public class NumberActivity extends BaseActivity<NumberActivity> {
+
+    private final String TAG = "NumberActivity";
 
     @BindView(R.id.edtNumber)
     EditText edtNumber;
@@ -115,7 +117,7 @@ public class NumberActivity extends BaseActivity<NumberActivity> {
                     // ULog.i(NumberActivity.class, "audio:" + strAudio);
                     // audio.playSound(strAudio);
                     word = NumberToWord.getWordFromNumber(arrNumber[position]);
-                    ULog.i(NumberActivity.class, "onItemClick number:" + word);
+                    Log.i(TAG, "onItemClick number:" + word);
                     audio.speakWord(word);
                 }
             });
@@ -136,11 +138,11 @@ public class NumberActivity extends BaseActivity<NumberActivity> {
                 public void afterTextChanged(Editable s) {
                     String word;
                     try {
-                        ULog.i(NumberActivity.class, "number:" + edtNumber.getText().toString());
+                        Log.i(TAG, "number:" + edtNumber.getText().toString());
                         word = NumberToWord.getWordFromNumber(edtNumber.getText().toString());
                         tvNumber.setText(word);
                     } catch (Exception e) {
-                        ULog.e(NumberActivity.class, " Error: " + e.getMessage());
+                        Log.e(TAG, " Error: " + e.getMessage());
                     }
                     // ULog.i(NumberActivity.class, "word:" + edtNumber.getText().toString());
 
@@ -151,7 +153,7 @@ public class NumberActivity extends BaseActivity<NumberActivity> {
 //			imm.hideSoftInputFromWindow(edtNumber.getWindowToken(), 0);
 //			hideKeyboard();
         } catch (Exception e) {
-            ULog.e(NumberActivity.class, "initData Error: " + e.getMessage());
+            Log.e(TAG, "initData Error: " + e.getMessage());
             e.printStackTrace();
         }
     }

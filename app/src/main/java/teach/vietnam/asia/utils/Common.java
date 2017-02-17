@@ -7,6 +7,8 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import java.text.Normalizer;
+
 import teach.vietnam.asia.view.IClickListener;
 import teach.vietnam.asia.view.RecyclerTouchListener;
 
@@ -135,13 +137,14 @@ public class Common {
 //        }
         return "";
     }
-//
-//    public static String stripAccents(String s)
-//    {
-//        s = Normalizer.normalize(s, Normalizer.Form.NFD);
-//        s = s.replaceAll("[\\p{InCombiningDiacriticalMarks}]", "");
-//        return s;
-//    }
+
+
+    public static String stripAccents(String s)
+    {
+        s = Normalizer.normalize(s, Normalizer.Form.NFD);
+        s = s.replaceAll("[\\p{InCombiningDiacriticalMarks}]", "");
+        return s;
+    }
 //
 //    public static void exportDB(String databaseName, Context context) {
 //        try {

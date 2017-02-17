@@ -6,8 +6,10 @@ public class Constant {
     //    final static public boolean isMyDebug = true;
     // ////////
     final static public boolean isPro;
+    final static public int TRIAL = 4;
+
     final static public String PACKAGE_VOICE = "market://details?id=com.google.android.voicesearch";
-//    final static public String PACKAGE_PREMIUM = "market://details?id=learn.vietnamese.vn.pro";
+    //    final static public String PACKAGE_PREMIUM = "market://details?id=learn.vietnamese.vn.pro";
 //    final static public String PACKAGE_UPDATE = "market://details?id=" + BuildConfig.APPLICATION_ID;
     final static public String API_MARKER = "https://androidquery.appspot.com/api/market?app=" + BuildConfig.APPLICATION_ID;
     final static public String PACKAGE_LJP = "market://details?id=vn.jp.language.ljp";
@@ -31,7 +33,7 @@ public class Constant {
         MY_TEXT = stringFromJNI();
     }
 
-//    public static final String DB_NAME = "VN.db";
+    //    public static final String DB_NAME = "VN.db";
     public static final String DB_NAME_V2 = "VN_V2.db";
     public static final int DATABASE_VERSION = 1;
 
@@ -133,9 +135,11 @@ public class Constant {
     public static final int REQ_CODE_SPEECH_INPUT = 1000;
     public static boolean bLog = BuildConfig.DEBUG;
     public static String PREF_PAGE = "curr_page";
-    // GA
-//    public static String KEY_ANALYSIS = "UA-54709178-3"; // daohuynh7
-    public static String KEY_ANALYSIS = "UA-54709178-4"; // daohuynh7-new
+
+
+    public enum TYPE_WORD {
+        ANIMAL, FRUIT, OTHER
+    }
 
 
 }

@@ -28,10 +28,29 @@ public class Log {
         }
     }
 
-    public static void trace(Exception e){
-        if(BuildConfig.DEBUG){
+    public static void trace(Exception e) {
+        if (BuildConfig.DEBUG) {
             e.printStackTrace();
         }
     }
+
+    public static void e(Class<?> obj, String msg) {
+        if (BuildConfig.DEBUG)
+            Log.e(obj.getSimpleName() + myTag, msg);
+    }
+
+    public static void i(Class<?> obj, String msg) {
+        if (BuildConfig.DEBUG)
+            Log.i(obj.getSimpleName() + myTag, msg);
+    }
+
+    public static void e(Object obj, String msg) {
+        if (BuildConfig.DEBUG)
+            if (obj instanceof String)
+                Log.e(obj + myTag, msg);
+            else
+                Log.e(obj.getClass().getSimpleName() + "-htd", msg);
+    }
+
 
 }

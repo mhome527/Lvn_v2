@@ -12,14 +12,14 @@
 //
 //import java.util.List;
 //
-//import de.greenrobot.dao.AbstractDao;
-//import de.greenrobot.dao.query.QueryBuilder;
+//
+//import teach.vietnam.asia.Constant;
 //import teach.vietnam.asia.R;
 //import teach.vietnam.asia.adapter.LearnWordAdapter;
 //import teach.vietnam.asia.sound.AudioPlayer;
-//import teach.vietnam.asia.Constant;
 //import teach.vietnam.asia.utils.ULog;
 //import teach.vietnam.asia.utils.Utility;
+//import teach.vietnam.asia.view.BaseActivity;
 //
 //public class LearnWordsActivity extends BaseActivity implements OnClickListener {
 //

@@ -8,8 +8,10 @@ import java.util.ArrayList;
 
 import teach.vietnam.asia.BuildConfig;
 import teach.vietnam.asia.utils.Common;
+import teach.vietnam.asia.utils.Log;
 import teach.vietnam.asia.utils.NumberToWord;
-import teach.vietnam.asia.utils.ULog;
+
+import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
 
 public class AudioPlayer {
     private ArrayList<MediaPlayer> mPlayerList;
@@ -103,12 +105,12 @@ public class AudioPlayer {
         ArrayList<String> listSound = new ArrayList<String>();
         for (String name : strSound) {
             soundName = Common.getNameSound(name.trim());
-            ULog.i(AudioPlayer.class, "speakNumber name:" + name + ", sound:" + soundName);
+            Log.i(TAG, "speakNumber name:" + name + ", sound:" + soundName);
             if (!soundName.equals(""))
                 listSound.add("sound/" + soundName + ".mp3");
             else {
                 number = NumberToWord.getWordFromNumber(name);
-                ULog.i(AudioPlayer.class, "speakWord number: " + number);
+                Log.i(TAG, "speakWord number: " + number);
                 if (!number.equals("")) {
                     strNumber = number.split(" ");
                     for (String num : strNumber) {
@@ -144,7 +146,7 @@ public class AudioPlayer {
                             @Override
                             public void onCompletion(MediaPlayer mp) {
                                 try {
-                                    ULog.i(AudioPlayer.class, "onCompletion name:" + fileName + "; list:" + mPlayerList.size());
+                                    Log.i(TAG, "onCompletion name:" + fileName + "; list:" + mPlayerList.size());
                                     if (isSlowly)
                                         Thread.sleep(500);
 //                                    stop();
@@ -165,7 +167,7 @@ public class AudioPlayer {
                                     }
 
                                 } catch (Exception e) {
-                                    ULog.e(AudioPlayer.class, "!!!!!! Completion Error:" + e.getMessage());
+                                    Log.e(AudioPlayer.class, "!!!!!! Completion Error:" + e.getMessage());
                                     if (BuildConfig.DEBUG)
                                         e.printStackTrace();
                                 }
@@ -183,7 +185,7 @@ public class AudioPlayer {
                     }
 
                 } catch (Exception e) {
-                    ULog.e(AudioPlayer.class, "playSound2 error:" + e.getMessage());
+                    Log.e(AudioPlayer.class, "playSound2 error:" + e.getMessage());
                     if (BuildConfig.DEBUG)
                         e.printStackTrace();
                 }
@@ -198,7 +200,7 @@ public class AudioPlayer {
 
 //            mPlayerList.get(0).setOnPreparedListener(prepareSound);
         } catch (Exception e) {
-            ULog.e(AudioPlayer.class, "playSound Error: " + e.getMessage());
+            Log.e(AudioPlayer.class, "playSound Error: " + e.getMessage());
             if (BuildConfig.DEBUG)
                 e.printStackTrace();
         }
