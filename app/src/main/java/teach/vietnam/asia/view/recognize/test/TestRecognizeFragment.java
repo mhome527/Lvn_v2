@@ -8,36 +8,45 @@ import android.widget.ImageButton;
 import java.util.List;
 import java.util.Random;
 
+import butterknife.BindView;
 import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.R;
-import teach.vietnam.asia.activity.BaseActivity;
-import teach.vietnam.asia.activity.LearnWordsActivity;
-import teach.vietnam.asia.activity.RecognizeMainActicity;
-import teach.vietnam.asia.adapter.RecognizePagerTestAdapter;
-import teach.vietnam.asia.adapter.RecognizeTestListAdapter;
 import teach.vietnam.asia.sound.AudioPlayer;
-import teach.vietnam.asia.utils.ULog;
+import teach.vietnam.asia.utils.Log;
 import teach.vietnam.asia.utils.Utility;
+import teach.vietnam.asia.view.BaseActivity;
+import teach.vietnam.asia.view.BaseFragment;
 import teach.vietnam.asia.view.custom.MainMenuLayout;
+import teach.vietnam.asia.view.recognize.RecognizeMainActicity;
 import teach.vietnam.asia.view.recognize.learn.LearnRecoginzeFragment;
 
 
-public class TestRecognizeFragment extends BaseFragment implements RecognizeTestListAdapter.RecognizeTest {
+public class TestRecognizeFragment extends BaseFragment<RecognizeMainActicity> implements RecognizeTestListAdapter.RecognizeTest {
     private static final String ARG_PAGER = "arg_pager";
 
+    @BindView(R.id.imgLeft)
+    ImageButton imgLeft;
+
+    @BindView(R.id.imgRight)
+    ImageButton imgRight;
+
+    @BindView(R.id.pagerRecognize)
+    ViewPager pagerRecognize;
+    
     public int currPage = 0;
     public int arrW[];
+
     //    private DaoMaster daoMaster;
 //    private tblRecognizeDao dao;
     private List dataRecognize;
-    private ViewPager pagerRecognize;
+
     private RecognizePagerTestAdapter adapterPage;
     //    private DaoMaster daoMaster;
     private AudioPlayer audio;
     private int kind = 1;
+
     private MainMenuLayout mainLayout;
-    private ImageButton imgLeft;
-    private ImageButton imgRight;
+
     private int amount = 3;
     private int currAns = 0;
     private String lang;
@@ -70,21 +79,15 @@ public class TestRecognizeFragment extends BaseFragment implements RecognizeTest
         }
     }
 
-
     @Override
-    protected int getViewLayoutId() {
-        return R.layout.fragment_test_recognize;
+    public int getLayout() {
+        return R.layout.fragment_test_recognize;;
     }
 
     @Override
-    protected void initView(View view) {
-        setListenerView(R.id.btnLearn);
-        setListenerView(R.id.imgSpeak);
-        imgLeft = getViewChild(R.id.imgLeft);
-        imgRight = getViewChild(R.id.imgRight);
-        setListenerView(R.id.imgLeft);
-        setListenerView(R.id.imgRight);
-        pagerRecognize = getViewChild(R.id.pagerRecognize);
+    public void initView(View view) {
+
+        pagerRecognize = getViewChild();
 
 
         /////GA
@@ -150,13 +153,13 @@ public class TestRecognizeFragment extends BaseFragment implements RecognizeTest
                     break;
             }
         } catch (Exception e) {
-            ULog.e(TestRecognizeFragment.class, "Click error:" + e.getMessage());
+            Log.e(TestRecognizeFragment.class, "Click error:" + e.getMessage());
         }
     }
 
 
     private void setInitData() {
-        ULog.i(TestRecognizeFragment.class, "setInitData kind:" + kind);
+        Log.i(TestRecognizeFragment.class, "setInitData kind:" + kind);
         audio = new AudioPlayer(getActivity());
         pagerRecognize.setPageMargin(-50);
         pagerRecognize.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
