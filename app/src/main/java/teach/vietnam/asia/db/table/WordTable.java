@@ -2,6 +2,8 @@ package teach.vietnam.asia.db.table;
 
 import android.database.sqlite.SQLiteDatabase;
 
+import teach.vietnam.asia.Constant;
+
 
 /**
  * Created by huynhtran on 5/12/16.
@@ -47,4 +49,16 @@ public class WordTable {
 //        onCreate(database);
     }
 
+    public static String getTableName(String lang) {
+        if (lang.equals(Constant.TYPE_JA))
+            return "TBL_VIET_JA";
+        else if (lang.equals(Constant.TYPE_KO))
+            return "TBL_VIET_ko";
+        else if (lang.equals(Constant.TYPE_FR))
+            return "TBL_VIET_EN";
+        else if (lang.equals(Constant.TYPE_RU))
+            return "TBL_VIET_EN";
+        else
+            return "TBL_VIET_EN";
+    }
 }

@@ -42,6 +42,13 @@ public class Constant {
     public static final String JSON_MAPNAME_NAME;
 //    public static final String CREATE_DB = "DB72";
 
+    public static final String TYPE_LANGUAGE = "type_language";
+    public static final String TYPE_EN = "type_en";
+    public static final String TYPE_JA = "type_ja";
+    public static final String TYPE_KO = "type_ko";
+    public static final String TYPE_FR = "type_fr";
+    public static final String TYPE_RU = "type_ru";
+
     public static final String FILE_JA;
     public static final String FILE_KO;
     public static final String FILE_RU;
@@ -140,6 +147,5 @@ public class Constant {
     public enum TYPE_WORD {
         ANIMAL, FRUIT, OTHER
     }
-
 
 }

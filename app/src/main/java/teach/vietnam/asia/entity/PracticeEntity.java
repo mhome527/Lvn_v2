@@ -7,4 +7,9 @@ public class PracticeEntity {
 	public String titleKo;
 	public String titleVn;
 	public String img;
+
+	public static final String COL_VI = "VI";
+	public static final String COL_GROUP = "GROUP_ID";
+	public static final String COL_WORD = "WORD_ID";
+	public static final String COL_OT = "OT";
 }

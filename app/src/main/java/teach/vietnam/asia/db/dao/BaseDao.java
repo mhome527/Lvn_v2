@@ -7,16 +7,21 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
+import teach.vietnam.asia.BaseApplication;
 import teach.vietnam.asia.BuildConfig;
+import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.db.DatabaseHelper;
 
 
 public abstract class BaseDao<T> {
     public final static String TAG = BaseDao.class.getName();
     protected Context context;
+    public String lang = Constant.TYPE_EN;
 
     public BaseDao(Context context) {
         this.context = context;
+        lang = BaseApplication.getInstance().pref.getStringValue("EN", Constant.TYPE_LANGUAGE);
+
     }
 
 //    protected abstract ContentValues getContentValues(T entity);
@@ -76,6 +81,23 @@ public abstract class BaseDao<T> {
                 e.printStackTrace();
         }
         return listData;
+    }
+
+    public int getCount(String sql) {
+        int count = 0;
+        try {
+            Cursor cursor = DatabaseHelper.getInstance(context).executeQuery(sql);
+            if (cursor != null) {
+                if (cursor.moveToFirst()) {
+                    count = cursor.getInt(0);
+                }
+                cursor.close();
+            }
+        } catch (Exception e) {
+            if (BuildConfig.DEBUG)
+                e.printStackTrace();
+        }
+        return count;
     }
 
 //    protected SQLiteDatabase getDB(){
