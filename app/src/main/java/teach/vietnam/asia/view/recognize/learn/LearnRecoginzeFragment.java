@@ -14,11 +14,11 @@ import teach.vietnam.asia.utils.Log;
 import teach.vietnam.asia.utils.Prefs;
 import teach.vietnam.asia.utils.Utility;
 import teach.vietnam.asia.view.BaseFragment;
-import teach.vietnam.asia.view.recognize.RecognizeMainActicity;
+import teach.vietnam.asia.view.recognize.RecognizeMainActivity;
 import teach.vietnam.asia.view.recognize.RecognizePagerAdapter;
 import teach.vietnam.asia.view.recognize.test.TestRecognizeFragment;
 
-public class LearnRecoginzeFragment extends BaseFragment<RecognizeMainActicity> {
+public class LearnRecoginzeFragment extends BaseFragment<RecognizeMainActivity> {
     private static final String ARG_AMOUNT = "arg_pager";
     private static final String ARG_CURRPAGE = "arg_currpage";
 
@@ -101,52 +101,53 @@ public class LearnRecoginzeFragment extends BaseFragment<RecognizeMainActicity> 
     }
 
     @OnClick(R.id.imgMenu)
-    public void actionMenu(){
-        ((RecognizeMainActicity) getActivity()).showMenu();
+    public void actionMenu() {
+        ((RecognizeMainActivity) getActivity()).showMenu();
     }
 
-   @OnClick(R.id.btnTest)
-    public void actionTest(){
-       startFragment(TestRecognizeFragment.class, currPage);
+    @OnClick(R.id.btnTest)
+    public void actionTest() {
+        startFragment(TestRecognizeFragment.class, currPage);
     }
 
-  @OnClick(R.id.imgLeft)
-    public void actionLeft(){
-      if (currPage == 0) {
-          return;
-      }
-      currPage = currPage - 1;
+    @OnClick(R.id.imgLeft)
+    public void actionLeft() {
+        if (currPage == 0) {
+            return;
+        }
+        currPage = currPage - 1;
 
-      if (currPage == 0)
-          imgLeft.setVisibility(View.GONE);
+        if (currPage == 0)
+            imgLeft.setVisibility(View.GONE);
 
-      imgRight.setVisibility(View.VISIBLE);
-      pagerRecognize.setCurrentItem(currPage);
+        imgRight.setVisibility(View.VISIBLE);
+        pagerRecognize.setCurrentItem(currPage);
 
-      ((RecognizeMainActicity) getActivity()).hideMenu();
+        ((RecognizeMainActivity) getActivity()).hideMenu();
     }
 
-  @OnClick(R.id.imgRight)
-    public void actionRight(){
-      if (currPage == amount - 1) {
-          return;
-      }
-      currPage = currPage + 1;
+    @OnClick(R.id.imgRight)
+    public void actionRight() {
+        if (currPage == amount - 1) {
+            return;
+        }
+        currPage = currPage + 1;
 
-      if (currPage == amount - 1)
-          imgRight.setVisibility(View.GONE);
+        if (currPage == amount - 1)
+            imgRight.setVisibility(View.GONE);
 
-      imgLeft.setVisibility(View.VISIBLE);
-      pagerRecognize.setCurrentItem(currPage);
+        imgLeft.setVisibility(View.VISIBLE);
+        pagerRecognize.setCurrentItem(currPage);
     }
 
-  @OnClick(R.id.llRecognize)
-    public void actionRecognize(){
-      Utility.promptSpeechInput(activity, Constant.REQ_CODE_SPEECH_INPUT);
+    @OnClick(R.id.llRecognize)
+    public void actionRecognize() {
+        Utility.promptSpeechInput(activity, Constant.REQ_CODE_SPEECH_INPUT);
     }
- @OnClick(R.id.imgRecording)
-    public void actionRecording(){
-     Utility.promptSpeechInput(activity, Constant.REQ_CODE_SPEECH_INPUT);
+
+    @OnClick(R.id.imgRecording)
+    public void actionRecording() {
+        Utility.promptSpeechInput(activity, Constant.REQ_CODE_SPEECH_INPUT);
     }
 
     private void setInitData() {
@@ -173,7 +174,7 @@ public class LearnRecoginzeFragment extends BaseFragment<RecognizeMainActicity> 
                     imgLeft.setVisibility(View.VISIBLE);
                     imgRight.setVisibility(View.VISIBLE);
                 }
-                ((RecognizeMainActicity) getActivity()).hideMenu();
+                ((RecognizeMainActivity) getActivity()).hideMenu();
 //                ULog.i(RecognizeActivity.class, "PageSelected Word:" + adapterPage.lstData.get(currPage).getVi());
             }
 
@@ -187,7 +188,7 @@ public class LearnRecoginzeFragment extends BaseFragment<RecognizeMainActicity> 
             }
         });
 
-        adapterPage = new RecognizePagerAdapter(getActivity(), amount);
+        adapterPage = new RecognizePagerAdapter(activity, amount);
         pagerRecognize.setAdapter(adapterPage);
         pagerRecognize.setCurrentItem(currPage);
         if (currPage == 0)

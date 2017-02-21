@@ -5,12 +5,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import teach.vietnam.asia.BaseApplication;
+import teach.vietnam.asia.Constant;
+import teach.vietnam.asia.R;
 import teach.vietnam.asia.entity.WordEntity;
-import vn.jp.language.ljp.BaseApplication;
-import vn.jp.language.ljp.Constant;
-import vn.jp.language.ljp.R;
-import vn.jp.language.ljp.entity.WordEntity;
-import vn.jp.language.ljp.utils.Utility;
+import teach.vietnam.asia.utils.Utility;
 
 /**
  * Created by HuynhTD on 12/20/2016.
@@ -37,8 +36,8 @@ public class WordItemHolder extends RecyclerView.ViewHolder {
         else
             imgSound.setImageResource(R.drawable.ic_lock);
 
-        tvJp.setText(entity.getJp1());
-        tvRomaji.setText(entity.getRomaji());
+        tvJp.setText(entity.getVi());
+        tvRomaji.setText(entity.getO1());
 
 //        int resourceId = Utility.getResourcesID(BaseApplication.getInstance(), "ic_back");
         int resourceId = Utility.getResourcesID(BaseApplication.getInstance(), entity.getImg());

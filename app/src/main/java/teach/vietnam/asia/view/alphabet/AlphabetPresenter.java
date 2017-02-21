@@ -5,7 +5,7 @@ import java.util.List;
 
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.entity.TblAlphabetEx;
-import teach.vietnam.asia.utils.ULog;
+import teach.vietnam.asia.utils.Log;
 import teach.vietnam.asia.view.BasePresenter;
 import teach.vietnam.asia.view.ICallback;
 
@@ -55,7 +55,7 @@ public class AlphabetPresenter extends BasePresenter<AlphabetActivity> {
             }
 
         } catch (Exception e) {
-            ULog.e(AlphabetActivity.class, "load data error:" + e.getMessage());
+            Log.e(AlphabetActivity.class, "load data error:" + e.getMessage());
             e.printStackTrace();
         }
 

@@ -100,6 +100,26 @@ public abstract class BaseDao<T> {
         return count;
     }
 
+    public List<String> getListString(String sql) {
+        List<String> listData = new ArrayList<>();
+        try {
+            Cursor cursor = DatabaseHelper.getInstance(context).executeQuery(sql);
+            if (cursor != null) {
+                Log.i(TAG, "list " + this.getClass() + " size:" + cursor.getCount());
+                if (cursor.moveToFirst()) {
+                    do {
+                        listData.add(cursor.getString(0));
+                    } while (cursor.moveToNext());
+                }
+                cursor.close();
+            }
+        } catch (Exception e) {
+            if (BuildConfig.DEBUG)
+                e.printStackTrace();
+        }
+        return listData;
+    }
+
 //    protected SQLiteDatabase getDB(){
 //        return DatabaseHelper.getInstance(context).getDB();
 //    }

@@ -3,14 +3,14 @@ package teach.vietnam.asia.view.custom;
 import android.content.Context;
 import android.os.Handler;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Interpolator;
 import android.widget.LinearLayout;
 import android.widget.Scroller;
 
-import teach.vietnam.asia.utils.ULog;
+import teach.vietnam.asia.utils.Log;
+
 
 // DK Trick
 // Only the content is moving. Attach an View.OnTouchListener to it to support fling and drag & drop gesture
@@ -162,7 +162,7 @@ public class MainMenuLayout extends LinearLayout {
         if (currentMenuState == MenuState.HIDING || currentMenuState == MenuState.SHOWING)
             return;
 
-        ULog.i("MainLayout", "toggleMenu state:" + currentMenuState);
+        Log.i("MainLayout", "toggleMenu state:" + currentMenuState);
 
         switch (currentMenuState) {
             case HIDDEN:
@@ -219,7 +219,7 @@ public class MainMenuLayout extends LinearLayout {
 
     // Called when sliding is complete
     private void onMenuSlidingComplete() {
-        ULog.i("MainLayout", "onMenuSlidingComplete state:" + currentMenuState);
+        Log.i("MainLayout", "onMenuSlidingComplete state:" + currentMenuState);
         switch (currentMenuState) {
             case SHOWING:
                 currentMenuState = MenuState.SHOWN;

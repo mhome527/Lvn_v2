@@ -13,10 +13,11 @@ import java.util.List;
 
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.entity.TblAlphabetEx;
-import teach.vietnam.asia.utils.ULog;
+import teach.vietnam.asia.utils.Log;
 
 public class AlphabetAdapter extends BaseAdapter {
 
+	private final String TAG = "AlphabetAdapter";
 	private Context context;
 	private List<TblAlphabetEx> listData;
 	private LayoutInflater layoutInflater;
@@ -73,7 +74,7 @@ public class AlphabetAdapter extends BaseAdapter {
 			tvAlphabetRight.setTypeface(tf, Typeface.NORMAL);
 //			ULog.i(AlphabetAdapter.class, "getView symbol:" + symbol);
 		} catch (Exception e) {
-			ULog.e(this, "alphabet error:" + e.getMessage());
+			Log.e(TAG, "alphabet error:" + e.getMessage());
 		}
 
 		return convertView;

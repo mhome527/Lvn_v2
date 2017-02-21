@@ -7,7 +7,8 @@ import android.support.v4.app.FragmentManager;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
 
-import teach.vietnam.asia.utils.ULog;
+import teach.vietnam.asia.utils.Log;
+
 
 public class TouchableWrapper extends FrameLayout {
 
@@ -29,7 +30,7 @@ public class TouchableWrapper extends FrameLayout {
 			// break;
 			// }
 			// }
-			ULog.i(TouchableWrapper.class, "updateTimer");
+			Log.i(TouchableWrapper.class, "updateTimer");
 		}
 	};
 
@@ -48,13 +49,13 @@ public class TouchableWrapper extends FrameLayout {
 	public boolean dispatchTouchEvent(MotionEvent event) {
 		switch (event.getAction()) {
 		case MotionEvent.ACTION_DOWN:
-			ULog.i(TouchableWrapper.class,"Touch down");
+			Log.i(TouchableWrapper.class,"Touch down");
 			oldX = event.getX();
 			oldY = event.getY();
 			myHandler.removeCallbacks(updateTimerMethod);
 			break;
 		case MotionEvent.ACTION_MOVE:
-			ULog.i(TouchableWrapper.class,"Touch move");
+			Log.i(TouchableWrapper.class,"Touch move");
 			newX = event.getX();
 			newY = event.getY();
 //			float distance = (float) Math.sqrt((newX - oldX) * (newX - oldX) + (newY - oldY) * (newY - oldY));
@@ -71,11 +72,11 @@ public class TouchableWrapper extends FrameLayout {
 			break;
 		case MotionEvent.ACTION_CANCEL:
 		case MotionEvent.ACTION_UP:
-			ULog.i(TouchableWrapper.class,"Touch cancel or up");
+			Log.i(TouchableWrapper.class,"Touch cancel or up");
 			myHandler.postDelayed(updateTimerMethod, 1000);
 			break;
 		default:
-			ULog.i(TouchableWrapper.class,"Touch default");
+			Log.i(TouchableWrapper.class,"Touch default");
 			// if (isTouchProgress) {
 
 			// } else {

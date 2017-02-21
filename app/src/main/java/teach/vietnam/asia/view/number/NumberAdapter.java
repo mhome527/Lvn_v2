@@ -10,8 +10,8 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import teach.vietnam.asia.R;
+import teach.vietnam.asia.utils.Log;
 import teach.vietnam.asia.utils.NumberToWord;
-import teach.vietnam.asia.utils.ULog;
 
 public class NumberAdapter extends BaseAdapter {
 
@@ -72,7 +72,7 @@ public class NumberAdapter extends BaseAdapter {
 			tvWord.setTypeface(tf, Typeface.NORMAL);
 
 		} catch (Exception e) {
-			ULog.e(this, "number error:" + e.getMessage());
+			Log.e(this, "number error:" + e.getMessage());
 		}
 		return convertView;
 	}

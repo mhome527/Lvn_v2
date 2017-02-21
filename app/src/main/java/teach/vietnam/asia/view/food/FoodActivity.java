@@ -29,7 +29,7 @@ public class FoodActivity extends BaseActivity<FoodActivity> implements ViewFact
     private final String TAG = "LearnFoodActivity";
 
     @BindView(R.id.tvFood)
-    private TextView tvFood;
+     TextView tvFood;
 
     @BindView(R.id.gallery1)
     Gallery gallery;
