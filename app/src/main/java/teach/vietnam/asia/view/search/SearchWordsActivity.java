@@ -88,7 +88,7 @@ public class SearchWordsActivity extends BaseActivity<SearchWordsActivity> {
 
 
     private void setInitData() {
-        hideMenuHome();
+//        hideMenuHome();
 
         edtSearch.addTextChangedListener(new TextWatcher() {
 

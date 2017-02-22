@@ -15,7 +15,6 @@ import java.util.List;
 import butterknife.BindView;
 import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.R;
-import teach.vietnam.asia.fragment.BaseFragment;
 import teach.vietnam.asia.utils.Log;
 import teach.vietnam.asia.view.BaseActivity;
 import teach.vietnam.asia.view.ICallback;
@@ -24,7 +23,7 @@ import teach.vietnam.asia.view.recognize.learn.LearnRecoginzeFragment;
 import teach.vietnam.asia.view.recognize.test.TestRecognizeFragment;
 
 
-public class RecognizeMainActivity extends BaseActivity<RecognizeMainActivity> implements BaseFragment.OnFragmentInteractionListener, FragmentManager.OnBackStackChangedListener {
+public class RecognizeMainActivity extends BaseActivity<RecognizeMainActivity> implements FragmentManager.OnBackStackChangedListener {
 
     private final String TAG = "RecognizeMainActivity";
     private boolean mShowingBack = false;
@@ -75,25 +74,6 @@ public class RecognizeMainActivity extends BaseActivity<RecognizeMainActivity> i
         super.onDestroy();
     }
 
-    @Override
-    public void onFragmentInteraction(Class cls, int currPage) {
-
-        Fragment fr;
-        if (mShowingBack) {
-            getFragmentManager().popBackStack();
-            return;
-        }
-        // Flip to the back.
-        mShowingBack = true;
-        fr = getFragment(cls, currPage);
-        FragmentManager fm = getSupportFragmentManager();
-        FragmentTransaction ft = fm.beginTransaction();
-        ft.setCustomAnimations(R.anim.card_flip_left_in, R.anim.card_flip_left_out, R.anim.card_flip_right_in, R.anim.card_flip_right_out);
-        ft.replace(R.id.container, fr);
-        // Add this transaction to the back stack, allowing users to press Back to get to the front of the card.
-        ft.addToBackStack(null);
-        ft.commit();
-    }
 
     private Fragment getFragment(Class cls, int currPage) {
         try {
@@ -194,5 +174,23 @@ public class RecognizeMainActivity extends BaseActivity<RecognizeMainActivity> i
         hideMenu();
     }
 
+    public void onFragmentInteraction(Class cls, int currPage) {
+
+        Fragment fr;
+        if (mShowingBack) {
+            getFragmentManager().popBackStack();
+            return;
+        }
+        // Flip to the back.
+        mShowingBack = true;
+        fr = getFragment(cls, currPage);
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.setCustomAnimations(R.anim.card_flip_left_in, R.anim.card_flip_left_out, R.anim.card_flip_right_in, R.anim.card_flip_right_out);
+        ft.replace(R.id.container, fr);
+        // Add this transaction to the back stack, allowing users to press Back to get to the front of the card.
+        ft.addToBackStack(null);
+        ft.commit();
+    }
 
 }

@@ -107,7 +107,8 @@ public class LearnRecoginzeFragment extends BaseFragment<RecognizeMainActivity> 
 
     @OnClick(R.id.btnTest)
     public void actionTest() {
-        startFragment(TestRecognizeFragment.class, currPage);
+//        startFragment(TestRecognizeFragment.class, currPage);
+        activity.onFragmentInteraction(TestRecognizeFragment.class, currPage);
     }
 
     @OnClick(R.id.imgLeft)
