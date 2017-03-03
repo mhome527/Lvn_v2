@@ -8,10 +8,10 @@ import teach.vietnam.asia.Constant;
 /**
  * Created by huynhtran on 5/12/16.
  */
-public class WordTable {
+public class WordTable extends SoundTable {
 
     private static final String TAG = "WordTable";
-    public static final String TABLE_NAME = "tblJpWord";
+    public static final String TABLE_NAME = "TBL_VIET_EN";
 //    public static final String TABLE_NAME_EN = "tblJpWordEn";
 
     public static final String COL_VI = "VI";
@@ -23,17 +23,6 @@ public class WordTable {
     public static final String COL_SOUND = "SOUND";
     public static final String COL_DEFAULT = "DEFAULT_WORD";
 //    public static final String CLEAR_TABLE = "delete from " + TABLE_NAME;
-
-//    private static final String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " ( "
-//            + COL_NUM + " INTEGER, "
-//            + COL_KIND + " INTEGER, "
-//            + COL_JP1 + " TEXT, "
-//            + COL_JP2 + " TEXT, "
-//            + COL_OT + " TEXT"
-//            + COL_IMG + " TEXT"
-//            + COL_SOUND + " TEXT"
-//            + COL_ROMAJI + " TEXT"
-//            + " );";
 
     public static void onCreate(SQLiteDatabase database) {
 //        Log.i(TAG, "CREATE TABLE " + TABLE_NAME);
@@ -50,15 +39,32 @@ public class WordTable {
     }
 
     public static String getTableName(String lang) {
+        String table;
         if (lang.equals(Constant.TYPE_JA))
-            return "TBL_VIET_JA";
+            table = "TBL_VIET_JA";
         else if (lang.equals(Constant.TYPE_KO))
-            return "TBL_VIET_ko";
+            table = "TBL_VIET_KO";
         else if (lang.equals(Constant.TYPE_FR))
-            return "TBL_VIET_EN";
+            table = "TBL_VIET_EN";
         else if (lang.equals(Constant.TYPE_RU))
-            return "TBL_VIET_EN";
+            table = "TBL_VIET_EN";
         else
-            return "TBL_VIET_EN";
+            table = "TBL_VIET_EN";
+        return table;
+    }
+
+    public static String getTableName2(String lang) {
+        String table;
+        if (lang.equals(Constant.TYPE_JA))
+            table = "TBL_VIET_JA";
+        else if (lang.equals(Constant.TYPE_KO))
+            table = "TBL_VIET_KO";
+        else if (lang.equals(Constant.TYPE_FR))
+            table = "TBL_VIET_EN";
+        else if (lang.equals(Constant.TYPE_RU))
+            table = "TBL_VIET_EN";
+        else
+            table = "TBL_VIET_EN";
+        return table + " A, " + SoundTable.TABLE_NAME + " S";
     }
 }

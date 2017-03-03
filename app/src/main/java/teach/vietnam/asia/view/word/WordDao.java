@@ -31,7 +31,7 @@ public class WordDao extends BaseDao<WordEntity> {
         entity.setKind(cursor.getInt(cursor.getColumnIndex(WordTable.COL_KIND)));
         entity.setDefault_word(cursor.getString(cursor.getColumnIndex(WordTable.COL_DEFAULT)));
         entity.setImg(cursor.getString(cursor.getColumnIndex(WordTable.COL_IMG)));
-        entity.setSound(cursor.getString(cursor.getColumnIndex(WordTable.COL_SOUND)));
+//        entity.setSound(cursor.getString(cursor.getColumnIndex(WordTable.COL_SOUND)));
         return entity;
     }
 
@@ -49,10 +49,13 @@ public class WordDao extends BaseDao<WordEntity> {
             where += " = " + kind[0];
         }
 
+//        where += " AND A." + WordTable.COL_SOUND + "= s." + SoundTable.COL_SOUND;
 
-        String sql = "SELECT * FROM " + WordTable.TABLE_NAME + where
-                + " ORDER BY " + WordTable.COL_VI;
+
         WordDao dao = new WordDao(context);
+//        String sql = "SELECT * FROM " + WordTable.getTableName2(dao.lang) + where
+        String sql = "SELECT * FROM " + WordTable.getTableName(dao.lang) + where
+                + " ORDER BY " + WordTable.COL_VI;
         return dao.fetchAll(sql);
     }
 
