@@ -1,4 +1,4 @@
-package teach.vietnam.asia.view.word;
+package teach.vietnam.asia.view.foods;
 
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
@@ -24,9 +24,9 @@ import teach.vietnam.asia.view.RecyclerTouchListener;
  * Created by HuynhTD on 01/19/2017.
  */
 
-public class WordFragment extends BaseFragment<WordActivity> {
+public class FoodFragment extends BaseFragment<FoodActivity> {
 
-    private final String TAG = "WordFragment";
+    private final String TAG = "FoodFragment";
     private final String FOLDER = "sound/";
     //    private View root;
     public Constant.TYPE_WORD typeWord = Constant.TYPE_WORD.ANIMAL;
@@ -34,10 +34,11 @@ public class WordFragment extends BaseFragment<WordActivity> {
     @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
 
-    WordContentAdapter adapter;
-    WordPresenter presenter;
+    FoodContentAdapter adapter;
+    FoodPresenter presenter;
     //    AudioManager audio;
     private AudioPlayer audio;
+    public int kind = 3;
 
 
     List<WordEntity> listData;
@@ -50,8 +51,8 @@ public class WordFragment extends BaseFragment<WordActivity> {
     @Override
     public void initView(View root) {
         Log.i(TAG, "initView");
-        presenter = new WordPresenter(activity);
-        adapter = new WordContentAdapter();
+        presenter = new FoodPresenter(activity);
+        adapter = new FoodContentAdapter();
         audio = new AudioPlayer(activity);
 
         setupView();
@@ -69,9 +70,6 @@ public class WordFragment extends BaseFragment<WordActivity> {
         recyclerView.setLayoutManager(lLayout);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
-        adapter.setPurchased(activity.isPurchased);
-//        int spacingInPixels = Utility.dpToPx(2);
-//        recyclerView.addItemDecoration(new SpacesItemDecoration(spacingInPixels));
 
         //Add event
         recyclerView.addOnItemTouchListener(new RecyclerTouchListener(activity, recyclerView, new IClickListener() {
@@ -96,8 +94,8 @@ public class WordFragment extends BaseFragment<WordActivity> {
     }
 
     public void loadData() {
-        Log.i(TAG, "loadData getKind():" + getKind());
-        presenter.loadData(getKind(), new ICallback<List<WordEntity>>() {
+        Log.i(TAG, "loadData getKind():" + kind);
+        presenter.loadData(kind, new ICallback<List<WordEntity>>() {
             @Override
             public void onCallback(List<WordEntity> list) {
                 listData = list;
@@ -117,19 +115,4 @@ public class WordFragment extends BaseFragment<WordActivity> {
         });
     }
 
-    private int[] getKind() {
-        switch (typeWord) {
-            case ANIMAL:
-                return new int[]{4};
-
-            case FRUIT:
-                return new int[]{1, 2};
-
-            case OTHER:
-                return new int[]{5, 7, 12};
-
-            default:
-                return new int[]{1};
-        }
-    }
 }

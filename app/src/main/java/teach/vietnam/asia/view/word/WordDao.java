@@ -36,7 +36,6 @@ public class WordDao extends BaseDao<WordEntity> {
     }
 
     public static List<WordEntity> getListData(Context context, int[] kind) {
-        //// FIXME: 2/17/2017 code.....
         String where = " WHERE " + WordTable.COL_KIND + " ";
         String tmp;
         if (kind.length > 1) {

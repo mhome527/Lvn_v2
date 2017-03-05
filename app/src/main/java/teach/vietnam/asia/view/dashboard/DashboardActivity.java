@@ -22,11 +22,12 @@ import teach.vietnam.asia.utils.Utility;
 import teach.vietnam.asia.view.BaseActivity;
 import teach.vietnam.asia.view.alphabet.AlphabetActivity;
 import teach.vietnam.asia.view.body.BodyActivity;
-import teach.vietnam.asia.view.color.ColorActivity;
+import teach.vietnam.asia.view.foods.FoodActivity;
 import teach.vietnam.asia.view.grammar.detail.GrammarDetailActivity;
 import teach.vietnam.asia.view.number.NumberActivity;
 import teach.vietnam.asia.view.phrase.PhrasesActivity;
 import teach.vietnam.asia.view.practice.PracticeActivity;
+import teach.vietnam.asia.view.recognize.RecognizeMainActivity;
 import teach.vietnam.asia.view.translate.TranslateActivity;
 import teach.vietnam.asia.view.word.WordActivity;
 
@@ -68,36 +69,37 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> {
                         startActivity2(NumberActivity.class);
                         break;
                     case 2:
-                        startActivity2(ColorActivity.class);
+                        startActivity2(BodyActivity.class);
                         break;
                     case 3:
-                        startActivity2(WordActivity.class);
+                        startActivity2(RecognizeMainActivity.class);
                         break;
+
                     case 4:
                         startActivity2(WordActivity.class);
                         break;
                     case 5:
-                        startActivity2(BodyActivity.class);
+                        startActivity2(FoodActivity.class);
                         break;
                     case 6:
-                        startActivity2(WordActivity.class);
+                        startActivity2(GrammarDetailActivity.class);
+
                         break;
                     case 7:
                         startActivity2(PhrasesActivity.class);
+
                         break;
                     case 8:
                         startActivity2(PracticeActivity.class);
                         break;
                     case 9:
-                        startActivity2(GrammarDetailActivity.class);
-                        break;
-                    case 10:
+                    default:
                         startActivity2(TranslateActivity.class);
                         break;
-                    case 11:
-                    default:
-                        showDialogLanguage();
-                        break;
+//                    case 10:
+//                    default:
+//                        showDialogLanguage();
+//                        break;
                 }
             }
         });
@@ -108,20 +110,20 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> {
         Utility.installVnApp(activity);
     }
 
+    ////// ======================================== /////////
+
     private void createData() {
         listData = new ArrayList<>();
         listData.add(new DashboardEntity(R.drawable.ic_alphabet, getString(R.string.title_alphabet)));
         listData.add(new DashboardEntity(R.drawable.ic_number, getString(R.string.title_counter)));
-        listData.add(new DashboardEntity(R.drawable.ic_dates, getString(R.string.title_color)));
+        listData.add(new DashboardEntity(R.drawable.menu_body, getString(R.string.title_body)));
+        listData.add(new DashboardEntity(R.drawable.menu_recognize, getString(R.string.title_recognize)));
         listData.add(new DashboardEntity(R.drawable.ic_animal, getString(R.string.title_word)));
+        listData.add(new DashboardEntity(R.drawable.menu_food, getString(R.string.title_food)));
+        listData.add(new DashboardEntity(R.drawable.ic_grammar, getString(R.string.title_grammar)));
         listData.add(new DashboardEntity(R.drawable.ic_phrase, getString(R.string.title_phrase)));
-        listData.add(new DashboardEntity(R.drawable.ic_kanji, getString(R.string.title_kanji)));
-        listData.add(new DashboardEntity(R.drawable.ic_grammar, getString(R.string.title_grammar)));
-        listData.add(new DashboardEntity(R.drawable.ic_number, getString(R.string.title_counter)));
-        listData.add(new DashboardEntity(R.drawable.ic_grammar, getString(R.string.title_grammar)));
-        listData.add(new DashboardEntity(R.drawable.ic_number, getString(R.string.title_counter)));
-        listData.add(new DashboardEntity(R.drawable.ic_grammar, getString(R.string.title_grammar)));
-        listData.add(new DashboardEntity(R.drawable.ic_number, getString(R.string.title_counter)));
+        listData.add(new DashboardEntity(R.drawable.menu_practice, getString(R.string.title_practice)));
+        listData.add(new DashboardEntity(R.drawable.menu_translate, getString(R.string.title_translate)));
 //        listData.add(new DashboardEntity(R.drawable.button_word_on, getString(R.string.title_coming_soon)));
     }
 

@@ -35,8 +35,7 @@
         <activity
             android:name=".view.alphabet.AlphabetActivity"
             android:parentActivityName=".view.dashboard.DashboardActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/MyTheme" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".view.number.NumberActivity"
             android:parentActivityName=".view.dashboard.DashboardActivity"
@@ -58,7 +57,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/MyTheme" />
         <activity
-            android:name=".view.food.FoodActivity"
+            android:name=".view.foods.FoodActivity"
             android:parentActivityName=".view.dashboard.DashboardActivity"
             android:screenOrientation="portrait"
             android:theme="@style/MyTheme" />
@@ -95,8 +94,7 @@
         <activity
             android:name=".view.search.SearchWordsActivity"
             android:parentActivityName=".view.dashboard.DashboardActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/MyTheme" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".view.test.AndroidDatabaseManager"
             android:parentActivityName=".view.dashboard.DashboardActivity"
@@ -110,8 +108,7 @@
         <activity
             android:name=".view.word.WordActivity"
             android:parentActivityName=".view.dashboard.DashboardActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/MyTheme" />
+            android:screenOrientation="portrait"/>
 
     </application>
 

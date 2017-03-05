@@ -146,6 +146,8 @@
     <string name="title_alphabet">Alphabet</string>
     <string name="title_grammar">Grammar</string>
     <string name="title_word">Words</string>
+    <string name="title_food2">Food</string>
+    <string name="title_drink2">Drink</string>
     <string name="title_phrase">Phrase</string>
     <string name="title_coming_soon">Coming soon</string>
 
@@ -154,7 +156,12 @@
     <string name="title_fruit">FRUITS</string>
     <string name="title_other">OTHER</string>
     <string name="title_counter">Counters</string>
+    <string name="title_body">Body</string>
+    <string name="title_food">FOODS</string>
+    <string name="title_practice">PRACTICE</string>
+    <string name="title_translate">TRANSLATE</string>
     <string name="title_date">Dates</string>
+    <string name="title_recognize">recognizing voices</string>
 
     <string name="msg_title_ljp">Learn Vietnamese Pronunciation App</string>
     <string name="msg_content_ljp">Do you want to install this application?</string>

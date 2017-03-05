@@ -1,4 +1,4 @@
-package teach.vietnam.asia.view.food;
+package teach.vietnam.asia.view.foods;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -29,7 +29,7 @@ public class FoodDao extends BaseDao<WordEntity> {
         entity.setKind(cursor.getInt(cursor.getColumnIndex(WordTable.COL_KIND)));
         entity.setDefault_word(cursor.getString(cursor.getColumnIndex(WordTable.COL_DEFAULT)));
         entity.setImg(cursor.getString(cursor.getColumnIndex(WordTable.COL_IMG)));
-        entity.setSound(cursor.getString(cursor.getColumnIndex(WordTable.COL_SOUND)));
+//        entity.setSound(cursor.getString(cursor.getColumnIndex(WordTable.COL_SOUND)));
         return entity;
     }
 

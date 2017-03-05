@@ -2,6 +2,7 @@ package teach.vietnam.asia.view.number;
 
 import android.content.Intent;
 import android.speech.RecognizerIntent;
+import android.support.v7.app.ActionBar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -50,6 +51,17 @@ public class NumberActivity extends BaseActivity<NumberActivity> {
 
     @Override
     protected void initView() {
+
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setHomeButtonEnabled(true); // disable the button
+            actionBar.setDisplayHomeAsUpEnabled(true); // remove the left caret
+            actionBar.setDisplayShowHomeEnabled(true); // remove the icon
+            actionBar.setDisplayShowTitleEnabled(true); // remove title
+//            toolbarTitle.setText(getString(R.string.title_alphabet));
+            actionBar.setTitle(getString(R.string.title_button_number));
+        }
+
         audio = new AudioPlayer(NumberActivity.this);
         arrNumber = getResources().getIntArray(R.array.number);
         adapter = new NumberAdapter(NumberActivity.this, arrNumber);

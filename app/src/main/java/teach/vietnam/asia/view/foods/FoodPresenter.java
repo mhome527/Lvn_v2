@@ -1,4 +1,4 @@
-package teach.vietnam.asia.view.food;
+package teach.vietnam.asia.view.foods;
 
 import java.util.List;
 
@@ -17,11 +17,11 @@ public class FoodPresenter extends BasePresenter<FoodActivity> {
         super(activity);
     }
 
-    public void loadData(ICallback<List<WordEntity>> callback) {
+    public void loadData(final int kind, ICallback<List<WordEntity>> callback) {
         loadData(callback, new ILoadData() {
                     @Override
                     public List<WordEntity> onBackground() {
-                        return FoodDao.getListData(activity, 3);
+                        return FoodDao.getListData(activity, kind);
                     }
                 }
         );
