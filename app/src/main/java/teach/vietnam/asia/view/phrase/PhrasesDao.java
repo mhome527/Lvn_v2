@@ -31,7 +31,7 @@ public class PhrasesDao extends BaseDao<WordEntity> {
         entity.setKind(cursor.getInt(cursor.getColumnIndex(WordTable.COL_KIND)));
         entity.setDefault_word(cursor.getString(cursor.getColumnIndex(WordTable.COL_DEFAULT)));
         entity.setImg(cursor.getString(cursor.getColumnIndex(WordTable.COL_IMG)));
-        entity.setSound(cursor.getString(cursor.getColumnIndex(WordTable.COL_SOUND)));
+//        entity.setSound(cursor.getString(cursor.getColumnIndex(WordTable.COL_SOUND)));
         return entity;
     }
 

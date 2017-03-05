@@ -1,6 +1,5 @@
 package teach.vietnam.asia.view.practice.detail;
 
-import android.app.ProgressDialog;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.View;
@@ -39,7 +38,7 @@ public class PracticeDetailActivity extends BaseActivity<PracticeDetailActivity>
     private PracticeFooterAdapter adapterFooter;
     //    private tblVietENDao dao;
 
-    private ProgressDialog progressDialog;
+//    private ProgressDialog progressDialog;
     private AudioPlayer audio;
     private int currPage = 0;
     private int kind = 1;
@@ -85,8 +84,8 @@ public class PracticeDetailActivity extends BaseActivity<PracticeDetailActivity>
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (progressDialog != null && progressDialog.isShowing())
-            progressDialog.dismiss();
+//        if (progressDialog != null && progressDialog.isShowing())
+//            progressDialog.dismiss();
     }
 
 
@@ -168,9 +167,9 @@ public class PracticeDetailActivity extends BaseActivity<PracticeDetailActivity>
         presenter.loadData(kind, level, new ICallback<List<WordEntity>>() {
             @Override
             public void onCallback(List<WordEntity> data) {
-                if (!isFinishing()) {
-                    progressDialog.dismiss();
-                }
+//                if (!isFinishing()) {
+//                    progressDialog.dismiss();
+//                }
                 if (data != null && data.size() > 0) {
                     adapterPage = new PracticePagerAdapter(activity, data, lang);
                     pagerExceriese.setAdapter(adapterPage);

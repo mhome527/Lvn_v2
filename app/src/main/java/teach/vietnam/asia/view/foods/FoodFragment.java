@@ -62,9 +62,9 @@ public class FoodFragment extends BaseFragment<FoodActivity> {
     public void setupView() {
         GridLayoutManager lLayout;
         if (Common.isTablet(activity))
-            lLayout = new GridLayoutManager(activity, 3);
-        else
             lLayout = new GridLayoutManager(activity, 2);
+        else
+            lLayout = new GridLayoutManager(activity, 1);
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(lLayout);

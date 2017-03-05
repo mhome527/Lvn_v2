@@ -20,7 +20,7 @@ public class FoodContentAdapter extends BaseAdapter<FoodItemHolder> {
 
     @Override
     public int getItemLayout() {
-        return R.layout.word_item;
+        return R.layout.food_item;
     }
 
     @Override

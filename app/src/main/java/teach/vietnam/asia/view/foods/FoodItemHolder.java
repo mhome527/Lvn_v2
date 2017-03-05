@@ -18,26 +18,21 @@ import teach.vietnam.asia.utils.Utility;
 public class FoodItemHolder extends RecyclerView.ViewHolder {
 
     private final String TAG = "FoodItemHolder";
-    ImageView imgSound;
     ImageView imgWord;
     TextView tvJp;
-    TextView tvRomaji;
 
     public FoodItemHolder(final View itemView) {
         super(itemView);
         imgWord = (ImageView) itemView.findViewById(R.id.imgWord);
-        imgSound = (ImageView) itemView.findViewById(R.id.imgSound);
         tvJp = (TextView) itemView.findViewById(R.id.tvJp);
-        tvRomaji = (TextView) itemView.findViewById(R.id.tvRomaji);
     }
 
     public void bind(WordEntity entity) {
-        imgSound.setImageResource(R.drawable.ic_speaker);
+//        imgSound.setImageResource(R.drawable.ic_speaker);
 
         tvJp.setText(entity.getVi());
-        tvRomaji.setText(entity.getO1());
 
-        String strImage = "f_" + entity.getImg();
+        String strImage = "f_" + entity.getImg()+"_l";
         Log.i(TAG, "filename:" + strImage);
         int resourceId = Utility.getResourcesID(BaseApplication.getInstance(), strImage);
         if (resourceId > 0) {
