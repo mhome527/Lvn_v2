@@ -26,7 +26,7 @@
                 android:layout_marginRight="5dp"
                 android:background="@drawable/f_orange_juice"
                 android:contentDescription="@string/app_name"
-                android:scaleType="fitXY" />
+                android:scaleType="fitCenter" />
 
             <TextView
                 android:id="@+id/tvText1"
@@ -72,7 +72,7 @@
                 android:layout_marginRight="10dp"
                 android:background="@drawable/rabbit"
                 android:contentDescription="@string/app_name"
-                android:scaleType="fitXY" />
+                android:scaleType="fitCenter" />
 
             <TextView
                 android:id="@+id/tvText2"
@@ -126,7 +126,7 @@
                 android:layout_marginRight="5dp"
                 android:background="@drawable/meat"
                 android:contentDescription="@string/app_name"
-                android:scaleType="fitXY" />
+                android:scaleType="fitCenter" />
 
             <TextView
                 android:id="@+id/tvText3"
@@ -172,7 +172,7 @@
                 android:layout_marginRight="10dp"
                 android:background="@drawable/refrigerator"
                 android:contentDescription="@string/app_name"
-                android:scaleType="fitXY" />
+                android:scaleType="fitCenter" />
 
             <TextView
                 android:id="@+id/tvText4"
