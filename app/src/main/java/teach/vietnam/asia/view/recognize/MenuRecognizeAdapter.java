@@ -26,6 +26,8 @@ public class MenuRecognizeAdapter extends BaseAdapter {
     }
 
     public int getCount() {
+        if (listData == null)
+            return 0;
         return listData.size();
     }
 

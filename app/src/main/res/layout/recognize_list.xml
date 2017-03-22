@@ -1,29 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="25dp">
 
-    <LinearLayout
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_marginBottom="10dp"-->
+    <!--android:layout_marginLeft="25dp"-->
+    <!--android:layout_marginRight="25dp"-->
+    <!--android:layout_marginTop="10dp"-->
+    <!--android:background="@drawable/btn_shape_selector"-->
+    <!--android:gravity="center_vertical">-->
+
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/btn_shape_selector"
-        android:layout_marginRight="25dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:gravity="center_vertical">
+        android:layout_margin="5dp"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true" card_view:cardCornerRadius="5dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        card_view:contentPadding="10dp">
 
         <ListView
+            android:id="@+id/lstRecognize"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/lstRecognize"
             android:divider="@null"
             android:dividerHeight="0dp"
-
-            android:paddingRight="15dp"
+            android:paddingBottom="10dp"
             android:paddingLeft="25dp"
+            android:paddingRight="15dp"
             android:paddingTop="10dp"
-            android:paddingBottom="10dp" />
-    </LinearLayout>
+            tools:listitem="@layout/recognize_item" />
+    </android.support.v7.widget.CardView>
+    <!--</LinearLayout>-->
 </LinearLayout>

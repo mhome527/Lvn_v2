@@ -191,6 +191,8 @@ public class LearnRecoginzeFragment extends BaseFragment<RecognizeMainActivity> 
 
         adapterPage = new RecognizePagerAdapter(activity, amount);
         pagerRecognize.setAdapter(adapterPage);
+        adapterPage.notifyDataSetChanged();
+
         pagerRecognize.setCurrentItem(currPage);
         if (currPage == 0)
             imgLeft.setVisibility(View.GONE);

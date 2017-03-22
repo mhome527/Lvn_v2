@@ -9,8 +9,7 @@
     <RelativeLayout
         android:id="@+id/rlRecognizeMain"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/bg_home_green2">
+        android:layout_height="match_parent">
 
         <include layout="@layout/activity_recognize_main_acticity" />
     </RelativeLayout>

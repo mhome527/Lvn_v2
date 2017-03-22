@@ -9,12 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.R;
-import teach.vietnam.asia.entity.PracticeDetailEntity;
 import teach.vietnam.asia.entity.RecognizeEntity;
 import teach.vietnam.asia.view.BaseActivity;
 import teach.vietnam.asia.view.ICallback;
@@ -22,7 +20,7 @@ import teach.vietnam.asia.view.ICallback;
 public class RecognizePagerAdapter extends PagerAdapter {
 
     private RecognizeMainActivity activity;
-    public ArrayList<PracticeDetailEntity> lstExceriese;
+//    public ArrayList<PracticeDetailEntity> lstExceriese;
     private int num;
     private String lang;
     ListView lstRecognize;
@@ -30,7 +28,7 @@ public class RecognizePagerAdapter extends PagerAdapter {
 
     public RecognizePagerAdapter(RecognizeMainActivity activity, int num) {
 
-        lstExceriese = new ArrayList<>();
+//        lstExceriese = new ArrayList<>();
         this.num = num;
         this.activity = activity;
 //        lang  = activity.getString(R.string.language);
@@ -67,6 +65,7 @@ public class RecognizePagerAdapter extends PagerAdapter {
                     public void run() {
                         RecognizeListAdapter adapter = new RecognizeListAdapter(activity, data, position + 1);
                         lstRecognize.setAdapter(adapter);
+                        adapter.notifyDataSetChanged();
                     }
                 });
             }
