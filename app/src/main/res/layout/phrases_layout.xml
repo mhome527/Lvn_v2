@@ -26,7 +26,7 @@
             android:layout_toLeftOf="@+id/imgRecording"
             android:hint="@string/search"
             android:maxLines="1"
-            android:singleLine="true"></EditText>
+            android:singleLine="true"/>
 
         <LinearLayout
             android:id="@+id/llSpeed"
@@ -73,7 +73,7 @@
     <ListView
         android:id="@+id/lstPhrases"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fastScrollEnabled="true"></ListView>
+        android:layout_height="wrap_content" android:divider="@null"
+        android:fastScrollEnabled="true"/>
 
 </LinearLayout>
