@@ -30,7 +30,7 @@ public class RecognizePagerTestAdapter extends PagerAdapter {
     private RecognizeTestListAdapter.RecognizeTest recognizeTest;
 
     public RecognizePagerTestAdapter(Activity activity, List dataRecognize, RecognizeTestListAdapter.RecognizeTest recognizeTest) {
-        lstExceriese = new ArrayList<PracticeDetailEntity>();
+        lstExceriese = new ArrayList<>();
 //        this.num = num + 1;
         this.activity = activity;
 //        this.currWord = currWord;
@@ -41,6 +41,8 @@ public class RecognizePagerTestAdapter extends PagerAdapter {
 
     @Override
     public int getCount() {
+        if (dataRecognize == null)
+            return 0;
         return dataRecognize.size();
     }
 

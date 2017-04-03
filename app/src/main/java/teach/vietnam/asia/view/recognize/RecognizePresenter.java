@@ -27,6 +27,10 @@ public class RecognizePresenter extends BasePresenter<RecognizeMainActivity> {
         );
     }
 
+    public List<RecognizeEntity> loadData(int kind){
+        return RecognizeDao.getListData(activity, kind);
+    }
+
     public void loadGroup( ICallback<List<String>> callback) {
         this.loadData(callback, new ILoadData() {
             @Override

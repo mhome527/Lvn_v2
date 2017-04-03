@@ -16,7 +16,6 @@ import teach.vietnam.asia.entity.RecognizeEntity;
 import teach.vietnam.asia.sound.AudioPlayer;
 import teach.vietnam.asia.utils.Log;
 import teach.vietnam.asia.view.BaseFragment;
-import teach.vietnam.asia.view.ICallback;
 import teach.vietnam.asia.view.custom.MainMenuLayout;
 import teach.vietnam.asia.view.recognize.RecognizeMainActivity;
 import teach.vietnam.asia.view.recognize.learn.LearnRecoginzeFragment;
@@ -216,18 +215,21 @@ public class TestRecognizeFragment extends BaseFragment<RecognizeMainActivity> i
 //    }
 
     private void loadData() {
-        activity.presenter.loadData(currPage + 1, new ICallback<List<RecognizeEntity>>() {
-            @Override
-            public void onCallback(List<RecognizeEntity> data) {
-                dataRecognize = data;
-                amount = data.size();
-            }
+        dataRecognize = activity.presenter.loadData(currPage + 1);
+        amount = dataRecognize.size();
 
-            @Override
-            public void onFail(String err) {
-
-            }
-        });
+//        activity.presenter.loadData(currPage + 1, new ICallback<List<RecognizeEntity>>() {
+//            @Override
+//            public void onCallback(List<RecognizeEntity> data) {
+//                dataRecognize = data;
+//                amount = data.size();
+//            }
+//
+//            @Override
+//            public void onFail(String err) {
+//
+//            }
+//        });
 
     }
 

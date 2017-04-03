@@ -8,7 +8,7 @@ import teach.vietnam.asia.BuildConfig;
  */
 
 public class Log {
-    private static String myTag = "-htd";
+    private static String myTag = "htd-";
 
     public static void i(String tag, String msg) {
         if (BuildConfig.DEBUG) {

@@ -122,6 +122,8 @@ public class RecognizeMainActivity extends BaseActivity<RecognizeMainActivity> i
     }
 
     private void setInitData() {
+        lstData = new ArrayList<>();
+
         String initData = pref.getStringValue("", Constant.JSON_RECOGNIZE_NAME);
         Log.i(RecognizeMainActivity.class, "setInit: " + initData);
 
@@ -137,6 +139,7 @@ public class RecognizeMainActivity extends BaseActivity<RecognizeMainActivity> i
             public void onCallback(List<String> data) {
                 int num = data.size();
                 if (num > 0) {
+                    lstData.addAll(data);
                     MenuRecognizeAdapter adapter = new MenuRecognizeAdapter(RecognizeMainActivity.this, lstData);
                     lstRecognize.setAdapter(adapter);
 
@@ -186,7 +189,7 @@ public class RecognizeMainActivity extends BaseActivity<RecognizeMainActivity> i
         fr = getFragment(cls, currPage);
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
-        ft.setCustomAnimations(R.anim.card_flip_left_in, R.anim.card_flip_left_out, R.anim.card_flip_right_in, R.anim.card_flip_right_out);
+//        ft.setCustomAnimations(R.anim.card_flip_left_in, R.anim.card_flip_left_out, R.anim.card_flip_right_in, R.anim.card_flip_right_out);
         ft.replace(R.id.container, fr);
         // Add this transaction to the back stack, allowing users to press Back to get to the front of the card.
         ft.addToBackStack(null);

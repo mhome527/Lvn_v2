@@ -15,12 +15,13 @@ import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.entity.RecognizeEntity;
 import teach.vietnam.asia.view.BaseActivity;
-import teach.vietnam.asia.view.ICallback;
+
 
 public class RecognizePagerAdapter extends PagerAdapter {
 
+    private final String TAG = "RecognizePagerAdapter";
     private RecognizeMainActivity activity;
-//    public ArrayList<PracticeDetailEntity> lstExceriese;
+    //    public ArrayList<PracticeDetailEntity> lstExceriese;
     private int num;
     private String lang;
     ListView lstRecognize;
@@ -55,26 +56,31 @@ public class RecognizePagerAdapter extends PagerAdapter {
 
         view.setTag(position);
         ((ViewPager) collection).addView(view, 0);
+        List<RecognizeEntity> lstData = activity.presenter.loadData(position + 1);
+        RecognizeListAdapter adapter = new RecognizeListAdapter(activity, lstData, position + 1);
+        lstRecognize.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
 
 //        new LoadData(lstRecognize, position).execute();
-        activity.presenter.loadData(position + 1, new ICallback<List<RecognizeEntity>>() {
-            @Override
-            public void onCallback(final List<RecognizeEntity> data) {
-                activity.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        RecognizeListAdapter adapter = new RecognizeListAdapter(activity, data, position + 1);
-                        lstRecognize.setAdapter(adapter);
-                        adapter.notifyDataSetChanged();
-                    }
-                });
-            }
-
-            @Override
-            public void onFail(String err) {
-
-            }
-        });
+//        activity.presenter.loadData(position + 1, new ICallback<List<RecognizeEntity>>() {
+//            @Override
+//            public void onCallback(final List<RecognizeEntity> data) {
+//                activity.runOnUiThread(new Runnable() {
+//                    @Override
+//            public void run() {
+//                Log.i(TAG, "loadData page size:" + data.size());
+//                RecognizeListAdapter adapter = new RecognizeListAdapter(activity, data, position + 1);
+//                lstRecognize.setAdapter(adapter);
+//                adapter.notifyDataSetChanged();
+//            }
+//        });
+//    }
+//
+//            @Override
+//            public void onFail(String err) {
+//                Log.e(TAG, "onFail error:" + err);
+//            }
+//        });
 
 
         return view;
