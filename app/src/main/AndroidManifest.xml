@@ -59,8 +59,7 @@
         <activity
             android:name=".view.foods.FoodActivity"
             android:parentActivityName=".view.dashboard.DashboardActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/MyTheme" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.grammar.GrammarActivity"
             android:parentActivityName=".view.dashboard.DashboardActivity"

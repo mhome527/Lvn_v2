@@ -75,15 +75,11 @@ public class FoodFragment extends BaseFragment<FoodActivity> {
         recyclerView.addOnItemTouchListener(new RecyclerTouchListener(activity, recyclerView, new IClickListener() {
             @Override
             public void onClick(View view, int position) {
-//                Log.i(TAG, "onClick row pos:" + position);
-//                activity.setTitleCenter(listData.get(position).getOt());
-//
-//                if (activity.isPurchased || position < Constant.TRIAL) {
-//                    audio.play(FOLDER + listData.get(position).getSound());
-//                } else {
-//                    Log.i(TAG, "===> buy!!!");
-//                    activity.purchaseItem();
-//                }
+                Log.i(TAG, "onClick row pos:" + position);
+                activity.setTitleCenter(listData.get(position).getVi());
+
+                audio.speakWord(listData.get(position).getVi());
+
             }
 
             @Override

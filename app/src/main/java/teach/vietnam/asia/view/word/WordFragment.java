@@ -27,8 +27,6 @@ import teach.vietnam.asia.view.RecyclerTouchListener;
 public class WordFragment extends BaseFragment<WordActivity> {
 
     private final String TAG = "WordFragment";
-    private final String FOLDER = "sound/";
-    //    private View root;
     public Constant.TYPE_WORD typeWord = Constant.TYPE_WORD.ANIMAL;
 
     @BindView(R.id.recyclerView)
@@ -77,15 +75,15 @@ public class WordFragment extends BaseFragment<WordActivity> {
         recyclerView.addOnItemTouchListener(new RecyclerTouchListener(activity, recyclerView, new IClickListener() {
             @Override
             public void onClick(View view, int position) {
-//                Log.i(TAG, "onClick row pos:" + position);
-//                activity.setTitleCenter(listData.get(position).getOt());
-//
-//                if (activity.isPurchased || position < Constant.TRIAL) {
-//                    audio.play(FOLDER + listData.get(position).getSound());
-//                } else {
-//                    Log.i(TAG, "===> buy!!!");
-//                    activity.purchaseItem();
-//                }
+                Log.i(TAG, "onClick row pos:" + position);
+                activity.setTitleCenter(listData.get(position).getVi());
+
+                if (activity.isPurchased || position < Constant.TRIAL) {
+                    audio.speakWord(listData.get(position).getVi());
+                } else {
+                    Log.i(TAG, "===> buy!!!");
+                    activity.purchaseItem();
+                }
             }
 
             @Override

@@ -7,13 +7,14 @@ import android.media.MediaPlayer;
 import java.util.ArrayList;
 
 import teach.vietnam.asia.BuildConfig;
+import teach.vietnam.asia.db.dao.SoundDao;
 import teach.vietnam.asia.utils.Common;
 import teach.vietnam.asia.utils.Log;
 import teach.vietnam.asia.utils.NumberToWord;
 
-import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
 
 public class AudioPlayer {
+    private static final String TAG = "AudioPlayer";
     private ArrayList<MediaPlayer> mPlayerList;
     private Context context;
     //    private AudioPlay facePlay;
@@ -104,7 +105,7 @@ public class AudioPlayer {
         String[] strNumber;
         ArrayList<String> listSound = new ArrayList<String>();
         for (String name : strSound) {
-            soundName = Common.getNameSound(name.trim());
+            soundName = SoundDao.getNameSound(context, name);
             Log.i(TAG, "speakNumber name:" + name + ", sound:" + soundName);
             if (!soundName.equals(""))
                 listSound.add("sound/" + soundName + ".mp3");
