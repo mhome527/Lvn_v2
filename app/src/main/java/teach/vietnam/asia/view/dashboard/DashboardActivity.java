@@ -27,7 +27,7 @@ import teach.vietnam.asia.view.grammar.detail.GrammarDetailActivity;
 import teach.vietnam.asia.view.number.NumberActivity;
 import teach.vietnam.asia.view.phrase.PhrasesActivity;
 import teach.vietnam.asia.view.practice.PracticeActivity;
-import teach.vietnam.asia.view.recognize.RecognizeMainActivity;
+import teach.vietnam.asia.view.recognizes.RecognizeMainActivity;
 import teach.vietnam.asia.view.translate.TranslateActivity;
 import teach.vietnam.asia.view.word.WordActivity;
 
@@ -72,6 +72,7 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> {
                         startActivity2(BodyActivity.class);
                         break;
                     case 3:
+//                        startActivity2(RecognizeMainActivity.class);
                         startActivity2(RecognizeMainActivity.class);
                         break;
 
