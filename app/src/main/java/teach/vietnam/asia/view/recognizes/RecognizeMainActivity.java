@@ -3,18 +3,26 @@ package teach.vietnam.asia.view.recognizes;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import butterknife.BindView;
+import butterknife.OnClick;
 import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.utils.Log;
+import teach.vietnam.asia.view.ICallback;
 import teach.vietnam.asia.view.purchase.PurchaseActivity;
 
 
@@ -26,20 +34,36 @@ public class RecognizeMainActivity extends PurchaseActivity<RecognizeMainActivit
 
     private static String TAG = "RecognizeMainActivity";
 
+    @BindView(R.id.navList)
+    ListView mDrawerList;
 
-    private ListView mDrawerList;
-    private DrawerLayout mDrawerLayout;
-    private ArrayAdapter<String> mAdapter;
+    @BindView(R.id.drawer_layout)
+    DrawerLayout mDrawerLayout;
+
+    @BindView(R.id.pagerRecognize)
+    ViewPager pagerRecognize;
+
+    @BindView(R.id.imgLeft)
+    ImageButton imgLeft;
+
+    @BindView(R.id.imgRight)
+    ImageButton imgRight;
+
+
     private ActionBarDrawerToggle mDrawerToggle;
     private String mActivityTitle;
 
 
-//    @BindView(R.id.viewpager)
-//    ViewPager viewPager;
+    private ArrayList<String> lstData;
+    private int amount = 0;
+    public RecognizePresenter presenter;
+
 
     //    WordPagerAdapter adapter;
     public boolean isPurchased = false; //  true: user has already bought product
     int currPage = 0;
+    private RecognizePagerAdapter adapterPage;
+
 
     @Override
     protected int getLayout() {
@@ -52,37 +76,15 @@ public class RecognizeMainActivity extends PurchaseActivity<RecognizeMainActivit
 
         setTitleCenter(getString(R.string.title_recognize));
 
-        mDrawerList = (ListView) findViewById(R.id.navList);
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mActivityTitle = getTitle().toString();
 
-        addDrawerItems();
         setupDrawer();
+        setupViewPager();
+        setInitData();
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
-//        adapter = new WordPagerAdapter
-//                (getSupportFragmentManager(), tabLayout.getTabCount());
-//        viewPager.setAdapter(adapter);
-//        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-//        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-//            @Override
-//            public void onTabSelected(TabLayout.Tab tab) {
-//                currPage = tab.getPosition();
-//                viewPager.setCurrentItem(currPage);
-//            }
-//
-//            @Override
-//            public void onTabUnselected(TabLayout.Tab tab) {
-//
-//            }
-//
-//            @Override
-//            public void onTabReselected(TabLayout.Tab tab) {
-//
-//            }
-//        });
     }
 
     ////////////
@@ -102,6 +104,12 @@ public class RecognizeMainActivity extends PurchaseActivity<RecognizeMainActivit
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_recognize, menu);
+        return true;
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
@@ -113,6 +121,11 @@ public class RecognizeMainActivity extends PurchaseActivity<RecognizeMainActivit
             return true;
         }
 
+        if (id == R.id.menuTest) {
+            Log.i(TAG, "menu test click....");
+            return true;
+        }
+
         // Activate the navigation drawer toggle
         if (mDrawerToggle.onOptionsItemSelected(item)) {
             return true;
@@ -121,19 +134,152 @@ public class RecognizeMainActivity extends PurchaseActivity<RecognizeMainActivit
         return super.onOptionsItemSelected(item);
     }
 
-    private void addDrawerItems() {
-        String[] osArray = {"Android", "iOS", "Windows", "OS X", "Linux"};
-        mAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, osArray);
-        mDrawerList.setAdapter(mAdapter);
+    @OnClick(R.id.imgLeft)
+    public void actionLeft() {
+        if (currPage == 0) {
+            return;
+        }
+        currPage = currPage - 1;
+
+        if (currPage == 0)
+            imgLeft.setVisibility(View.GONE);
+
+        imgRight.setVisibility(View.VISIBLE);
+        pagerRecognize.setCurrentItem(currPage);
+
+//        ((RecognizeMainActivity) getActivity()).hideMenu();
+    }
+
+    @OnClick(R.id.imgRight)
+    public void actionRight() {
+        if (currPage == amount - 1) {
+            return;
+        }
+        currPage = currPage + 1;
+
+        if (currPage == amount - 1)
+            imgRight.setVisibility(View.GONE);
+
+        imgLeft.setVisibility(View.VISIBLE);
+        pagerRecognize.setCurrentItem(currPage);
+    }
+
+    ///////////
+    private void setInitData() {
+        lstData = new ArrayList<>();
+        presenter = new RecognizePresenter(activity);
+
+        String initData = pref.getStringValue("", Constant.JSON_RECOGNIZE_NAME);
+        Log.i(RecognizeMainActivity.class, "setInit: " + initData);
 
         mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(RecognizeMainActivity.this, "Time for an upgrade, pos:" + position, Toast.LENGTH_SHORT).show();
                 mDrawerLayout.closeDrawers();
+                currPage = position;
+                pagerRecognize.setCurrentItem(currPage);
             }
         });
+
+        presenter.loadGroup(new ICallback<List<String>>() {
+            @Override
+            public void onCallback(List<String> data) {
+                int num = data.size();
+                if (num > 0) {
+                    Log.i(TAG, "loadGroup size:" + num);
+
+                    lstData.addAll(data);
+                    MenuRecognizeAdapter adapter = new MenuRecognizeAdapter(RecognizeMainActivity.this, lstData);
+                    mDrawerList.setAdapter(adapter);
+
+//                    if (savedInstanceState == null) {
+//                        Log.i(TAG, "Load data, num:" + num);
+//                        int currPage = pref.getIntValue(0, Constant.PREF_PAGE);
+//
+//                        getSupportFragmentManager().beginTransaction().add(R.id.container, LearnRecoginzeFragment.newInstance(num, currPage)).commit();
+//                    } else {
+//                        mShowingBack = (getFragmentManager().getBackStackEntryCount() > 0);
+//                    }
+
+                    amount = num;
+
+                    adapterPage = new RecognizePagerAdapter(activity, amount);
+                    pagerRecognize.setAdapter(adapterPage);
+                    adapterPage.notifyDataSetChanged();
+
+                    pagerRecognize.setCurrentItem(currPage);
+                } else {
+                    Log.i(TAG, "Load data error!!!, num= 0");
+                }
+            }
+
+            @Override
+            public void onFail(String err) {
+
+            }
+        });
+
+        ///
+
+//        if (currPage == 0)
+//            imgLeft.setVisibility(View.GONE);
+//        else if (currPage == amount - 1)
+//            imgRight.setVisibility(View.GONE);
+//        else {
+//            imgLeft.setVisibility(View.VISIBLE);
+//            imgRight.setVisibility(View.VISIBLE);
+//        }
+
     }
+
+    ////
+    private void setupViewPager() {
+
+        pagerRecognize.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                currPage = position;
+
+                pref.putIntValue(currPage, Constant.PREF_PAGE);
+                if (currPage == 0)
+                    imgLeft.setVisibility(View.GONE);
+                else if (currPage == amount - 1)
+                    imgRight.setVisibility(View.GONE);
+                else {
+                    imgLeft.setVisibility(View.VISIBLE);
+                    imgRight.setVisibility(View.VISIBLE);
+                }
+//                ((RecognizeMainActivity) getActivity()).hideMenu(); //// FIXME: 4/11/2017 hide menu
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
+    }
+
+    //////////
+//    private void addDrawerItems() {
+//        String[] osArray = {"Android", "iOS", "Windows", "OS X", "Linux"};
+//        mAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, osArray);
+//        mDrawerList.setAdapter(mAdapter);
+//
+//        mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                Toast.makeText(RecognizeMainActivity.this, "Time for an upgrade, pos:" + position, Toast.LENGTH_SHORT).show();
+//                mDrawerLayout.closeDrawers();
+//            }
+//        });
+//    }
 
     private void setupDrawer() {
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.drawer_open, R.string.drawer_close) {
@@ -157,6 +303,7 @@ public class RecognizeMainActivity extends PurchaseActivity<RecognizeMainActivit
         mDrawerLayout.setDrawerListener(mDrawerToggle);
     }
 
+
     // ================= Purchase ====================
     @Override
     protected void dealWithIabSetupSuccess() {
@@ -164,29 +311,6 @@ public class RecognizeMainActivity extends PurchaseActivity<RecognizeMainActivit
             Log.i(TAG, "WithIabSetupSuccess...item purchased");
             isPurchased = true;
 
-            activity.runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-//                    if (currPage == 0) {
-//                        if (((WordFragment) adapter.getItem(0)).adapter != null)
-//                            ((WordFragment) adapter.getItem(0)).adapter.setPurchased(isPurchased);
-//                        if (((WordFragment) adapter.getItem(1)).adapter != null)
-//                            ((WordFragment) adapter.getItem(1)).adapter.setPurchased(isPurchased);
-//                    } else if (currPage == 1) {
-//                        if (((WordFragment) adapter.getItem(0)).adapter != null)
-//                            ((WordFragment) adapter.getItem(0)).adapter.setPurchased(isPurchased);
-//                        if (((WordFragment) adapter.getItem(1)).adapter != null)
-//                            ((WordFragment) adapter.getItem(1)).adapter.setPurchased(isPurchased);
-//                        if (((WordFragment) adapter.getItem(2)).adapter != null)
-//                            ((WordFragment) adapter.getItem(2)).adapter.setPurchased(isPurchased);
-//                    } else {
-//                        if (((WordFragment) adapter.getItem(2)).adapter != null)
-//                            ((WordFragment) adapter.getItem(2)).adapter.setPurchased(isPurchased);
-//                        if (((WordFragment) adapter.getItem(1)).adapter != null)
-//                            ((WordFragment) adapter.getItem(1)).adapter.setPurchased(isPurchased);
-//                    }
-                }
-            });
 
             /// Test only
 //            clearPurchaseTest();

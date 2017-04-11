@@ -26,7 +26,7 @@
             android:layout_toRightOf="@+id/btnSpeak"
             tools:text="@string/no"
             android:textColor="@color/black"
-            android:textSize="30sp" />
+            android:textSize="28sp" />
 
         <TextView
             android:id="@+id/tvEx"
