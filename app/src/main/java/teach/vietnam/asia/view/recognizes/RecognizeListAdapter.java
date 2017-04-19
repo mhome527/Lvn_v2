@@ -1,4 +1,4 @@
-package teach.vietnam.asia.view.recognize;
+package teach.vietnam.asia.view.recognizes;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -18,7 +18,6 @@ import teach.vietnam.asia.sound.AudioPlayer;
 import teach.vietnam.asia.utils.Log;
 import teach.vietnam.asia.view.BaseActivity;
 
-@SuppressLint("DefaultLocale")
 public class RecognizeListAdapter extends BaseAdapter {
 
     private final String TAG = "RecognizeListAdapter";

@@ -1,19 +1,20 @@
-package teach.vietnam.asia.view.recognizes;
+package teach.vietnam.asia.view.recognizes.test;
 
 import java.util.List;
 
 import teach.vietnam.asia.entity.RecognizeEntity;
 import teach.vietnam.asia.view.BasePresenter;
 import teach.vietnam.asia.view.ICallback;
+import teach.vietnam.asia.view.recognizes.RecognizeDao;
 
 /**
  * Created by HuynhTD on 01/19/2017.
  */
 
-public class RecognizePresenter extends BasePresenter<RecognizeMainActivity> {
+public class RecognizeTestPresenter extends BasePresenter<RecognizeTestActivity> {
 
 
-    public RecognizePresenter(RecognizeMainActivity activity) {
+    public RecognizeTestPresenter(RecognizeTestActivity activity) {
         super(activity);
     }
 

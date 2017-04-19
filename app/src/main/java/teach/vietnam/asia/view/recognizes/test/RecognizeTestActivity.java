@@ -1,13 +1,11 @@
-package teach.vietnam.asia.view.recognizes;
+package teach.vietnam.asia.view.recognizes.test;
 
-import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -17,24 +15,27 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.R;
+import teach.vietnam.asia.entity.RecognizeEntity;
+import teach.vietnam.asia.sound.AudioPlayer;
 import teach.vietnam.asia.utils.Log;
 import teach.vietnam.asia.view.ICallback;
 import teach.vietnam.asia.view.purchase.PurchaseActivity;
-import teach.vietnam.asia.view.recognizes.test.RecognizeTestActivity;
+import teach.vietnam.asia.view.recognizes.MenuRecognizeAdapter;
 
 
 /**
  * Created by huynhtd on 10/17/2016.
  */
 
-public class RecognizeMainActivity extends PurchaseActivity<RecognizeMainActivity> {
+public class RecognizeTestActivity extends PurchaseActivity<RecognizeTestActivity> implements RecognizeTestListAdapter.RecognizeTest {
 
-    private static String TAG = "RecognizeMainActivity";
+    private static String TAG = "RecognizeTestActivity";
 
     @BindView(R.id.navList)
     ListView mDrawerList;
@@ -56,20 +57,42 @@ public class RecognizeMainActivity extends PurchaseActivity<RecognizeMainActivit
     private String mActivityTitle;
 
 
-    private ArrayList<String> lstData;
-    private int amount = 0;
-    public RecognizePresenter presenter;
+//    private ArrayList<String> lstData;
+
+//    private List<RecognizeEntity> dataRecognize;
+
+    //    private int amount = 0;
+    public RecognizeTestPresenter presenter;
 
 
     //    WordPagerAdapter adapter;
     public boolean isPurchased = false; //  true: user has already bought product
-    int currPage = 0;
-    private RecognizePagerAdapter adapterPage;
+//    int currPage = 0;
+//    private RecognizePagerAdapter adapterPage;
+////////
 
+    public int currPage = 0;
+    public int arrW[];
+
+    //    private DaoMaster daoMaster;
+//    private tblRecognizeDao dao;
+    private List<RecognizeEntity> dataRecognize;
+
+    private RecognizeTestPagerAdapter adapterPage;
+    //    private DaoMaster daoMaster;
+    private AudioPlayer audio;
+    private int kind = 1;
+
+    private int amount = 3;
+    private int currAns = 0;
+    private ArrayList<String> lstData;
+
+
+    ///////
 
     @Override
     protected int getLayout() {
-        return R.layout.recognize_main_activity;
+        return R.layout.fragment_test_recognize;
     }
 
     @Override
@@ -105,11 +128,11 @@ public class RecognizeMainActivity extends PurchaseActivity<RecognizeMainActivit
         mDrawerToggle.onConfigurationChanged(newConfig);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_recognize, menu);
-        return true;
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.menu_recognize, menu);
+//        return true;
+//    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -123,12 +146,10 @@ public class RecognizeMainActivity extends PurchaseActivity<RecognizeMainActivit
             return true;
         }
 
-        if (id == R.id.menuTest) {
-            Log.i(TAG, "menu test click....");
-            Intent intent = new Intent(activity, RecognizeTestActivity.class);
-            startActivity(intent);
-            return true;
-        }
+//        if (id == R.id.menuTest) {
+//            Log.i(TAG, "menu test click....");
+//            return true;
+//        }
 
         // Activate the navigation drawer toggle
         if (mDrawerToggle.onOptionsItemSelected(item)) {
@@ -168,18 +189,24 @@ public class RecognizeMainActivity extends PurchaseActivity<RecognizeMainActivit
         pagerRecognize.setCurrentItem(currPage);
     }
 
+    //==========
+    @Override
+    public String getCurrWord() {
+        return dataRecognize.get(arrW[currAns]).getVn();
+    }
+
     ///////////
     private void setInitData() {
         lstData = new ArrayList<>();
-        presenter = new RecognizePresenter(activity);
+        presenter = new RecognizeTestPresenter(activity);
 
         String initData = pref.getStringValue("", Constant.JSON_RECOGNIZE_NAME);
-        Log.i(RecognizeMainActivity.class, "setInit: " + initData);
+        Log.i(RecognizeTestActivity.class, "setInit: " + initData);
 
         mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(RecognizeMainActivity.this, "Time for an upgrade, pos:" + position, Toast.LENGTH_SHORT).show();
+                Toast.makeText(RecognizeTestActivity.this, "Time for an upgrade, pos:" + position, Toast.LENGTH_SHORT).show();
                 mDrawerLayout.closeDrawers();
                 currPage = position;
                 pagerRecognize.setCurrentItem(currPage);
@@ -194,12 +221,12 @@ public class RecognizeMainActivity extends PurchaseActivity<RecognizeMainActivit
                     Log.i(TAG, "loadGroup size:" + num);
 
                     lstData.addAll(data);
-                    MenuRecognizeAdapter adapter = new MenuRecognizeAdapter(RecognizeMainActivity.this, lstData);
+                    MenuRecognizeAdapter adapter = new MenuRecognizeAdapter(RecognizeTestActivity.this, lstData);
                     mDrawerList.setAdapter(adapter);
 
                     amount = num;
 
-                    adapterPage = new RecognizePagerAdapter(activity, amount);
+                    adapterPage = new RecognizeTestPagerAdapter(activity, dataRecognize, activity);
                     pagerRecognize.setAdapter(adapterPage);
                     adapterPage.notifyDataSetChanged();
 
@@ -215,16 +242,28 @@ public class RecognizeMainActivity extends PurchaseActivity<RecognizeMainActivit
             }
         });
 
-        ///
+        ///=====================================
 
-//        if (currPage == 0)
-//            imgLeft.setVisibility(View.GONE);
-//        else if (currPage == amount - 1)
-//            imgRight.setVisibility(View.GONE);
-//        else {
-//            imgLeft.setVisibility(View.VISIBLE);
-//            imgRight.setVisibility(View.VISIBLE);
-//        }
+        audio = new AudioPlayer(activity);
+
+        dataRecognize = presenter.loadData(currPage + 1);
+        amount = dataRecognize.size();
+        Log.i(TAG, "setInitData kind:" + kind + "; size:" + dataRecognize.size());
+
+        setArrData();
+
+        adapterPage = new RecognizeTestPagerAdapter(activity, dataRecognize, this);
+        pagerRecognize.setAdapter(adapterPage);
+//        amount = adapterPage.amount;
+//        setCurrentWord(currAns);
+        if (currAns == 0)
+            imgLeft.setVisibility(View.GONE);
+        else if (currAns == amount - 1)
+            imgRight.setVisibility(View.GONE);
+        else {
+            imgLeft.setVisibility(View.VISIBLE);
+            imgRight.setVisibility(View.VISIBLE);
+        }
 
     }
 
@@ -282,6 +321,25 @@ public class RecognizeMainActivity extends PurchaseActivity<RecognizeMainActivit
         mDrawerLayout.setDrawerListener(mDrawerToggle);
     }
 
+    private void setArrData() {
+        arrW = new int[amount];
+        for (int i = 0; i < amount; i++) {
+            arrW[i] = i;
+        }
+
+        for (int i = 0; i < amount - 1; i++) {
+
+            Random ran = new Random();
+            Random ran2 = new Random();
+            int value = ran.nextInt(amount);
+            int value2 = ran2.nextInt(amount);
+            int tmp = arrW[value];
+            arrW[value] = arrW[value2];
+            arrW[value2] = tmp;
+        }
+//        ULog.i(TestRecognizeFragment.class, "arr:" + arrW[0] + "," + arrW[1] + "," + arrW[2] + "," + arrW[3]);
+    }
+
 
     // ================= Purchase ====================
     @Override
@@ -304,6 +362,8 @@ public class RecognizeMainActivity extends PurchaseActivity<RecognizeMainActivit
     protected void dealWithIabSetupFailure() {
         Log.i(TAG, "dealWithIabSetupFailure...");
     }
+
     // ================ Purchase ===========
+
 
 }

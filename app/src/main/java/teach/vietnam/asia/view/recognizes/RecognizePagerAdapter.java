@@ -15,7 +15,7 @@ import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.entity.RecognizeEntity;
 import teach.vietnam.asia.view.BaseActivity;
-import teach.vietnam.asia.view.recognize.RecognizeListAdapter;
+//import teach.vietnam.asia.view.recognizes.RecognizeListAdapter;
 
 
 public class RecognizePagerAdapter extends PagerAdapter {

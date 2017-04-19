@@ -1,4 +1,4 @@
-package teach.vietnam.asia.view.recognize;
+package teach.vietnam.asia.view.recognizes;
 
 import android.content.Context;
 import android.database.Cursor;
