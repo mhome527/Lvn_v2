@@ -10,11 +10,9 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.entity.PracticeDetailEntity;
-import teach.vietnam.asia.utils.Log;
 
 public class RecognizeTestPagerAdapter extends PagerAdapter {
 
@@ -23,23 +21,22 @@ public class RecognizeTestPagerAdapter extends PagerAdapter {
     private RecognizeTestListAdapter.RecognizeTest recognizeTest;
 
     private RecognizeTestActivity activity;
-    private int num;
+    private int totalPage;
     public ArrayList<PracticeDetailEntity> lstExceriese;
-    private List dataRecognize;
+//    private List dataRecognize;
 
-    public RecognizeTestPagerAdapter(RecognizeTestActivity activity, List dataRecognize, RecognizeTestListAdapter.RecognizeTest recognizeTest) {
+    public RecognizeTestPagerAdapter(RecognizeTestActivity activity, int totalPage, RecognizeTestListAdapter.RecognizeTest recognizeTest) {
         lstExceriese = new ArrayList<>();
         this.activity = activity;
-        this.dataRecognize = dataRecognize;
+//        this.dataRecognize = dataRecognize;
         this.recognizeTest = recognizeTest;
+        this.totalPage = totalPage;
     }
 
 
     @Override
     public int getCount() {
-        if (dataRecognize == null)
-            return 0;
-        return dataRecognize.size();
+        return totalPage;
     }
 
     @Override
@@ -54,12 +51,13 @@ public class RecognizeTestPagerAdapter extends PagerAdapter {
 
         ListView lstRecognize = (ListView) view.findViewById(R.id.lstRecognize);
 
-        if (dataRecognize != null || dataRecognize.size() > 0) {
-            RecognizeTestListAdapter adapter = new RecognizeTestListAdapter(activity, dataRecognize, recognizeTest);
+//        if (dataRecognize != null || dataRecognize.size() > 0) {
+            RecognizeTestListAdapter adapter = new RecognizeTestListAdapter(activity, position, recognizeTest);
             lstRecognize.setAdapter(adapter);
-        } else {
-            Log.e(TAG, "load data recognize error pos:" + position);
-        }
+
+//        } else {
+//            Log.e(TAG, "load data recognize error pos:" + position);
+//        }
         view.setTag(position);
         ((ViewPager) collection).addView(view, 0);
 
@@ -70,5 +68,9 @@ public class RecognizeTestPagerAdapter extends PagerAdapter {
     public void destroyItem(ViewGroup container, int position, Object object) {
         ((ViewPager) container).removeView((View) object);
     }
+
+//    public void setData(List dataRecognize) {
+//        this.dataRecognize = dataRecognize;
+//    }
 
 }

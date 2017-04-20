@@ -9,7 +9,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -46,11 +46,11 @@ public class RecognizeTestActivity extends PurchaseActivity<RecognizeTestActivit
     @BindView(R.id.pagerRecognize)
     ViewPager pagerRecognize;
 
-    @BindView(R.id.imgLeft)
-    ImageButton imgLeft;
+    @BindView(R.id.llLeft)
+    LinearLayout llLeft;
 
-    @BindView(R.id.imgRight)
-    ImageButton imgRight;
+    @BindView(R.id.llRight)
+    LinearLayout llRight;
 
 
     private ActionBarDrawerToggle mDrawerToggle;
@@ -86,7 +86,7 @@ public class RecognizeTestActivity extends PurchaseActivity<RecognizeTestActivit
     private int amount = 3;
     private int currAns = 0;
     private ArrayList<String> lstData;
-
+//    int totalPage = 0;
 
     ///////
 
@@ -159,7 +159,7 @@ public class RecognizeTestActivity extends PurchaseActivity<RecognizeTestActivit
         return super.onOptionsItemSelected(item);
     }
 
-    @OnClick(R.id.imgLeft)
+    @OnClick(R.id.llLeft)
     public void actionLeft() {
         if (currPage == 0) {
             return;
@@ -167,15 +167,15 @@ public class RecognizeTestActivity extends PurchaseActivity<RecognizeTestActivit
         currPage = currPage - 1;
 
         if (currPage == 0)
-            imgLeft.setVisibility(View.GONE);
+            llLeft.setVisibility(View.INVISIBLE);
 
-        imgRight.setVisibility(View.VISIBLE);
+        llRight.setVisibility(View.VISIBLE);
         pagerRecognize.setCurrentItem(currPage);
 
 //        ((RecognizeMainActivity) getActivity()).hideMenu();
     }
 
-    @OnClick(R.id.imgRight)
+    @OnClick(R.id.llRight)
     public void actionRight() {
         if (currPage == amount - 1) {
             return;
@@ -183,9 +183,9 @@ public class RecognizeTestActivity extends PurchaseActivity<RecognizeTestActivit
         currPage = currPage + 1;
 
         if (currPage == amount - 1)
-            imgRight.setVisibility(View.GONE);
+            llRight.setVisibility(View.INVISIBLE);
 
-        imgLeft.setVisibility(View.VISIBLE);
+        llLeft.setVisibility(View.VISIBLE);
         pagerRecognize.setCurrentItem(currPage);
     }
 
@@ -209,6 +209,9 @@ public class RecognizeTestActivity extends PurchaseActivity<RecognizeTestActivit
                 Toast.makeText(RecognizeTestActivity.this, "Time for an upgrade, pos:" + position, Toast.LENGTH_SHORT).show();
                 mDrawerLayout.closeDrawers();
                 currPage = position;
+//                dataRecognize = presenter.loadData(currPage + 1);
+//                adapterPage.setData(dataRecognize);
+                adapterPage.notifyDataSetChanged();
                 pagerRecognize.setCurrentItem(currPage);
             }
         });
@@ -216,17 +219,17 @@ public class RecognizeTestActivity extends PurchaseActivity<RecognizeTestActivit
         presenter.loadGroup(new ICallback<List<String>>() {
             @Override
             public void onCallback(List<String> data) {
-                int num = data.size();
-                if (num > 0) {
-                    Log.i(TAG, "loadGroup size:" + num);
+                amount = data.size();
+                if (amount > 0) {
+                    Log.i(TAG, "loadGroup size:" + amount);
 
                     lstData.addAll(data);
                     MenuRecognizeAdapter adapter = new MenuRecognizeAdapter(RecognizeTestActivity.this, lstData);
                     mDrawerList.setAdapter(adapter);
 
-                    amount = num;
+//                    amount = totalPage;
 
-                    adapterPage = new RecognizeTestPagerAdapter(activity, dataRecognize, activity);
+                    adapterPage = new RecognizeTestPagerAdapter(activity, amount, activity);
                     pagerRecognize.setAdapter(adapterPage);
                     adapterPage.notifyDataSetChanged();
 
@@ -252,17 +255,17 @@ public class RecognizeTestActivity extends PurchaseActivity<RecognizeTestActivit
 
         setArrData();
 
-        adapterPage = new RecognizeTestPagerAdapter(activity, dataRecognize, this);
-        pagerRecognize.setAdapter(adapterPage);
+//        adapterPage = new RecognizeTestPagerAdapter(activity, dataRecognize, this);
+//        pagerRecognize.setAdapter(adapterPage);
 //        amount = adapterPage.amount;
 //        setCurrentWord(currAns);
         if (currAns == 0)
-            imgLeft.setVisibility(View.GONE);
+            llLeft.setVisibility(View.INVISIBLE);
         else if (currAns == amount - 1)
-            imgRight.setVisibility(View.GONE);
+            llRight.setVisibility(View.INVISIBLE);
         else {
-            imgLeft.setVisibility(View.VISIBLE);
-            imgRight.setVisibility(View.VISIBLE);
+            llLeft.setVisibility(View.VISIBLE);
+            llRight.setVisibility(View.VISIBLE);
         }
 
     }
@@ -281,13 +284,15 @@ public class RecognizeTestActivity extends PurchaseActivity<RecognizeTestActivit
                 currPage = position;
 
                 pref.putIntValue(currPage, Constant.PREF_PAGE);
+
+
                 if (currPage == 0)
-                    imgLeft.setVisibility(View.GONE);
+                    llLeft.setVisibility(View.INVISIBLE);
                 else if (currPage == amount - 1)
-                    imgRight.setVisibility(View.GONE);
+                    llRight.setVisibility(View.INVISIBLE);
                 else {
-                    imgLeft.setVisibility(View.VISIBLE);
-                    imgRight.setVisibility(View.VISIBLE);
+                    llLeft.setVisibility(View.VISIBLE);
+                    llRight.setVisibility(View.VISIBLE);
                 }
             }
 

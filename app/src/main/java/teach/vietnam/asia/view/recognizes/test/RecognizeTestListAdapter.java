@@ -1,7 +1,6 @@
 package teach.vietnam.asia.view.recognizes.test;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,15 +10,12 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.entity.RecognizeEntity;
 import teach.vietnam.asia.utils.Log;
-import teach.vietnam.asia.view.BaseActivity;
 
 public class RecognizeTestListAdapter extends BaseAdapter {
 
@@ -27,7 +23,7 @@ public class RecognizeTestListAdapter extends BaseAdapter {
     //    private Context context;
     private List<RecognizeEntity> listData;
     private LayoutInflater layoutInflater;
-    private String lang = "";
+//    private String lang = "";
 //    private String ans = "";
 
     public interface RecognizeTest {
@@ -36,15 +32,16 @@ public class RecognizeTestListAdapter extends BaseAdapter {
 
     private RecognizeTest recognizeTest;
 
-    public RecognizeTestListAdapter(Context context, List listData, RecognizeTest recognizeTest) {
-        lang = BaseActivity.pref.getStringValue("en", Constant.EN);
+    public RecognizeTestListAdapter(RecognizeTestActivity activity, int kind, RecognizeTest recognizeTest) {
+//        lang = BaseActivity.pref.getStringValue("en", Constant.EN);
+        this.listData = activity.presenter.loadData(kind + 1);
 
-        this.listData = cloneData(listData);
+//        this.listData = cloneData(listData);
         this.recognizeTest = recognizeTest;
 
         try {
             RandData();
-            layoutInflater = LayoutInflater.from(context);
+            layoutInflater = LayoutInflater.from(activity);
 
         } catch (Exception e) {
             Log.e(TAG, "SearchAllAdapter Error: " + e.getMessage());
@@ -52,16 +49,18 @@ public class RecognizeTestListAdapter extends BaseAdapter {
 
     }
 
-    private List cloneData(List<RecognizeEntity> listData) {
-        List<RecognizeEntity> lstTmp = new ArrayList();
-
-        for (RecognizeEntity entry : listData) {
-            lstTmp.add(entry);
-        }
-        return lstTmp;
-    }
+//    private List cloneData(List<RecognizeEntity> listData) {
+//        List<RecognizeEntity> lstTmp = new ArrayList();
+//
+//        for (RecognizeEntity entry : listData) {
+//            lstTmp.add(entry);
+//        }
+//        return lstTmp;
+//    }
 
     public int getCount() {
+        if (listData == null)
+            return 0;
         return listData.size();
     }
 
@@ -91,12 +90,12 @@ public class RecognizeTestListAdapter extends BaseAdapter {
         }
 
         RecognizeEntity entity = listData.get(position);
-        holder.rlWord.setTag(entity.getVn());
+        holder.rlWord.setTag(R.id.tvWord, entity.getVn());
         holder.rlWord.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String tag;
-                tag = (String) holder.rlWord.getTag();
+                tag = (String) holder.rlWord.getTag(R.id.tvWord);
                 Log.i(TAG, "Word compare: " + tag + "; currWord:" + recognizeTest.getCurrWord());
                 if (tag.equals(recognizeTest.getCurrWord())) {
                     holder.imgCheck.setBackgroundResource(R.drawable.o);
@@ -125,15 +124,16 @@ public class RecognizeTestListAdapter extends BaseAdapter {
     private void RandData() {
         int number1;
         int number2;
+        int size = listData.size();
 
         RecognizeEntity entryTmp;
         Random ran;
-        for (int i = 0; i < listData.size(); i++) {
+        for (int i = 0; i < size; i++) {
             ran = new Random();
-            number1 = ran.nextInt(listData.size() - 1);
+            number1 = ran.nextInt(size - 1);
 
             ran = new Random();
-            number2 = ran.nextInt(listData.size() - 1);
+            number2 = ran.nextInt(size - 1);
 
             entryTmp = listData.get(number2);
             listData.set(number2, listData.get(number1));
