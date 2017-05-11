@@ -74,8 +74,8 @@ public class WordFragment extends BaseFragment<WordActivity> {
         //Add event
         recyclerView.addOnItemTouchListener(new RecyclerTouchListener(activity, recyclerView, new IClickListener() {
             @Override
-            public void onClick(View view, int position) {
-                Log.i(TAG, "onClick row pos:" + position);
+            public void actionClick(View view, int position) {
+                Log.i(TAG, "actionClick row pos:" + position);
                 activity.setTitleCenter(listData.get(position).getVi());
 
                 if (activity.isPurchased || position < Constant.TRIAL) {
@@ -87,8 +87,8 @@ public class WordFragment extends BaseFragment<WordActivity> {
             }
 
             @Override
-            public void onLongClick(View view, int position) {
-                Log.i(TAG, "onLongClick row pos:" + position);
+            public void actionLongClick(View view, int position) {
+                Log.i(TAG, "actionLongClick row pos:" + position);
             }
         }));
     }

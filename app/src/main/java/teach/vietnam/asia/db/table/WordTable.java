@@ -21,7 +21,6 @@ public class WordTable extends SoundTable {
     public static final String COL_IMG = "IMG";
     public static final String COL_LEVEL = "LEVEL";
     public static final String COL_SOUND = "SOUND";
-    public static final String COL_DEFAULT = "DEFAULT_WORD";
 //    public static final String CLEAR_TABLE = "delete from " + TABLE_NAME;
 
     public static void onCreate(SQLiteDatabase database) {

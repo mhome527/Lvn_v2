@@ -139,12 +139,12 @@ public class Utility {
 //
 //        builder.setView(layout);
 //        builder.setPositiveButton(activity.getString(R.string.cancel), new DialogInterface.OnClickListener() {
-//            public void onClick(DialogInterface dialog, int id) {
+//            public void actionClick(DialogInterface dialog, int id) {
 //                dialog.dismiss();
 //            }
 //        });
 //        builder.setNegativeButton(activity.getString(R.string.turn_on_wifi), new DialogInterface.OnClickListener() {
-//            public void onClick(DialogInterface dialog, int id) {
+//            public void actionClick(DialogInterface dialog, int id) {
 //                // User cancelled the dialog
 //                dialog.dismiss();
 //                activity.startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
@@ -272,7 +272,7 @@ public class Utility {
 ////        tvMsg.setText(String.format(context.getString(R.string.msg_alert_gps), context.getString(R.string.app_name)));
 ////        btnSettings.setOnClickListener(new OnClickListener() {
 ////            @Override
-////            public void onClick(View arg0) {
+////            public void actionClick(View arg0) {
 ////                dialog.dismiss();
 ////                Intent gpsIntent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
 ////                context.startActivity(gpsIntent);
@@ -281,7 +281,7 @@ public class Utility {
 ////
 ////        btnCancel.setOnClickListener(new OnClickListener() {
 ////            @Override
-////            public void onClick(View arg0) {
+////            public void actionClick(View arg0) {
 ////                dialog.dismiss();
 ////            }
 ////        });
@@ -381,7 +381,7 @@ public class Utility {
 //
 //                    // Install Button click handler
 //                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
+//                    public void actionClick(DialogInterface dialog, int which) {
 //                        try {
 //                            // creating an Intent for opening applications page in Google Play
 //                            // Voice Search package name: com.google.android.voicesearch
@@ -413,7 +413,7 @@ public class Utility {
 //
 //                    // Install Button click handler
 //                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
+//                    public void actionClick(DialogInterface dialog, int which) {
 //                        try {
 //                            // creating an Intent for opening applications page in Google Play
 //                            // Voice Search package name: com.google.android.voicesearch
@@ -440,7 +440,7 @@ public class Utility {
 //
 //                    // Install Button click handler
 //                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
+//                    public void actionClick(DialogInterface dialog, int which) {
 //                        try {
 //                            activity.finish();
 //                        } catch (Exception ex) {

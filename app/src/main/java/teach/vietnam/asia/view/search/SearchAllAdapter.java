@@ -111,7 +111,8 @@ public class SearchAllAdapter extends BaseAdapter implements SectionIndexer {
 
         holder.tvOther.setText(Html.fromHtml(listData.get(position).getO1()));
 
-        phrases = String.format(listData.get(position).getVi(), "<u>" + listData.get(position).getDefault_word() + "</u>");
+//        phrases = String.format(listData.get(position).getVi(), "<u>" + listData.get(position).getDefault_word() + "</u>");
+        phrases =""; //// FIXME: 5/11/2017 temp
         holder.tvVn.setText(Html.fromHtml(phrases));
 
         // img.setScaleType(ImageView.ScaleType.FIT_XY);

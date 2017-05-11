@@ -70,11 +70,7 @@
             android:parentActivityName=".view.grammar.GrammarActivity"
             android:screenOrientation="portrait"
             android:theme="@style/MyTheme" />
-        <activity
-            android:name=".view.phrase.PhrasesActivity"
-            android:parentActivityName=".view.dashboard.DashboardActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/MyTheme" />
+
         <activity
             android:name=".view.practice.PracticeActivity"
             android:parentActivityName=".view.dashboard.DashboardActivity"
@@ -85,11 +81,11 @@
             android:parentActivityName=".view.dashboard.DashboardActivity"
             android:screenOrientation="portrait"
             android:theme="@style/MyTheme" />
-        <activity
-            android:name=".view.recognize.RecognizeMainActivity"
-            android:parentActivityName=".view.dashboard.DashboardActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/MyTheme" />
+        <!--<activity-->
+        <!--android:name=".view.recognize.RecognizeMainActivity"-->
+        <!--android:parentActivityName=".view.dashboard.DashboardActivity"-->
+        <!--android:screenOrientation="portrait"-->
+        <!--android:theme="@style/MyTheme" />-->
         <activity
             android:name=".view.search.SearchWordsActivity"
             android:parentActivityName=".view.dashboard.DashboardActivity"
@@ -115,6 +111,10 @@
         <activity
             android:name=".view.recognizes.test.RecognizeTestActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.phrase.Phrases2Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyTheme" />
 
     </application>
 

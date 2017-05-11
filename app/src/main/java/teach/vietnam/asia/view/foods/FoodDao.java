@@ -27,7 +27,6 @@ public class FoodDao extends BaseDao<WordEntity> {
         entity.setO2(cursor.getString(cursor.getColumnIndex(WordTable.COL_O2)));
         entity.setLevel(cursor.getInt(cursor.getColumnIndex(WordTable.COL_LEVEL)));
         entity.setKind(cursor.getInt(cursor.getColumnIndex(WordTable.COL_KIND)));
-        entity.setDefault_word(cursor.getString(cursor.getColumnIndex(WordTable.COL_DEFAULT)));
         entity.setImg(cursor.getString(cursor.getColumnIndex(WordTable.COL_IMG)));
 //        entity.setSound(cursor.getString(cursor.getColumnIndex(WordTable.COL_SOUND)));
         return entity;

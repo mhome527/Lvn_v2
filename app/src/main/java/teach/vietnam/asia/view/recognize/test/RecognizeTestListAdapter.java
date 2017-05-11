@@ -98,7 +98,7 @@
 //        holder.rlWord.setTag(entity.getVn());
 //        holder.rlWord.setOnClickListener(new View.OnClickListener() {
 //            @Override
-//            public void onClick(View view) {
+//            public void actionClick(View view) {
 //                String tag;
 //                tag = (String) holder.rlWord.getTag();
 //                Log.i(TAG, "Word compare: " + tag + "; currWord:" + recognizeTest.getCurrWord());

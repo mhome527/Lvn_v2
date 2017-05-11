@@ -29,7 +29,6 @@ public class PracticeDao extends BaseDao<WordEntity> {
         entity.setO2(cursor.getString(cursor.getColumnIndex(WordTable.COL_O2)));
         entity.setLevel(cursor.getInt(cursor.getColumnIndex(WordTable.COL_LEVEL)));
         entity.setKind(cursor.getInt(cursor.getColumnIndex(WordTable.COL_KIND)));
-        entity.setDefault_word(cursor.getString(cursor.getColumnIndex(WordTable.COL_DEFAULT)));
         entity.setImg(cursor.getString(cursor.getColumnIndex(WordTable.COL_IMG)));
 //        entity.setSound(cursor.getString(cursor.getColumnIndex(WordTable.COL_SOUND)));
         return entity;
@@ -46,8 +45,14 @@ public class PracticeDao extends BaseDao<WordEntity> {
 
     public static int getMaxCount(Context context, int kind) {
         PracticeDao dao = new PracticeDao(context);
-        String sql = "SELECT COUNT(*) FROM " + WordTable.getTableName(dao.lang)
-                + " WHERE " + WordTable.COL_KIND + "=" + kind ;
+//        String sql = "SELECT COUNT(*) FROM " + WordTable.getTableName(dao.lang)
+//                + "GROUP BY " + WordTable.COL_LEVEL + " WHERE " + WordTable.COL_KIND + "=" + kind ;
+//
+       String sql = "SELECT " + WordTable.COL_LEVEL + " FROM " + WordTable.getTableName(dao.lang)
+                + " WHERE " + WordTable.COL_KIND + "=" + kind
+               + " Order by LEVEL desc LIMIT 1";
+
+
         return dao.getCount(sql);
     }
 }

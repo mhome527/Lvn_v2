@@ -47,9 +47,9 @@ public class Log {
     public static void e(Object obj, String msg) {
         if (BuildConfig.DEBUG)
             if (obj instanceof String)
-                Log.e(obj + myTag, msg);
+                Log.e(obj, msg);
             else
-                Log.e(obj.getClass().getSimpleName() + "-htd", msg);
+                Log.e(obj.getClass().getSimpleName(), msg);
     }
 
 

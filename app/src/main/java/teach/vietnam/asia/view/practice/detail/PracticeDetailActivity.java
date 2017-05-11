@@ -24,6 +24,8 @@ import teach.vietnam.asia.view.practice.PracticePagerAdapter;
 
 public class PracticeDetailActivity extends BaseActivity<PracticeDetailActivity> {
 
+    private final String TAG = "PracticeDetailActivity";
+
     @BindView(R.id.tvAns)
     public TextView tvAns;
 
@@ -38,7 +40,7 @@ public class PracticeDetailActivity extends BaseActivity<PracticeDetailActivity>
     private PracticeFooterAdapter adapterFooter;
     //    private tblVietENDao dao;
 
-//    private ProgressDialog progressDialog;
+    //    private ProgressDialog progressDialog;
     private AudioPlayer audio;
     private int currPage = 0;
     private int kind = 1;
@@ -163,7 +165,8 @@ public class PracticeDetailActivity extends BaseActivity<PracticeDetailActivity>
 
     }
 
-    private void loadData(){
+    private void loadData() {
+        Log.i(TAG, "loadData kind:" + kind + "; level:" + level);
         presenter.loadData(kind, level, new ICallback<List<WordEntity>>() {
             @Override
             public void onCallback(List<WordEntity> data) {

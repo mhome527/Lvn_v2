@@ -4,9 +4,6 @@ import android.content.Intent;
 import android.speech.RecognizerIntent;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.EditText;
 import android.widget.ListView;
 
@@ -15,7 +12,6 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.entity.WordEntity;
 import teach.vietnam.asia.sound.AudioPlayer;
@@ -112,20 +108,19 @@ public class SearchAllActivity extends BaseActivity<SearchAllActivity> {
             }
         });
 
-        lstSearch.setOnItemClickListener(new OnItemClickListener() {
-
-            @Override
-            public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
-                String phrases;
-                if (Constant.isPro) {
-                    phrases = String.format(adapter.getItem(position).getVi(), adapter.getItem(position).getDefault_word(), lang);
-                    speakPhrases(phrases);
-                } else {
-                    Log.i(TAG, "onItemClick NOT PREMIUM");
-//                    Utility.installPremiumApp(SearchAllActivity.this);
-                }
-            }
-        });
+//        lstSearch.setOnItemClickListener(new OnItemClickListener() {
+//
+//            @Override
+//            public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
+//                String phrases;
+//                if (Constant.isPro) {
+//                    phrases = String.format(adapter.getItem(position).getVi(), adapter.getItem(position).getDefault_word(), lang);
+//                    speakPhrases(phrases);
+//                } else {
+//                    Log.i(TAG, "onItemClick NOT PREMIUM");
+//                }
+//            }
+//        });
 
         presenter.loadDataAll(new ICallback<List<WordEntity>>() {
             @Override

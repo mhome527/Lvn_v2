@@ -100,7 +100,7 @@ public class AudioPlayer {
 
     }
 
-    public void speakWord() {
+    private void speakWord() {
         String soundName, number;
         String[] strNumber;
         ArrayList<String> listSound = new ArrayList<String>();

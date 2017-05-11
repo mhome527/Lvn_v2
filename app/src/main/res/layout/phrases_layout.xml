@@ -1,79 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinator"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|enterAlways|snap"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    </android.support.design.widget.AppBarLayout>
+
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/black_alpha_i_20">
+        android:background="@color/black_alpha_i_20"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <ImageButton
-            android:layout_alignParentRight="true"
-            android:id="@+id/imgRecording"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_margin="5dp"
-            android:background="@drawable/button_mic_selector"
-            android:contentDescription="@string/app_name" />
 
-        <EditText
-            android:id="@+id/edtSearch"
+        <RelativeLayout
+            android:id="@+id/llSpeed"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:layout_toLeftOf="@+id/imgRecording"
-            android:hint="@string/search"
-            android:maxLines="1"
-            android:singleLine="true"/>
-
-        <LinearLayout
-            android:id="@+id/llSpeed"
-            android:layout_width="wrap_content"
             android:layout_below="@+id/edtSearch"
-            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <CheckBox
                 android:id="@+id/ckbSpeed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="false" />
+                android:layout_centerVertical="true"
+                android:checked="false"
+                android:text="@string/speed"
+                android:textColor="@color/bg_qa_album10" />
 
             <TextView
-                android:paddingLeft="5dp"
+                android:id="@+id/tvHint"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/speed" />
-        </LinearLayout>
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="right"
+                android:layout_marginBottom="5dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/btn_shape_selector"
+                android:paddingBottom="5dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingTop="5dp"
+                android:text="@string/vietnamese"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:visibility="visible" />
+        </RelativeLayout>
 
-        <TextView
-            android:id="@+id/tvHint"
-            android:layout_width="wrap_content"
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/btn_shape_selector"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="5dp"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:paddingRight="15dp"
-            android:paddingLeft="15dp"
-            android:textSize="16sp"
-            android:text="@string/vietnamese"
-            android:textColor="@color/white"
-            android:visibility="gone"
-            android:textStyle="bold"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/edtSearch" />
+            android:layout_below="@+id/llSpeed"
+            android:layout_marginTop="8dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            tools:listitem="@layout/phrases_item" />
+
     </RelativeLayout>
 
+</android.support.design.widget.CoordinatorLayout>
 
-    <ListView
-        android:id="@+id/lstPhrases"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" android:divider="@null"
-        android:fastScrollEnabled="true"/>
 
-</LinearLayout>

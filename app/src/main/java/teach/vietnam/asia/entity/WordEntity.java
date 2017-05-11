@@ -1,7 +1,7 @@
 package teach.vietnam.asia.entity;
 
 /**
- * Created by Administrator on 2/16/2017.
+ * Created by HuynhTD on 2/16/2017.
  */
 
 public class WordEntity {
@@ -11,7 +11,6 @@ public class WordEntity {
     private String o1;
     private String o2;
     private Integer level;
-    private String default_word;
     private String sound;
 
     ////////
@@ -26,7 +25,6 @@ public class WordEntity {
         this.kind = 0;
         this.level = 0;
         this.o2 = "";
-        this.default_word = "";
     }
 
     public String getSound() {
@@ -85,11 +83,4 @@ public class WordEntity {
         this.level = level;
     }
 
-    public String getDefault_word() {
-        return default_word;
-    }
-
-    public void setDefault_word(String default_word) {
-        this.default_word = default_word;
-    }
 }
