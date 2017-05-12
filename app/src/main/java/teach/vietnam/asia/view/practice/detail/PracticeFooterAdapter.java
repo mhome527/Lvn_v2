@@ -11,55 +11,59 @@ import android.widget.TextView;
 import teach.vietnam.asia.R;
 
 public class PracticeFooterAdapter extends BaseAdapter {
-	public int currentPage = 0;
-	private LayoutInflater inflater;
-	private int size;
+    public int currentPage = 0;
+    private LayoutInflater inflater;
+    private int size;
+    Context mContext;
 
-	public PracticeFooterAdapter(Context context, int size) {
-		inflater = LayoutInflater.from(context);
-		this.size = size;
-	}
+    public PracticeFooterAdapter(Context context, int size) {
+        inflater = LayoutInflater.from(context);
+        this.size = size;
+        mContext = context;
+    }
 
-	@Override
-	public int getCount() {
-		return size;
-	}
+    @Override
+    public int getCount() {
+        return size;
+    }
 
-	@SuppressLint("InflateParams")
-	@Override
-	public View getView(int position, View convertView, ViewGroup parent) {
-		final ViewHolder tag;
+    @SuppressLint("InflateParams")
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        final ViewHolder tag;
 //		ULog.i(TAG, "getoview pos:" + position +"; curr:" + currentPage);
-		if (convertView == null) {
-			convertView = inflater.inflate(R.layout.practice_footer_item, null);
-			tag = new ViewHolder();
-			tag.tvNum = (TextView) convertView.findViewById(R.id.tvNum);
+        if (convertView == null) {
+            convertView = inflater.inflate(R.layout.practice_footer_item, null);
+            tag = new ViewHolder();
+            tag.tvNum = (TextView) convertView.findViewById(R.id.tvNum);
 
-			convertView.setTag(tag);
-		} else {
-			tag = (ViewHolder) convertView.getTag();
-		}
+            convertView.setTag(tag);
+        } else {
+            tag = (ViewHolder) convertView.getTag();
+        }
 
-		tag.tvNum.setText((position + 1) + "");
-		if (currentPage == position)
-			tag.tvNum.setBackgroundResource(R.drawable.circle_red);
-		else
-			tag.tvNum.setBackgroundResource(0);
+        tag.tvNum.setText((position + 1) + "");
+        if (currentPage == position) {
+//            tag.tvNum.setBackgroundResource(R.drawable.circle_red);
+            tag.tvNum.setTextColor(mContext.getResources().getColor(R.color.ALL_red));
+        } else {
+//            tag.tvNum.setBackgroundResource(0);
+            tag.tvNum.setTextColor(mContext.getResources().getColor(R.color.ALL_gray));
+        }
+        return convertView;
+    }
 
-		return convertView;
-	}
+    @Override
+    public Object getItem(int position) {
+        return null;
+    }
 
-	@Override
-	public Object getItem(int position) {
-		return null;
-	}
+    @Override
+    public long getItemId(int position) {
+        return 0;
+    }
 
-	@Override
-	public long getItemId(int position) {
-		return 0;
-	}
-
-	static class ViewHolder {
-		TextView tvNum;
-	}
+    static class ViewHolder {
+        TextView tvNum;
+    }
 }
