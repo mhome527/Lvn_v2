@@ -13,7 +13,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -168,6 +167,11 @@ public class RecognizeMainActivity extends PurchaseActivity<RecognizeMainActivit
         pagerRecognize.setCurrentItem(currPage);
     }
 
+    @OnClick(R.id.btnBack)
+    public void actionBack() {
+        finish();
+    }
+
     ///////////
     private void setInitData() {
         lstData = new ArrayList<>();
@@ -179,7 +183,7 @@ public class RecognizeMainActivity extends PurchaseActivity<RecognizeMainActivit
         mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(RecognizeMainActivity.this, "Time for an upgrade, pos:" + position, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(RecognizeMainActivity.this, "Time for an upgrade, pos:" + position, Toast.LENGTH_SHORT).show();
                 mDrawerLayout.closeDrawers();
                 currPage = position;
                 pagerRecognize.setCurrentItem(currPage);

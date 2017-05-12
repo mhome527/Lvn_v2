@@ -1,17 +1,13 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" 
-    tools:context="teach.vietnam.asia.activity.GrammarDetailActivity">
-
-    <!--<WebView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:id="@+id/webView"-->
-        <!--/>-->
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    
     <android.support.v4.view.ViewPager
-        android:id="@+id/pagerGrammar" android:layout_margin="10dp"
+        android:id="@+id/pagerGrammar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_margin="10dp" />
 
 
     <ImageButton
@@ -26,8 +22,8 @@
         android:id="@+id/imgRight"
         android:layout_width="15dp"
         android:layout_height="55dp"
-        android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
         android:layout_marginRight="2dp"
         android:background="@drawable/btn_arrow_right_selector" />
 </RelativeLayout>

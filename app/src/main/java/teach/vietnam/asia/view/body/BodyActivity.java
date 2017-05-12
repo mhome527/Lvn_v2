@@ -92,7 +92,6 @@ public class BodyActivity extends BaseActivity<BodyActivity> {
     AudioPlayer audio;
 
 
-
     @Override
     protected int getLayout() {
         return R.layout.body_layout;
@@ -100,6 +99,7 @@ public class BodyActivity extends BaseActivity<BodyActivity> {
 
     @Override
     protected void initView() {
+        setTitle(getString(R.string.title_body));
         initData();
     }
 

@@ -36,7 +36,7 @@ public class FoodActivity extends BaseActivity<FoodActivity> {
     protected void initView() {
         Log.i(TAG, "initView");
 
-        setTitleCenter(getString(R.string.title_word));
+        setTitleCenter(getString(R.string.title_food));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.title_food2));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.title_drink2));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
@@ -63,6 +63,5 @@ public class FoodActivity extends BaseActivity<FoodActivity> {
             }
         });
     }
-
 
 }

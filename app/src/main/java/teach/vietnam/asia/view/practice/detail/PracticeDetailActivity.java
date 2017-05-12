@@ -7,7 +7,6 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import java.util.List;
 
@@ -26,8 +25,8 @@ public class PracticeDetailActivity extends BaseActivity<PracticeDetailActivity>
 
     private final String TAG = "PracticeDetailActivity";
 
-    @BindView(R.id.tvAns)
-    public TextView tvAns;
+//    @BindView(R.id.tvAns)
+//    public TextView tvAns;
 
     @BindView(R.id.pagerExceriese)
     ViewPager pagerExceriese;
@@ -56,10 +55,9 @@ public class PracticeDetailActivity extends BaseActivity<PracticeDetailActivity>
 
     @Override
     protected void initView() {
-        tvAns.setVisibility(View.INVISIBLE);
+//        tvAns.setVisibility(View.INVISIBLE);
+        setTitle(getString(R.string.title_practice));
         presenter = new PracticeDetailPresenter(activity);
-
-
     }
 
     @OnClick(R.id.imgSpeak)
@@ -96,7 +94,7 @@ public class PracticeDetailActivity extends BaseActivity<PracticeDetailActivity>
 
         Log.i(PracticeDetailActivity.class, "setInitData kind:" + kind);
         audio = new AudioPlayer(PracticeDetailActivity.this);
-        pagerExceriese.setPageMargin(-80);
+//        pagerExceriese.setPageMargin(-80);
         pagerExceriese.setOnPageChangeListener(new OnPageChangeListener() {
 
             @Override
@@ -106,10 +104,10 @@ public class PracticeDetailActivity extends BaseActivity<PracticeDetailActivity>
 
                 if (Constant.isPro) {
                     audio.speakWord(adapterPage.lstData.get(currPage).getVi());
-                    tvAns.setVisibility(View.INVISIBLE);
+//                    tvAns.setVisibility(View.INVISIBLE);
                 } else {
-                    tvAns.setText(adapterPage.lstData.get(currPage).getVi());
-                    tvAns.setVisibility(View.VISIBLE);
+//                    tvAns.setText(adapterPage.lstData.get(currPage).getVi());
+//                    tvAns.setVisibility(View.VISIBLE);
                 }
             }
 
@@ -134,7 +132,7 @@ public class PracticeDetailActivity extends BaseActivity<PracticeDetailActivity>
                 adapterFooter.currentPage = position;
                 adapterFooter.notifyDataSetChanged();
                 level = position + 1;
-                tvAns.setText("");
+//                tvAns.setText("");
                 loadData();
             }
         });
@@ -176,8 +174,8 @@ public class PracticeDetailActivity extends BaseActivity<PracticeDetailActivity>
                 if (data != null && data.size() > 0) {
                     adapterPage = new PracticePagerAdapter(activity, data, lang);
                     pagerExceriese.setAdapter(adapterPage);
-                    if (!Constant.isPro)
-                        tvAns.setText(adapterPage.lstData.get(0).getVi());
+//                    if (!Constant.isPro)
+//                        tvAns.setText(adapterPage.lstData.get(0).getVi());
                 }
             }
 

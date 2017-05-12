@@ -17,6 +17,7 @@ public class PracticeActivity extends BaseActivity<PracticeActivity> {
 
     @Override
     protected void initView() {
+        setTitle(getString(R.string.title_practice));
     }
 
     @OnClick(R.id.btnFruit)

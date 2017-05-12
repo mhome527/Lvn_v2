@@ -2,6 +2,7 @@ package teach.vietnam.asia.view.phrase;
 
 import android.os.Handler;
 import android.support.v4.view.MenuItemCompat;
+import android.support.v7.app.ActionBar;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.entity.WordEntity;
 import teach.vietnam.asia.sound.AudioPlayer;
@@ -48,6 +50,7 @@ public class Phrases2Activity extends BaseActivity<Phrases2Activity> implements 
     private Phrases2Presenter presenter;
     private List<WordEntity> lstData;
     private PhrasesAdapter2 adapter;
+    public boolean isSlowly = false;
 
 
     @Override
@@ -58,21 +61,20 @@ public class Phrases2Activity extends BaseActivity<Phrases2Activity> implements 
     @Override
     protected void initView() {
         presenter = new Phrases2Presenter(activity);
+        setTitle(getString(R.string.title_button_phrase));
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setHomeButtonEnabled(true); // disable the button
+            actionBar.setDisplayHomeAsUpEnabled(true); // remove the left caret
+            actionBar.setDisplayShowHomeEnabled(true); // remove the icon
+            actionBar.setDisplayShowTitleEnabled(true); // remove title
+        }
 
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         setSupportActionBar(mToolbar);
 
 
         Common.setupRecyclerView(activity, recyclerView, this);
-//        recyclerView.setHasFixedSize(true);
-//
-//        // use a linear layout manager
-//        LinearLayoutManager mLayoutManager = new LinearLayoutManager(activity);
-//        mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-//        recyclerView.setLayoutManager(mLayoutManager);
-
-        // Disabled nested scrolling since Parent scrollview will scroll the content.
-//        recyclerView.setNestedScrollingEnabled(false);
 
         initData();
     }
@@ -90,63 +92,16 @@ public class Phrases2Activity extends BaseActivity<Phrases2Activity> implements 
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
         return super.onOptionsItemSelected(item);
     }
 
-    private void search(SearchView searchView) {
-
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-
-                if (adapter != null)
-                    adapter.getFilter().filter(newText);
-                return true;
-            }
-        });
-    }
-
-
-    private void initData() {
-        audio = new AudioPlayer(activity);
-
-        presenter.loadData(new ICallback<List<WordEntity>>() {
-            @Override
-            public void onCallback(List<WordEntity> data) {
-                if (isFinishing()) {
-                    return;
-                }
-                lstData = data;
-                if (lstData != null && lstData.size() > 0) {
-                    Log.i(Phrases2Activity.class, "load data size:" + lstData.size());
-//                    adapter = new PhrasesAdapter(PhrasesActivity.this, lstData, PhrasesActivity.this);
-                    adapter = new PhrasesAdapter2(lstData);
-//                    adapter.setData(lstData);
-                    recyclerView.setAdapter(adapter);
-//                    activity.runOnUiThread(new Runnable() {
-//                        @Override
-//                        public void run() {
-//                            adapter.notifyDataSetChanged();
-//                        }
-//                    });
-                } else {
-                    Log.e(Phrases2Activity.class, "Load data Error");
-                    finish();
-                }
-            }
-
-            @Override
-            public void onFail(String err) {
-
-            }
-        });
+    @OnClick(R.id.ckbSpeed)
+    public void actionCkbSpeed() {
+        if (ckbSpeed.isChecked()) {
+            isSlowly = true;
+        } else {
+            isSlowly = false;
+        }
     }
 
 
@@ -182,4 +137,54 @@ public class Phrases2Activity extends BaseActivity<Phrases2Activity> implements 
     }
 
     ///==== END IClickListener
+
+
+    private void search(SearchView searchView) {
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+
+                if (adapter != null)
+                    adapter.getFilter().filter(newText);
+                return true;
+            }
+        });
+    }
+
+
+    private void initData() {
+        audio = new AudioPlayer(activity);
+
+        presenter.loadData(new ICallback<List<WordEntity>>() {
+            @Override
+            public void onCallback(List<WordEntity> data) {
+                if (isFinishing()) {
+                    return;
+                }
+                lstData = data;
+                if (lstData != null && lstData.size() > 0) {
+                    Log.i(Phrases2Activity.class, "load data size:" + lstData.size());
+                    adapter = new PhrasesAdapter2(lstData);
+                    recyclerView.setAdapter(adapter);
+
+                } else {
+                    Log.e(Phrases2Activity.class, "Load data Error");
+                    finish();
+                }
+            }
+
+            @Override
+            public void onFail(String err) {
+
+            }
+        });
+    }
+
 }

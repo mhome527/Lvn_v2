@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,18 +49,33 @@ public class PracticePagerAdapter extends PagerAdapter {
         final PracticeDetailEntity entity;
         LayoutInflater inflater = (LayoutInflater) collection.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final View view = inflater.inflate(R.layout.practice_page_item, null);
+        entity = lstExceriese.get(position);
 
         ImageView imgE1 = (ImageView) view.findViewById(R.id.imgE1);
         ImageView imgE2 = (ImageView) view.findViewById(R.id.imgE2);
         ImageView imgE3 = (ImageView) view.findViewById(R.id.imgE3);
         ImageView imgE4 = (ImageView) view.findViewById(R.id.imgE4);
 
-        entity = lstExceriese.get(position);
+        final TextView tvText1 = (TextView) view.findViewById(R.id.tvText1);
+        final TextView tvText2 = (TextView) view.findViewById(R.id.tvText2);
+        final TextView tvText3 = (TextView) view.findViewById(R.id.tvText3);
+        final TextView tvText4 = (TextView) view.findViewById(R.id.tvText4);
+
 
         setViewImg(imgE1, lstData.get(entity.pos1).getImg(), entity.pos1);
         setViewImg(imgE2, lstData.get(entity.pos2).getImg(), entity.pos2);
         setViewImg(imgE3, lstData.get(entity.pos3).getImg(), entity.pos3);
         setViewImg(imgE4, lstData.get(entity.pos4).getImg(), entity.pos4);
+
+        tvText1.setText(lstData.get(entity.pos1).getVi());
+        tvText2.setText(lstData.get(entity.pos2).getVi());
+        tvText3.setText(lstData.get(entity.pos3).getVi());
+        tvText4.setText(lstData.get(entity.pos4).getVi());
+
+        tvText1.setVisibility(View.INVISIBLE);
+        tvText2.setVisibility(View.INVISIBLE);
+        tvText3.setVisibility(View.INVISIBLE);
+        tvText4.setVisibility(View.INVISIBLE);
 
         view.setTag(position);
         ((ViewPager) collection).addView(view, 0);
@@ -72,10 +88,12 @@ public class PracticePagerAdapter extends PagerAdapter {
                 Log.i(PracticePagerAdapter.class, "createDate v1:" + pos);
                 if (pos == entity.ans) {
                     ((ImageView) view.findViewById(R.id.imgCheck1)).setVisibility(View.VISIBLE);
-                    activity.tvAns.setVisibility(View.VISIBLE);
-                    activity.tvAns.setText(lstData.get(position).getVi());
+//                    activity.tvAns.setVisibility(View.VISIBLE);
+//                    activity.tvAns.setText(lstData.get(position).getVi());
                 } else
                     ((ImageView) view.findViewById(R.id.imgCheck1x)).setVisibility(View.VISIBLE);
+
+                tvText1.setVisibility(View.VISIBLE);
             }
         });
 
@@ -86,10 +104,12 @@ public class PracticePagerAdapter extends PagerAdapter {
                 int pos = (Integer) img.getTag();
                 if (pos == entity.ans) {
                     ((ImageView) view.findViewById(R.id.imgCheck2)).setVisibility(View.VISIBLE);
-                    activity.tvAns.setVisibility(View.VISIBLE);
-                    activity.tvAns.setText(lstData.get(position).getVi());
+//                    activity.tvAns.setVisibility(View.VISIBLE);
+//                    activity.tvAns.setText(lstData.get(position).getVi());
                 } else
                     ((ImageView) view.findViewById(R.id.imgCheck2x)).setVisibility(View.VISIBLE);
+
+                tvText2.setVisibility(View.VISIBLE);
             }
         });
 
@@ -100,10 +120,12 @@ public class PracticePagerAdapter extends PagerAdapter {
                 int pos = (Integer) img.getTag();
                 if (pos == entity.ans) {
                     ((ImageView) view.findViewById(R.id.imgCheck3)).setVisibility(View.VISIBLE);
-                    activity.tvAns.setVisibility(View.VISIBLE);
-                    activity.tvAns.setText(lstData.get(position).getVi());
+//                    activity.tvAns.setVisibility(View.VISIBLE);
+//                    activity.tvAns.setText(lstData.get(position).getVi());
                 } else
                     ((ImageView) view.findViewById(R.id.imgCheck3x)).setVisibility(View.VISIBLE);
+
+                tvText3.setVisibility(View.VISIBLE);
             }
         });
 
@@ -114,10 +136,12 @@ public class PracticePagerAdapter extends PagerAdapter {
                 int pos = (Integer) img.getTag();
                 if (pos == entity.ans) {
                     ((ImageView) view.findViewById(R.id.imgCheck4)).setVisibility(View.VISIBLE);
-                    activity.tvAns.setVisibility(View.VISIBLE);
-                    activity.tvAns.setText(lstData.get(position).getVi());
+//                    activity.tvAns.setVisibility(View.VISIBLE);
+//                    activity.tvAns.setText(lstData.get(position).getVi());
                 } else
                     ((ImageView) view.findViewById(R.id.imgCheck4x)).setVisibility(View.VISIBLE);
+
+                tvText4.setVisibility(View.VISIBLE);
             }
         });
 

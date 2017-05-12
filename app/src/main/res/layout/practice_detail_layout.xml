@@ -1,43 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:orientation="horizontal" >
 
-        <ImageButton
-            android:id="@+id/imgSpeak"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginRight="5dp"
-            android:background="@drawable/button_volume_selector"
-            android:contentDescription="@string/app_name" />
-
-        <TextView
-            android:id="@+id/tvAns"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_toRightOf="@+id/imgSpeak"
-            android:gravity="bottom"
-            android:hint="@string/app_name"
-            android:paddingBottom="2dp"
-            android:textColor="@color/white"
-            android:textSize="22sp" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_below="@+id/tvAns"
-            android:layout_marginRight="30dp"
-            android:layout_toRightOf="@+id/imgSpeak"
-            android:background="@color/ALL_green" >
-        </View>
-    </RelativeLayout>
+    <ImageButton
+        android:id="@+id/imgSpeak"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/button_volume_selector"
+        android:contentDescription="@string/app_name" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/pagerExceriese"
@@ -48,14 +25,17 @@
     <LinearLayout
         android:id="@+id/llLevel"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_margin="5dp" >
+        android:layout_height="40dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/ALL_brown"
+        android:gravity="center_vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_margin="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:hint="@string/level"
             android:textSize="18sp" />
 
@@ -64,10 +44,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|left"
+            android:background="@color/green"
             android:columnWidth="40dp"
             android:gravity="center"
-            android:stretchMode="spacingWidthUniform" >
-        </GridView>
+            android:stretchMode="spacingWidthUniform"
+            tools:listitem="@layout/practice_footer_item" />
     </LinearLayout>
 
 </LinearLayout>

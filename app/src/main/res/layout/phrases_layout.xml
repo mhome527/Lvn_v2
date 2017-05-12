@@ -65,7 +65,7 @@
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:visibility="visible" />
+                android:visibility="invisible" />
         </RelativeLayout>
 
 
@@ -74,7 +74,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/llSpeed"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="0dp"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             tools:listitem="@layout/phrases_item" />
 

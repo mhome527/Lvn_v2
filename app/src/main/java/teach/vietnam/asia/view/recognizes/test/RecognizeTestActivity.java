@@ -189,6 +189,11 @@ public class RecognizeTestActivity extends PurchaseActivity<RecognizeTestActivit
         pagerRecognize.setCurrentItem(currPage);
     }
 
+    @OnClick(R.id.btnBack)
+    public void actionBack() {
+        onBackPressed();
+    }
+
     //==========
     @Override
     public String getCurrWord() {

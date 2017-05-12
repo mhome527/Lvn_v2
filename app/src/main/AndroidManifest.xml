@@ -39,13 +39,11 @@
         <activity
             android:name=".view.number.NumberActivity"
             android:parentActivityName=".view.dashboard.DashboardActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/MyTheme" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.body.BodyActivity"
             android:parentActivityName=".view.dashboard.DashboardActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/MyTheme" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".view.search.SearchAllActivity"
             android:parentActivityName=".view.dashboard.DashboardActivity"
@@ -54,8 +52,7 @@
         <activity
             android:name=".view.color.ColorActivity"
             android:parentActivityName=".view.dashboard.DashboardActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/MyTheme" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".view.foods.FoodActivity"
             android:parentActivityName=".view.dashboard.DashboardActivity"
@@ -63,24 +60,20 @@
         <activity
             android:name=".view.grammar.GrammarActivity"
             android:parentActivityName=".view.dashboard.DashboardActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/MyTheme" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.grammar.detail.GrammarDetailActivity"
             android:parentActivityName=".view.grammar.GrammarActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/MyTheme" />
+            android:screenOrientation="portrait" />
 
         <activity
             android:name=".view.practice.PracticeActivity"
             android:parentActivityName=".view.dashboard.DashboardActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/MyTheme" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.practice.detail.PracticeDetailActivity"
             android:parentActivityName=".view.dashboard.DashboardActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/MyTheme" />
+            android:screenOrientation="portrait"/>
         <!--<activity-->
         <!--android:name=".view.recognize.RecognizeMainActivity"-->
         <!--android:parentActivityName=".view.dashboard.DashboardActivity"-->
@@ -98,8 +91,7 @@
         <activity
             android:name=".view.translate.TranslateActivity"
             android:parentActivityName=".view.dashboard.DashboardActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/MyTheme" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.word.WordActivity"
             android:parentActivityName=".view.dashboard.DashboardActivity"

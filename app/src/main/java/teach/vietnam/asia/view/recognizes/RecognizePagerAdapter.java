@@ -22,15 +22,12 @@ public class RecognizePagerAdapter extends PagerAdapter {
 
     private final String TAG = "RecognizePagerAdapter";
     private RecognizeMainActivity activity;
-    //    public ArrayList<PracticeDetailEntity> lstExceriese;
     private int num;
     private String lang;
     ListView lstRecognize;
 //    RecognizePresenter presenter;
 
     public RecognizePagerAdapter(RecognizeMainActivity activity, int num) {
-
-//        lstExceriese = new ArrayList<>();
         this.num = num;
         this.activity = activity;
 //        lang  = activity.getString(R.string.language);
@@ -61,28 +58,6 @@ public class RecognizePagerAdapter extends PagerAdapter {
         RecognizeListAdapter adapter = new RecognizeListAdapter(activity, lstData, position + 1);
         lstRecognize.setAdapter(adapter);
         adapter.notifyDataSetChanged();
-
-//        new LoadData(lstRecognize, position).execute();
-//        activity.presenter.loadData(position + 1, new ICallback<List<RecognizeEntity>>() {
-//            @Override
-//            public void onCallback(final List<RecognizeEntity> data) {
-//                activity.runOnUiThread(new Runnable() {
-//                    @Override
-//            public void run() {
-//                Log.i(TAG, "loadData page size:" + data.size());
-//                RecognizeListAdapter adapter = new RecognizeListAdapter(activity, data, position + 1);
-//                lstRecognize.setAdapter(adapter);
-//                adapter.notifyDataSetChanged();
-//            }
-//        });
-//    }
-//
-//            @Override
-//            public void onFail(String err) {
-//                Log.e(TAG, "onFail error:" + err);
-//            }
-//        });
-
 
         return view;
     }

@@ -13,7 +13,7 @@ import teach.vietnam.asia.R;
 import teach.vietnam.asia.utils.Log;
 import teach.vietnam.asia.view.BaseActivity;
 
-public class GrammarDetailActivity extends BaseActivity<GrammarDetailActivity>{
+public class GrammarDetailActivity extends BaseActivity<GrammarDetailActivity> {
 
     private String TAG = "GrammarDetailActivity";
     private final String PREF_PAGER_GRAMMAR = "pager_grammar";
@@ -41,6 +41,8 @@ public class GrammarDetailActivity extends BaseActivity<GrammarDetailActivity>{
     @Override
     protected void initView() {
         int pos;
+
+        setTitle(getString(R.string.title_grammar));
 
         pos = getIntent().getIntExtra(Constant.INTENT_POSITION, 0);
 
