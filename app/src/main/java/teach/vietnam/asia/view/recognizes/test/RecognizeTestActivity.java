@@ -56,10 +56,8 @@ public class RecognizeTestActivity extends PurchaseActivity<RecognizeTestActivit
     private ActionBarDrawerToggle mDrawerToggle;
     private String mActivityTitle;
 
+    String ansWord;
 
-//    private ArrayList<String> lstData;
-
-//    private List<RecognizeEntity> dataRecognize;
 
     //    private int amount = 0;
     public RecognizeTestPresenter presenter;
@@ -194,10 +192,16 @@ public class RecognizeTestActivity extends PurchaseActivity<RecognizeTestActivit
         onBackPressed();
     }
 
+    @OnClick(R.id.btnSpeak)
+    public void actionSpeak() {
+        audio.speakWord(ansWord);
+    }
+
     //==========
+
     @Override
     public String getCurrWord() {
-        return dataRecognize.get(arrW[currAns]).getVn();
+        return currWord
     }
 
     ///////////

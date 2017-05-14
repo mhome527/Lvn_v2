@@ -8,8 +8,8 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <ImageButton
-            android:id="@+id/imgSpeak"
+        <Button
+            android:id="@+id/btnSpeak"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"

@@ -23,8 +23,7 @@ public class RecognizeTestListAdapter extends BaseAdapter {
     //    private Context context;
     private List<RecognizeEntity> listData;
     private LayoutInflater layoutInflater;
-//    private String lang = "";
-//    private String ans = "";
+    String ansWord="";
 
     public interface RecognizeTest {
         String getCurrWord();
@@ -140,6 +139,9 @@ public class RecognizeTestListAdapter extends BaseAdapter {
             listData.set(number1, entryTmp);
 
         }
+
+        ran = new Random();
+        ansWord = listData.get(ran.nextInt(size - 1)).getVn();
     }
 
 }

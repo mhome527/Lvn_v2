@@ -60,9 +60,14 @@ public class PracticeDetailActivity extends BaseActivity<PracticeDetailActivity>
         presenter = new PracticeDetailPresenter(activity);
     }
 
-    @OnClick(R.id.imgSpeak)
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
+
+    @OnClick(R.id.btnSpeak)
     public void actionSpeak() {
-        if (Constant.isPro)
+//        if (Constant.isPro)
             audio.speakWord(adapterPage.lstData.get(currPage).getVi());
 //        else
 //            Utility.installPremiumApp(PracticeDetailActivity.this);
