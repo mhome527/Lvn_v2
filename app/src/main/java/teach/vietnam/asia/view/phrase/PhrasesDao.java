@@ -30,13 +30,14 @@ public class PhrasesDao extends BaseDao<WordEntity> {
         entity.setLevel(cursor.getInt(cursor.getColumnIndex(WordTable.COL_LEVEL)));
         entity.setKind(cursor.getInt(cursor.getColumnIndex(WordTable.COL_KIND)));
         entity.setImg(cursor.getString(cursor.getColumnIndex(WordTable.COL_IMG)));
+        entity.setNum(cursor.getInt(cursor.getColumnIndex(WordTable.COL_ROW_ID)));
 //        entity.setSound(cursor.getString(cursor.getColumnIndex(WordTable.COL_SOUND)));
         return entity;
     }
 
     public static List<WordEntity> getListData(Context context, int kind) {
         String where = " WHERE " + WordTable.COL_KIND + "=" + kind;
-        String sql = "SELECT * FROM " + WordTable.TABLE_NAME + where
+        String sql = "SELECT " + WordTable.COL_ROW_ID + ", * FROM " + WordTable.TABLE_NAME + where
                 + " ORDER BY " + WordTable.COL_VI;
         PhrasesDao dao = new PhrasesDao(context);
         return dao.fetchAll(sql);

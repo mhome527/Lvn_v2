@@ -21,6 +21,8 @@ public class PhrasesAdapter2 extends BaseAdapterView<PhrasesItemHolder> implemen
     private List<WordEntity> listData;
     private List<WordEntity> mFilteredList;
 
+    boolean isPurchased = false;
+
     public PhrasesAdapter2(List<WordEntity> listData) {
         this.listData = listData;
         mFilteredList = listData;
@@ -65,11 +67,7 @@ public class PhrasesAdapter2 extends BaseAdapterView<PhrasesItemHolder> implemen
 
     @Override
     public void onBindViewHolder(PhrasesItemHolder holder, int position) {
-        holder.setData(this.mFilteredList.get(position), true); //// FIXME: 5/11/2017 check param 2
-    }
-
-    public void setData(List<WordEntity> listData) {
-        this.listData = listData;
+        holder.setData(this.mFilteredList.get(position), isPurchased);
     }
 
     @Override
@@ -115,6 +113,14 @@ public class PhrasesAdapter2 extends BaseAdapterView<PhrasesItemHolder> implemen
                 notifyDataSetChanged();
             }
         };
+    }
+
+    public void setData(List<WordEntity> listData) {
+        this.listData = listData;
+    }
+
+    public void setPurchased(boolean isPurchased) {
+        this.isPurchased = isPurchased;
     }
 
     public WordEntity getItem(int pos) {

@@ -17,21 +17,22 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.entity.WordEntity;
 import teach.vietnam.asia.sound.AudioPlayer;
 import teach.vietnam.asia.sound.IAudioPlayer;
 import teach.vietnam.asia.utils.Common;
 import teach.vietnam.asia.utils.Log;
-import teach.vietnam.asia.view.BaseActivity;
 import teach.vietnam.asia.view.ICallback;
 import teach.vietnam.asia.view.IClickListener;
+import teach.vietnam.asia.view.purchase.PurchaseActivity;
 
 /**
  * Created by HuynhTD on 5/11/2017.
  */
 
-public class Phrases2Activity extends BaseActivity<Phrases2Activity> implements IClickListener {
+public class Phrases2Activity extends PurchaseActivity<Phrases2Activity> implements IClickListener {
 
     private final String TAG = "Phrases2Activity";
     @BindView(R.id.toolbar)
@@ -52,6 +53,7 @@ public class Phrases2Activity extends BaseActivity<Phrases2Activity> implements 
     private PhrasesAdapter2 adapter;
     public boolean isSlowly = false;
 
+    public boolean isPurchased = false; //  TRUE: if user has already bought product
 
     @Override
     protected int getLayout() {
@@ -62,6 +64,8 @@ public class Phrases2Activity extends BaseActivity<Phrases2Activity> implements 
     protected void initView() {
         presenter = new Phrases2Presenter(activity);
         setTitle(getString(R.string.title_button_phrase));
+        setSupportActionBar(mToolbar);
+
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setHomeButtonEnabled(true); // disable the button
@@ -71,7 +75,7 @@ public class Phrases2Activity extends BaseActivity<Phrases2Activity> implements 
         }
 
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-        setSupportActionBar(mToolbar);
+//        setSupportActionBar(mToolbar);
 
 
         Common.setupRecyclerView(activity, recyclerView, this);
@@ -108,27 +112,36 @@ public class Phrases2Activity extends BaseActivity<Phrases2Activity> implements 
     /// =============== IClickListener
     @Override
     public void actionClick(View view, int position) {
-        String word = adapter.getItem(position).getVi();
-        presenter.speakWord(word, new IAudioPlayer() {
-            @Override
-            public void showWord(String word, boolean visible) {
-                Log.i(TAG, "word: " + word + "; visible: " + visible);
-                if (activity == null || activity.isFinishing())
-                    return;
 
-                tvHint.setText(word);
-                if (visible)
-                    tvHint.setVisibility(View.VISIBLE);
-                else {
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            tvHint.setVisibility(View.GONE);
-                        }
-                    }, 1000);
+        if (isPurchased || adapter.getItem(position).getNum() < Constant.TRIAL) {
+            String word = adapter.getItem(position).getVi();
+            presenter.speakWord(word, new IAudioPlayer() {
+                @Override
+                public void showWord(String word, boolean visible) {
+                    Log.i(TAG, "word: " + word + "; visible: " + visible);
+                    if (activity == null || activity.isFinishing())
+                        return;
+
+                    tvHint.setText(word);
+                    if (visible)
+                        tvHint.setVisibility(View.VISIBLE);
+                    else {
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                tvHint.setVisibility(View.GONE);
+                            }
+                        }, 1000);
+                    }
                 }
-            }
-        });
+            });
+        } else {
+            //////////
+            Log.i(TAG, "===> buy!!!");
+            purchaseItem();
+        }
+
+
     }
 
     @Override
@@ -186,5 +199,36 @@ public class Phrases2Activity extends BaseActivity<Phrases2Activity> implements 
             }
         });
     }
+
+    //==================================== Purchase =========================
+    @Override
+    protected void dealWithIabSetupSuccess() {
+        if (getItemPurchased() == Constant.ITEM_PURCHASED) {
+            Log.i(TAG, "WithIabSetupSuccess...item purchased");
+            isPurchased = true;
+            adapter.setPurchased(isPurchased);
+            activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    adapter.notifyDataSetChanged();
+                }
+            });
+
+            /// Test only
+//            if (BuildConfig.DEBUG)
+//                clearPurchaseTest();
+
+        } else {
+            Log.i(TAG, "WithIabSetupSuccess item not purchase");
+            isPurchased = false;
+        }
+    }
+
+    @Override
+    protected void dealWithIabSetupFailure() {
+
+    }
+
+    //================================= END Purchase =========================
 
 }

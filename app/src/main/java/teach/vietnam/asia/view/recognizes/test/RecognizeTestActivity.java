@@ -201,7 +201,9 @@ public class RecognizeTestActivity extends PurchaseActivity<RecognizeTestActivit
 
     @Override
     public String getCurrWord() {
-        return currWord
+//        adapterPage.lstExceriese
+        return "";
+//        return currWord
     }
 
     ///////////

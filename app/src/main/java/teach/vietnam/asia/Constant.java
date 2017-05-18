@@ -16,8 +16,10 @@ public class Constant {
 
     // /////////
     // ========== Purchase ===========
-    public static final String BASE_64_KEY = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxUMxIhJ+tM1Ljj9x6eqL52tUVOpKsihGfgSD0GJ2tB5vTiS5E2+xA0iqfsFgTX3atsSNKefIY8gET//T0czPNCdF7bmnQJC0xDYPRXzebh0KbxAWqkRWr7eUb0fGafOc68v9YcjgCpM4q/S0T1lkvDJlax4CBLgEd4N/GEKaxHospLyxVbzoQ4yn0b2K4XZUGB5Dvo6XwHxI6w+D668uZPW/oz/zZW7KgoXpvtNYVwTFUBCMvSPhqFu8Ek4+OBo7feYIsPUyXf1fk4M8b+6nMybBxUnyzr3osM8kDltGg64ZqVD8BXVxvbJ7RWCZPIL8hL/IV+WFesso/MLktXPpSQIDAQAB";
-    public static final String SKU = "study.vn.jp";
+  //lvn
+    public static final String BASE_64_KEY = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuUqLwyRYe0YHJFbhVgiXF9mmV/7K4yHiBRHHV5t5AMmFeKbVa1cM+LGeA/9rlzAJbLPwtF3UHG+V0wtxvijETA3j7vQE6sNX9tH72j7SOYFaU2HLN9zjcd83RSzipcMdAUZjIY6FdRSj3FIq/4fmzr6OEOWJpAYT8Lgm0oeCvnyWdhSOQw6m6gnZrXFSlWV2npFV+3rZWYoWL8/YA+RZtV7ECds4kHJiwvwkk0gkfJ2jPWokVZGWZWRzTjEABJG6QYTRWjr0t7iIcybdjzFdqdgml4ZT0p4vms+dZcRcXp5jkccuA/9z+jGZHaugdTAbPr467wbW0jui1ymabTMQRQIDAQAB";
+  ////
+    public static final String SKU = "study.vn.lvn2";
     //    public static final String SKU = "android.test.purchased";
     public static final int PURCHASE_REQUEST_CODE = 1080;
     public static final boolean ITEM_PURCHASED = true;
@@ -35,7 +37,7 @@ public class Constant {
 
     //    public static final String DB_NAME = "VN.db";
     public static final String DB_NAME_V2 = "VN_V2.db";
-    public static final int DATABASE_VERSION = 1;
+    public static final int DATABASE_VERSION = 2;
 
     //    public static final String JSON_WORDS_NAME;
     public static final String JSON_RECOGNIZE_NAME;

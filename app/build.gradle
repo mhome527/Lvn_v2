@@ -4,7 +4,7 @@ android {
     signingConfigs {
         release2 {
             keyAlias 'lvn'
-            storeFile file('lvn.jks')
+            storeFile file('D:/mydata/git/Lvn_v2/lvn.jks')
             keyPassword '81p'
             storePassword '81p'
         }
@@ -55,6 +55,10 @@ android {
         product {
             applicationId 'learn.vietnamese.vn.pro'
         }
+    }
+
+    lintOptions{
+        disable 'MissingTranslation'
     }
 
 //    lintOptions {

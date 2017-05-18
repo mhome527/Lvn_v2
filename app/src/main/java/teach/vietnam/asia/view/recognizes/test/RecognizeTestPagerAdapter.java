@@ -9,10 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import java.util.ArrayList;
-
 import teach.vietnam.asia.R;
-import teach.vietnam.asia.entity.PracticeDetailEntity;
 
 public class RecognizeTestPagerAdapter extends PagerAdapter {
 
@@ -22,11 +19,11 @@ public class RecognizeTestPagerAdapter extends PagerAdapter {
 
     private RecognizeTestActivity activity;
     private int totalPage;
-    public ArrayList<PracticeDetailEntity> lstExceriese;
+//    public ArrayList<PracticeDetailEntity> lstExceriese;
 //    private List dataRecognize;
 
     public RecognizeTestPagerAdapter(RecognizeTestActivity activity, int totalPage, RecognizeTestListAdapter.RecognizeTest recognizeTest) {
-        lstExceriese = new ArrayList<>();
+//        lstExceriese = new ArrayList<>();
         this.activity = activity;
 //        this.dataRecognize = dataRecognize;
         this.recognizeTest = recognizeTest;

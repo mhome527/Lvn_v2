@@ -13,6 +13,7 @@ public class WordEntity {
     private Integer level;
     private String sound;
 
+    private int num = 0;
     ////////
 
     public WordEntity() {
@@ -83,4 +84,11 @@ public class WordEntity {
         this.level = level;
     }
 
+    public int getNum() {
+        return num;
+    }
+
+    public void setNum(int num) {
+        this.num = num;
+    }
 }
