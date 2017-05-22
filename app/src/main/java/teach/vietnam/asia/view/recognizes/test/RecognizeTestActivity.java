@@ -33,7 +33,8 @@ import teach.vietnam.asia.view.recognizes.MenuRecognizeAdapter;
  * Created by huynhtd on 10/17/2016.
  */
 
-public class RecognizeTestActivity extends PurchaseActivity<RecognizeTestActivity> implements RecognizeTestListAdapter.RecognizeTest {
+public class RecognizeTestActivity extends PurchaseActivity<RecognizeTestActivity> {
+//        implements RecognizeTestListAdapter.RecognizeTest {
 
     private static String TAG = "RecognizeTestActivity";
 
@@ -194,17 +195,18 @@ public class RecognizeTestActivity extends PurchaseActivity<RecognizeTestActivit
 
     @OnClick(R.id.btnSpeak)
     public void actionSpeak() {
-        audio.speakWord(ansWord);
+        Log.i(TAG, "speak:" + ansWord);
+//        audio.speakWord(ansWord);
     }
 
     //==========
 
-    @Override
-    public String getCurrWord() {
-//        adapterPage.lstExceriese
-        return "";
-//        return currWord
-    }
+//    @Override
+//    public String getCurrWord() {
+////        adapterPage.lstExceriese
+//        return "";
+////        return currWord
+//    }
 
     ///////////
     private void setInitData() {
@@ -240,7 +242,7 @@ public class RecognizeTestActivity extends PurchaseActivity<RecognizeTestActivit
 
 //                    amount = totalPage;
 
-                    adapterPage = new RecognizeTestPagerAdapter(activity, amount, activity);
+                    adapterPage = new RecognizeTestPagerAdapter(activity, amount, null);
                     pagerRecognize.setAdapter(adapterPage);
                     adapterPage.notifyDataSetChanged();
 
@@ -296,7 +298,7 @@ public class RecognizeTestActivity extends PurchaseActivity<RecognizeTestActivit
 
                 pref.putIntValue(currPage, Constant.PREF_PAGE);
 
-
+                ansWord = adapterPage.adapters.get(position).ansWord;
                 if (currPage == 0)
                     llLeft.setVisibility(View.INVISIBLE);
                 else if (currPage == amount - 1)

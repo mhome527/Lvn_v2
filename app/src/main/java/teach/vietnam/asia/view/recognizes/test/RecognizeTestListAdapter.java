@@ -23,20 +23,20 @@ public class RecognizeTestListAdapter extends BaseAdapter {
     //    private Context context;
     private List<RecognizeEntity> listData;
     private LayoutInflater layoutInflater;
-    String ansWord="";
+    String ansWord = "";
 
     public interface RecognizeTest {
         String getCurrWord();
     }
 
-    private RecognizeTest recognizeTest;
+//    private RecognizeTest recognizeTest;
 
     public RecognizeTestListAdapter(RecognizeTestActivity activity, int kind, RecognizeTest recognizeTest) {
 //        lang = BaseActivity.pref.getStringValue("en", Constant.EN);
         this.listData = activity.presenter.loadData(kind + 1);
 
 //        this.listData = cloneData(listData);
-        this.recognizeTest = recognizeTest;
+//        this.recognizeTest = recognizeTest;
 
         try {
             RandData();
@@ -67,6 +67,14 @@ public class RecognizeTestListAdapter extends BaseAdapter {
         return listData.get(position);
     }
 
+    public List<RecognizeEntity> getListData() {
+        return listData;
+    }
+
+    public String getAnswer() {
+        return ansWord;
+    }
+
     public long getItemId(int position) {
         return position;
     }
@@ -95,8 +103,9 @@ public class RecognizeTestListAdapter extends BaseAdapter {
             public void onClick(View view) {
                 String tag;
                 tag = (String) holder.rlWord.getTag(R.id.tvWord);
-                Log.i(TAG, "Word compare: " + tag + "; currWord:" + recognizeTest.getCurrWord());
-                if (tag.equals(recognizeTest.getCurrWord())) {
+                Log.i(TAG, "Word compare: " + tag + "; answer:" + ansWord);
+                if (tag.equals(ansWord)) {
+//                if (tag.equals(recognizeTest.getCurrWord())) {
                     holder.imgCheck.setBackgroundResource(R.drawable.o);
                     holder.tvWord.setTypeface(null, Typeface.BOLD);
                 } else

@@ -1,6 +1,8 @@
 package teach.vietnam.asia.view.dashboard;
 
 import android.app.Dialog;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
@@ -106,6 +108,24 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> {
         });
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_dashboard, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+
+            case R.id.menuLang:
+                showDialogLanguage();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
     @OnClick(R.id.llOtherApp)
     public void actionOtherApp() {
         Utility.installVnApp(activity);
@@ -156,7 +176,7 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> {
         llVietEnglish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BaseActivity.pref.putStringValue(Constant.TYPE_EN, Constant.TYPE_LANGUAGE);
+                BaseActivity.pref.putStringValue(Constant.EN, Constant.TYPE_LANGUAGE);
                 dialog.dismiss();
             }
         });
@@ -164,7 +184,7 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> {
         llVietJapan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BaseActivity.pref.putStringValue(Constant.TYPE_JA, Constant.TYPE_LANGUAGE);
+                BaseActivity.pref.putStringValue(Constant.JA, Constant.TYPE_LANGUAGE);
                 dialog.dismiss();
             }
         });
@@ -172,7 +192,7 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> {
         llVietKorean.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BaseActivity.pref.putStringValue(Constant.TYPE_KO, Constant.TYPE_LANGUAGE);
+                BaseActivity.pref.putStringValue(Constant.KO, Constant.TYPE_LANGUAGE);
                 dialog.dismiss();
             }
         });
@@ -180,7 +200,7 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> {
         llVietFrance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BaseActivity.pref.putStringValue(Constant.TYPE_FR, Constant.TYPE_LANGUAGE);
+                BaseActivity.pref.putStringValue(Constant.FR, Constant.TYPE_LANGUAGE);
                 dialog.dismiss();
             }
         });
@@ -188,7 +208,7 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> {
         llVietRussia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BaseActivity.pref.putStringValue(Constant.TYPE_RU, Constant.TYPE_LANGUAGE);
+                BaseActivity.pref.putStringValue(Constant.RU, Constant.TYPE_LANGUAGE);
                 dialog.dismiss();
             }
         });

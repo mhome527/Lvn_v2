@@ -16,7 +16,6 @@ import java.util.Locale;
 
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.entity.WordEntity;
-import teach.vietnam.asia.entity.tblVietEN;
 import teach.vietnam.asia.utils.Log;
 import teach.vietnam.asia.utils.NumberToWord;
 import teach.vietnam.asia.utils.Utility;
@@ -124,7 +123,6 @@ public class SearchAdapter extends BaseAdapter implements SectionIndexer {
     public void filter(String charText) {
         String word1 = "", word2 = "";
         long number;
-        tblVietEN tmp;
         try {
             charText = charText.toLowerCase(Locale.getDefault()).trim();
             Log.i(SearchAdapter.class, "key: " + charText);

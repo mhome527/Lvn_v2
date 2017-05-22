@@ -7,16 +7,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
 
-import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.entity.RecognizeEntity;
 import teach.vietnam.asia.sound.AudioPlayer;
 import teach.vietnam.asia.utils.Log;
-import teach.vietnam.asia.view.BaseActivity;
 
 public class RecognizeListAdapter extends BaseAdapter {
 
@@ -25,20 +24,18 @@ public class RecognizeListAdapter extends BaseAdapter {
     private Context context;
     private List<RecognizeEntity> listData;
     private LayoutInflater layoutInflater;
-    private String lang = "";
     private AudioPlayer audio;
     private int currPage;
+    boolean isPurchased;
 
-    public RecognizeListAdapter(Context context, List<RecognizeEntity> listData, int currPage) {
+    public RecognizeListAdapter(Context context, List<RecognizeEntity> listData, int currPage, boolean isPurchased) {
         this.context = context;
         this.listData = listData;
         this.currPage = currPage;
+        this.isPurchased = isPurchased;
         try {
             layoutInflater = LayoutInflater.from(context);
-//            lang = context.getString(R.string.language);
-            lang = BaseActivity.pref.getStringValue("en", Constant.EN);
             audio = new AudioPlayer(context);
-
         } catch (Exception e) {
             Log.e(TAG, "RecognizeListAdapter Error: " + e.getMessage());
         }
@@ -70,7 +67,7 @@ public class RecognizeListAdapter extends BaseAdapter {
             view = layoutInflater.inflate(R.layout.recognize_item, null);
             holder.tvWord = (TextView) view.findViewById(R.id.tvWord);
             holder.tvEx = (TextView) view.findViewById(R.id.tvEx);
-//            holder.tvOther = (TextView) view.findViewById(R.id.tvOther);
+            holder.imgLock = (ImageView) view.findViewById(R.id.imgLock);
 
             holder.btnSpeak = (Button) view.findViewById(R.id.btnSpeak);
             view.setTag(holder);
@@ -89,11 +86,16 @@ public class RecognizeListAdapter extends BaseAdapter {
         if (ot != null && !ot.equals(""))
             holder.tvEx.setText(ex + ": " + ot);
 
+        if (isPurchased || currPage < 10)
+            holder.imgLock.setVisibility(View.GONE);
+        else
+            holder.imgLock.setVisibility(View.VISIBLE);
+
         holder.btnSpeak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 //                audio.speakWord(listData.get(position).getVn());
-                if (Constant.isPro || currPage < 10)
+                if (isPurchased || currPage < 10)
                     audio.speakWord(entity.getVn());
 //                else
 //                    Utility.installPremiumApp(context);
@@ -104,7 +106,7 @@ public class RecognizeListAdapter extends BaseAdapter {
 
     public class ViewHolder {
         TextView tvWord;
-//        TextView tvOther;
+        ImageView imgLock;
         TextView tvEx;
         Button btnSpeak;
     }

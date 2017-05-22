@@ -293,7 +293,13 @@ public class RecognizeMainActivity extends PurchaseActivity<RecognizeMainActivit
         if (getItemPurchased() == Constant.ITEM_PURCHASED) {
             Log.i(TAG, "WithIabSetupSuccess...item purchased");
             isPurchased = true;
-
+            adapterPage.setPurchased(isPurchased);
+            activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    adapterPage.notifyDataSetChanged();
+                }
+            });
 
             /// Test only
 //            clearPurchaseTest();

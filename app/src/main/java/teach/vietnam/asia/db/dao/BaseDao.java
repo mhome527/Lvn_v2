@@ -11,16 +11,17 @@ import teach.vietnam.asia.BaseApplication;
 import teach.vietnam.asia.BuildConfig;
 import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.db.DatabaseHelper;
+import teach.vietnam.asia.entity.BaseEntity;
 
 
-public abstract class BaseDao<T> {
+public abstract class BaseDao<T extends BaseEntity> {
     public final static String TAG = BaseDao.class.getName();
     protected Context context;
-    public String lang = Constant.TYPE_EN;
+    public String lang = Constant.EN;
 
     public BaseDao(Context context) {
         this.context = context;
-        lang = BaseApplication.getInstance().pref.getStringValue("EN", Constant.TYPE_LANGUAGE);
+        lang = BaseApplication.getInstance().pref.getStringValue(Constant.EN, Constant.TYPE_LANGUAGE);
 
     }
 
@@ -62,16 +63,43 @@ public abstract class BaseDao<T> {
         return entity;
     }
 
+
+//    protected List<T> fetchAll(String sql) {
+//        Log.i(TAG, "fetchAll sql:" + sql);
+//        List<T> listData = new ArrayList<>();
+//        try {
+//            Cursor cursor = DatabaseHelper.getInstance(context).executeQuery(sql);
+//            if (cursor != null) {
+//                Log.i(TAG, "list " + this.getClass() + " size:" + cursor.getCount());
+//                if (cursor.moveToFirst()) {
+//                    do {
+//                        T entity = fetch(cursor);
+//                        entity.setNum(count);
+//                        listData.add(fetch(cursor));
+//                    } while (cursor.moveToNext());
+//                }
+//                cursor.close();
+//            }
+//        } catch (Exception e) {
+//            if (BuildConfig.DEBUG)
+//                e.printStackTrace();
+//        }
+//        return listData;
+//    }
+
     protected List<T> fetchAll(String sql) {
         Log.i(TAG, "fetchAll sql:" + sql);
         List<T> listData = new ArrayList<>();
         try {
             Cursor cursor = DatabaseHelper.getInstance(context).executeQuery(sql);
             if (cursor != null) {
+                int count = 0;
                 Log.i(TAG, "list " + this.getClass() + " size:" + cursor.getCount());
                 if (cursor.moveToFirst()) {
                     do {
-                        listData.add(fetch(cursor));
+                        T entity = fetch(cursor);
+                        entity.setNum(count++);
+                        listData.add(entity);
                     } while (cursor.moveToNext());
                 }
                 cursor.close();

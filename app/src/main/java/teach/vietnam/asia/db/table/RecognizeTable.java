@@ -17,13 +17,13 @@ public class RecognizeTable {
     public static final String COL_OT = "OT";
 
     public static String getTableName(String lang) {
-        if (lang.equals(Constant.TYPE_JA))
+        if (lang.equals(Constant.JA))
             return "TBL_REC_JA";
-        else if (lang.equals(Constant.TYPE_KO))
+        else if (lang.equals(Constant.KO))
             return "TBL_REC_KO";
-        else if (lang.equals(Constant.TYPE_FR))
+        else if (lang.equals(Constant.FR))
             return "TBL_REC_FR";
-        else if (lang.equals(Constant.TYPE_RU))
+        else if (lang.equals(Constant.RU))
             return "TBL_REC_RU";
         else
             return "TBL_REC_EN";

@@ -4,7 +4,7 @@ package teach.vietnam.asia.entity;
  * Created by HuynhTD on 2/16/2017.
  */
 
-public class WordEntity {
+public class WordEntity extends BaseEntity{
     private String vi;
     private Integer kind;
     private String img;
@@ -13,7 +13,6 @@ public class WordEntity {
     private Integer level;
     private String sound;
 
-    private int num = 0;
     ////////
 
     public WordEntity() {
@@ -84,11 +83,5 @@ public class WordEntity {
         this.level = level;
     }
 
-    public int getNum() {
-        return num;
-    }
 
-    public void setNum(int num) {
-        this.num = num;
-    }
 }

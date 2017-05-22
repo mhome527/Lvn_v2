@@ -107,13 +107,13 @@ public class PracticeDetailActivity extends BaseActivity<PracticeDetailActivity>
                 currPage = position;
 //                ULog.i(PracticeDetailActivity.class, "PageSelected Word:" + adapterPage.lstData.get(currPage).getVi());
 
-                if (Constant.isPro) {
+//                if (Constant.isPro) {
                     audio.speakWord(adapterPage.lstData.get(currPage).getVi());
 //                    tvAns.setVisibility(View.INVISIBLE);
-                } else {
+//                } else {
 //                    tvAns.setText(adapterPage.lstData.get(currPage).getVi());
 //                    tvAns.setVisibility(View.VISIBLE);
-                }
+//                }
             }
 
             @Override

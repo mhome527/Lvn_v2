@@ -5,13 +5,13 @@ public class Constant {
 
     //    final static public boolean isMyDebug = true;
     // ////////
-    final static public boolean isPro;
+//    final static public boolean isPro = false;
     final static public int TRIAL = 4;
 
     final static public String PACKAGE_VOICE = "market://details?id=com.google.android.voicesearch";
     //    final static public String PACKAGE_PREMIUM = "market://details?id=learn.vietnamese.vn.pro";
 //    final static public String PACKAGE_UPDATE = "market://details?id=" + BuildConfig.APPLICATION_ID;
-    final static public String API_MARKER = "https://androidquery.appspot.com/api/market?app=" + BuildConfig.APPLICATION_ID;
+//    final static public String API_MARKER = "https://androidquery.appspot.com/api/market?app=" + BuildConfig.APPLICATION_ID;
     final static public String PACKAGE_LJP = "market://details?id=vn.jp.language.ljp";
 
     // /////////
@@ -37,7 +37,7 @@ public class Constant {
 
     //    public static final String DB_NAME = "VN.db";
     public static final String DB_NAME_V2 = "VN_V2.db";
-    public static final int DATABASE_VERSION = 2;
+    public static final int DATABASE_VERSION = 3;
 
     //    public static final String JSON_WORDS_NAME;
     public static final String JSON_RECOGNIZE_NAME;
@@ -45,50 +45,50 @@ public class Constant {
 //    public static final String CREATE_DB = "DB72";
 
     public static final String TYPE_LANGUAGE = "type_language";
-    public static final String TYPE_EN = "type_en";
-    public static final String TYPE_JA = "type_ja";
-    public static final String TYPE_KO = "type_ko";
-    public static final String TYPE_FR = "type_fr";
-    public static final String TYPE_RU = "type_ru";
+//    public static final String TYPE_EN = "type_en";
+//    public static final String TYPE_JA = "type_ja";
+//    public static final String TYPE_KO = "type_ko";
+//    public static final String TYPE_FR = "type_fr";
+//    public static final String TYPE_RU = "type_ru";
 
-    public static final String FILE_JA;
-    public static final String FILE_KO;
-    public static final String FILE_RU;
-    public static final String FILE_FR;
-    public static final String FILE_ES;
-    public static final String FILE_IT;
-    public static final String FILE_EN;
+//    public static final String FILE_JA;
+//    public static final String FILE_KO;
+//    public static final String FILE_RU;
+//    public static final String FILE_FR;
+//    public static final String FILE_ES;
+//    public static final String FILE_IT;
+//    public static final String FILE_EN;
 //    public static final String macAllow = "a";
 
 
     public static final String JA = "ja";
     public static final String KO = "ko";
-    public static final String RU = "ru";
     public static final String FR = "fr";
-    public static final String ES = "es";
+    public static final String RU = "ru";
+//    public static final String ES = "es";
     public static final String IT = "it";
     public static final String EN = "en";
 
-    public static final String REC_JA = "rec_ja.txt";
-    public static final String REC_KO = "rec_ko.txt";
-    public static final String REC_RU = "rec_ru.txt";
-    public static final String REC_FR = "rec_fr.txt";
-    public static final String REC_ES = "rec_es.txt";
-    public static final String REC_IT = "rec_it.txt";
-    public static final String REC_EN = "rec_en.txt";
+//    public static final String REC_JA = "rec_ja.txt";
+//    public static final String REC_KO = "rec_ko.txt";
+//    public static final String REC_RU = "rec_ru.txt";
+//    public static final String REC_FR = "rec_fr.txt";
+//    public static final String REC_ES = "rec_es.txt";
+//    public static final String REC_IT = "rec_it.txt";
+//    public static final String REC_EN = "rec_en.txt";
 
     static {
 //        if (isMyDebug) {
         JSON_RECOGNIZE_NAME = "recognize.txt";
         JSON_MAPNAME_NAME = "MapName.txt";
 
-        FILE_JA = "ja.txt";
-        FILE_KO = "ko.txt";
-        FILE_RU = "ru.txt";
-        FILE_FR = "fr.txt";
-        FILE_ES = "es.txt";
-        FILE_IT = "it.txt";
-        FILE_EN = "en.txt";
+//        FILE_JA = "ja.txt";
+//        FILE_KO = "ko.txt";
+//        FILE_RU = "ru.txt";
+//        FILE_FR = "fr.txt";
+//        FILE_ES = "es.txt";
+//        FILE_IT = "it.txt";
+//        FILE_EN = "en.txt";
 
 //        } else {
 //            JSON_RECOGNIZE_NAME = "recognize.txt";
@@ -107,15 +107,15 @@ public class Constant {
 //        if (Utility.getMacAddress(MyApplication.getInstance()).equals(macAllow))
 //            isPro = true;
 //        else
-        if (BuildConfig.APPLICATION_ID.equals("learn.vietnamese.vn.pro"))
-            isPro = true;
-        else
-            isPro = false;
+//        if (BuildConfig.APPLICATION_ID.equals("learn.vietnamese.vn.pro"))
+//            isPro = true;
+//        else
+//            isPro = false;
     }
 
     public static final String KEY_UPDATE = "db_update_2"; // gia tri khac se delete database cu
-    public static final String KEY_SOUND = "key_sound";
-    public static final String VALUE_SOUND = "sound_7"; //gia tri tang khi file Mapname.txt thay doi.
+//    public static final String KEY_SOUND = "key_sound";
+//    public static final String VALUE_SOUND = "sound_7"; //gia tri tang khi file Mapname.txt thay doi.
     //
 //	// /////////
 //	public static final String COLUMN_SOUND = tblMapNameDao.Properties.Sound.columnName;

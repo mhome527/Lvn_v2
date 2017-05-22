@@ -11,28 +11,21 @@ import android.widget.ListView;
 
 import java.util.List;
 
-import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.entity.RecognizeEntity;
-import teach.vietnam.asia.view.BaseActivity;
-//import teach.vietnam.asia.view.recognizes.RecognizeListAdapter;
-
 
 public class RecognizePagerAdapter extends PagerAdapter {
 
     private final String TAG = "RecognizePagerAdapter";
     private RecognizeMainActivity activity;
     private int num;
-    private String lang;
     ListView lstRecognize;
+    boolean isPurchased = false;
 //    RecognizePresenter presenter;
 
     public RecognizePagerAdapter(RecognizeMainActivity activity, int num) {
         this.num = num;
         this.activity = activity;
-//        lang  = activity.getString(R.string.language);
-        lang = BaseActivity.pref.getStringValue("en", Constant.EN);
-
     }
 
     @Override
@@ -55,7 +48,7 @@ public class RecognizePagerAdapter extends PagerAdapter {
         view.setTag(position);
         ((ViewPager) collection).addView(view, 0);
         List<RecognizeEntity> lstData = activity.presenter.loadData(position + 1);
-        RecognizeListAdapter adapter = new RecognizeListAdapter(activity, lstData, position + 1);
+        RecognizeListAdapter adapter = new RecognizeListAdapter(activity, lstData, position + 1, isPurchased);
         lstRecognize.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
@@ -65,6 +58,10 @@ public class RecognizePagerAdapter extends PagerAdapter {
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
         ((ViewPager) container).removeView((View) object);
+    }
+
+    public void setPurchased(boolean isPurchased) {
+        this.isPurchased = isPurchased;
     }
 
 }

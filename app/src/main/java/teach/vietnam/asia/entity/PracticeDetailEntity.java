@@ -6,5 +6,4 @@ public class PracticeDetailEntity {
 	public int pos3;
 	public int pos4;
 	public int ans;
-	
 }

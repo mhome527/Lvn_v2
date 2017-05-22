@@ -39,31 +39,31 @@ public class WordTable extends SoundTable {
 
     public static String getTableName(String lang) {
         String table;
-        if (lang.equals(Constant.TYPE_JA))
+        if (lang.equals(Constant.JA))
             table = "TBL_VIET_JA";
-        else if (lang.equals(Constant.TYPE_KO))
+        else if (lang.equals(Constant.KO))
             table = "TBL_VIET_KO";
-        else if (lang.equals(Constant.TYPE_FR))
+        else if (lang.equals(Constant.FR))
             table = "TBL_VIET_EN";
-        else if (lang.equals(Constant.TYPE_RU))
+        else if (lang.equals(Constant.RU))
             table = "TBL_VIET_EN";
         else
             table = "TBL_VIET_EN";
         return table;
     }
 
-    public static String getTableName2(String lang) {
-        String table;
-        if (lang.equals(Constant.TYPE_JA))
-            table = "TBL_VIET_JA";
-        else if (lang.equals(Constant.TYPE_KO))
-            table = "TBL_VIET_KO";
-        else if (lang.equals(Constant.TYPE_FR))
-            table = "TBL_VIET_EN";
-        else if (lang.equals(Constant.TYPE_RU))
-            table = "TBL_VIET_EN";
-        else
-            table = "TBL_VIET_EN";
-        return table + " A, " + SoundTable.TABLE_NAME + " S";
-    }
+//    public static String getTableName2(String lang) {
+//        String table;
+//        if (lang.equals(Constant.JA))
+//            table = "TBL_VIET_JA";
+//        else if (lang.equals(Constant.TYPE_KO))
+//            table = "TBL_VIET_KO";
+//        else if (lang.equals(Constant.TYPE_FR))
+//            table = "TBL_VIET_EN";
+//        else if (lang.equals(Constant.TYPE_RU))
+//            table = "TBL_VIET_EN";
+//        else
+//            table = "TBL_VIET_EN";
+//        return table + " A, " + SoundTable.TABLE_NAME + " S";
+//    }
 }

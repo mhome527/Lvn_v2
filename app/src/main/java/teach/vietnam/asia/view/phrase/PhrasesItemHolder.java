@@ -6,6 +6,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import butterknife.BindView;
+import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.entity.WordEntity;
 import teach.vietnam.asia.view.BaseViewHolder;
@@ -32,7 +33,7 @@ public class PhrasesItemHolder extends BaseViewHolder {
 
         tvViet.setText(Html.fromHtml(item.getVi()));
         tvOther.setText(Html.fromHtml(item.getO1()));
-        if (isSpeak) {
+        if (isSpeak || item.getNum() <= Constant.TRIAL) {
             imgSpeak.setImageResource(R.drawable.ic_speaker);
         } else
             imgSpeak.setImageResource(R.drawable.ic_lock);
