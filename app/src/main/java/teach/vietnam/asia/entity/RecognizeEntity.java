@@ -1,10 +1,10 @@
 package teach.vietnam.asia.entity;
 
 /**
- * Created by Administrator on 2/21/2017.
+ * Created by HuynhTD on 2/21/2017.
  */
 
-public class RecognizeEntity {
+public class RecognizeEntity extends BaseEntity{
     private int group_id;
     private int word_id;
     private String vn;

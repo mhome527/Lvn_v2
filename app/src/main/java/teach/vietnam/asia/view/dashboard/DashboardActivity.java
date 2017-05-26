@@ -1,6 +1,8 @@
 package teach.vietnam.asia.view.dashboard;
 
 import android.app.Dialog;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -8,7 +10,6 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
-import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -153,97 +154,105 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> {
         // custom dialog
         final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.dialog_language_layout);
+        dialog.setContentView(R.layout.dialog_language2_layout);
 
 //        dialog.setCancelable(false);
 //        dialog.setTitle("Language");
 
         Button dialogButton = (Button) dialog.findViewById(R.id.btnChangeLang);
-        // if button is clicked, close the custom dialog
         dialogButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
             }
         });
+        RecyclerView recyclerView = (RecyclerView) dialog.findViewById(R.id.recyclerView);
 
-        LinearLayout llVietEnglish = (LinearLayout) dialog.findViewById(R.id.llVietEnglish);
-        LinearLayout llVietJapan = (LinearLayout) dialog.findViewById(R.id.llVietJapan);
-        LinearLayout llVietKorean = (LinearLayout) dialog.findViewById(R.id.llVietKorean);
-        LinearLayout llVietFrance = (LinearLayout) dialog.findViewById(R.id.llVietFrance);
-        LinearLayout llVietRussia = (LinearLayout) dialog.findViewById(R.id.llVietRussia);
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(activity);
+        mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(mLayoutManager);
 
-        llVietEnglish.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                BaseActivity.pref.putStringValue(Constant.EN, Constant.TYPE_LANGUAGE);
-                dialog.dismiss();
-            }
-        });
+        // Disabled nested scrolling since Parent scrollview will scroll the content.
+        recyclerView.setNestedScrollingEnabled(false);
 
-        llVietJapan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                BaseActivity.pref.putStringValue(Constant.JA, Constant.TYPE_LANGUAGE);
-                dialog.dismiss();
-            }
-        });
 
-        llVietKorean.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                BaseActivity.pref.putStringValue(Constant.KO, Constant.TYPE_LANGUAGE);
-                dialog.dismiss();
-            }
-        });
-
-        llVietFrance.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                BaseActivity.pref.putStringValue(Constant.FR, Constant.TYPE_LANGUAGE);
-                dialog.dismiss();
-            }
-        });
-
-        llVietRussia.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                BaseActivity.pref.putStringValue(Constant.RU, Constant.TYPE_LANGUAGE);
-                dialog.dismiss();
-            }
-        });
-
-        if (lang.equals("ja")) {
-            (dialog.findViewById(R.id.imgCheckEn)).setVisibility(View.INVISIBLE);
-            (dialog.findViewById(R.id.imgCheckJa)).setVisibility(View.VISIBLE);
-            (dialog.findViewById(R.id.imgCheckKo)).setVisibility(View.INVISIBLE);
-            (dialog.findViewById(R.id.imgCheckFr)).setVisibility(View.INVISIBLE);
-            (dialog.findViewById(R.id.imgCheckRu)).setVisibility(View.INVISIBLE);
-        } else if (lang.equals("ko")) {
-            (dialog.findViewById(R.id.imgCheckEn)).setVisibility(View.INVISIBLE);
-            (dialog.findViewById(R.id.imgCheckJa)).setVisibility(View.INVISIBLE);
-            (dialog.findViewById(R.id.imgCheckKo)).setVisibility(View.VISIBLE);
-            (dialog.findViewById(R.id.imgCheckFr)).setVisibility(View.INVISIBLE);
-            (dialog.findViewById(R.id.imgCheckRu)).setVisibility(View.INVISIBLE);
-        } else if (lang.equals("fr")) {
-            (dialog.findViewById(R.id.imgCheckEn)).setVisibility(View.INVISIBLE);
-            (dialog.findViewById(R.id.imgCheckJa)).setVisibility(View.INVISIBLE);
-            (dialog.findViewById(R.id.imgCheckKo)).setVisibility(View.INVISIBLE);
-            (dialog.findViewById(R.id.imgCheckFr)).setVisibility(View.VISIBLE);
-            (dialog.findViewById(R.id.imgCheckRu)).setVisibility(View.INVISIBLE);
-        } else if (lang.equals("ru")) {
-            (dialog.findViewById(R.id.imgCheckEn)).setVisibility(View.INVISIBLE);
-            (dialog.findViewById(R.id.imgCheckJa)).setVisibility(View.INVISIBLE);
-            (dialog.findViewById(R.id.imgCheckKo)).setVisibility(View.INVISIBLE);
-            (dialog.findViewById(R.id.imgCheckFr)).setVisibility(View.INVISIBLE);
-            (dialog.findViewById(R.id.imgCheckRu)).setVisibility(View.VISIBLE);
-        } else {
-            (dialog.findViewById(R.id.imgCheckEn)).setVisibility(View.VISIBLE);
-            (dialog.findViewById(R.id.imgCheckJa)).setVisibility(View.INVISIBLE);
-            (dialog.findViewById(R.id.imgCheckKo)).setVisibility(View.INVISIBLE);
-            (dialog.findViewById(R.id.imgCheckFr)).setVisibility(View.INVISIBLE);
-            (dialog.findViewById(R.id.imgCheckRu)).setVisibility(View.INVISIBLE);
-        }
+//        LinearLayout llVietEnglish = (LinearLayout) dialog.findViewById(R.id.llVietEnglish);
+//        LinearLayout llVietJapan = (LinearLayout) dialog.findViewById(R.id.llVietJapan);
+//        LinearLayout llVietKorean = (LinearLayout) dialog.findViewById(R.id.llVietKorean);
+//        LinearLayout llVietFrance = (LinearLayout) dialog.findViewById(R.id.llVietFrance);
+//        LinearLayout llVietRussia = (LinearLayout) dialog.findViewById(R.id.llVietRussia);
+//
+//        llVietEnglish.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                BaseActivity.pref.putStringValue(Constant.EN, Constant.TYPE_LANGUAGE);
+//                dialog.dismiss();
+//            }
+//        });
+//
+//        llVietJapan.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                BaseActivity.pref.putStringValue(Constant.JA, Constant.TYPE_LANGUAGE);
+//                dialog.dismiss();
+//            }
+//        });
+//
+//        llVietKorean.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                BaseActivity.pref.putStringValue(Constant.KO, Constant.TYPE_LANGUAGE);
+//                dialog.dismiss();
+//            }
+//        });
+//
+//        llVietFrance.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                BaseActivity.pref.putStringValue(Constant.FR, Constant.TYPE_LANGUAGE);
+//                dialog.dismiss();
+//            }
+//        });
+//
+//        llVietRussia.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                BaseActivity.pref.putStringValue(Constant.RU, Constant.TYPE_LANGUAGE);
+//                dialog.dismiss();
+//            }
+//        });
+//
+//        if (lang.equals("ja")) {
+//            (dialog.findViewById(R.id.imgCheckEn)).setVisibility(View.INVISIBLE);
+//            (dialog.findViewById(R.id.imgCheckJa)).setVisibility(View.VISIBLE);
+//            (dialog.findViewById(R.id.imgCheckKo)).setVisibility(View.INVISIBLE);
+//            (dialog.findViewById(R.id.imgCheckFr)).setVisibility(View.INVISIBLE);
+//            (dialog.findViewById(R.id.imgCheckRu)).setVisibility(View.INVISIBLE);
+//        } else if (lang.equals("ko")) {
+//            (dialog.findViewById(R.id.imgCheckEn)).setVisibility(View.INVISIBLE);
+//            (dialog.findViewById(R.id.imgCheckJa)).setVisibility(View.INVISIBLE);
+//            (dialog.findViewById(R.id.imgCheckKo)).setVisibility(View.VISIBLE);
+//            (dialog.findViewById(R.id.imgCheckFr)).setVisibility(View.INVISIBLE);
+//            (dialog.findViewById(R.id.imgCheckRu)).setVisibility(View.INVISIBLE);
+//        } else if (lang.equals("fr")) {
+//            (dialog.findViewById(R.id.imgCheckEn)).setVisibility(View.INVISIBLE);
+//            (dialog.findViewById(R.id.imgCheckJa)).setVisibility(View.INVISIBLE);
+//            (dialog.findViewById(R.id.imgCheckKo)).setVisibility(View.INVISIBLE);
+//            (dialog.findViewById(R.id.imgCheckFr)).setVisibility(View.VISIBLE);
+//            (dialog.findViewById(R.id.imgCheckRu)).setVisibility(View.INVISIBLE);
+//        } else if (lang.equals("ru")) {
+//            (dialog.findViewById(R.id.imgCheckEn)).setVisibility(View.INVISIBLE);
+//            (dialog.findViewById(R.id.imgCheckJa)).setVisibility(View.INVISIBLE);
+//            (dialog.findViewById(R.id.imgCheckKo)).setVisibility(View.INVISIBLE);
+//            (dialog.findViewById(R.id.imgCheckFr)).setVisibility(View.INVISIBLE);
+//            (dialog.findViewById(R.id.imgCheckRu)).setVisibility(View.VISIBLE);
+//        } else {
+//            (dialog.findViewById(R.id.imgCheckEn)).setVisibility(View.VISIBLE);
+//            (dialog.findViewById(R.id.imgCheckJa)).setVisibility(View.INVISIBLE);
+//            (dialog.findViewById(R.id.imgCheckKo)).setVisibility(View.INVISIBLE);
+//            (dialog.findViewById(R.id.imgCheckFr)).setVisibility(View.INVISIBLE);
+//            (dialog.findViewById(R.id.imgCheckRu)).setVisibility(View.INVISIBLE);
+//        }
 
         dialog.show();
     }
