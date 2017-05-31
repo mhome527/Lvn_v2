@@ -2,8 +2,8 @@
     android:shape="oval">
     <gradient
         android:angle="45"
-        android:endColor="@color/app_background_color"
-        android:startColor="@color/app_background_color" />
+        android:endColor="@color/white"
+        android:startColor="@color/white" />
     <corners android:radius="10dip" />
 
 </shape>

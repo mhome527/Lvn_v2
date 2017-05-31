@@ -25,6 +25,7 @@ import teach.vietnam.asia.utils.Utility;
 import teach.vietnam.asia.view.BaseActivity;
 import teach.vietnam.asia.view.alphabet.AlphabetActivity;
 import teach.vietnam.asia.view.body.BodyActivity;
+import teach.vietnam.asia.view.dashboard.language.LanguageAdapter;
 import teach.vietnam.asia.view.foods.FoodActivity;
 import teach.vietnam.asia.view.grammar.detail.GrammarDetailActivity;
 import teach.vietnam.asia.view.number.NumberActivity;
@@ -174,7 +175,7 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> {
 
         // Disabled nested scrolling since Parent scrollview will scroll the content.
         recyclerView.setNestedScrollingEnabled(false);
-
+        recyclerView.setAdapter(new LanguageAdapter(activity, lang));
 
 //        LinearLayout llVietEnglish = (LinearLayout) dialog.findViewById(R.id.llVietEnglish);
 //        LinearLayout llVietJapan = (LinearLayout) dialog.findViewById(R.id.llVietJapan);
