@@ -39,16 +39,16 @@ public class AlphabetPresenter extends BasePresenter<AlphabetActivity> {
             for (String name : arrAlphabet) {
                 tbl = new TblAlphabetEx();
                 tbl.setAlphabet(name);
-                if (name.toLowerCase().equals("sắc"))
-                    tbl.setSymbol("/");
-                else if (name.toLowerCase().equals("huyền"))
-                    tbl.setSymbol("\\");
-                else if (name.toLowerCase().equals("hỏi"))
-                    tbl.setSymbol("?");
-                else if (name.toLowerCase().equals("ngã"))
-                    tbl.setSymbol("~");
-                else if (name.toLowerCase().equals("nặng"))
-                    tbl.setSymbol(".");
+//                if (name.toLowerCase().equals("sắc"))
+//                    tbl.setSymbol("/");
+//                else if (name.toLowerCase().equals("huyền"))
+//                    tbl.setSymbol("\\");
+//                else if (name.toLowerCase().equals("hỏi"))
+//                    tbl.setSymbol("?");
+//                else if (name.toLowerCase().equals("ngã"))
+//                    tbl.setSymbol("~");
+//                else if (name.toLowerCase().equals("nặng"))
+//                    tbl.setSymbol(".");
 //                    sound = Common.getNameSound(name);
                 tbl.setSound(name);
                 lstData.add(tbl);

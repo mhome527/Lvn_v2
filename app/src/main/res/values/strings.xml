@@ -142,14 +142,12 @@
     <string name="title_activity_main2">Main2Activity</string>
 
     <string name="title_dashboard">Learn Japanese</string>
-    <string name="title_kanji">漢字</string>
     <string name="title_alphabet">Alphabet</string>
     <string name="title_grammar">Grammar</string>
     <string name="title_word">Words</string>
     <string name="title_food2">Food</string>
     <string name="title_drink2">Drink</string>
     <string name="title_phrase">Phrase</string>
-    <string name="title_coming_soon">Coming soon</string>
 
 
     <string name="title_animal">ANIMAL</string>

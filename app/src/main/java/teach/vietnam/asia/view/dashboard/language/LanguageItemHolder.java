@@ -30,7 +30,7 @@ public class LanguageItemHolder extends BaseViewHolder {
         super(itemView);
     }
 
-    public void setData(final LanguageEntity entity, String lang, final LanguageAdapter.OnItemClickListener onItemClickListener) {
+    public void setData(final LanguageEntity entity, String lang, final OnItemClickListener onItemClickListener) {
         if (entity.getLang().equals(lang))
             imgCheckEn.setBackgroundResource(R.drawable.bg_cycle_check_red);
         else

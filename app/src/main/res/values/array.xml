@@ -102,11 +102,6 @@
         <item>v</item>
         <item>x</item>
         <item>y</item>
-        <item>sắc</item>
-        <item>huyền</item>
-        <item>hỏi</item>
-        <item>ngã</item>
-        <item>nặng</item>
     </string-array>
 
     <string-array name="arr_grammar">

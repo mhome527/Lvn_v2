@@ -10,7 +10,7 @@ public class LanguageEntity extends BaseEntity {
     String lang;
 
     ////
-    public LanguageEntity(String text, String lang, int res) {
+    public LanguageEntity(String lang, String text, int res) {
         this.text = text;
         this.lang = lang;
         this.res = res;

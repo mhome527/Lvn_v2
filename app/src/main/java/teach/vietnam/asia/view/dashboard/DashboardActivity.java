@@ -26,6 +26,7 @@ import teach.vietnam.asia.view.BaseActivity;
 import teach.vietnam.asia.view.alphabet.AlphabetActivity;
 import teach.vietnam.asia.view.body.BodyActivity;
 import teach.vietnam.asia.view.dashboard.language.LanguageAdapter;
+import teach.vietnam.asia.view.dashboard.language.OnItemClickListener;
 import teach.vietnam.asia.view.foods.FoodActivity;
 import teach.vietnam.asia.view.grammar.detail.GrammarDetailActivity;
 import teach.vietnam.asia.view.number.NumberActivity;
@@ -45,6 +46,11 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> {
     @BindView(R.id.gridView)
     GridView gridView;
 
+    MenuItem itemLanguage;
+
+    LanguageAdapter adapterLanguage;
+    Dialog dialogLanguage;
+
     @Override
     protected int getLayout() {
         return R.layout.dashboard_layout;
@@ -54,6 +60,10 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> {
     protected void initView() {
         Log.i(TAG, "initView text: " + Constant.MY_TEXT);
         setTitle(getString(R.string.title_dashboard));
+        dialogLanguage = new Dialog(this);
+        dialogLanguage.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialogLanguage.setContentView(R.layout.dialog_language2_layout);
+
         createData();
 
         if (Common.isTablet(activity))
@@ -113,6 +123,10 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_dashboard, menu);
+        itemLanguage = menu.findItem(R.id.menuLang);
+
+        setIconLanguage();
+
         return true;
     }
 
@@ -135,6 +149,18 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> {
 
     ////// ======================================== /////////
 
+    OnItemClickListener onItemClickListener = new OnItemClickListener() {
+        @Override
+        public void onItemClick(String lang) {
+            activity.lang = lang;
+            BaseActivity.pref.putStringValue(lang, Constant.TYPE_LANGUAGE);
+            adapterLanguage.setLang(lang);
+            setIconLanguage();
+            dialogLanguage.dismiss();
+        }
+    };
+    ////==========
+
     private void createData() {
         listData = new ArrayList<>();
         listData.add(new DashboardEntity(R.drawable.ic_alphabet, getString(R.string.title_alphabet)));
@@ -150,24 +176,34 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> {
 //        listData.add(new DashboardEntity(R.drawable.button_word_on, getString(R.string.title_coming_soon)));
     }
 
+    private void setIconLanguage() {
+        if (lang.equals(Constant.JA))
+            itemLanguage.setIcon(getResources().getDrawable(R.drawable.japan));
+        else if (lang.equals(Constant.KO))
+            itemLanguage.setIcon(getResources().getDrawable(R.drawable.korea));
+        else if (lang.equals(Constant.FR))
+            itemLanguage.setIcon(getResources().getDrawable(R.drawable.france));
+        else if (lang.equals(Constant.RU))
+            itemLanguage.setIcon(getResources().getDrawable(R.drawable.russia));
+        else
+            itemLanguage.setIcon(getResources().getDrawable(R.drawable.english));
+    }
 
     private void showDialogLanguage() {
         // custom dialog
-        final Dialog dialog = new Dialog(this);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.dialog_language2_layout);
+
 
 //        dialog.setCancelable(false);
 //        dialog.setTitle("Language");
 
-        Button dialogButton = (Button) dialog.findViewById(R.id.btnChangeLang);
+        Button dialogButton = (Button) dialogLanguage.findViewById(R.id.btnChangeLang);
         dialogButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialog.dismiss();
+                dialogLanguage.dismiss();
             }
         });
-        RecyclerView recyclerView = (RecyclerView) dialog.findViewById(R.id.recyclerView);
+        RecyclerView recyclerView = (RecyclerView) dialogLanguage.findViewById(R.id.recyclerView);
 
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(activity);
         mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -175,88 +211,11 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> {
 
         // Disabled nested scrolling since Parent scrollview will scroll the content.
         recyclerView.setNestedScrollingEnabled(false);
-        recyclerView.setAdapter(new LanguageAdapter(activity, lang));
 
-//        LinearLayout llVietEnglish = (LinearLayout) dialog.findViewById(R.id.llVietEnglish);
-//        LinearLayout llVietJapan = (LinearLayout) dialog.findViewById(R.id.llVietJapan);
-//        LinearLayout llVietKorean = (LinearLayout) dialog.findViewById(R.id.llVietKorean);
-//        LinearLayout llVietFrance = (LinearLayout) dialog.findViewById(R.id.llVietFrance);
-//        LinearLayout llVietRussia = (LinearLayout) dialog.findViewById(R.id.llVietRussia);
-//
-//        llVietEnglish.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                BaseActivity.pref.putStringValue(Constant.EN, Constant.TYPE_LANGUAGE);
-//                dialog.dismiss();
-//            }
-//        });
-//
-//        llVietJapan.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                BaseActivity.pref.putStringValue(Constant.JA, Constant.TYPE_LANGUAGE);
-//                dialog.dismiss();
-//            }
-//        });
-//
-//        llVietKorean.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                BaseActivity.pref.putStringValue(Constant.KO, Constant.TYPE_LANGUAGE);
-//                dialog.dismiss();
-//            }
-//        });
-//
-//        llVietFrance.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                BaseActivity.pref.putStringValue(Constant.FR, Constant.TYPE_LANGUAGE);
-//                dialog.dismiss();
-//            }
-//        });
-//
-//        llVietRussia.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                BaseActivity.pref.putStringValue(Constant.RU, Constant.TYPE_LANGUAGE);
-//                dialog.dismiss();
-//            }
-//        });
-//
-//        if (lang.equals("ja")) {
-//            (dialog.findViewById(R.id.imgCheckEn)).setVisibility(View.INVISIBLE);
-//            (dialog.findViewById(R.id.imgCheckJa)).setVisibility(View.VISIBLE);
-//            (dialog.findViewById(R.id.imgCheckKo)).setVisibility(View.INVISIBLE);
-//            (dialog.findViewById(R.id.imgCheckFr)).setVisibility(View.INVISIBLE);
-//            (dialog.findViewById(R.id.imgCheckRu)).setVisibility(View.INVISIBLE);
-//        } else if (lang.equals("ko")) {
-//            (dialog.findViewById(R.id.imgCheckEn)).setVisibility(View.INVISIBLE);
-//            (dialog.findViewById(R.id.imgCheckJa)).setVisibility(View.INVISIBLE);
-//            (dialog.findViewById(R.id.imgCheckKo)).setVisibility(View.VISIBLE);
-//            (dialog.findViewById(R.id.imgCheckFr)).setVisibility(View.INVISIBLE);
-//            (dialog.findViewById(R.id.imgCheckRu)).setVisibility(View.INVISIBLE);
-//        } else if (lang.equals("fr")) {
-//            (dialog.findViewById(R.id.imgCheckEn)).setVisibility(View.INVISIBLE);
-//            (dialog.findViewById(R.id.imgCheckJa)).setVisibility(View.INVISIBLE);
-//            (dialog.findViewById(R.id.imgCheckKo)).setVisibility(View.INVISIBLE);
-//            (dialog.findViewById(R.id.imgCheckFr)).setVisibility(View.VISIBLE);
-//            (dialog.findViewById(R.id.imgCheckRu)).setVisibility(View.INVISIBLE);
-//        } else if (lang.equals("ru")) {
-//            (dialog.findViewById(R.id.imgCheckEn)).setVisibility(View.INVISIBLE);
-//            (dialog.findViewById(R.id.imgCheckJa)).setVisibility(View.INVISIBLE);
-//            (dialog.findViewById(R.id.imgCheckKo)).setVisibility(View.INVISIBLE);
-//            (dialog.findViewById(R.id.imgCheckFr)).setVisibility(View.INVISIBLE);
-//            (dialog.findViewById(R.id.imgCheckRu)).setVisibility(View.VISIBLE);
-//        } else {
-//            (dialog.findViewById(R.id.imgCheckEn)).setVisibility(View.VISIBLE);
-//            (dialog.findViewById(R.id.imgCheckJa)).setVisibility(View.INVISIBLE);
-//            (dialog.findViewById(R.id.imgCheckKo)).setVisibility(View.INVISIBLE);
-//            (dialog.findViewById(R.id.imgCheckFr)).setVisibility(View.INVISIBLE);
-//            (dialog.findViewById(R.id.imgCheckRu)).setVisibility(View.INVISIBLE);
-//        }
+        adapterLanguage = new LanguageAdapter(activity, lang, onItemClickListener);
+        recyclerView.setAdapter(adapterLanguage);
 
-        dialog.show();
+        dialogLanguage.show();
     }
-
 
 }

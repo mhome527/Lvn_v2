@@ -21,22 +21,13 @@ public class LanguageAdapter extends BaseAdapterView<LanguageItemHolder> {
     List<LanguageEntity> items;
     String currLang;
     Context context;
+    OnItemClickListener onItemClickListener;
 
-    interface OnItemClickListener {
-        void onItemClick(String lang);
-    }
 
-    public LanguageAdapter(Context context, String currLang) {
+    public LanguageAdapter(Context context, String currLang, OnItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
         initData(context, currLang);
     }
-
-    OnItemClickListener onItemClickListener = new OnItemClickListener() {
-        @Override
-        public void onItemClick(String lang) {
-            BaseActivity.pref.putStringValue(lang, Constant.TYPE_LANGUAGE);
-            setLang(lang);
-        }
-    };
 
     private void initData(Context context, String currLang) {
         this.context = context;
@@ -50,7 +41,7 @@ public class LanguageAdapter extends BaseAdapterView<LanguageItemHolder> {
 
     @Override
     protected List getListData() {
-        return null;
+        return items;
     }
 
     @Override
@@ -103,20 +94,4 @@ public class LanguageAdapter extends BaseAdapterView<LanguageItemHolder> {
         notifyDataSetChanged();
     }
 
-    /*
-     if (getString(R.string.language).equals(Constant.JA))
-                lang = Constant.JA;
-            else if (getString(R.string.language).equals(Constant.KO))
-                lang = Constant.KO;
-            else if (getString(R.string.language).equals(Constant.FR))
-                lang = Constant.FR;
-            else if (getString(R.string.language).equals(Constant.RU))
-                lang = Constant.RU;
-//            else if (getString(R.string.language).equals(Constant.ES))
-//                lang = Constant.ES;
-            else if (getString(R.string.language).equals(Constant.IT))
-                lang = Constant.IT;
-            else
-                lang = Constant.EN;
-     */
 }
