@@ -13,7 +13,6 @@ import teach.vietnam.asia.R;
 import teach.vietnam.asia.entity.TblAlphabetEx;
 import teach.vietnam.asia.sound.AudioPlayer;
 import teach.vietnam.asia.view.BaseActivity;
-import teach.vietnam.asia.view.ICallback;
 
 public class AlphabetActivity extends BaseActivity<AlphabetActivity> {
 
@@ -60,19 +59,23 @@ public class AlphabetActivity extends BaseActivity<AlphabetActivity> {
             }
         });
 
-        presenter.loadData(new ICallback<List<TblAlphabetEx>>() {
-            @Override
-            public void onCallback(List<TblAlphabetEx> data) {
-                lstData = data;
-                adapter = new AlphabetAdapter(AlphabetActivity.this, lstData);
-                gridWords.setAdapter(adapter);
-            }
+        lstData = presenter.getData();
+        adapter = new AlphabetAdapter(AlphabetActivity.this, lstData);
+        gridWords.setAdapter(adapter);
 
-            @Override
-            public void onFail(String err) {
-
-            }
-        });
+//        presenter.loadData(new ICallback<List<TblAlphabetEx>>() {
+//            @Override
+//            public void onCallback(List<TblAlphabetEx> data) {
+//                lstData = data;
+//                adapter = new AlphabetAdapter(AlphabetActivity.this, lstData);
+//                gridWords.setAdapter(adapter);
+//            }
+//
+//            @Override
+//            public void onFail(String err) {
+//
+//            }
+//        });
     }
 
     @Override

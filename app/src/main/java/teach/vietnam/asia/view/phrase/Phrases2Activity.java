@@ -191,6 +191,7 @@ public class Phrases2Activity extends PurchaseActivity<Phrases2Activity> impleme
                 if (lstData != null && lstData.size() > 0) {
                     Log.i(Phrases2Activity.class, "load data size:" + lstData.size());
                     adapter = new PhrasesAdapter2(lstData);
+                    adapter.setPurchased(isPurchased);
                     recyclerView.setAdapter(adapter);
 
                 } else {
@@ -212,6 +213,9 @@ public class Phrases2Activity extends PurchaseActivity<Phrases2Activity> impleme
         if (getItemPurchased() == Constant.ITEM_PURCHASED) {
             Log.i(TAG, "WithIabSetupSuccess...item purchased");
             isPurchased = true;
+            if(adapter == null)
+                return;
+
             adapter.setPurchased(isPurchased);
             activity.runOnUiThread(new Runnable() {
                 @Override

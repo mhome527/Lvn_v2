@@ -20,7 +20,7 @@ public class Constant {
     public static final String BASE_64_KEY = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuUqLwyRYe0YHJFbhVgiXF9mmV/7K4yHiBRHHV5t5AMmFeKbVa1cM+LGeA/9rlzAJbLPwtF3UHG+V0wtxvijETA3j7vQE6sNX9tH72j7SOYFaU2HLN9zjcd83RSzipcMdAUZjIY6FdRSj3FIq/4fmzr6OEOWJpAYT8Lgm0oeCvnyWdhSOQw6m6gnZrXFSlWV2npFV+3rZWYoWL8/YA+RZtV7ECds4kHJiwvwkk0gkfJ2jPWokVZGWZWRzTjEABJG6QYTRWjr0t7iIcybdjzFdqdgml4ZT0p4vms+dZcRcXp5jkccuA/9z+jGZHaugdTAbPr467wbW0jui1ymabTMQRQIDAQAB";
   ////
     public static final String SKU = "study.vn.lvn2";
-    //    public static final String SKU = "android.test.purchased";
+//        public static final String SKU = "android.test.purchased";
     public static final int PURCHASE_REQUEST_CODE = 1080;
     public static final boolean ITEM_PURCHASED = true;
     /// ===========
