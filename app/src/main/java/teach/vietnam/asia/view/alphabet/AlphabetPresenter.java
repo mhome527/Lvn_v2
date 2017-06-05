@@ -94,12 +94,12 @@ public class AlphabetPresenter extends BasePresenter<AlphabetActivity> {
         items.add(new TblAlphabetEx("s", "Con <font color='red'>s</font>óc", R.drawable.a_squirrel));
         items.add(new TblAlphabetEx("t", "<font color='red'>T</font>ô Phở", R.drawable.a_cow));
         items.add(new TblAlphabetEx("th", "Chiếc <font color='red'>th</font>uyền", R.drawable.a_fish));
-        items.add(new TblAlphabetEx("tr", "<font color='red'>Tr</font>ái me", R.drawable.a_cow));
+        items.add(new TblAlphabetEx("tr", "<font color='red'>Tr</font>ái me", R.drawable.a_tamarind));
         items.add(new TblAlphabetEx("u", "Chiếc th<font color='red'>u</font>yền", R.drawable.a_ship));
         items.add(new TblAlphabetEx("ư", "Trái d<font color='red'>ư</font>a hấu", R.drawable.a_watermelon));
         items.add(new TblAlphabetEx("v", "Cái <font color='red'>v</font>õng", R.drawable.a_fish));
         items.add(new TblAlphabetEx("x", "<font color='red'>X</font>e đạp", R.drawable.a_bike));
-        items.add(new TblAlphabetEx("y", "Chiếc thu<font color='red'>y</font>ền", R.drawable.a_fish));
+        items.add(new TblAlphabetEx("y", "Chiếc thu<font color='red'>y</font>ền", R.drawable.a_ship));
 
         return items;
     }

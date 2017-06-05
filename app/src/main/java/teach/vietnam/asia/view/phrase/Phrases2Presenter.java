@@ -38,7 +38,7 @@ public class Phrases2Presenter extends BasePresenter<Phrases2Activity> {
         String str = word.toLowerCase().replaceAll("\\?", "").replaceAll("\\.", "").replaceAll("!", "").replaceAll(",", "");
         str = android.text.Html.fromHtml(str).toString();
         audio.isSlowly = activity.isSlowly;
-//        audio.speakWord(str, iAudioPlayer);
+        audio.speakWord(str, iAudioPlayer);
         Log.i(TAG, "word: str:" + str);
     }
 

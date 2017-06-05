@@ -2,6 +2,7 @@ package teach.vietnam.asia.view.recognizes.test;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -34,7 +35,6 @@ import teach.vietnam.asia.view.recognizes.MenuRecognizeAdapter;
  */
 
 public class RecognizeTestActivity extends PurchaseActivity<RecognizeTestActivity> {
-//        implements RecognizeTestListAdapter.RecognizeTest {
 
     private static String TAG = "RecognizeTestActivity";
 
@@ -196,7 +196,7 @@ public class RecognizeTestActivity extends PurchaseActivity<RecognizeTestActivit
     @OnClick(R.id.btnSpeak)
     public void actionSpeak() {
         Log.i(TAG, "speak:" + ansWord);
-//        audio.speakWord(ansWord);
+        audio.speakWord(ansWord);
     }
 
     //==========
@@ -244,9 +244,21 @@ public class RecognizeTestActivity extends PurchaseActivity<RecognizeTestActivit
 
                     adapterPage = new RecognizeTestPagerAdapter(activity, amount, null);
                     pagerRecognize.setAdapter(adapterPage);
+                    ansWord = adapterPage.adapters.get(0).ansWord;
+
                     adapterPage.notifyDataSetChanged();
 
                     pagerRecognize.setCurrentItem(currPage);
+
+
+                    Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            audio.speakWord(ansWord);
+                        }
+                    }, 500);
+
                 } else {
                     Log.i(TAG, "Load data error!!!, num= 0");
                 }
@@ -299,6 +311,7 @@ public class RecognizeTestActivity extends PurchaseActivity<RecognizeTestActivit
                 pref.putIntValue(currPage, Constant.PREF_PAGE);
 
                 ansWord = adapterPage.adapters.get(position).ansWord;
+                Log.i(TAG, "page selected ansWord: " + ansWord);
                 if (currPage == 0)
                     llLeft.setVisibility(View.INVISIBLE);
                 else if (currPage == amount - 1)
@@ -307,6 +320,15 @@ public class RecognizeTestActivity extends PurchaseActivity<RecognizeTestActivit
                     llLeft.setVisibility(View.VISIBLE);
                     llRight.setVisibility(View.VISIBLE);
                 }
+
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        audio.speakWord(ansWord);
+                    }
+                }, 500);
+
             }
 
             @Override

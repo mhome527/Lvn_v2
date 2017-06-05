@@ -15,33 +15,35 @@
         android:orientation="vertical"
         android:padding="0dp">
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/llAlphabet"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
+            android:layout_height="38dp"
             android:paddingTop="0dp">
 
             <TextView
                 android:id="@+id/tvAlphabet"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginRight="2dp"
                 android:gravity="center"
                 android:paddingBottom="0dp"
                 android:text="@string/ok"
                 android:textColor="@color/black"
-                android:textSize="35sp" />
+                android:textSize="34sp" />
 
             <TextView
                 android:id="@+id/tvAlphabetRight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:padding="10dp"
+                android:layout_alignParentBottom="true"
+                android:layout_toRightOf="@+id/tvAlphabet"
+                android:padding="2dp"
                 android:text="@string/ok"
-                android:textColor="@color/darkred"
-                android:textSize="19sp" />
-        </LinearLayout>
+                android:textColor="@color/gray"
+                android:textSize="16sp" />
+        </RelativeLayout>
 
         <ImageView
             android:id="@+id/imgExample"

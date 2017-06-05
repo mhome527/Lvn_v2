@@ -204,6 +204,8 @@ public class RecognizeMainActivity extends PurchaseActivity<RecognizeMainActivit
                     amount = num;
 
                     adapterPage = new RecognizePagerAdapter(activity, amount);
+                    adapterPage.setPurchased(isPurchased);
+
                     pagerRecognize.setAdapter(adapterPage);
                     adapterPage.notifyDataSetChanged();
 
@@ -293,6 +295,9 @@ public class RecognizeMainActivity extends PurchaseActivity<RecognizeMainActivit
         if (getItemPurchased() == Constant.ITEM_PURCHASED) {
             Log.i(TAG, "WithIabSetupSuccess...item purchased");
             isPurchased = true;
+            if(adapterPage == null)
+                return;
+
             adapterPage.setPurchased(isPurchased);
             activity.runOnUiThread(new Runnable() {
                 @Override
