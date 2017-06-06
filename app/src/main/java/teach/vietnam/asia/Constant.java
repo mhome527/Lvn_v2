@@ -66,7 +66,7 @@ public class Constant {
     public static final String FR = "fr";
     public static final String RU = "ru";
 //    public static final String ES = "es";
-    public static final String IT = "it";
+//    public static final String IT = "it";
     public static final String EN = "en";
 
 //    public static final String REC_JA = "rec_ja.txt";

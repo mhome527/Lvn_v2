@@ -6,6 +6,28 @@
 
     <string name="language">ru</string>
 
+    <!-- TITLE  -->
+    <string name="title_alphabet">алфавит</string>
+    <string name="title_grammar">грамматика</string>
+    <string name="title_word">речь</string>
+    <string name="title_food2">питание</string>
+    <string name="title_drink2">напиток</string>
+    <string name="title_phrase">фраза</string>
+
+
+    <string name="title_animal">животное</string>
+    <string name="title_fruit">фрукты</string>
+    <string name="title_other">другой</string>
+    <string name="title_counter">счетчик</string>
+    <string name="title_body">тело</string>
+    <string name="title_food">питание</string>
+    <string name="title_practice">практика</string>
+    <string name="title_translate">переводить</string>
+    <string name="title_date">дата</string>
+    <string name="title_recognize">слушание</string>
+
+    <!-- ============ -->
+
     <string name="vietnamese">вьетнамский</string>
     <string name="tiengviet">Tiếng Việt</string>
     <string name="adUnitId">ca-app-pub-2668784685856471/6937421141</string>
@@ -130,47 +152,6 @@
         <item>gray</item>
         <item>pink</item>
         <item>carmine</item>
-    </string-array>
-
-    <string-array name="alphabet">
-        <item>a</item>
-        <item>ă</item>
-        <item>â</item>
-        <item>b</item>
-        <item>c</item>
-        <item>ch</item>
-        <item>d</item>
-        <item>đ</item>
-        <item>e</item>
-        <item>ê</item>
-        <item>g</item>
-        <item>gi</item>
-        <item>h</item>
-        <item>i</item>
-        <item>k</item>
-        <item>kh</item>
-        <item>l</item>
-        <item>m</item>
-        <item>n</item>
-        <item>ng</item>
-        <item>nh</item>
-        <item>o</item>
-        <item>ô</item>
-        <item>ơ</item>
-        <item>p</item>
-        <item>ph</item>
-        <item>q</item>
-        <item>r</item>
-        <item>s</item>
-        <item>t</item>
-        <item>th</item>
-        <item>tr</item>
-        <item>u</item>
-        <item>ư</item>
-        <item>v</item>
-        <item>x</item>
-        <item>y</item>
-
     </string-array>
 
     <string-array name="arr_grammar">

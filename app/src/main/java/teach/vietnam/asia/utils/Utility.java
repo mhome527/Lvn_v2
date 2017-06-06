@@ -9,6 +9,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.speech.RecognizerIntent;
 import android.widget.Toast;
@@ -19,6 +20,7 @@ import java.util.Random;
 
 import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.R;
+import teach.vietnam.asia.view.BaseActivity;
 
 //
 //import android.app.Activity;
@@ -89,7 +91,8 @@ import teach.vietnam.asia.R;
 //
 public class Utility {
     private static final String TAG = "Utility";
-//    public static int parseInt(final String num) {
+
+    //    public static int parseInt(final String num) {
 //        try {
 //            return Integer.parseInt(num);
 //        } catch (final Exception e) {
@@ -476,7 +479,7 @@ public class Utility {
         }
     }
 
-//    /**
+    //    /**
 //     * Showing google speech input dialog
 //     */
 //    public static void promptSpeechInput(Activity activity, int result, String lang) {
@@ -1124,5 +1127,16 @@ public class Utility {
 
         dialog.show();
     }
+
+
+    public static void setLanguage(BaseActivity activity) {
+        Locale locale = new Locale(activity.lang);
+        Locale.setDefault(locale);
+
+        Configuration config = activity.getResources().getConfiguration();
+        config.locale = locale;
+        activity.getBaseContext().getResources().updateConfiguration(config, activity.getBaseContext().getResources().getDisplayMetrics());
+    }
+
 
 }

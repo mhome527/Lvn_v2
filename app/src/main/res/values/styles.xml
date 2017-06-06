@@ -13,6 +13,7 @@
     </style>
 
     <style name="MyTheme" parent="Base.MyTheme"></style>
+
     <style name="Base.MyTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -38,5 +39,11 @@
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowCloseOnTouchOutside">false</item>
 
+    </style>
+
+    <style name="btnBack">
+        <item name="android:textStyle">bold</item>
+        <item name="android:background">@color/ALL_red</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 </resources>

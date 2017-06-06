@@ -64,46 +64,6 @@
         <item>carmine</item>
     </string-array>
 
-    <string-array name="alphabet">
-        <item>a</item>
-        <item>ă</item>
-        <item>â</item>
-        <item>b</item>
-        <item>c</item>
-        <item>ch</item>
-        <item>d</item>
-        <item>đ</item>
-        <item>e</item>
-        <item>ê</item>
-        <item>g</item>
-        <item>gi</item>
-        <item>h</item>
-        <item>i</item>
-        <item>k</item>
-        <item>kh</item>
-        <item>l</item>
-        <item>m</item>
-        <item>n</item>
-        <item>ng</item>
-        <item>nh</item>
-        <item>o</item>
-        <item>ô</item>
-        <item>ơ</item>
-        <item>p</item>
-        <item>ph</item>
-        <item>q</item>
-        <item>r</item>
-        <item>s</item>
-        <item>t</item>
-        <item>th</item>
-        <item>tr</item>
-        <item>u</item>
-        <item>ư</item>
-        <item>v</item>
-        <item>x</item>
-        <item>y</item>
-
-    </string-array>
 
     <string-array name="arr_grammar">
         <item>レッスン 1</item>

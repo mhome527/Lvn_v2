@@ -20,6 +20,17 @@
     <string name="title_drink2">飲物</string>
     <string name="title_phrase">語句</string>
 
+    <string name="title_animal">動物</string>
+    <string name="title_fruit">果物</string>
+    <string name="title_other">その他</string>
+    <string name="title_counter">カウンター</string>
+    <string name="title_body">体</string>
+    <string name="title_food">食べ物</string>
+    <string name="title_practice">練習</string>
+    <string name="title_translate">翻訳</string>
+    <string name="title_date">年月日</string>
+    <string name="title_recognize">聞き取り</string>
+
     <!--=============================-->
 
     <!--<string name="msg_alert_gps">Turn On Location Services to Allow \"%s\" to \n Determine Your Location</string>-->

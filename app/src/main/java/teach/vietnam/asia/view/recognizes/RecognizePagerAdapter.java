@@ -62,6 +62,7 @@ public class RecognizePagerAdapter extends PagerAdapter {
 
     public void setPurchased(boolean isPurchased) {
         this.isPurchased = isPurchased;
+        this.notifyDataSetChanged();
     }
 
 }

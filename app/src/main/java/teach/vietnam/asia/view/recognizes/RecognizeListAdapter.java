@@ -104,6 +104,11 @@ public class RecognizeListAdapter extends BaseAdapter {
         return view;
     }
 
+    public void setPurchased(boolean isPurchased){
+        this.isPurchased = isPurchased;
+//        this.notifyDataSetChanged();
+    }
+
     public class ViewHolder {
         TextView tvWord;
         ImageView imgLock;

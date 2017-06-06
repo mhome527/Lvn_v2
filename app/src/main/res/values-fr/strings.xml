@@ -11,6 +11,27 @@
     <string name="adUnitId">ca-app-pub-2668784685856471/6937421141</string>
     <!--<string name="action_settings">Settings</string>-->
 
+    <!-- TITLE -->
+    <string name="title_alphabet">ALPHABET</string>
+    <string name="title_grammar">GRAMMAIRE</string>
+    <string name="title_word">WORDS</string>
+    <string name="title_food2">FOOD</string>
+    <string name="title_drink2">BOISSON</string>
+    <string name="title_phrase">PHRASE</string>
+
+    <string name="title_animal">ANIMAL</string>
+    <string name="title_fruit">FRUITS</string>
+    <string name="title_other">AUTRE</string>
+    <string name="title_counter">COMPTEUR</string>
+    <string name="title_body">CORPS</string>
+    <string name="title_food">FOODS</string>
+    <string name="title_practice">pratique</string>
+    <string name="title_translate">TRADUIRE</string>
+    <string name="title_date">DATES</string>
+    <string name="title_recognize">ÉCOUTE</string>
+
+    <!-- =====-->
+
     <string name="cancel">annuler</string>
     <string name="save">Sauvegarder</string>
     <string name="ok">OK</string>

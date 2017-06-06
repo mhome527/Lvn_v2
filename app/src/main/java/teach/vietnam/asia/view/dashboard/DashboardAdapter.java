@@ -56,14 +56,18 @@ public class DashboardAdapter extends BaseAdapter {
             holderView.imgItem = (ImageView) convertView.findViewById(R.id.imgItem);
             holderView.tv = (TextView) convertView.findViewById(R.id.tvContent);
             convertView.setTag(holderView);
-        }else{
-            holderView = (HolderView)convertView.getTag();
+        } else {
+            holderView = (HolderView) convertView.getTag();
         }
 
         DashboardEntity entity = listData.get(position);
         holderView.imgItem.setImageResource(entity.img);
         holderView.tv.setText(entity.text);
         return convertView;
+    }
+
+    public void setData(List<DashboardEntity> listData) {
+        this.listData = listData;
     }
 
     static class HolderView {

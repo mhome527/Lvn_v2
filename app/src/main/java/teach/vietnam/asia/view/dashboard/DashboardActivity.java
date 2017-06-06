@@ -51,6 +51,8 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> {
     LanguageAdapter adapterLanguage;
     Dialog dialogLanguage;
 
+    DashboardAdapter adapter;
+
     @Override
     protected int getLayout() {
         return R.layout.dashboard_layout;
@@ -63,15 +65,17 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> {
         dialogLanguage = new Dialog(this);
         dialogLanguage.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialogLanguage.setContentView(R.layout.dialog_language2_layout);
+        listData = new ArrayList<>();
 
+        Utility.setLanguage(activity);
         createData();
 
         if (Common.isTablet(activity))
             gridView.setNumColumns(3);
         else
             gridView.setNumColumns(2);
-
-        gridView.setAdapter(new DashboardAdapter(this, listData));
+        adapter = new DashboardAdapter(this, listData);
+        gridView.setAdapter(adapter);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -142,6 +146,7 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> {
         }
     }
 
+
     @OnClick(R.id.llOtherApp)
     public void actionOtherApp() {
         Utility.installVnApp(activity);
@@ -154,15 +159,30 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> {
         public void onItemClick(String lang) {
             activity.lang = lang;
             BaseActivity.pref.putStringValue(lang, Constant.TYPE_LANGUAGE);
-            adapterLanguage.setLang(lang);
+//            adapterLanguage.setLang(lang);
             setIconLanguage();
+            Utility.setLanguage(activity);
+            ///
+
+            ///
+            createData();
+//            Handler handler = new Handler();
+//            handler.post(new Runnable() {
+//                @Override
+//                public void run() {
+////                    adapter.setData(listData);
+//                    adapter.notifyDataSetChanged();
+//                }
+//            });
+            adapter.notifyDataSetChanged();
+
             dialogLanguage.dismiss();
         }
     };
     ////==========
 
     private void createData() {
-        listData = new ArrayList<>();
+        listData.clear();
         listData.add(new DashboardEntity(R.drawable.ic_alphabet, getString(R.string.title_alphabet)));
         listData.add(new DashboardEntity(R.drawable.ic_number, getString(R.string.title_counter)));
         listData.add(new DashboardEntity(R.drawable.menu_body, getString(R.string.title_body)));
