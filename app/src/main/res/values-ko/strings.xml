@@ -14,7 +14,7 @@
 
     <!--=============================-->
     <string name="title_alphabet">알파벳</string>
-    <string name="title_grammar">文法</string>
+    <string name="title_grammar">문법</string>
     <string name="title_word">문법</string>
     <string name="title_food2">음식</string>
     <string name="title_drink2">음료</string>
@@ -37,7 +37,7 @@
     <string name="configm_replay">Are you want to quit application?</string>
     <string name="connect_wifi">네트워크 오류</string>
     <string name="turn_on_wifi">turn on Wifi</string>
-    <string name="exceriese">Exceriese</string>
+    <!--<string name="exceriese">Exceriese</string>-->
     <string name="speak_all">Speak all</string>
     <string name="speech_prompt">말하다</string>
     <string name="speech_prompt_recognize">말하다</string>
@@ -77,9 +77,6 @@
     <string name="toes_vn">ngón chân</string>
     <string name="heel_vn">gót chân</string>
     <string name="sysbol_dot">:</string>
-
-
-
 
 
     <!-- Global -->

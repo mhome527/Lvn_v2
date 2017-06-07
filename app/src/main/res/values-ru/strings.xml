@@ -43,7 +43,7 @@
     <string name="configm_replay">Вы хотите, чтобы бросить заявление?</string>
     <string name="connect_wifi">подключения к Интернету</string>
     <string name="turn_on_wifi">включить Wi-Fi</string>
-    <string name="exceriese">Exceriese</string>
+    <!--<string name="exceriese">Exceriese</string>-->
     <string name="speak_all">говорить все</string>
     <string name="speech_prompt">скажите что-то…</string>
     <string name="speech_prompt_recognize">говорить вьетнамцев</string>

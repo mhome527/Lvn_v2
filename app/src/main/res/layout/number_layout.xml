@@ -44,7 +44,7 @@
             android:layout_centerHorizontal="true"
             android:gravity="center"
             android:maxLines="3"
-            android:text="@string/number"
+            android:hint="@string/number"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/crimson"
             android:textSize="18sp" />

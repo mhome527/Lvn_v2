@@ -5,6 +5,7 @@ import android.database.Cursor;
 
 import java.util.List;
 
+import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.db.dao.BaseDao;
 import teach.vietnam.asia.db.table.WordTable;
 import teach.vietnam.asia.entity.WordEntity;
@@ -36,8 +37,14 @@ public class PracticeDao extends BaseDao<WordEntity> {
 
     public static List<WordEntity> getListData(Context context, int kind, int level) {
         PracticeDao dao = new PracticeDao(context);
-        String where = " WHERE " + WordTable.COL_KIND + "=" + kind
-                + " AND " + WordTable.COL_LEVEL + "=" + level;
+        String where;
+        if (kind == Constant.TYPE_DATA_FOOD)
+            where = " WHERE " + WordTable.COL_KIND + "=" + Constant.TYPE_DATA_FOOD
+                    + " OR " + WordTable.COL_KIND + "=" + Constant.TYPE_DATA_DRINK;
+        else
+            where = " WHERE " + WordTable.COL_KIND + "=" + kind;
+        where += " AND " + WordTable.COL_LEVEL + "=" + level;
+
         String sql = "SELECT * FROM " + WordTable.getTableName(dao.lang) + where
                 + " ORDER BY " + WordTable.COL_VI;
         return dao.fetchAll(sql);
@@ -48,9 +55,9 @@ public class PracticeDao extends BaseDao<WordEntity> {
 //        String sql = "SELECT COUNT(*) FROM " + WordTable.getTableName(dao.lang)
 //                + "GROUP BY " + WordTable.COL_LEVEL + " WHERE " + WordTable.COL_KIND + "=" + kind ;
 //
-       String sql = "SELECT " + WordTable.COL_LEVEL + " FROM " + WordTable.getTableName(dao.lang)
+        String sql = "SELECT " + WordTable.COL_LEVEL + " FROM " + WordTable.getTableName(dao.lang)
                 + " WHERE " + WordTable.COL_KIND + "=" + kind
-               + " Order by LEVEL desc LIMIT 1";
+                + " Order by LEVEL desc LIMIT 1";
 
 
         return dao.getCount(sql);

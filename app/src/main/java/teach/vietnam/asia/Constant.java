@@ -16,11 +16,11 @@ public class Constant {
 
     // /////////
     // ========== Purchase ===========
-  //lvn
+    //lvn
     public static final String BASE_64_KEY = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuUqLwyRYe0YHJFbhVgiXF9mmV/7K4yHiBRHHV5t5AMmFeKbVa1cM+LGeA/9rlzAJbLPwtF3UHG+V0wtxvijETA3j7vQE6sNX9tH72j7SOYFaU2HLN9zjcd83RSzipcMdAUZjIY6FdRSj3FIq/4fmzr6OEOWJpAYT8Lgm0oeCvnyWdhSOQw6m6gnZrXFSlWV2npFV+3rZWYoWL8/YA+RZtV7ECds4kHJiwvwkk0gkfJ2jPWokVZGWZWRzTjEABJG6QYTRWjr0t7iIcybdjzFdqdgml4ZT0p4vms+dZcRcXp5jkccuA/9z+jGZHaugdTAbPr467wbW0jui1ymabTMQRQIDAQAB";
-  ////
+    ////
     public static final String SKU = "study.vn.lvn2";
-//        public static final String SKU = "android.test.purchased";
+    //        public static final String SKU = "android.test.purchased";
     public static final int PURCHASE_REQUEST_CODE = 1080;
     public static final boolean ITEM_PURCHASED = true;
     /// ===========
@@ -37,7 +37,7 @@ public class Constant {
 
     //    public static final String DB_NAME = "VN.db";
     public static final String DB_NAME_V2 = "VN_V2.db";
-    public static final int DATABASE_VERSION = 3;
+    public static final int DATABASE_VERSION = 4;
 
     //    public static final String JSON_WORDS_NAME;
     public static final String JSON_RECOGNIZE_NAME;
@@ -65,7 +65,7 @@ public class Constant {
     public static final String KO = "ko";
     public static final String FR = "fr";
     public static final String RU = "ru";
-//    public static final String ES = "es";
+    //    public static final String ES = "es";
 //    public static final String IT = "it";
     public static final String EN = "en";
 
@@ -113,8 +113,8 @@ public class Constant {
 //            isPro = false;
     }
 
-    public static final String KEY_UPDATE = "db_update_2"; // gia tri khac se delete database cu
-//    public static final String KEY_SOUND = "key_sound";
+    public static final String KEY_UPDATE = "db_update_3"; // gia tri khac se delete database cu
+    //    public static final String KEY_SOUND = "key_sound";
 //    public static final String VALUE_SOUND = "sound_7"; //gia tri tang khi file Mapname.txt thay doi.
     //
 //	// /////////
@@ -144,6 +144,13 @@ public class Constant {
     public static final int REQ_CODE_SPEECH_INPUT = 1000;
     public static boolean bLog = BuildConfig.DEBUG;
     public static String PREF_PAGE = "curr_page";
+
+    public static int TYPE_DATA_FOOD = 3;
+    public static int TYPE_DATA_DRINK = 31;
+    public static int TYPE_DATA_ANIMAL = 4;
+    public static int TYPE_DATA_FRUIT = 1;
+    public static int TYPE_DATA_VEGETABLE = 2;
+    public static int TYPE_DATA_PHRASE = 11;
 
 
     public enum TYPE_WORD {

@@ -20,12 +20,14 @@
         tools:listitem="@layout/dashboard_item" />
 
     <LinearLayout
-        android:id="@+id/llOtherApp" android:layout_marginTop="2dp" android:layout_marginBottom="2dp"
+        android:id="@+id/llOtherApp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/darkred"
+        android:layout_marginTop="5dp"
+        android:background="@color/colorPrimaryDark"
         android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:padding="5dp">
 
         <ImageView
             android:layout_width="30dp"
@@ -42,8 +44,8 @@
             android:textStyle="bold" />
 
         <ImageView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:src="@drawable/ic_next" />
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:src="@drawable/ic_arrow_right" />
     </LinearLayout>
 </LinearLayout>

@@ -37,7 +37,7 @@
     <string name="configm_replay">アプリを終わります。\nよろしいですか？</string>
     <string name="connect_wifi">ネットワーク接続エラー</string>
     <string name="turn_on_wifi">turn on Wifi</string>
-    <string name="exceriese">Exceriese</string>
+    <!--<string name="exceriese">Exceriese</string>-->
     <string name="speak_all">Speak all</string>
     <string name="speech_prompt">何か言って</string>
     <string name="speech_prompt_recognize">ベトナム語で言って</string>

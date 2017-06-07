@@ -124,7 +124,7 @@ public class WordFragment extends BaseFragment<WordActivity> {
                 return new int[]{1, 2};
 
             case OTHER:
-                return new int[]{5, 7, 12};
+                return new int[]{5, 12};
 
             default:
                 return new int[]{1};

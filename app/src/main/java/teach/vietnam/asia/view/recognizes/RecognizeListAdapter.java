@@ -1,7 +1,6 @@
 package teach.vietnam.asia.view.recognizes;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,21 +20,21 @@ public class RecognizeListAdapter extends BaseAdapter {
 
     private final String TAG = "RecognizeListAdapter";
 
-    private Context context;
+    private RecognizeMainActivity activity;
     private List<RecognizeEntity> listData;
     private LayoutInflater layoutInflater;
     private AudioPlayer audio;
     private int currPage;
     boolean isPurchased;
 
-    public RecognizeListAdapter(Context context, List<RecognizeEntity> listData, int currPage, boolean isPurchased) {
-        this.context = context;
+    public RecognizeListAdapter(RecognizeMainActivity activity, List<RecognizeEntity> listData, int currPage, boolean isPurchased) {
+        this.activity = activity;
         this.listData = listData;
         this.currPage = currPage;
         this.isPurchased = isPurchased;
         try {
-            layoutInflater = LayoutInflater.from(context);
-            audio = new AudioPlayer(context);
+            layoutInflater = LayoutInflater.from(activity);
+            audio = new AudioPlayer(activity);
         } catch (Exception e) {
             Log.e(TAG, "RecognizeListAdapter Error: " + e.getMessage());
         }
@@ -97,8 +96,8 @@ public class RecognizeListAdapter extends BaseAdapter {
 //                audio.speakWord(listData.get(position).getVn());
                 if (isPurchased || currPage < 10)
                     audio.speakWord(entity.getVn());
-//                else
-//                    Utility.installPremiumApp(context);
+                else
+                    activity.purchaseItem();
             }
         });
         return view;

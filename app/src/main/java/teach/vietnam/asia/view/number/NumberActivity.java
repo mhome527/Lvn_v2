@@ -69,12 +69,13 @@ public class NumberActivity extends BaseActivity<NumberActivity> {
     }
 
     @OnClick(R.id.imgSpeak)
-    public void actionSpeak(){
-        audio.speakWord(tvNumber.getText().toString().trim());
+    public void actionSpeak() {
+        if (!tvNumber.getText().toString().trim().equals(""))
+            audio.speakWord(tvNumber.getText().toString().trim());
     }
 
     @OnClick(R.id.imgRecording)
-    public void actionRecording(){
+    public void actionRecording() {
         Utility.promptSpeechInput(NumberActivity.this, REQ_CODE_SPEECH_INPUT);
     }
 

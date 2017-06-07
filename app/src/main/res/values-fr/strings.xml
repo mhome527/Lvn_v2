@@ -42,7 +42,7 @@
     <string name="configm_replay">êtes-vous sûr de vouloir quitter?</string>
     <string name="connect_wifi">se connecter à Internet</string>
     <string name="turn_on_wifi">allumer Wifi</string>
-    <string name="exceriese">Exceriese</string>
+    <!--<string name="exceriese">Exceriese</string>-->
     <string name="speak_all">Parlez tout</string>
     <string name="speech_prompt">dire quelque chose…</string>
     <string name="speech_prompt_recognize">parler le vietnamien</string>

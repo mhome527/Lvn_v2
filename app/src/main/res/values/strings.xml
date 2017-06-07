@@ -27,7 +27,7 @@
     <string name="configm_replay">Are you want to quit application?</string>
     <string name="connect_wifi">Please connect to internet</string>
     <string name="turn_on_wifi">turn on Wifi</string>
-    <string name="exceriese">Exceriese</string>
+    <!--<string name="exceriese">Exceriese</string>-->
     <string name="speak_all">Speak all</string>
     <string name="speech_prompt">Say something…</string>
     <string name="speech_prompt_recognize">Speak Vietnamese</string>
@@ -135,13 +135,13 @@
 
     <string name="test">Test</string>
     <string name="learn">Learn</string>
-    <string name="title_activity_translate">TranslateActivity</string>
+    <!--<string name="title_activity_translate">TranslateActivity</string>-->
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_main2">Main2Activity</string>
 
-    <string name="title_dashboard">Learn Japanese</string>
+    <string name="title_dashboard">Learn Vietnamese</string>
     <string name="title_alphabet">ALPHABET</string>
     <string name="title_grammar">GRAMMAR</string>
     <string name="title_word">WORDS</string>
@@ -161,7 +161,7 @@
     <string name="title_date">DATES</string>
     <string name="title_recognize">LISTENING</string>
 
-    <string name="msg_title_ljp">Learn Vietnamese Pronunciation App</string>
+    <string name="msg_title_ljp">Japanese for traveler App</string>
     <string name="msg_content_ljp">Do you want to install this application?</string>
 
     <string name="title_button_alphabet">Alphabet</string>
