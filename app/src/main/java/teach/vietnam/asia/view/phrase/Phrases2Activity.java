@@ -53,8 +53,6 @@ public class Phrases2Activity extends PurchaseActivity<Phrases2Activity> impleme
     private PhrasesAdapter2 adapter;
     public boolean isSlowly = false;
 
-    public boolean isPurchased = false; //  TRUE: if user has already bought product
-
     @Override
     protected int getLayout() {
         return R.layout.phrases_layout;

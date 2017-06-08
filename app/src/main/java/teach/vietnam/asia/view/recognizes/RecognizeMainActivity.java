@@ -61,7 +61,7 @@ public class RecognizeMainActivity extends PurchaseActivity<RecognizeMainActivit
 
 
     //    WordPagerAdapter adapter;
-    public boolean isPurchased = false; //  true: user has already bought product
+
     int currPage = 0;
     private RecognizePagerAdapter adapterPage;
 

@@ -15,8 +15,8 @@ android {
         applicationId "teach.vietnam.asia"
         minSdkVersion 16
         targetSdkVersion 25
-        versionCode 26
-        versionName "3.0.1"
+        versionCode 28
+        versionName "3.1.2"
         externalNativeBuild {
             testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
             cmake {
@@ -26,13 +26,19 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
 //            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            proguardFile '/Volumes/Data_Primary/MyProject/Dropbox/prj/Lvn/LVN_SD/proguard-project.txt'
+//            proguardFile '/Volumes/Data_Primary/MyProject/Dropbox/prj/Lvn/LVN_SD/proguard-project.txt'
+            proguardFile 'D:/mydata/git/Lvn_v2/proguard-project.txt'
             signingConfig signingConfigs.release2
         }
         debug {
 //            proguardFile '/Volumes/Data_Primary/MyProject/Dropbox/prj/Lvn/LVN_SD/proguard-project.txt'
+            minifyEnabled false
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//            proguardFile '/Volumes/Data_Primary/MyProject/Dropbox/prj/Lvn/LVN_SD/proguard-project.txt'
+            proguardFile 'D:/mydata/git/Lvn_v2/proguard-project.txt'
+
         }
     }
     externalNativeBuild {
@@ -75,9 +81,6 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:25.1.0'
-    compile 'com.google.android.gms:play-services-analytics:8.1.0'
-    compile 'com.google.android.gms:play-services-gcm:8.1.0'
-    compile 'com.google.android.gms:play-services-location:8.1.0'
     compile 'com.google.code.gson:gson:2.3.1'
 
     compile 'com.jakewharton:butterknife:8.4.0'

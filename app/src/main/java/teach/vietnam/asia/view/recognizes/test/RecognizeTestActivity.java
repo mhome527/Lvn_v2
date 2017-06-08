@@ -12,7 +12,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -65,7 +64,7 @@ public class RecognizeTestActivity extends PurchaseActivity<RecognizeTestActivit
 
 
     //    WordPagerAdapter adapter;
-    public boolean isPurchased = false; //  true: user has already bought product
+     //  true: user has already bought product
 //    int currPage = 0;
 //    private RecognizePagerAdapter adapterPage;
 ////////
@@ -219,7 +218,7 @@ public class RecognizeTestActivity extends PurchaseActivity<RecognizeTestActivit
         mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(RecognizeTestActivity.this, "Time for an upgrade, pos:" + position, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(RecognizeTestActivity.this, "Time for an upgrade, pos:" + position, Toast.LENGTH_SHORT).show();
                 mDrawerLayout.closeDrawers();
                 currPage = position;
 //                dataRecognize = presenter.loadData(currPage + 1);

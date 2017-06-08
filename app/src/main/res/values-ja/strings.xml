@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources>
 
 
     <string name="app_name">ベトナム語発音</string>
@@ -23,7 +23,7 @@
     <string name="title_animal">動物</string>
     <string name="title_fruit">果物</string>
     <string name="title_other">その他</string>
-    <string name="title_counter">カウンター</string>
+    <string name="title_counter">数字</string>
     <string name="title_body">体</string>
     <string name="title_food">食べ物</string>
     <string name="title_practice">練習</string>

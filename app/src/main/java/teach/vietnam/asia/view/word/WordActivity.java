@@ -31,7 +31,7 @@ public class WordActivity extends PurchaseActivity<WordActivity> {
     ViewPager viewPager;
 
     WordPagerAdapter adapter;
-    public boolean isPurchased = false; //  true: user has already bought product
+
     int currPage = 0;
 
     @Override
