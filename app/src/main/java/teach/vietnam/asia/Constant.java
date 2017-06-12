@@ -68,6 +68,9 @@ public class Constant {
     //    public static final String ES = "es";
 //    public static final String IT = "it";
     public static final String EN = "en";
+    public static final String AR = "ar";
+    public static final String ZH = "zh";
+    public static final String ES = "es";
 
 //    public static final String REC_JA = "rec_ja.txt";
 //    public static final String REC_KO = "rec_ko.txt";

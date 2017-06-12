@@ -9,7 +9,6 @@ import java.util.List;
 import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.entity.LanguageEntity;
-import teach.vietnam.asia.view.BaseActivity;
 import teach.vietnam.asia.view.BaseAdapterView;
 
 /**
@@ -87,6 +86,9 @@ public class LanguageAdapter extends BaseAdapterView<LanguageItemHolder> {
         items.add(new LanguageEntity(Constant.KO, context.getString(R.string.korea), R.drawable.korea));
         items.add(new LanguageEntity(Constant.FR, context.getString(R.string.france), R.drawable.france));
         items.add(new LanguageEntity(Constant.RU, context.getString(R.string.russia), R.drawable.russia));
+        items.add(new LanguageEntity(Constant.AR, context.getString(R.string.arabic), R.drawable.arabic));
+        items.add(new LanguageEntity(Constant.ZH, context.getString(R.string.chinese), R.drawable.china));
+        items.add(new LanguageEntity(Constant.ES, context.getString(R.string.spanish), R.drawable.spanish));
     }
 
     public void setLang(String currLang) {

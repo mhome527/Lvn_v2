@@ -44,9 +44,15 @@ public class WordTable extends SoundTable {
         else if (lang.equals(Constant.KO))
             table = "TBL_VIET_KO";
         else if (lang.equals(Constant.FR))
-            table = "TBL_VIET_EN";
+            table = "TBL_VIET_FR";
         else if (lang.equals(Constant.RU))
-            table = "TBL_VIET_EN";
+            table = "TBL_VIET_RU";
+        else if (lang.equals(Constant.AR))
+            table = "TBL_VIET_AR";
+        else if (lang.equals(Constant.ZH))
+            table = "TBL_VIET_ZH";
+        else if (lang.equals(Constant.ES))
+            table = "TBL_VIET_ES";
         else
             table = "TBL_VIET_EN";
         return table;

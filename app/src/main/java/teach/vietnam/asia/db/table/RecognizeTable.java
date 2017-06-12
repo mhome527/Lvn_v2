@@ -4,7 +4,7 @@ import teach.vietnam.asia.Constant;
 
 
 /**
- * Created by Administrator on 2/20/2017.
+ * Created by HuynhTD on 2/20/2017.
  */
 
 public class RecognizeTable {
@@ -25,6 +25,12 @@ public class RecognizeTable {
             return "TBL_REC_FR";
         else if (lang.equals(Constant.RU))
             return "TBL_REC_RU";
+        else if (lang.equals(Constant.AR))
+            return "TBL_REC_AR";
+        else if (lang.equals(Constant.ZH))
+            return "TBL_REC_ZH";
+        else if (lang.equals(Constant.ES))
+            return "TBL_REC_ES";
         else
             return "TBL_REC_EN";
     }
