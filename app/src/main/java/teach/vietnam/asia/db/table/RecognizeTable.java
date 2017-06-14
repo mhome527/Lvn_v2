@@ -28,7 +28,7 @@ public class RecognizeTable {
         else if (lang.equals(Constant.AR))
             return "TBL_REC_AR";
         else if (lang.equals(Constant.ZH))
-            return "TBL_REC_ZH";
+            return "TBL_REC_CN";
         else if (lang.equals(Constant.ES))
             return "TBL_REC_ES";
         else

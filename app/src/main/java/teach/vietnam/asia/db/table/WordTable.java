@@ -50,7 +50,7 @@ public class WordTable extends SoundTable {
         else if (lang.equals(Constant.AR))
             table = "TBL_VIET_AR";
         else if (lang.equals(Constant.ZH))
-            table = "TBL_VIET_ZH";
+            table = "TBL_VIET_CN";
         else if (lang.equals(Constant.ES))
             table = "TBL_VIET_ES";
         else

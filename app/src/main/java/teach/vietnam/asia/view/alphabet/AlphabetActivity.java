@@ -12,6 +12,7 @@ import butterknife.BindView;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.entity.TblAlphabetEx;
 import teach.vietnam.asia.sound.AudioPlayer;
+import teach.vietnam.asia.utils.Common;
 import teach.vietnam.asia.view.BaseActivity;
 
 public class AlphabetActivity extends BaseActivity<AlphabetActivity> {
@@ -50,6 +51,12 @@ public class AlphabetActivity extends BaseActivity<AlphabetActivity> {
 
         presenter = new AlphabetPresenter(this);
         audio = new AudioPlayer(AlphabetActivity.this);
+
+        if (Common.isTablet(activity))
+            gridWords.setNumColumns(4);
+        else
+            gridWords.setNumColumns(3);
+
         gridWords.setOnItemClickListener(new OnItemClickListener() {
 
             @Override

@@ -2,8 +2,8 @@
 <resources>
 
     <string name="app_name">VN Pronunciation</string>
-    <string name="db_value">7</string>
-    <string name="db_value_rc">3</string>
+    <!--<string name="db_value">7</string>-->
+    <!--<string name="db_value_rc">3</string>-->
     <string name="language">zh</string>
     <!--<string name="language">fr</string>-->
     <string name="vietnamese">Vietnamese</string>
@@ -144,24 +144,23 @@
     <string name="title_activity_main2">Main2Activity</string>
 
     <string name="title_dashboard">Learn Vietnamese</string>
-    <string name="title_alphabet">ALPHABET</string>
-    <string name="title_grammar">GRAMMAR</string>
-    <string name="title_word">WORDS</string>
-    <string name="title_food2">FOOD</string>
-    <string name="title_drink2">DRINK</string>
-    <string name="title_phrase">PHRASE</string>
+    <string name="title_alphabet">字母表</string>
+    <string name="title_grammar">語法</string>
+    <string name="title_word">話</string>
+    <string name="title_food2">食品</string>
+    <string name="title_drink2">喝</string>
+    <string name="title_phrase">短語</string>
 
-
-    <string name="title_animal">ANIMAL</string>
-    <string name="title_fruit">FRUITS</string>
+    <string name="title_animal">動物</string>
+    <string name="title_fruit">水果</string>
     <string name="title_other">OTHER</string>
-    <string name="title_counter">COUNTER</string>
-    <string name="title_body">BODY</string>
-    <string name="title_food">FOODS</string>
-    <string name="title_practice">PRACTICE</string>
-    <string name="title_translate">TRANSLATE</string>
-    <string name="title_date">DATES</string>
-    <string name="title_recognize">LISTENING</string>
+    <string name="title_counter">計數</string>
+    <string name="title_body">身體</string>
+    <string name="title_food">食品</string>
+    <string name="title_practice">實踐</string>
+    <string name="title_translate">翻譯</string>
+    <string name="title_date">日期</string>
+    <string name="title_recognize">傾聽</string>
 
     <string name="msg_title_ljp">Japanese for traveler App</string>
     <string name="msg_content_ljp">Do you want to install this application?</string>

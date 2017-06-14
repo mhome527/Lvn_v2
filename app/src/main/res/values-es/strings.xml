@@ -2,9 +2,9 @@
 <resources>
 
     <string name="app_name">VN Pronunciation</string>
-    <string name="db_value">7</string>
-    <string name="db_value_rc">3</string>
-    <string name="language">en</string>
+    <!--<string name="db_value">7</string>-->
+    <!--<string name="db_value_rc">3</string>-->
+    <string name="language">es</string>
     <!--<string name="language">fr</string>-->
     <string name="vietnamese">Vietnamese</string>
     <!--<string name="tiengviet">Tiếng Việt</string>-->
@@ -144,35 +144,35 @@
     <string name="title_activity_main2">Main2Activity</string>
 
     <string name="title_dashboard">Learn Vietnamese</string>
-    <string name="title_alphabet">ALPHABET</string>
-    <string name="title_grammar">GRAMMAR</string>
-    <string name="title_word">WORDS</string>
-    <string name="title_food2">FOOD</string>
-    <string name="title_drink2">DRINK</string>
-    <string name="title_phrase">PHRASE</string>
+    <string name="title_alphabet">Alfabeto</string>
+    <string name="title_grammar">Gramática</string>
+    <string name="title_word">Palabras</string>
+    <string name="title_food2">Comidas</string>
+    <string name="title_drink2">Beber</string>
+    <string name="title_phrase">Frases</string>
 
 
-    <string name="title_animal">ANIMAL</string>
-    <string name="title_fruit">FRUITS</string>
+    <string name="title_animal">Animales</string>
+    <string name="title_fruit">Frutas</string>
     <string name="title_other">OTHER</string>
-    <string name="title_counter">COUNTER</string>
-    <string name="title_body">BODY</string>
-    <string name="title_food">FOODS</string>
-    <string name="title_practice">PRACTICE</string>
+    <string name="title_counter">Números cardinales</string>
+    <string name="title_body">Cuerpo</string>
+    <string name="title_food">Comidas</string>
+    <string name="title_practice">Práctica</string>
     <string name="title_translate">TRANSLATE</string>
-    <string name="title_date">DATES</string>
-    <string name="title_recognize">LISTENING</string>
+    <string name="title_date">fechas</string>
+    <string name="title_recognize">Audición</string>
 
     <string name="msg_title_ljp">Japanese for traveler App</string>
     <string name="msg_content_ljp">Do you want to install this application?</string>
 
     <string name="title_button_alphabet">Alphabet</string>
-    <string name="title_button_number">Number</string>
-    <string name="title_button_phrase">Phrases</string>
-    <string name="title_button_word">Animal</string>
+    <string name="title_button_number">Números cardinales</string>
+    <string name="title_button_phrase">Gramática</string>
+    <string name="title_button_word">Animales</string>
     <string name="title_button_house">House</string>
-    <string name="title_button_grammar">Grammar</string>
-    <string name="title_button_date">Date</string>
+    <string name="title_button_grammar">Gramática</string>
+    <string name="title_button_date">Fecha</string>
 
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>

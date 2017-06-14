@@ -4,8 +4,8 @@
 
     <string name="app_name">베트남어 발음</string>
     <string name="tiengviet">Tiếng Việt</string>
-    <string name="db_value">6</string>
-    <string name="db_value_rc">1</string>
+    <!--<string name="db_value">6</string>-->
+    <!--<string name="db_value_rc">1</string>-->
 
     <string name="language">ko</string>
 
@@ -54,29 +54,29 @@
     <string name="talk_number">Please talk number</string>
 
     <!-- Viet -->
-    <string name="head_vn">đầu</string>
-    <string name="hair_vn">tóc</string>
-    <string name="eyebrow_vn">chân mài</string>
-    <string name="eye_vn">mắt</string>
-    <string name="cheek_vn">gò má</string>
-    <string name="neck_vn">cổ</string>
-    <string name="chest_vn">ngực</string>
-    <string name="arm_vn">cánh tay</string>
-    <string name="hand_vn">bàn tay</string>
-    <string name="knee_vn">đầu gối</string>
-    <string name="foot_vn">bàn chân</string>
-    <string name="forehead_vn">trán</string>
-    <string name="ear_vn">lổ tai</string>
-    <string name="nose_vn">lổ mũi</string>
-    <string name="mouth_vn">cái miệng</string>
-    <string name="shoulder_vn">vai</string>
-    <string name="hip_vn">hông</string>
-    <string name="fingers_vn">ngón tay</string>
-    <string name="wrist_vn">cổ tay</string>
-    <string name="leg_vn">cái chân</string>
-    <string name="toes_vn">ngón chân</string>
-    <string name="heel_vn">gót chân</string>
-    <string name="sysbol_dot">:</string>
+    <!--<string name="head_vn">đầu</string>-->
+    <!--<string name="hair_vn">tóc</string>-->
+    <!--<string name="eyebrow_vn">chân mài</string>-->
+    <!--<string name="eye_vn">mắt</string>-->
+    <!--<string name="cheek_vn">gò má</string>-->
+    <!--<string name="neck_vn">cổ</string>-->
+    <!--<string name="chest_vn">ngực</string>-->
+    <!--<string name="arm_vn">cánh tay</string>-->
+    <!--<string name="hand_vn">bàn tay</string>-->
+    <!--<string name="knee_vn">đầu gối</string>-->
+    <!--<string name="foot_vn">bàn chân</string>-->
+    <!--<string name="forehead_vn">trán</string>-->
+    <!--<string name="ear_vn">lổ tai</string>-->
+    <!--<string name="nose_vn">lổ mũi</string>-->
+    <!--<string name="mouth_vn">cái miệng</string>-->
+    <!--<string name="shoulder_vn">vai</string>-->
+    <!--<string name="hip_vn">hông</string>-->
+    <!--<string name="fingers_vn">ngón tay</string>-->
+    <!--<string name="wrist_vn">cổ tay</string>-->
+    <!--<string name="leg_vn">cái chân</string>-->
+    <!--<string name="toes_vn">ngón chân</string>-->
+    <!--<string name="heel_vn">gót chân</string>-->
+    <!--<string name="sysbol_dot">:</string>-->
 
 
     <!-- Global -->

@@ -3,8 +3,8 @@
 
 
     <string name="app_name">ベトナム語発音</string>
-    <string name="db_value">2</string>
-    <string name="db_value_rc">1</string>
+    <!--<string name="db_value">2</string>-->
+    <!--<string name="db_value_rc">1</string>-->
 
     <string name="language">ja</string>
 

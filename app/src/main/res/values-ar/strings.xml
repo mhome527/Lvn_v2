@@ -2,11 +2,11 @@
 <resources>
 
     <string name="app_name">VN Pronunciation</string>
-    <string name="db_value">7</string>
-    <string name="db_value_rc">3</string>
+    <!--<string name="db_value">7</string>-->
+    <!--<string name="db_value_rc">3</string>-->
     <string name="language">ar</string>
     <!--<string name="language">fr</string>-->
-    <string name="vietnamese">Vietnamese</string>
+    <!--<string name="vietnamese">Vietnamese</string>-->
     <!--<string name="tiengviet">Tiếng Việt</string>-->
     <!--<string name="japanese">日本語</string>-->
     <!--<string name="korea">한국어</string>-->
@@ -120,24 +120,24 @@
     <string name="title_activity_main2">Main2Activity</string>
 
     <string name="title_dashboard">Learn Vietnamese</string>
-    <string name="title_alphabet">ALPHABET</string>
-    <string name="title_grammar">GRAMMAR</string>
-    <string name="title_word">WORDS</string>
-    <string name="title_food2">FOOD</string>
-    <string name="title_drink2">DRINK</string>
-    <string name="title_phrase">PHRASE</string>
+    <string name="title_alphabet"> الحروف الهجائية</string>
+    <string name="title_grammar">النحوي</string>
+    <string name="title_word">كلمات</string>
+    <string name="title_food2">الطعام</string>
+    <string name="title_drink2">يشرب</string>
+    <string name="title_phrase"> العبارات</string>
 
 
-    <string name="title_animal">ANIMAL</string>
-    <string name="title_fruit">FRUITS</string>
+    <string name="title_animal"> الحيوان</string>
+    <string name="title_fruit">الفاكهة</string>
     <string name="title_other">OTHER</string>
-    <string name="title_counter">COUNTER</string>
-    <string name="title_body">BODY</string>
-    <string name="title_food">FOODS</string>
-    <string name="title_practice">PRACTICE</string>
+    <string name="title_counter">العدد</string>
+    <string name="title_body">الجسم</string>
+    <string name="title_food">الطعام</string>
+    <string name="title_practice">التدريب</string>
     <string name="title_translate">TRANSLATE</string>
-    <string name="title_date">DATES</string>
-    <string name="title_recognize">LISTENING</string>
+    <string name="title_date">تواريخ</string>
+    <string name="title_recognize"> الإستماع</string>
 
     <string name="msg_title_ljp">Japanese for traveler App</string>
     <string name="msg_content_ljp">Do you want to install this application?</string>
@@ -153,6 +153,6 @@
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
 
-    <string name="back">back</string>
+    <string name="back">الى الخلف</string>
 
 </resources>

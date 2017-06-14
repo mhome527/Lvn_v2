@@ -2,8 +2,8 @@
 <resources>
 
     <string name="app_name">Prononciation vietnamienne</string>
-    <string name="db_value">3</string>
-    <string name="db_value_rc">2</string>
+    <!--<string name="db_value">3</string>-->
+    <!--<string name="db_value_rc">2</string>-->
 
     <string name="language">fr</string>
 

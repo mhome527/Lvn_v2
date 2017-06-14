@@ -19,6 +19,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.sound.AudioPlayer;
+import teach.vietnam.asia.utils.Common;
 import teach.vietnam.asia.utils.Log;
 import teach.vietnam.asia.utils.NumberToWord;
 import teach.vietnam.asia.utils.Utility;
@@ -65,6 +66,12 @@ public class NumberActivity extends BaseActivity<NumberActivity> {
         audio = new AudioPlayer(NumberActivity.this);
         arrNumber = getResources().getIntArray(R.array.number);
         adapter = new NumberAdapter(NumberActivity.this, arrNumber);
+
+        if (Common.isTablet(activity))
+            gridWords.setNumColumns(4);
+        else
+            gridWords.setNumColumns(3);
+
         initData();
     }
 
