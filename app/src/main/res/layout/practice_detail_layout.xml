@@ -16,11 +16,36 @@
         android:background="@drawable/button_volume_selector"
         android:contentDescription="@string/app_name" />
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/pagerExceriese"
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_height="match_parent"
+        android:background="#ffffffff">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/pagerExceriese"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <ImageButton
+            android:id="@+id/imgLeft"
+            android:layout_width="10dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/btn_arrow_left_selector" />
+
+        <ImageButton
+            android:id="@+id/imgRight"
+            android:layout_width="10dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/btn_arrow_right_selector" />
+
+    </RelativeLayout>
+
 
     <LinearLayout
         android:id="@+id/llLevel"
@@ -29,14 +54,15 @@
         android:layout_marginBottom="5dp"
         android:gravity="center_vertical">
 
-        <TextView android:visibility="visible"
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="10dp"
             android:text="@string/level"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:visibility="visible" />
 
         <GridView
             android:id="@+id/gridPage"

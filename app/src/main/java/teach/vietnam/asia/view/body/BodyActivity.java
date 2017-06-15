@@ -5,16 +5,21 @@ import android.content.res.Resources;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.firebase.crash.FirebaseCrash;
+
 import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.sound.AudioPlayer;
+import teach.vietnam.asia.utils.Log;
 import teach.vietnam.asia.view.BaseActivity;
 
 
 public class BodyActivity extends BaseActivity<BodyActivity> {
+
+    private final String TAG = "BodyActivity";
 
     @BindView(R.id.btnHead)
     Button btnHead;
@@ -101,6 +106,8 @@ public class BodyActivity extends BaseActivity<BodyActivity> {
     protected void initView() {
         setTitle(getString(R.string.title_body));
         initData();
+
+        FirebaseCrash.logcat(Log.INFO, TAG, "initView");
     }
 
     @OnClick(R.id.imgSpeak)

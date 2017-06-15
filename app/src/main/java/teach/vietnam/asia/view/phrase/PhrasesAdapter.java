@@ -17,13 +17,13 @@ import teach.vietnam.asia.view.BaseAdapterView;
  * Created by HuynhTD on 5/10/2017.
  */
 
-public class PhrasesAdapter2 extends BaseAdapterView<PhrasesItemHolder> implements Filterable {
+public class PhrasesAdapter extends BaseAdapterView<PhrasesItemHolder> implements Filterable {
     private List<WordEntity> listData;
     private List<WordEntity> mFilteredList;
 
     boolean isPurchased = false;
 
-    public PhrasesAdapter2(List<WordEntity> listData) {
+    public PhrasesAdapter(List<WordEntity> listData) {
         this.listData = listData;
         mFilteredList = listData;
     }

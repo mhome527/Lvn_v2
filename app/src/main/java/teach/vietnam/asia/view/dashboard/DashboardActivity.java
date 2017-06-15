@@ -1,6 +1,7 @@
 package teach.vietnam.asia.view.dashboard;
 
 import android.app.Dialog;
+import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
@@ -11,11 +12,14 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
 
+import com.google.firebase.crash.FirebaseCrash;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import teach.vietnam.asia.BuildConfig;
 import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.entity.DashboardEntity;
@@ -30,11 +34,13 @@ import teach.vietnam.asia.view.dashboard.language.OnItemClickListener;
 import teach.vietnam.asia.view.foods.FoodActivity;
 import teach.vietnam.asia.view.grammar.detail.GrammarDetailActivity;
 import teach.vietnam.asia.view.number.NumberActivity;
-import teach.vietnam.asia.view.phrase.Phrases2Activity;
+import teach.vietnam.asia.view.phrase.PhrasesActivity;
 import teach.vietnam.asia.view.practice.PracticeActivity;
 import teach.vietnam.asia.view.recognizes.RecognizeMainActivity;
 import teach.vietnam.asia.view.translate.TranslateActivity;
 import teach.vietnam.asia.view.word.WordActivity;
+
+import static teach.vietnam.asia.BaseApplication.mFirebaseAnalytics;
 
 
 public class DashboardActivity extends BaseActivity<DashboardActivity> {
@@ -79,49 +85,69 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Bundle params = new Bundle();
+                String screen;
+
                 switch (position) {
                     case 0:
                         startActivity2(AlphabetActivity.class);
+                        screen = "AlphabetActivity";
                         break;
                     case 1:
                         startActivity2(NumberActivity.class);
+                        screen = "NumberActivity";
                         break;
                     case 2:
                         startActivity2(BodyActivity.class);
+                        screen = "BodyActivity";
                         break;
                     case 3:
-//                        startActivity2(RecognizeMainActivity.class);
                         startActivity2(RecognizeMainActivity.class);
+                        screen = "RecognizeMainActivity";
                         break;
 
                     case 4:
                         startActivity2(WordActivity.class);
+                        screen = "WordActivity";
                         break;
                     case 5:
-                        startActivity2(FoodActivity.class);
+                        startActivity2(PhrasesActivity.class);
+                        screen = "FoodActivity";
                         break;
                     case 6:
                         startActivity2(GrammarDetailActivity.class);
-
+                        screen = "GrammarDetailActivity";
                         break;
                     case 7:
-                        startActivity2(Phrases2Activity.class);
+                        startActivity2(FoodActivity.class);
+                        screen = "PhrasesActivity";
 
                         break;
                     case 8:
                         startActivity2(PracticeActivity.class);
+                        screen = "PracticeActivity";
                         break;
                     case 9:
                     default:
                         startActivity2(TranslateActivity.class);
+                        screen = "TranslateActivity";
+//                        if (BuildConfig.DEBUG) {
+//                            FirebaseCrash.logcat(Log.ERROR, TAG, screen);
+//                            FirebaseCrash.report(new Throwable("test lvn Crack...."));
+//                        }
                         break;
-//                    case 10:
-//                    default:
-//                        showDialogLanguage();
-//                        break;
+                }
+
+                if (!BuildConfig.DEBUG) {
+                    // [START custom_event]
+                    params.putString("Name", screen);
+                    params.putString("Language", lang);
+                    mFirebaseAnalytics.logEvent("SCREEN", params);
                 }
             }
         });
+        if (!BuildConfig.DEBUG)
+            FirebaseCrash.logcat(Log.INFO, TAG, "initView");
     }
 
     @Override
@@ -188,9 +214,9 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> {
         listData.add(new DashboardEntity(R.drawable.menu_body, getString(R.string.title_body)));
         listData.add(new DashboardEntity(R.drawable.menu_recognize, getString(R.string.title_recognize)));
         listData.add(new DashboardEntity(R.drawable.ic_animal, getString(R.string.title_word)));
-        listData.add(new DashboardEntity(R.drawable.menu_food, getString(R.string.title_food)));
-        listData.add(new DashboardEntity(R.drawable.ic_grammar, getString(R.string.title_grammar)));
         listData.add(new DashboardEntity(R.drawable.ic_phrase, getString(R.string.title_phrase)));
+        listData.add(new DashboardEntity(R.drawable.ic_grammar, getString(R.string.title_grammar)));
+        listData.add(new DashboardEntity(R.drawable.menu_food, getString(R.string.title_food)));
         listData.add(new DashboardEntity(R.drawable.menu_practice, getString(R.string.title_practice)));
         listData.add(new DashboardEntity(R.drawable.menu_translate, getString(R.string.title_translate)));
 //        listData.add(new DashboardEntity(R.drawable.button_word_on, getString(R.string.title_coming_soon)));

@@ -6,14 +6,18 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.google.firebase.crash.FirebaseCrash;
+
 import butterknife.BindView;
 import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.R;
+import teach.vietnam.asia.utils.Log;
 import teach.vietnam.asia.view.BaseActivity;
 import teach.vietnam.asia.view.grammar.detail.GrammarDetailActivity;
 
 public class GrammarActivity extends BaseActivity<GrammarActivity> {
 
+    private final String TAG = "GrammarActivity";
     @BindView(R.id.lstGrammar)
     ListView lstGrammar;
 
@@ -41,6 +45,9 @@ public class GrammarActivity extends BaseActivity<GrammarActivity> {
                 GrammarActivity.this.startActivity(i);
             }
         });
+
+        FirebaseCrash.logcat(Log.INFO, TAG, "initView");
+
     }
 
 }

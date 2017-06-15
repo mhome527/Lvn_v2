@@ -49,7 +49,7 @@ public class WordFragment extends BaseFragment<WordActivity> {
     public void initView(View root) {
         Log.i(TAG, "initView");
         presenter = new WordPresenter(activity);
-        adapter = new WordContentAdapter();
+        adapter = new WordContentAdapter(activity);
         audio = new AudioPlayer(activity);
 
         setupView();

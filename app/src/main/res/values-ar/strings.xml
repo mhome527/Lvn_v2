@@ -130,7 +130,7 @@
 
     <string name="title_animal"> الحيوان</string>
     <string name="title_fruit">الفاكهة</string>
-    <string name="title_other">OTHER</string>
+    <string name="title_other">آخر</string>
     <string name="title_counter">العدد</string>
     <string name="title_body">الجسم</string>
     <string name="title_food">الطعام</string>
@@ -142,9 +142,10 @@
     <string name="msg_title_ljp">Japanese for traveler App</string>
     <string name="msg_content_ljp">Do you want to install this application?</string>
 
-    <string name="title_button_alphabet">Alphabet</string>
-    <string name="title_button_number">Number</string>
-    <string name="title_button_phrase">Phrases</string>
+    <string name="title_button_alphabet"> الحروف الهجائية</string>
+    <string name="title_button_number">العدد</string>
+    <string name="title_button_phrase"> العبارات</string>
+
     <string name="title_button_word">Animal</string>
     <string name="title_button_house">House</string>
     <string name="title_button_grammar">Grammar</string>

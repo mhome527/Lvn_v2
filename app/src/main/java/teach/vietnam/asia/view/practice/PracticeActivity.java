@@ -2,13 +2,18 @@ package teach.vietnam.asia.view.practice;
 
 import android.content.Intent;
 
+import com.google.firebase.crash.FirebaseCrash;
+
 import butterknife.OnClick;
 import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.R;
+import teach.vietnam.asia.utils.Log;
 import teach.vietnam.asia.view.BaseActivity;
 import teach.vietnam.asia.view.practice.detail.PracticeDetailActivity;
 
 public class PracticeActivity extends BaseActivity<PracticeActivity> {
+
+    private final String TAG = "PracticeActivity";
 
     @Override
     protected int getLayout() {
@@ -18,6 +23,8 @@ public class PracticeActivity extends BaseActivity<PracticeActivity> {
     @Override
     protected void initView() {
         setTitle(getString(R.string.title_practice));
+
+        FirebaseCrash.logcat(Log.INFO, TAG, "initView");
     }
 
     @OnClick(R.id.btnFruit)

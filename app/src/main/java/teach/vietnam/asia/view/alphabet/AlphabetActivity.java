@@ -6,6 +6,8 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 
+import com.google.firebase.crash.FirebaseCrash;
+
 import java.util.List;
 
 import butterknife.BindView;
@@ -13,9 +15,12 @@ import teach.vietnam.asia.R;
 import teach.vietnam.asia.entity.TblAlphabetEx;
 import teach.vietnam.asia.sound.AudioPlayer;
 import teach.vietnam.asia.utils.Common;
+import teach.vietnam.asia.utils.Log;
 import teach.vietnam.asia.view.BaseActivity;
 
 public class AlphabetActivity extends BaseActivity<AlphabetActivity> {
+
+    private final String TAG = "AlphabetActivity";
 
     @BindView(R.id.gridWords)
     GridView gridWords;
@@ -34,7 +39,10 @@ public class AlphabetActivity extends BaseActivity<AlphabetActivity> {
 
     @Override
     protected void initView() {
+
         initData();
+
+        FirebaseCrash.logcat(Log.INFO, TAG, "initView");
     }
 
     private void initData() {

@@ -13,6 +13,8 @@ import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.crash.FirebaseCrash;
+
 import java.util.ArrayList;
 
 import butterknife.BindView;
@@ -73,6 +75,9 @@ public class NumberActivity extends BaseActivity<NumberActivity> {
             gridWords.setNumColumns(3);
 
         initData();
+
+        FirebaseCrash.logcat(Log.INFO, TAG, "initView");
+
     }
 
     @OnClick(R.id.imgSpeak)

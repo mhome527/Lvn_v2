@@ -14,6 +14,8 @@ import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
+import com.google.firebase.crash.FirebaseCrash;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -74,6 +76,7 @@ public class RecognizeMainActivity extends PurchaseActivity<RecognizeMainActivit
     @Override
     protected void initView() {
         Log.i(TAG, "initView");
+        FirebaseCrash.logcat(Log.INFO, TAG, "initView");
 
         setTitleCenter(getString(R.string.title_recognize));
 
@@ -86,6 +89,7 @@ public class RecognizeMainActivity extends PurchaseActivity<RecognizeMainActivit
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
+        FirebaseCrash.logcat(Log.INFO, TAG, "initView");
     }
 
     ////////////

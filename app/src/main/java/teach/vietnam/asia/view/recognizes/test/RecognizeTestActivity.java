@@ -13,6 +13,8 @@ import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
+import com.google.firebase.crash.FirebaseCrash;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -108,6 +110,7 @@ public class RecognizeTestActivity extends PurchaseActivity<RecognizeTestActivit
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
+        FirebaseCrash.logcat(Log.INFO, TAG, "initView");
     }
 
     ////////////

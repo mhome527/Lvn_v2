@@ -4,8 +4,10 @@ import android.view.View;
 
 import java.util.List;
 
+import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.entity.WordEntity;
+import teach.vietnam.asia.view.BaseActivity;
 import teach.vietnam.asia.view.BaseAdapter;
 
 /**
@@ -18,11 +20,18 @@ public class WordContentAdapter extends BaseAdapter<WordItemHolder> {
 
     private List<WordEntity> listData;
     private boolean isPurchased = false;
+    String lang;
 
+    public WordContentAdapter(BaseActivity activity) {
+        lang = activity.lang;
+    }
 
     @Override
     public int getItemLayout() {
-        return R.layout.word_item;
+        if (lang.equals(Constant.AR))
+            return R.layout.word_item_ar;
+        else
+            return R.layout.word_item;
     }
 
     @Override
@@ -46,7 +55,7 @@ public class WordContentAdapter extends BaseAdapter<WordItemHolder> {
         this.listData = listData;
     }
 
-    public void setPurchased(boolean isPurchased){
+    public void setPurchased(boolean isPurchased) {
         this.isPurchased = isPurchased;
         this.notifyDataSetChanged();
     }

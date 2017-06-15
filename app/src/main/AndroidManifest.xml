@@ -50,10 +50,10 @@
             android:parentActivityName=".view.dashboard.DashboardActivity"
             android:screenOrientation="portrait"
             android:theme="@style/MyTheme" />
-        <activity
-            android:name=".view.color.ColorActivity"
-            android:parentActivityName=".view.dashboard.DashboardActivity"
-            android:screenOrientation="portrait"/>
+        <!--<activity-->
+            <!--android:name=".view.color.ColorActivity"-->
+            <!--android:parentActivityName=".view.dashboard.DashboardActivity"-->
+            <!--android:screenOrientation="portrait"/>-->
         <activity
             android:name=".view.foods.FoodActivity"
             android:parentActivityName=".view.dashboard.DashboardActivity"
@@ -105,7 +105,7 @@
             android:name=".view.recognizes.test.RecognizeTestActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".view.phrase.Phrases2Activity"
+            android:name=".view.phrase.PhrasesActivity"
             android:screenOrientation="portrait"
             android:theme="@style/MyTheme" />
 

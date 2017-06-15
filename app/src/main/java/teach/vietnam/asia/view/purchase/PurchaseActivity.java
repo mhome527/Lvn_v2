@@ -2,16 +2,21 @@ package teach.vietnam.asia.view.purchase;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
+
+import com.google.firebase.crash.FirebaseCrash;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import teach.vietnam.asia.BuildConfig;
 import teach.vietnam.asia.Constant;
+import teach.vietnam.asia.R;
+import teach.vietnam.asia.entity.Purchase;
 import teach.vietnam.asia.utils.IabHelper;
 import teach.vietnam.asia.utils.IabResult;
 import teach.vietnam.asia.utils.Inventory;
 import teach.vietnam.asia.utils.Log;
-import teach.vietnam.asia.entity.Purchase;
 import teach.vietnam.asia.utils.SkuDetails;
 import teach.vietnam.asia.view.BaseActivity;
 
@@ -43,6 +48,9 @@ public abstract class PurchaseActivity<T> extends BaseActivity<T> implements Iab
         Log.i(TAG, "onCreate");
         billingHelper = new IabHelper(this, Constant.BASE_64_KEY);
         billingHelper.startSetup(this);
+
+        FirebaseCrash.logcat(Log.INFO, TAG, "onCreate");
+
         super.onCreate(savedInstanceState);
     }
 
@@ -52,13 +60,15 @@ public abstract class PurchaseActivity<T> extends BaseActivity<T> implements Iab
             Log.d(TAG, "In-app Billing set up: " + result);
             dealWithIabSetupSuccess();
         } else {
-            Log.d(TAG, "Problem setting up In-app Billing: " + result);
+            Log.e(TAG, "onIabSetupFinished Problem setting up In-app Billing: " + result);
             dealWithIabSetupFailure();
         }
     }
 
     protected boolean getItemPurchased() {
         Log.i(TAG, "getItemPurchased ...");
+        FirebaseCrash.logcat(Log.INFO, TAG, "getItemPurchased");
+
         List<String> list = new ArrayList<>();
         list.add(Constant.SKU);
         try {
@@ -98,9 +108,18 @@ public abstract class PurchaseActivity<T> extends BaseActivity<T> implements Iab
     }
 
     public void purchaseItem() {
-        if (billingHelper != null)
-            billingHelper.flagEndAsync();
-        billingHelper.launchPurchaseFlow(this, Constant.SKU, Constant.PURCHASE_REQUEST_CODE, this);
+        try {
+            if (billingHelper != null) {
+                billingHelper.flagEndAsync();
+                billingHelper.launchPurchaseFlow(this, Constant.SKU, Constant.PURCHASE_REQUEST_CODE, this);
+            }
+        } catch (Exception e) {
+            if (BuildConfig.DEBUG) {
+                Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                Log.e(TAG, "purchaseItem error: " + e.getMessage());
+            } else
+                Toast.makeText(getApplicationContext(), R.string.msg_error_purchase, Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override

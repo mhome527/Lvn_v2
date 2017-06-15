@@ -10,6 +10,13 @@ import teach.vietnam.asia.BuildConfig;
 public class Log {
     private static String myTag = "htd-";
 
+    public static final int ASSERT = 7;
+    public static final int DEBUG = 3;
+    public static final int ERROR = 6;
+    public static final int INFO = 4;
+    public static final int VERBOSE = 2;
+    public static final int WARN = 5;
+
     public static void i(String tag, String msg) {
         if (BuildConfig.DEBUG) {
             android.util.Log.i(myTag + tag, msg);

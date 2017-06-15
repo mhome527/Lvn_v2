@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 import java.util.List;
@@ -35,6 +36,12 @@ public class PracticeDetailActivity extends BaseActivity<PracticeDetailActivity>
     @BindView(R.id.gridPage)
     GridView gridPage;
 
+    @BindView(R.id.imgLeft)
+    ImageButton imgLeft;
+
+    @BindView(R.id.imgRight)
+    ImageButton imgRight;
+
     private PracticePagerAdapter adapterPage;
     private PracticeFooterAdapter adapterFooter;
     //    private tblVietENDao dao;
@@ -58,6 +65,8 @@ public class PracticeDetailActivity extends BaseActivity<PracticeDetailActivity>
 //        tvAns.setVisibility(View.INVISIBLE);
         setTitle(getString(R.string.title_practice));
         presenter = new PracticeDetailPresenter(activity);
+
+        imgLeft.setVisibility(View.GONE);
     }
 
     @Override
@@ -68,7 +77,7 @@ public class PracticeDetailActivity extends BaseActivity<PracticeDetailActivity>
     @OnClick(R.id.btnSpeak)
     public void actionSpeak() {
 //        if (Constant.isPro)
-            audio.speakWord(adapterPage.lstData.get(currPage).getVi());
+        audio.speakWord(adapterPage.lstData.get(currPage).getVi());
 //        else
 //            Utility.installPremiumApp(PracticeDetailActivity.this);
     }
@@ -85,6 +94,39 @@ public class PracticeDetailActivity extends BaseActivity<PracticeDetailActivity>
         super.onResume();
         setInitData();
     }
+
+    //======== action
+    @OnClick(R.id.imgLeft)
+    public void actionLeft() {
+        if (currPage == 0) {
+            return;
+        }
+        currPage = currPage - 1;
+
+        if (currPage == 0)
+            imgLeft.setVisibility(View.GONE);
+
+        imgRight.setVisibility(View.VISIBLE);
+        pagerExceriese.setCurrentItem(currPage);
+
+//        ((RecognizeMainActivity) getActivity()).hideMenu();
+    }
+
+    @OnClick(R.id.imgRight)
+    public void actionRight() {
+        if (currPage >= adapterPage.lstData.size() - 1) {
+            return;
+        }
+        currPage = currPage + 1;
+
+        if (currPage == adapterPage.lstData.size() - 1)
+            imgRight.setVisibility(View.GONE);
+
+        imgLeft.setVisibility(View.VISIBLE);
+        pagerExceriese.setCurrentItem(currPage);
+    }
+
+    ///==========
 
     @Override
     protected void onDestroy() {
@@ -108,12 +150,22 @@ public class PracticeDetailActivity extends BaseActivity<PracticeDetailActivity>
 //                ULog.i(PracticeDetailActivity.class, "PageSelected Word:" + adapterPage.lstData.get(currPage).getVi());
 
 //                if (Constant.isPro) {
-                    audio.speakWord(adapterPage.lstData.get(currPage).getVi());
+                audio.speakWord(adapterPage.lstData.get(currPage).getVi());
 //                    tvAns.setVisibility(View.INVISIBLE);
 //                } else {
 //                    tvAns.setText(adapterPage.lstData.get(currPage).getVi());
 //                    tvAns.setVisibility(View.VISIBLE);
 //                }
+
+                if (currPage == 0)
+                    imgLeft.setVisibility(View.GONE);
+                else if (currPage == adapterPage.lstData.size() - 1)
+                    imgRight.setVisibility(View.GONE);
+                else {
+                    imgLeft.setVisibility(View.VISIBLE);
+                    imgRight.setVisibility(View.VISIBLE);
+                }
+
             }
 
             @Override

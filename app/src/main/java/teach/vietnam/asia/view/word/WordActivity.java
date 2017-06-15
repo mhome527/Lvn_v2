@@ -3,6 +3,8 @@ package teach.vietnam.asia.view.word;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 
+import com.google.firebase.crash.FirebaseCrash;
+
 import butterknife.BindView;
 import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.R;
@@ -70,6 +72,9 @@ public class WordActivity extends PurchaseActivity<WordActivity> {
 
             }
         });
+
+        FirebaseCrash.logcat(Log.INFO, TAG, "initView");
+
     }
 
     // ================= Purchase ====================

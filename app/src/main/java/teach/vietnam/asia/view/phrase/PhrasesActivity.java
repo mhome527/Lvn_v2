@@ -13,6 +13,8 @@ import android.view.WindowManager;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
+import com.google.firebase.crash.FirebaseCrash;
+
 import java.util.List;
 
 import butterknife.BindView;
@@ -32,9 +34,10 @@ import teach.vietnam.asia.view.purchase.PurchaseActivity;
  * Created by HuynhTD on 5/11/2017.
  */
 
-public class Phrases2Activity extends PurchaseActivity<Phrases2Activity> implements IClickListener {
+public class PhrasesActivity extends PurchaseActivity<PhrasesActivity> implements IClickListener {
 
-    private final String TAG = "Phrases2Activity";
+    private final String TAG = "PhrasesActivity";
+
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
 
@@ -48,9 +51,9 @@ public class Phrases2Activity extends PurchaseActivity<Phrases2Activity> impleme
     TextView tvHint;
 
     private AudioPlayer audio;
-    private Phrases2Presenter presenter;
+    private PhrasesPresenter presenter;
     private List<WordEntity> lstData;
-    private PhrasesAdapter2 adapter;
+    private PhrasesAdapter adapter;
     public boolean isSlowly = false;
 
     @Override
@@ -60,7 +63,7 @@ public class Phrases2Activity extends PurchaseActivity<Phrases2Activity> impleme
 
     @Override
     protected void initView() {
-        presenter = new Phrases2Presenter(activity);
+        presenter = new PhrasesPresenter(activity);
         setTitle(getString(R.string.title_button_phrase));
         setSupportActionBar(mToolbar);
 
@@ -79,10 +82,13 @@ public class Phrases2Activity extends PurchaseActivity<Phrases2Activity> impleme
         Common.setupRecyclerView(activity, recyclerView, this);
 
         initData();
+
+        FirebaseCrash.logcat(Log.INFO, TAG, "initView");
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        FirebaseCrash.logcat(Log.INFO, TAG, "searchMenu");
 
         getMenuInflater().inflate(R.menu.menu_phrases, menu);
 
@@ -187,13 +193,13 @@ public class Phrases2Activity extends PurchaseActivity<Phrases2Activity> impleme
                 }
                 lstData = data;
                 if (lstData != null && lstData.size() > 0) {
-                    Log.i(Phrases2Activity.class, "load data size:" + lstData.size());
-                    adapter = new PhrasesAdapter2(lstData);
+                    Log.i(PhrasesActivity.class, "load data size:" + lstData.size());
+                    adapter = new PhrasesAdapter(lstData);
                     adapter.setPurchased(isPurchased);
                     recyclerView.setAdapter(adapter);
 
                 } else {
-                    Log.e(Phrases2Activity.class, "Load data Error");
+                    Log.e(PhrasesActivity.class, "Load data Error");
                     finish();
                 }
             }
@@ -234,7 +240,7 @@ public class Phrases2Activity extends PurchaseActivity<Phrases2Activity> impleme
 
     @Override
     protected void dealWithIabSetupFailure() {
-
+        Log.e(TAG, "dealWithIabSetupFailure ====================== ERROR ==================");
     }
 
     //================================= END Purchase =========================

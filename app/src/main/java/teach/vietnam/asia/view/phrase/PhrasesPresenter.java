@@ -13,13 +13,13 @@ import teach.vietnam.asia.view.ICallback;
  * Created by HuynhTD on 01/19/2017.
  */
 
-public class Phrases2Presenter extends BasePresenter<Phrases2Activity> {
+public class PhrasesPresenter extends BasePresenter<PhrasesActivity> {
 
     private final String TAG = "Phrases2Presenter";
 
     public AudioPlayer audio;
 
-    public Phrases2Presenter(Phrases2Activity activity) {
+    public PhrasesPresenter(PhrasesActivity activity) {
         super(activity);
         audio = new AudioPlayer(activity);
     }

@@ -3,6 +3,8 @@ package teach.vietnam.asia.view.foods;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 
+import com.google.firebase.crash.FirebaseCrash;
+
 import butterknife.BindView;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.utils.Log;
@@ -62,6 +64,7 @@ public class FoodActivity extends BaseActivity<FoodActivity> {
 
             }
         });
-    }
 
+        FirebaseCrash.logcat(Log.INFO, TAG, "initView");
+    }
 }
