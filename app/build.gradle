@@ -4,7 +4,7 @@ android {
     signingConfigs {
         release2 {
             keyAlias 'lvn'
-            storeFile file('D:/mydata/git/Lvn_v2/lvn.jks')
+            storeFile file('/Users/huynhtran/Dropbox/trandaohuynh/Dropbox/prj/IOS_git/prj/Lvn_v2/lvn.jks')
             keyPassword '81p'
             storePassword '81p'
         }
@@ -15,13 +15,17 @@ android {
         applicationId "teach.vietnam.asia"
         minSdkVersion 16
         targetSdkVersion 25
-        versionCode 28
-        versionName "3.1.2"
+        versionCode 30
+        versionName "3.1.4"
         externalNativeBuild {
             testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
             cmake {
                 cppFlags ""
             }
+        }
+
+        ndk {
+            abiFilters "armeabi", "armeabi-v7a", "x86", "mips"
         }
     }
     buildTypes {
@@ -29,7 +33,7 @@ android {
             minifyEnabled true
 //            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 //            proguardFile '/Volumes/Data_Primary/MyProject/Dropbox/prj/Lvn/LVN_SD/proguard-project.txt'
-            proguardFile 'D:/mydata/git/Lvn_v2/proguard-project.txt'
+            proguardFile '/Users/huynhtran/Dropbox/trandaohuynh/Dropbox/prj/IOS_git/prj/Lvn_v2/proguard-project.txt'
             signingConfig signingConfigs.release2
         }
         debug {
@@ -37,7 +41,8 @@ android {
             minifyEnabled false
 //            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 //            proguardFile '/Volumes/Data_Primary/MyProject/Dropbox/prj/Lvn/LVN_SD/proguard-project.txt'
-            proguardFile 'D:/mydata/git/Lvn_v2/proguard-project.txt'
+            proguardFile '/Users/huynhtran/Dropbox/trandaohuynh/Dropbox/prj/IOS_git/prj/Lvn_v2/proguard-project.txt'
+//            proguardFile 'D:/mydata/git/Lvn_v2/proguard-project.txt'
 
         }
     }

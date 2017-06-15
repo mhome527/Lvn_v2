@@ -10,6 +10,7 @@ import java.util.List;
 import teach.vietnam.asia.BaseApplication;
 import teach.vietnam.asia.BuildConfig;
 import teach.vietnam.asia.Constant;
+import teach.vietnam.asia.R;
 import teach.vietnam.asia.db.DatabaseHelper;
 import teach.vietnam.asia.entity.BaseEntity;
 
@@ -21,7 +22,9 @@ public abstract class BaseDao<T extends BaseEntity> {
 
     public BaseDao(Context context) {
         this.context = context;
-        lang = BaseApplication.getInstance().pref.getStringValue(Constant.EN, Constant.TYPE_LANGUAGE);
+        lang = BaseApplication.getInstance().pref.getStringValue("", Constant.TYPE_LANGUAGE);
+        if (lang.equals(""))
+            lang = context.getString(R.string.language);
 
     }
 
