@@ -49,22 +49,6 @@
         <item>màu đỏ thẫm</item>
     </string-array>
 
-    <string-array name="color_value">
-        <item>white</item>
-        <item>black</item>
-        <item>red</item>
-        <item>green</item>
-        <item>blue</item>
-        <item>yellow</item>
-        <item>purple</item>
-        <item>brown</item>
-        <item>orange_color</item>
-        <item>gray</item>
-        <item>pink</item>
-        <item>carmine</item>
-    </string-array>
-
-
 
     <string-array name="arr_grammar">
         <item>Lesson 1</item>
@@ -81,16 +65,12 @@
     </string-array>
 
     <string-array name="arr_name_grammar">
-        <item>en1</item>
-        <item>en2</item>
-        <item>en3</item>
-        <item>en4</item>
-        <item>en5</item>
-        <item>en6</item>
-        <item>en7</item>
-        <item>en8</item>
-        <item>en9</item>
-        <item>en10</item>
-        <item>en-classifiers</item>
+        <item>fr1</item>
+        <item>fr2</item>
+        <item>fr3</item>
+        <item>fr4</item>
+        <item>fr5</item>
+        <item>fr6</item>
+        <item>fr7</item>
     </string-array>
 </resources>

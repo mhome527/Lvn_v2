@@ -192,14 +192,7 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> {
 
             ///
             createData();
-//            Handler handler = new Handler();
-//            handler.post(new Runnable() {
-//                @Override
-//                public void run() {
-////                    adapter.setData(listData);
-//                    adapter.notifyDataSetChanged();
-//                }
-//            });
+
             adapter.notifyDataSetChanged();
 
             dialogLanguage.dismiss();
