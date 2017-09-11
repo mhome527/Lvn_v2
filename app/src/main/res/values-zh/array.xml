@@ -34,61 +34,20 @@
         <item>1000000000</item>
     </integer-array>
 
-    <string-array name="color_name">
-        <item>màu trắng</item>
-        <item>màu đen</item>
-        <item>màu đỏ</item>
-        <item>màu xanh lá cây</item>
-        <item>màu xanh dương</item>
-        <item>màu vàng</item>
-        <item>màu tím</item>
-        <item>màu nâu</item>
-        <item>màu cam</item>
-        <item>màu xám</item>
-        <item>màu hồng</item>
-        <item>màu đỏ thẫm</item>
-    </string-array>
-
-    <string-array name="color_value">
-        <item>white</item>
-        <item>black</item>
-        <item>red</item>
-        <item>green</item>
-        <item>blue</item>
-        <item>yellow</item>
-        <item>purple</item>
-        <item>brown</item>
-        <item>orange_color</item>
-        <item>gray</item>
-        <item>pink</item>
-        <item>carmine</item>
-    </string-array>
-
-    <string-array name="arr_grammar">
-        <item>Lesson 1</item>
-        <item>Lesson 2</item>
-        <item>Lesson 3</item>
-        <item>Lesson 4</item>
-        <item>Lesson 5</item>
-        <item>Lesson 6</item>
-        <item>Lesson 7</item>
-        <item>Lesson 8</item>
-        <item>Lesson 9</item>
-        <item>Lesson 10</item>
-        <item>classifiers</item>
-    </string-array>
-
     <string-array name="arr_name_grammar">
-        <item>en1</item>
-        <item>en2</item>
-        <item>en3</item>
-        <item>en4</item>
-        <item>en5</item>
-        <item>en6</item>
-        <item>en7</item>
-        <item>en8</item>
-        <item>en9</item>
-        <item>en10</item>
-        <item>en-classifiers</item>
+        <item>zh1</item>
+        <item>zh2</item>
+        <item>zh3</item>
+        <item>zh4</item>
+        <item>zh5</item>
+        <item>zh6</item>
+        <item>zh7</item>
+        <item>zh8</item>
+        <item>zh9</item>
+        <item>zh10</item>
+        <item>zh11</item>
+        <item>zh12</item>
+        <item>zh13</item>
+
     </string-array>
 </resources>
