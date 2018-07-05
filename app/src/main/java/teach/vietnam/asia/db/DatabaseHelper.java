@@ -2,11 +2,10 @@ package teach.vietnam.asia.db;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
-
-import net.sqlcipher.Cursor;
-import net.sqlcipher.database.SQLiteDatabase;
-import net.sqlcipher.database.SQLiteOpenHelper;
 
 import java.util.List;
 
@@ -72,7 +71,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // will be called only once when singleton is created
     private static void openConnecion() {
         if (db == null) {
-            db = dbHelper.getWritableDatabase(Constant.MY_TEXT);
+//            db = dbHelper.getWritableDatabase(Constant.MY_TEXT);
+            db = dbHelper.getWritableDatabase();
         }
     }
 

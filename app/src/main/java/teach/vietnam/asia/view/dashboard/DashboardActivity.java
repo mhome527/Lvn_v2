@@ -66,7 +66,7 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> {
 
     @Override
     protected void initView() {
-        Log.i(TAG, "initView text: " + Constant.MY_TEXT);
+        Log.i(TAG, "initView text: ");
         setTitle(getString(R.string.title_dashboard));
         dialogLanguage = new Dialog(this);
         dialogLanguage.requestWindowFeature(Window.FEATURE_NO_TITLE);

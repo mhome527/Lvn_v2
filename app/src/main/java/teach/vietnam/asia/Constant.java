@@ -26,18 +26,18 @@ public class Constant {
     /// ===========
 
     ////
-    final static public String MY_TEXT;
+//    final static public String MY_TEXT;
 
-    public static native String stringFromJNI();
-
-    static {
-        System.loadLibrary("native-lib");
-        MY_TEXT = stringFromJNI();
-    }
+//    public static native String stringFromJNI();
+//
+//    static {
+//        System.loadLibrary("native-lib");
+//        MY_TEXT = stringFromJNI();
+//    }
 
     //    public static final String DB_NAME = "VN.db";
     public static final String DB_NAME_V2 = "VN_V2.db";
-    public static final int DATABASE_VERSION = 5;
+    public static final int DATABASE_VERSION = 101;
 
     //    public static final String JSON_WORDS_NAME;
     public static final String JSON_RECOGNIZE_NAME;
@@ -116,7 +116,7 @@ public class Constant {
 //            isPro = false;
     }
 
-    public static final String KEY_UPDATE = "db_update_4"; // gia tri khac se delete database cu
+    public static final String KEY_UPDATE = "db_update_5"; // gia tri khac se delete database cu
     //    public static final String KEY_SOUND = "key_sound";
 //    public static final String VALUE_SOUND = "sound_7"; //gia tri tang khi file Mapname.txt thay doi.
     //
@@ -125,20 +125,7 @@ public class Constant {
     public static final String INTENT_KIND = "intent_kind";
     public static final String INTENT_POSITION = "intent_pos";
 
-    //	public static String LIST_STREET_HCM = "listStreetHCM";
-//	public static String LIST_STREET_HN = "listStreetHN";
-//
-//	public static String KEY_CITY = "city";
-//	public static final String PREF_MODIFY_AD = "date_modify_ad";
-    //
-    // /////// dropbox
-//	static public String FOLDER_NAME;
-//	static {
-//		if (BuildConfig.DEBUG)
-//			FOLDER_NAME = "/Bus_debug/";
-//		else
-//			FOLDER_NAME = "/Bus/";
-//	}
+
 
     public static final String INTENT_WORD = "intent_word";
     //	public static String GA_RECOGNIZE_LEARN_FRAGMENT = "LEARN RECOGNIZE";
