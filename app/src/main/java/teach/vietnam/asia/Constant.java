@@ -116,7 +116,7 @@ public class Constant {
 //            isPro = false;
     }
 
-    public static final String KEY_UPDATE = "db_update_5"; // gia tri khac se delete database cu
+    public static final String KEY_UPDATE = "db_update_6"; // gia tri khac se delete database cu
     //    public static final String KEY_SOUND = "key_sound";
 //    public static final String VALUE_SOUND = "sound_7"; //gia tri tang khi file Mapname.txt thay doi.
     //

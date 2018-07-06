@@ -52,6 +52,10 @@
     <string name="talk_number">Please talk number</string>
     <string name="search">search</string>
 
+    <string name="southern">Southern</string>
+    <string name="central">Central</string>
+    <string name="northern">Northern</string>
+
     <!-- BODY -->
     <string name="head">head</string>
     <string name="hair">hair</string>

@@ -108,6 +108,7 @@
             android:name=".view.phrase.PhrasesActivity"
             android:screenOrientation="portrait"
             android:theme="@style/MyTheme" />
+        <activity android:name=".view.places.PlaceActivity" />
 
     </application>
 

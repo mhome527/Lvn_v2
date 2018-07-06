@@ -1,33 +1,37 @@
 package teach.vietnam.asia.view.word;
 
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import butterknife.BindView;
 import teach.vietnam.asia.BaseApplication;
 import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.entity.WordEntity;
 import teach.vietnam.asia.utils.Utility;
+import teach.vietnam.asia.view.BaseViewHolder;
 
 /**
  * Created by HuynhTD on 12/20/2016.
  */
 
-public class WordItemHolder extends RecyclerView.ViewHolder {
+public class WordItemHolder extends BaseViewHolder{
 
-    ImageView imgSound;
+    @BindView(R.id.imgWord)
     ImageView imgWord;
+
+    @BindView(R.id.imgSound)
+    ImageView imgSound;
+
+    @BindView(R.id.tvJp)
     TextView tvJp;
+
+    @BindView(R.id.tvRomaji)
     TextView tvRomaji;
 
     public WordItemHolder(final View itemView) {
         super(itemView);
-        imgWord = (ImageView) itemView.findViewById(R.id.imgWord);
-        imgSound = (ImageView) itemView.findViewById(R.id.imgSound);
-        tvJp = (TextView) itemView.findViewById(R.id.tvJp);
-        tvRomaji = (TextView) itemView.findViewById(R.id.tvRomaji);
     }
 
     public void bind(int position, boolean isPurchased, WordEntity entity) {

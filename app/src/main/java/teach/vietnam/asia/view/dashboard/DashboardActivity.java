@@ -35,6 +35,7 @@ import teach.vietnam.asia.view.foods.FoodActivity;
 import teach.vietnam.asia.view.grammar.detail.GrammarDetailActivity;
 import teach.vietnam.asia.view.number.NumberActivity;
 import teach.vietnam.asia.view.phrase.PhrasesActivity;
+import teach.vietnam.asia.view.places.PlaceActivity;
 import teach.vietnam.asia.view.practice.PracticeActivity;
 import teach.vietnam.asia.view.recognizes.RecognizeMainActivity;
 import teach.vietnam.asia.view.translate.TranslateActivity;
@@ -172,6 +173,10 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> {
         }
     }
 
+    @OnClick(R.id.imgPlace)
+    public void actionPlace() {
+        startActivity2(PlaceActivity.class);
+    }
 
     @OnClick(R.id.llOtherApp)
     public void actionOtherApp() {

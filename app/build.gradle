@@ -5,8 +5,8 @@ android {
         release2 {
             keyAlias 'lvn'
             storeFile file('D:/mydata/git/Lvn_v2/lvn.jks')
-            keyPassword '81p'
-            storePassword '81p'
+            keyPassword '81private'
+            storePassword '81private'
         }
     }
     compileSdkVersion 26
@@ -19,6 +19,7 @@ android {
         targetSdkVersion 25
         versionCode 32
         versionName "3.2.0"
+        multiDexEnabled true
 //        externalNativeBuild {
 //            testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 //            cmake {
@@ -87,22 +88,22 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation project(':expandablecheckrecyclerview')
     androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    implementation 'com.android.support:appcompat-v7:25.2.0'
-
-    implementation 'com.google.code.gson:gson:2.3.1'
-    implementation 'com.jakewharton:butterknife:8.4.0'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    //    implementation 'com.google.code.gson:gson:2.3.1'
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     implementation 'com.github.bumptech.glide:glide:3.7.0'
-    implementation 'net.zetetic:android-database-sqlcipher:3.5.4'
-    implementation 'com.android.support:cardview-v7:25.1.0'
-    implementation 'com.android.support:design:25.1.0'
-    implementation 'com.android.support:recyclerview-v7:25.1.0'
-
+    //    implementation 'net.zetetic:android-database-sqlcipher:3.5.4'
+    implementation 'com.android.support:cardview-v7:26.1.0'
+    implementation 'com.android.support:design:26.1.0'
+    implementation 'com.android.support:recyclerview-v7:26.1.0'
     implementation 'com.google.firebase:firebase-crash:11.0.0'
     implementation 'com.google.firebase:firebase-analytics:11.0.0'
+    implementation project(':expandablerecyclerview')
 }
 
 apply plugin: 'com.google.gms.google-services'

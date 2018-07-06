@@ -308,7 +308,7 @@
                 android:text="@string/hip_vn" />
 
             <Button
-                android:id="@+id/btnFinger"
+                android:id="@+id/btnWrist"
                 android:layout_width="70dp"
                 android:layout_height="30dp"
                 android:layout_alignParentRight="true"
@@ -317,21 +317,21 @@
                 android:layout_marginTop="15dp"
                 android:background="@drawable/bg_button_selector"
                 android:padding="0dp"
-                android:tag="@string/fingers"
-                android:text="@string/fingers_vn" />
+                android:tag="@string/wrist"
+                android:text="@string/wrist_vn" />
 
             <Button
-                android:id="@+id/btnWrist"
+                android:id="@+id/btnFinger"
                 android:layout_width="70dp"
                 android:layout_height="30dp"
                 android:layout_alignParentRight="true"
-                android:layout_below="@+id/btnFinger"
+                android:layout_below="@+id/btnWrist"
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="15dp"
                 android:background="@drawable/bg_button_selector"
                 android:padding="0dp"
-                android:tag="@string/wrist"
-                android:text="@string/wrist_vn" />
+                android:tag="@string/fingers"
+                android:text="@string/fingers_vn" />
 
             <LinearLayout
                 android:id="@+id/llHeel"
