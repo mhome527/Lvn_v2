@@ -1,19 +1,25 @@
 package teach.vietnam.asia.view.places;
 
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.TextView;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import teach.vietnam.asia.R;
+import teach.vietnam.asia.entity.PlaceEntity;
 import teach.vietnam.asia.view.BaseFragment;
+import teach.vietnam.asia.view.ICallback;
 
-public class PlaceFragment extends BaseFragment<PlaceActivity> {
+public class PlaceFragment extends BaseFragment<PlaceActivity> implements IPlaceListener {
     private final String TAG = "PlaceFragment";
 
-    @BindView(R.id.textView)
-    TextView textView;
+    @BindView(R.id.recyclerView)
+    RecyclerView recyclerView;
 
-    public int group = 1;
+    public int area = 1;
+    PlaceAdapter adapter;
 
     @Override
     public int getLayout() {
@@ -22,6 +28,26 @@ public class PlaceFragment extends BaseFragment<PlaceActivity> {
 
     @Override
     public void initView(View root) {
-        textView.setText("group: " + group);
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(activity);
+        recyclerView.setLayoutManager(layoutManager);
+
+        loadData();
+    }
+
+    @Override
+    public void onChildClick(PlaceEntity entity) {
+
+    }
+
+    private void loadData() {
+        activity.presenter.getData(area, new ICallback<ArrayList<PlaceGroupData>>() {
+            @Override
+            public void onCallback(ArrayList<PlaceGroupData> data) {
+                adapter = new PlaceAdapter(data, PlaceFragment.this);
+                recyclerView.setAdapter(adapter);
+            }
+
+        });
     }
 }

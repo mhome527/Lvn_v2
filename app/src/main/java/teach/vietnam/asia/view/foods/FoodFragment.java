@@ -104,10 +104,6 @@ public class FoodFragment extends BaseFragment<FoodActivity> {
                 });
             }
 
-            @Override
-            public void onFail(String err) {
-                Log.e(TAG, "onFail");
-            }
         });
     }
 

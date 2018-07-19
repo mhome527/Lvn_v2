@@ -107,11 +107,6 @@ public class WordFragment extends BaseFragment<WordActivity> {
                     }
                 });
             }
-
-            @Override
-            public void onFail(String err) {
-                Log.e(TAG, "onFail");
-            }
         });
     }
 

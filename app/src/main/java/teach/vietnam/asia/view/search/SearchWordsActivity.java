@@ -132,10 +132,6 @@ public class SearchWordsActivity extends BaseActivity<SearchWordsActivity> {
                 }
             }
 
-            @Override
-            public void onFail(String err) {
-
-            }
         });
     }
 

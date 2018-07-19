@@ -1,11 +1,17 @@
 package teach.vietnam.asia.view.places;
 
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
+import android.support.v7.widget.Toolbar;
+import android.widget.TextView;
 
 import com.google.firebase.crash.FirebaseCrash;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.utils.Log;
 import teach.vietnam.asia.view.BaseActivity;
@@ -13,13 +19,27 @@ import teach.vietnam.asia.view.BaseActivity;
 public class PlaceActivity extends BaseActivity<PlaceActivity> {
     private final String TAG = "PlaceActivity";
 
-    @BindView(R.id.tab_layout)
-    TabLayout tabLayout;
+
+    @BindView(R.id.coordinator)
+    CoordinatorLayout coordinator;
+
+    @BindView(R.id.appBar)
+    AppBarLayout appBar;
+
+    @BindView(R.id.toolbarTitle)
+    TextView toolbarTitle;
 
     @BindView(R.id.viewpager)
     ViewPager viewPager;
 
+    @BindView(R.id.tabLayout)
+    TabLayout tabLayout;
+
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+
     PlacePagerAdapter adapter;
+    PlacePresenter presenter;
 
     @Override
     protected int getLayout() {
@@ -28,6 +48,20 @@ public class PlaceActivity extends BaseActivity<PlaceActivity> {
 
     @Override
     protected void initView() {
+        setSupportActionBar(toolbar);
+
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setHomeButtonEnabled(false); // disable the button
+            actionBar.setDisplayHomeAsUpEnabled(false); // remove the left caret
+            actionBar.setDisplayShowHomeEnabled(false); // remove the icon
+            actionBar.setDisplayShowTitleEnabled(false); // remove title
+
+        } else
+            Log.e(TAG, "initView actionBar NULL!!!!");
+
+        presenter = new PlacePresenter(this);
+
         tabLayout.addTab(tabLayout.newTab().setText(R.string.southern));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.central));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.northern));
@@ -40,7 +74,7 @@ public class PlaceActivity extends BaseActivity<PlaceActivity> {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
 //                currPage = tab.getPosition();
-//                viewPager.setCurrentItem(currPage);
+                viewPager.setCurrentItem(tab.getPosition());
             }
 
             @Override
@@ -55,5 +89,10 @@ public class PlaceActivity extends BaseActivity<PlaceActivity> {
         });
 
         FirebaseCrash.logcat(Log.INFO, TAG, "initView");
+    }
+
+    @OnClick(R.id.btnBack)
+    public void actionBack() {
+        onBackPressed();
     }
 }

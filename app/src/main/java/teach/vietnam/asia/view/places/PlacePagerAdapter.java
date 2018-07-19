@@ -23,15 +23,15 @@ public class PlacePagerAdapter extends FragmentStatePagerAdapter {
         switch (position) {
             case 0:
                 PlaceFragment placeFragment1 = new PlaceFragment();
-                placeFragment1.group = 1;
+                placeFragment1.area = 1;
                 return placeFragment1;
             case 1:
                 PlaceFragment placeFragment2 = new PlaceFragment();
-                placeFragment2.group = 2;
+                placeFragment2.area = 2;
                 return placeFragment2;
             case 2:
                 PlaceFragment placeFragment3 = new PlaceFragment();
-                placeFragment3.group = 3;
+                placeFragment3.area = 3;
                 return placeFragment3;
 
             default:

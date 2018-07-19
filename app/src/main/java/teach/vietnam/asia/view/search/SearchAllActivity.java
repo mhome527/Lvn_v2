@@ -139,10 +139,6 @@ public class SearchAllActivity extends BaseActivity<SearchAllActivity> {
                 }
             }
 
-            @Override
-            public void onFail(String err) {
-
-            }
         });
 
     }

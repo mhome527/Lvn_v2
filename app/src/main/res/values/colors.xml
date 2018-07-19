@@ -43,7 +43,10 @@
     <color name="black_alpha_i_40">#66000000</color>
     <color name="black_alpha_i_50">#80000000</color>
     <color name="black_alpha_i_60">#99000000</color>
-    
+
+    <color name="light_blue">#250000FF</color>
+
+
     <color name="white_alpha_i_80">#CCffffff</color>
     <color name="white_alpha_i_30">#4Dffffff</color>
     <color name="white_alpha_i_50">#80ffffff</color>
@@ -88,6 +91,7 @@
     <color name="pink">#F19CBB</color>
     <color name="crimson">#990000</color>
 	<color name="transparent">#00ffffff</color>
-    
-    
+
+
+
 </resources>

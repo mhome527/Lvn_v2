@@ -1,44 +1,56 @@
 package teach.vietnam.asia.view.places;
 
 import android.view.View;
-import android.view.ViewGroup;
 
-import com.thoughtbot.expandablerecyclerview.MultiTypeExpandableRecyclerViewAdapter;
 import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup;
 
 import java.util.List;
 
 import teach.vietnam.asia.R;
+import teach.vietnam.asia.entity.PlaceEntity;
+import teach.vietnam.asia.view.base.BaseExAdapterView;
 
-import static android.view.LayoutInflater.from;
+public class PlaceAdapter extends BaseExAdapterView<PlaceHeaderHolder, PlaceItemHolder> {
 
-public class PlaceAdapter extends MultiTypeExpandableRecyclerViewAdapter<PlaceHeaderHolder, PlaceItemHolder> {
+    private IPlaceListener iPlaceListener;
+    List<PlaceGroupData> groups;
 
-    public PlaceAdapter(List<PlaceGenre> groups) {
+    public PlaceAdapter(List<PlaceGroupData> groups, IPlaceListener iPlaceListener) {
         super(groups);
+        this.iPlaceListener = iPlaceListener;
+        this.groups = groups;
     }
 
     @Override
-    public PlaceHeaderHolder onCreateGroupViewHolder(ViewGroup parent, int viewType) {
-        View view = from(parent.getContext())
-                .inflate(R.layout.place_item_header, parent, false);
+    protected int getHeaderLayout() {
+        return R.layout.place_item_header;
+    }
+
+    @Override
+    protected int getItemLayout() {
+        return R.layout.place_item;
+    }
+
+    @Override
+    protected PlaceHeaderHolder getHeaderView(View view) {
         return new PlaceHeaderHolder(view);
     }
 
     @Override
-    public PlaceItemHolder onCreateChildViewHolder(ViewGroup parent, int viewType) {
-        View view = from(parent.getContext())
-                .inflate(R.layout.place_item, parent, false);
-        return new PlaceItemHolder(view);
+    protected PlaceItemHolder getItemView(View view) {
+        return new PlaceItemHolder(view, iPlaceListener);
     }
 
     @Override
-    public void onBindChildViewHolder(PlaceItemHolder holder, int flatPosition, ExpandableGroup group, int childIndex) {
-        holder.bind(group);
+    protected void onBindHeaderHolder(PlaceHeaderHolder holder, int flatPosition, ExpandableGroup group) {
+        holder.tvTitle.setText(group.getTitle());
     }
 
     @Override
-    public void onBindGroupViewHolder(PlaceHeaderHolder holder, int flatPosition, ExpandableGroup group) {
-        holder.bind(group);
+    protected void onBindItemHolder(PlaceItemHolder holder, int flatPosition, ExpandableGroup group, int childIndex) {
+        PlaceEntity entity = ((PlaceGroupData) group).getItems().get(childIndex);
+        holder.bind(entity);
     }
+
+
 }

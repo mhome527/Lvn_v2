@@ -266,10 +266,6 @@ public class RecognizeTestActivity extends PurchaseActivity<RecognizeTestActivit
                 }
             }
 
-            @Override
-            public void onFail(String err) {
-
-            }
         });
 
         ///=====================================

@@ -219,10 +219,7 @@ public class RecognizeMainActivity extends PurchaseActivity<RecognizeMainActivit
                 }
             }
 
-            @Override
-            public void onFail(String err) {
 
-            }
         });
 
         ///

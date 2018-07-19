@@ -20,7 +20,7 @@ public class FoodActivity extends BaseActivity<FoodActivity> {
     private static String TAG = "FoodActivity";
 
 
-    @BindView(R.id.tab_layout)
+    @BindView(R.id.tabLayout)
     TabLayout tabLayout;
 
     @BindView(R.id.viewpager)

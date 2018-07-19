@@ -212,10 +212,6 @@ public class PracticeDetailActivity extends BaseActivity<PracticeDetailActivity>
 
             }
 
-            @Override
-            public void onFail(String err) {
-
-            }
         });
 
     }
@@ -236,10 +232,6 @@ public class PracticeDetailActivity extends BaseActivity<PracticeDetailActivity>
                 }
             }
 
-            @Override
-            public void onFail(String err) {
-
-            }
         });
 
     }

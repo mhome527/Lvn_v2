@@ -2,6 +2,9 @@ package teach.vietnam.asia.view.word;
 
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
+import android.support.v7.widget.Toolbar;
+import android.widget.TextView;
 
 import com.google.firebase.crash.FirebaseCrash;
 
@@ -20,17 +23,17 @@ public class WordActivity extends PurchaseActivity<WordActivity> {
 
     private static String TAG = "WordActivity";
 
-//    @BindView(R.id.toolbar)
-//    Toolbar toolbar;
-//
-//    @BindView(R.id.toolbarTitle)
-//    TextView toolbarTitle;
-
-    @BindView(R.id.tab_layout)
-    TabLayout tabLayout;
+    @BindView(R.id.toolbarTitle)
+    TextView toolbarTitle;
 
     @BindView(R.id.viewpager)
     ViewPager viewPager;
+
+    @BindView(R.id.tabLayout)
+    TabLayout tabLayout;
+
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
 
     WordPagerAdapter adapter;
 
@@ -44,6 +47,19 @@ public class WordActivity extends PurchaseActivity<WordActivity> {
     @Override
     protected void initView() {
         Log.i(TAG, "initView");
+
+        setSupportActionBar(toolbar);
+
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setHomeButtonEnabled(false); // disable the button
+            actionBar.setDisplayHomeAsUpEnabled(false); // remove the left caret
+            actionBar.setDisplayShowHomeEnabled(false); // remove the icon
+            actionBar.setDisplayShowTitleEnabled(false); // remove title
+
+        } else
+            Log.e(TAG, "initView actionBar NULL!!!!");
+
 
         setTitleCenter(getString(R.string.title_word));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.title_animal));

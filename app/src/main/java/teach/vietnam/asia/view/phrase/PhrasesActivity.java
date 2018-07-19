@@ -204,10 +204,6 @@ public class PhrasesActivity extends PurchaseActivity<PhrasesActivity> implement
                 }
             }
 
-            @Override
-            public void onFail(String err) {
-
-            }
         });
     }
 
