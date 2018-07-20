@@ -44,7 +44,7 @@
     <color name="black_alpha_i_50">#80000000</color>
     <color name="black_alpha_i_60">#99000000</color>
 
-    <color name="light_blue">#250000FF</color>
+    <color name="light_blue">#6699CC</color>
 
 
     <color name="white_alpha_i_80">#CCffffff</color>
@@ -81,6 +81,8 @@
 
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimaryDark2">#A6303F9F</color>
+
     <color name="colorAccent">#FF4081</color>
 
     <color name="green">#217A10</color>
@@ -92,6 +94,7 @@
     <color name="crimson">#990000</color>
 	<color name="transparent">#00ffffff</color>
 
+    <color name="gray3">#A6000000</color>
 
 
 </resources>

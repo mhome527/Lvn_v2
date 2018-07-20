@@ -1,77 +1,62 @@
 package teach.vietnam.asia.view.dashboard;
 
-import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import java.util.List;
 
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.entity.DashboardEntity;
+import teach.vietnam.asia.view.BaseAdapterView;
+import teach.vietnam.asia.view.BaseViewHolder;
 
-/**
- * Created by Administrator on 10/17/2016.
- */
+public class DashboardAdapter extends BaseAdapterView<BaseViewHolder> {
 
-public class DashboardAdapter extends BaseAdapter {
+    List<DashboardEntity> items;
+    IDashboardAction iDashboardAction;
 
-    private static String TAG = "DashboardAdapter";
-
-    Context context;
-    List<DashboardEntity> listData;
-    LayoutInflater layoutinflater;
-
-    public DashboardAdapter(Context context, List<DashboardEntity> listData) {
-        this.context = context;
-        layoutinflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        this.listData = listData;
+    public DashboardAdapter(List<DashboardEntity> items, IDashboardAction iDashboardAction) {
+        this.items = items;
+        this.iDashboardAction = iDashboardAction;
     }
 
     @Override
-    public int getCount() {
-        return listData.size();
+    protected int getHeaderLayout() {
+        return R.layout.dashboard_header_item;
     }
 
     @Override
-    public Object getItem(int position) {
-        return listData.get(position);
+    protected int getFooterLayout() {
+        return R.layout.dashboard_footer_item;
     }
 
     @Override
-    public long getItemId(int position) {
-        return position;
+    protected int getItemLayout() {
+        return R.layout.dashboard_item;
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        HolderView holderView;
-
-        if (convertView == null) {
-            holderView = new HolderView();
-            convertView = layoutinflater.inflate(R.layout.dashboard_item, parent, false);
-            holderView.imgItem = (ImageView) convertView.findViewById(R.id.imgItem);
-            holderView.tv = (TextView) convertView.findViewById(R.id.tvContent);
-            convertView.setTag(holderView);
-        } else {
-            holderView = (HolderView) convertView.getTag();
-        }
-
-        DashboardEntity entity = listData.get(position);
-        holderView.imgItem.setImageResource(entity.img);
-        holderView.tv.setText(entity.text);
-        return convertView;
+    protected BaseViewHolder getHeaderView(View view) {
+        return new DashboardHeaderHolder(view, iDashboardAction);
     }
 
-    public void setData(List<DashboardEntity> listData) {
-        this.listData = listData;
+    @Override
+    protected BaseViewHolder getFooterView(View view) {
+        return new DashboardFooterHolder(view);
     }
 
-    static class HolderView {
-        ImageView imgItem;
-        TextView tv;
+    @Override
+    protected BaseViewHolder getItemView(View view) {
+        return new DashboardItemHolder(view, iDashboardAction);
+    }
+
+    @Override
+    protected List getListData() {
+        return items;
+    }
+
+    @Override
+    public void onBindViewHolder(BaseViewHolder holder, int position) {
+        if (holder instanceof DashboardItemHolder)
+            ((DashboardItemHolder) holder).bind(items.get(position - 1));
     }
 }

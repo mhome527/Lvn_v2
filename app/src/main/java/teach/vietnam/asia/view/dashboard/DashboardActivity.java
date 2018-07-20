@@ -1,16 +1,15 @@
 package teach.vietnam.asia.view.dashboard;
 
 import android.app.Dialog;
-import android.os.Bundle;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
-import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.GridView;
 
 import com.google.firebase.crash.FirebaseCrash;
 
@@ -41,17 +40,31 @@ import teach.vietnam.asia.view.recognizes.RecognizeMainActivity;
 import teach.vietnam.asia.view.translate.TranslateActivity;
 import teach.vietnam.asia.view.word.WordActivity;
 
-import static teach.vietnam.asia.BaseApplication.mFirebaseAnalytics;
 
-
-public class DashboardActivity extends BaseActivity<DashboardActivity> {
+public class DashboardActivity extends BaseActivity<DashboardActivity> implements IDashboardAction {
 
     private String TAG = "DashboardActivity";
 
     List<DashboardEntity> listData;
 
-    @BindView(R.id.gridView)
-    GridView gridView;
+
+//    @BindView(R.id.coordinator)
+//    CoordinatorLayout coordinator;
+//
+//    @BindView(R.id.appBar)
+//    AppBarLayout appBar;
+//
+//    @BindView(R.id.toolbarTitle)
+//    TextView toolbarTitle;
+//
+//    @BindView(R.id.toolbar)
+//    Toolbar toolbar;
+
+    @BindView(R.id.recyclerView)
+    RecyclerView recyclerView;
+
+//    @BindView(R.id.gridView)
+//    GridView gridView;
 
     MenuItem itemLanguage;
 
@@ -76,77 +89,8 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> {
 
         Utility.setLanguage(activity);
         createData();
+        setupView();
 
-        if (Common.isTablet(activity))
-            gridView.setNumColumns(3);
-        else
-            gridView.setNumColumns(2);
-        adapter = new DashboardAdapter(this, listData);
-        gridView.setAdapter(adapter);
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Bundle params = new Bundle();
-                String screen;
-
-                switch (position) {
-                    case 0:
-                        startActivity2(AlphabetActivity.class);
-                        screen = "AlphabetActivity";
-                        break;
-                    case 1:
-                        startActivity2(NumberActivity.class);
-                        screen = "NumberActivity";
-                        break;
-                    case 2:
-                        startActivity2(BodyActivity.class);
-                        screen = "BodyActivity";
-                        break;
-                    case 3:
-                        startActivity2(RecognizeMainActivity.class);
-                        screen = "RecognizeMainActivity";
-                        break;
-
-                    case 4:
-                        startActivity2(WordActivity.class);
-                        screen = "WordActivity";
-                        break;
-                    case 5:
-                        startActivity2(PhrasesActivity.class);
-                        screen = "FoodActivity";
-                        break;
-                    case 6:
-                        startActivity2(GrammarDetailActivity.class);
-                        screen = "GrammarDetailActivity";
-                        break;
-                    case 7:
-                        startActivity2(FoodActivity.class);
-                        screen = "PhrasesActivity";
-
-                        break;
-                    case 8:
-                        startActivity2(PracticeActivity.class);
-                        screen = "PracticeActivity";
-                        break;
-                    case 9:
-                    default:
-                        startActivity2(TranslateActivity.class);
-                        screen = "TranslateActivity";
-//                        if (BuildConfig.DEBUG) {
-//                            FirebaseCrash.logcat(Log.ERROR, TAG, screen);
-//                            FirebaseCrash.report(new Throwable("test lvn Crack...."));
-//                        }
-                        break;
-                }
-
-                if (!BuildConfig.DEBUG) {
-                    // [START custom_event]
-                    params.putString("Name", screen);
-                    params.putString("Language", lang);
-                    mFirebaseAnalytics.logEvent("SCREEN", params);
-                }
-            }
-        });
         if (!BuildConfig.DEBUG)
             FirebaseCrash.logcat(Log.INFO, TAG, "initView");
     }
@@ -173,16 +117,71 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> {
         }
     }
 
-    @OnClick(R.id.imgPlace)
-    public void actionPlace() {
-        startActivity2(PlaceActivity.class);
-    }
+//    @OnClick(R.id.imgPlace)
+//    public void actionPlace() {
+//        startActivity2(PlaceActivity.class);
+//    }
 
     @OnClick(R.id.llOtherApp)
     public void actionOtherApp() {
         Utility.installVnApp(activity);
     }
 
+
+    @Override
+    public void onItemClick(int pos) {
+        String screen;
+
+        switch (pos) {
+            case 0:
+                startActivity2(PlaceActivity.class);
+                break;
+
+            case 1:
+                startActivity2(AlphabetActivity.class);
+                screen = "AlphabetActivity";
+                break;
+            case 2:
+                startActivity2(NumberActivity.class);
+                screen = "NumberActivity";
+                break;
+            case 3:
+                startActivity2(BodyActivity.class);
+                screen = "BodyActivity";
+                break;
+            case 4:
+                startActivity2(RecognizeMainActivity.class);
+                screen = "RecognizeMainActivity";
+                break;
+
+            case 5:
+                startActivity2(WordActivity.class);
+                screen = "WordActivity";
+                break;
+            case 6:
+                startActivity2(PhrasesActivity.class);
+                screen = "FoodActivity";
+                break;
+            case 7:
+                startActivity2(GrammarDetailActivity.class);
+                screen = "GrammarDetailActivity";
+                break;
+            case 8:
+                startActivity2(FoodActivity.class);
+                screen = "PhrasesActivity";
+
+                break;
+            case 9:
+                startActivity2(PracticeActivity.class);
+                screen = "PracticeActivity";
+                break;
+            case 10:
+            default:
+                startActivity2(TranslateActivity.class);
+                screen = "TranslateActivity";
+                break;
+        }
+    }
     ////// ======================================== /////////
 
     OnItemClickListener onItemClickListener = new OnItemClickListener() {
@@ -219,6 +218,44 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> {
         listData.add(new DashboardEntity(R.drawable.menu_translate, getString(R.string.title_translate)));
 //        listData.add(new DashboardEntity(R.drawable.button_word_on, getString(R.string.title_coming_soon)));
     }
+
+    private void setupView() {
+        Log.i(TAG, "setupView");
+        GridLayoutManager lLayout;
+
+        if (Common.isTablet(activity))
+            lLayout = new GridLayoutManager(activity, 4);
+        else
+            lLayout = new GridLayoutManager(activity, 3);
+
+        lLayout.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+                if (position == 0) {
+                    if (Common.isTablet(activity))
+                        return 4;
+                    else
+                        return 3;
+
+                } else if (position == listData.size() + 1) {
+                    if (Common.isTablet(activity))
+                        return 4;
+                    else
+                        return 3;
+                } else
+                    return 1;
+            }
+        });
+
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(lLayout);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+
+        adapter = new DashboardAdapter(listData, this);
+        recyclerView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+    }
+
 
     private void setIconLanguage() {
         if (lang.equals(Constant.JA))
@@ -267,5 +304,6 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> {
 
         dialogLanguage.show();
     }
+
 
 }

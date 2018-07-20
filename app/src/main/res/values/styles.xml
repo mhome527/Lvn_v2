@@ -30,6 +30,11 @@
         <!--<item name="android:windowBackground">@color/bg_light</item>-->
     </style>
 
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
     <style name="Theme_custom_dialog" parent="android:Theme.Dialog">
         <item name="android:windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>

@@ -48,7 +48,7 @@ public abstract class BaseDao<T extends BaseEntity> {
 //    }
 
     protected T fetch(String sql) {
-        Log.i(TAG, "fetchAll sql:" + sql);
+//        Log.i(TAG, "fetchAll sql:" + sql);
         T entity = null;
         try {
             Cursor cursor = DatabaseHelper.getInstance(context).executeQuery(sql);
@@ -91,7 +91,7 @@ public abstract class BaseDao<T extends BaseEntity> {
 //    }
 
     protected List<T> fetchAll(String sql) {
-        Log.i(TAG, "fetchAll sql:" + sql);
+//        Log.i(TAG, "fetchAll sql:" + sql);
         List<T> listData = new ArrayList<>();
         try {
             Cursor cursor = DatabaseHelper.getInstance(context).executeQuery(sql);

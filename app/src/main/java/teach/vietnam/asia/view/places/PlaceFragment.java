@@ -11,6 +11,7 @@ import teach.vietnam.asia.R;
 import teach.vietnam.asia.entity.PlaceEntity;
 import teach.vietnam.asia.view.BaseFragment;
 import teach.vietnam.asia.view.ICallback;
+import teach.vietnam.asia.view.placedetail.PlaceDetailActivity;
 
 public class PlaceFragment extends BaseFragment<PlaceActivity> implements IPlaceListener {
     private final String TAG = "PlaceFragment";
@@ -37,7 +38,7 @@ public class PlaceFragment extends BaseFragment<PlaceActivity> implements IPlace
 
     @Override
     public void onChildClick(PlaceEntity entity) {
-
+        activity.startActivity2(PlaceDetailActivity.class);
     }
 
     private void loadData() {
