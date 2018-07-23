@@ -32,9 +32,9 @@ import teach.vietnam.asia.view.dashboard.language.LanguageAdapter;
 import teach.vietnam.asia.view.dashboard.language.OnItemClickListener;
 import teach.vietnam.asia.view.foods.FoodActivity;
 import teach.vietnam.asia.view.grammar.detail.GrammarDetailActivity;
+import teach.vietnam.asia.view.map.MapActivity;
 import teach.vietnam.asia.view.number.NumberActivity;
 import teach.vietnam.asia.view.phrase.PhrasesActivity;
-import teach.vietnam.asia.view.places.PlaceActivity;
 import teach.vietnam.asia.view.practice.PracticeActivity;
 import teach.vietnam.asia.view.recognizes.RecognizeMainActivity;
 import teach.vietnam.asia.view.translate.TranslateActivity;
@@ -134,7 +134,8 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> implement
 
         switch (pos) {
             case 0:
-                startActivity2(PlaceActivity.class);
+//                startActivity2(PlaceActivity.class);
+                startActivity2(MapActivity.class);
                 break;
 
             case 1:

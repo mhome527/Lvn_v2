@@ -6,6 +6,7 @@ import android.support.v4.view.ViewPager;
 import com.google.firebase.crash.FirebaseCrash;
 
 import butterknife.BindView;
+import teach.vietnam.asia.BuildConfig;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.utils.Log;
 import teach.vietnam.asia.view.BaseActivity;
@@ -64,7 +65,7 @@ public class FoodActivity extends BaseActivity<FoodActivity> {
 
             }
         });
-
+        if (!BuildConfig.DEBUG)
         FirebaseCrash.logcat(Log.INFO, TAG, "initView");
     }
 }

@@ -9,6 +9,7 @@ import android.widget.ListView;
 import com.google.firebase.crash.FirebaseCrash;
 
 import butterknife.BindView;
+import teach.vietnam.asia.BuildConfig;
 import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.utils.Log;
@@ -33,7 +34,7 @@ public class GrammarActivity extends BaseActivity<GrammarActivity> {
     }
 
 
-    private void initData(){
+    private void initData() {
 //        String [] arrData = getResources().getStringArray(R.array.arr_grammar);
         ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.arr_grammar, android.R.layout.simple_list_item_1);
         lstGrammar.setAdapter(adapter);
@@ -46,7 +47,8 @@ public class GrammarActivity extends BaseActivity<GrammarActivity> {
             }
         });
 
-        FirebaseCrash.logcat(Log.INFO, TAG, "initView");
+        if (!BuildConfig.DEBUG)
+            FirebaseCrash.logcat(Log.INFO, TAG, "initView");
 
     }
 

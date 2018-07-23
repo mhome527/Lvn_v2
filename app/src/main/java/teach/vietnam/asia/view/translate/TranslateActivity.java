@@ -6,6 +6,7 @@ import android.webkit.WebViewClient;
 
 import com.google.firebase.crash.FirebaseCrash;
 
+import teach.vietnam.asia.BuildConfig;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.utils.Log;
 import teach.vietnam.asia.view.BaseActivity;
@@ -34,7 +35,7 @@ public class TranslateActivity extends BaseActivity<TranslateActivity> {
 //        url = "http://google.com";
         Log.i(TranslateActivity.class, "url:" + url);
         webView.loadUrl(url);
-
+        if (!BuildConfig.DEBUG)
         FirebaseCrash.logcat(Log.INFO, TAG, "initView");
     }
 

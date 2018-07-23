@@ -19,6 +19,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import teach.vietnam.asia.BuildConfig;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.sound.AudioPlayer;
 import teach.vietnam.asia.utils.Common;
@@ -75,7 +76,7 @@ public class NumberActivity extends BaseActivity<NumberActivity> {
             gridWords.setNumColumns(3);
 
         initData();
-
+        if (!BuildConfig.DEBUG)
         FirebaseCrash.logcat(Log.INFO, TAG, "initView");
 
     }

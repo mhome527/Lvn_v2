@@ -48,7 +48,7 @@ public abstract class PurchaseActivity<T> extends BaseActivity<T> implements Iab
         Log.i(TAG, "onCreate");
         billingHelper = new IabHelper(this, Constant.BASE_64_KEY);
         billingHelper.startSetup(this);
-
+        if (!BuildConfig.DEBUG)
         FirebaseCrash.logcat(Log.INFO, TAG, "onCreate");
 
         super.onCreate(savedInstanceState);
@@ -66,7 +66,7 @@ public abstract class PurchaseActivity<T> extends BaseActivity<T> implements Iab
     }
 
     protected boolean getItemPurchased() {
-        Log.i(TAG, "getItemPurchased ...");
+        Log.i(TAG, "getItemPurchased ...");        if (!BuildConfig.DEBUG)
         FirebaseCrash.logcat(Log.INFO, TAG, "getItemPurchased");
 
         List<String> list = new ArrayList<>();

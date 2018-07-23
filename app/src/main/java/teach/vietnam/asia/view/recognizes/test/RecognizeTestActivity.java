@@ -21,6 +21,7 @@ import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import teach.vietnam.asia.BuildConfig;
 import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.entity.RecognizeEntity;
@@ -66,7 +67,7 @@ public class RecognizeTestActivity extends PurchaseActivity<RecognizeTestActivit
 
 
     //    WordPagerAdapter adapter;
-     //  true: user has already bought product
+    //  true: user has already bought product
 //    int currPage = 0;
 //    private RecognizePagerAdapter adapterPage;
 ////////
@@ -110,7 +111,8 @@ public class RecognizeTestActivity extends PurchaseActivity<RecognizeTestActivit
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
-        FirebaseCrash.logcat(Log.INFO, TAG, "initView");
+        if (!BuildConfig.DEBUG)
+            FirebaseCrash.logcat(Log.INFO, TAG, "initView");
     }
 
     ////////////

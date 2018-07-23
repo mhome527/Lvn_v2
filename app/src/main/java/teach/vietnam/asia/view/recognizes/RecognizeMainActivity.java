@@ -21,6 +21,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import teach.vietnam.asia.BuildConfig;
 import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.utils.Log;
@@ -75,7 +76,7 @@ public class RecognizeMainActivity extends PurchaseActivity<RecognizeMainActivit
 
     @Override
     protected void initView() {
-        Log.i(TAG, "initView");
+        Log.i(TAG, "initView");        if (!BuildConfig.DEBUG)
         FirebaseCrash.logcat(Log.INFO, TAG, "initView");
 
         setTitleCenter(getString(R.string.title_recognize));
@@ -88,7 +89,7 @@ public class RecognizeMainActivity extends PurchaseActivity<RecognizeMainActivit
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-
+        if (!BuildConfig.DEBUG)
         FirebaseCrash.logcat(Log.INFO, TAG, "initView");
     }
 

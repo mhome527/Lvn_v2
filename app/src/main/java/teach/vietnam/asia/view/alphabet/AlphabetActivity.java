@@ -11,6 +11,7 @@ import com.google.firebase.crash.FirebaseCrash;
 import java.util.List;
 
 import butterknife.BindView;
+import teach.vietnam.asia.BuildConfig;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.entity.TblAlphabetEx;
 import teach.vietnam.asia.sound.AudioPlayer;
@@ -41,7 +42,7 @@ public class AlphabetActivity extends BaseActivity<AlphabetActivity> {
     protected void initView() {
 
         initData();
-
+        if (!BuildConfig.DEBUG)
         FirebaseCrash.logcat(Log.INFO, TAG, "initView");
     }
 

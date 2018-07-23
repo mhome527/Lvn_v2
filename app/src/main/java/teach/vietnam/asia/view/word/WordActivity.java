@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.google.firebase.crash.FirebaseCrash;
 
 import butterknife.BindView;
+import teach.vietnam.asia.BuildConfig;
 import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.utils.Log;
@@ -88,7 +89,7 @@ public class WordActivity extends PurchaseActivity<WordActivity> {
 
             }
         });
-
+        if (!BuildConfig.DEBUG)
         FirebaseCrash.logcat(Log.INFO, TAG, "initView");
 
     }

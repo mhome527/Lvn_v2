@@ -11,6 +11,7 @@ import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import teach.vietnam.asia.BuildConfig;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.sound.AudioPlayer;
 import teach.vietnam.asia.utils.Log;
@@ -106,7 +107,7 @@ public class BodyActivity extends BaseActivity<BodyActivity> {
     protected void initView() {
         setTitle(getString(R.string.title_body));
         initData();
-
+        if (!BuildConfig.DEBUG)
         FirebaseCrash.logcat(Log.INFO, TAG, "initView");
     }
 

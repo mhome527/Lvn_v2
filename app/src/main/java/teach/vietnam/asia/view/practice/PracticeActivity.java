@@ -5,6 +5,7 @@ import android.content.Intent;
 import com.google.firebase.crash.FirebaseCrash;
 
 import butterknife.OnClick;
+import teach.vietnam.asia.BuildConfig;
 import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.utils.Log;
@@ -23,7 +24,7 @@ public class PracticeActivity extends BaseActivity<PracticeActivity> {
     @Override
     protected void initView() {
         setTitle(getString(R.string.title_practice));
-
+        if (!BuildConfig.DEBUG)
         FirebaseCrash.logcat(Log.INFO, TAG, "initView");
     }
 

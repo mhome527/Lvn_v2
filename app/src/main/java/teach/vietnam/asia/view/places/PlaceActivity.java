@@ -12,6 +12,7 @@ import com.google.firebase.crash.FirebaseCrash;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import teach.vietnam.asia.BuildConfig;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.utils.Log;
 import teach.vietnam.asia.view.BaseActivity;
@@ -88,7 +89,8 @@ public class PlaceActivity extends BaseActivity<PlaceActivity> {
             }
         });
 
-        FirebaseCrash.logcat(Log.INFO, TAG, "initView");
+        if (!BuildConfig.DEBUG)
+            FirebaseCrash.logcat(Log.INFO, TAG, "initView");
     }
 
     @OnClick(R.id.btnBack)

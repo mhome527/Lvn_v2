@@ -38,6 +38,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="5dp"
                 android:gravity="center"
+                android:maxLines="1"
                 android:text="@string/app_name" />
         </android.support.v7.widget.Toolbar>
 
@@ -89,12 +90,14 @@
                         android:padding="8dp">
 
                         <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
+                            android:id="@+id/imgLocation"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_marginRight="8dp"
-                            android:src="@drawable/ic_speaker" />
+                            android:src="@drawable/ic_location" />
 
                         <TextView
+                            android:id="@+id/tvAddress"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/app_name"
@@ -109,34 +112,39 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/rlPlace"
                     android:layout_gravity="bottom"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="8dp"
                     android:src="@drawable/ic_speaker" />
+
+                <!--<TextView-->
+                <!--android:id="@+id/tvOt"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_below="@+id/rlPlace"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:layout_toRightOf="@+id/imgSound"-->
+                <!--android:text="@string/app_name"-->
+                <!--android:textColor="@color/black" />-->
 
                 <TextView
                     android:id="@+id/tvVn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/rlPlace"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="2dp"
                     android:layout_toRightOf="@+id/imgSound"
-                    android:text="@string/app_name"
-                    android:textColor="@color/black" />
-
-                <TextView
-                    android:id="@+id/tvOt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/tvVn"
-                    android:layout_toRightOf="@+id/imgSound"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
                     android:text="@string/app_name" />
             </RelativeLayout>
         </android.support.v7.widget.CardView>
 
         <TextView
+            android:id="@+id/tvContent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:scrollbars="vertical"
             android:text="@string/app_name" />
     </LinearLayout>
 </LinearLayout>

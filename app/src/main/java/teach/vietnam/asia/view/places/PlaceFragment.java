@@ -1,5 +1,6 @@
 package teach.vietnam.asia.view.places;
 
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -8,6 +9,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import teach.vietnam.asia.R;
+import teach.vietnam.asia.db.table.BaseTable;
 import teach.vietnam.asia.entity.PlaceEntity;
 import teach.vietnam.asia.view.BaseFragment;
 import teach.vietnam.asia.view.ICallback;
@@ -38,7 +40,12 @@ public class PlaceFragment extends BaseFragment<PlaceActivity> implements IPlace
 
     @Override
     public void onChildClick(PlaceEntity entity) {
-        activity.startActivity2(PlaceDetailActivity.class);
+//        activity.startActivity2(PlaceDetailActivity.class);
+        Intent intent = new Intent(activity, PlaceDetailActivity.class);
+        intent.putExtra(BaseTable.COL_ID, entity.id);
+        intent.putExtra(BaseTable.COL_TYPE, entity.type);
+        intent.putExtra(BaseTable.COL_AREA, entity.group);
+        startActivity(intent);
     }
 
     private void loadData() {

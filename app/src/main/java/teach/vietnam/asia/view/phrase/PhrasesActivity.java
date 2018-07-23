@@ -19,6 +19,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import teach.vietnam.asia.BuildConfig;
 import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.entity.WordEntity;
@@ -82,12 +83,12 @@ public class PhrasesActivity extends PurchaseActivity<PhrasesActivity> implement
         Common.setupRecyclerView(activity, recyclerView, this);
 
         initData();
-
+        if (!BuildConfig.DEBUG)
         FirebaseCrash.logcat(Log.INFO, TAG, "initView");
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(Menu menu) {        if (!BuildConfig.DEBUG)
         FirebaseCrash.logcat(Log.INFO, TAG, "searchMenu");
 
         getMenuInflater().inflate(R.menu.menu_phrases, menu);
