@@ -30,7 +30,14 @@ public class PlaceDao extends BaseDao<PlaceEntity> {
 
         entity.title = cursor.getString(cursor.getColumnIndex(PlaceTitleTable.COL_TITLE));
         entity.ot = cursor.getString(cursor.getColumnIndex(PlaceTitleLanguageTable.COL_OT1));
-        entity.location = cursor.getString(cursor.getColumnIndex(PlaceTitleTable.COL_LOCATION));
+//        entity.location = cursor.getString(cursor.getColumnIndex(PlaceTitleTable.COL_LOCATION));
+
+        if (cursor.getColumnIndex(PlaceDetailTable.COL_LATITUDE) > -1)
+            entity.latitude = cursor.getDouble(cursor.getColumnIndex(PlaceDetailTable.COL_LATITUDE));
+
+        if (cursor.getColumnIndex(PlaceDetailTable.COL_LONGITUDE) > -1)
+            entity.longitude = cursor.getDouble(cursor.getColumnIndex(PlaceDetailTable.COL_LONGITUDE));
+
         entity.sound = cursor.getString(cursor.getColumnIndex(PlaceTitleTable.COL_SOUND));
 
         if (cursor.getColumnIndex(PlaceDetailLanguageTable.COL_CONTENT) > -1)
@@ -47,7 +54,7 @@ public class PlaceDao extends BaseDao<PlaceEntity> {
 
 
     public List<PlaceEntity> getPlaces(int area) {
-        String sql = "SELECT VN.AREA, VN.TYPE, TITLE, OT1, LOCATION, SOUND" +
+        String sql = "SELECT VN.AREA, VN.TYPE, TITLE, OT1, SOUND" +
                 " FROM TBL_PLACE_TITLE VN" +
                 " , " + PlaceTitleLanguageTable.getTableName(lang) + " OT " +
                 " WHERE  VN.AREA = OT.AREA AND VN.TYPE = OT.TYPE" +
@@ -58,7 +65,7 @@ public class PlaceDao extends BaseDao<PlaceEntity> {
     }
 
     public List<PlaceEntity> getPlaceDetail(int area, int type) {
-        String sql = "SELECT VN.AREA, VN.TYPE, VN.ID, TITLE, OT1, CONTENT, LOCATION, SOUND, IMAGE, LINKS " +
+        String sql = "SELECT VN.AREA, VN.TYPE, VN.ID, TITLE, OT1, CONTENT, LATITUDE, LONGITUDE, SOUND, IMAGE, LINKS " +
                 " FROM TBL_PLACE_DETAIL VN " +
                 " , " + PlaceDetailLanguageTable.getTableName(lang) + " OT" +
                 " WHERE VN.AREA = OT.AREA AND VN.TYPE = OT.TYPE AND VN.ID = OT.ID " +

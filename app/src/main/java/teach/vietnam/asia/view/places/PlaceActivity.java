@@ -61,6 +61,8 @@ public class PlaceActivity extends BaseActivity<PlaceActivity> {
         } else
             Log.e(TAG, "initView actionBar NULL!!!!");
 
+        toolbarTitle.setText(getString(R.string.place_vietnam_travel));
+
         presenter = new PlacePresenter(this);
 
         tabLayout.addTab(tabLayout.newTab().setText(R.string.southern));

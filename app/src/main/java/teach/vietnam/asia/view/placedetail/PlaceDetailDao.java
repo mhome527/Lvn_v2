@@ -25,7 +25,13 @@ public class PlaceDetailDao extends BaseDao<PlaceEntity> {
         entity.id = cursor.getInt(cursor.getColumnIndex(BaseTable.COL_ID));
         entity.title = cursor.getString(cursor.getColumnIndex(PlaceTitleTable.COL_TITLE));
         entity.ot = cursor.getString(cursor.getColumnIndex(PlaceTitleLanguageTable.COL_OT1));
-        entity.location = cursor.getString(cursor.getColumnIndex(PlaceTitleTable.COL_LOCATION));
+
+        if (cursor.getColumnIndex(PlaceDetailTable.COL_LATITUDE) > -1)
+            entity.latitude = cursor.getDouble(cursor.getColumnIndex(PlaceDetailTable.COL_LATITUDE));
+
+        if (cursor.getColumnIndex(PlaceDetailTable.COL_LONGITUDE) > -1)
+            entity.longitude = cursor.getDouble(cursor.getColumnIndex(PlaceDetailTable.COL_LONGITUDE));
+
         entity.sound = cursor.getString(cursor.getColumnIndex(PlaceTitleTable.COL_SOUND));
 
         if (cursor.getColumnIndex(PlaceDetailLanguageTable.COL_CONTENT) > -1)
@@ -44,7 +50,7 @@ public class PlaceDetailDao extends BaseDao<PlaceEntity> {
     }
 
     public PlaceEntity getPlaceDetail(int area, int type, int id) {
-        String sql = "SELECT p.AREA, p.TYPE, p.id, TITLE, OT1, CONTENT, LOCATION, ADDRESS, SOUND, IMAGE, LINKS " +
+        String sql = "SELECT p.AREA, p.TYPE, p.id, TITLE, OT1, CONTENT, LATITUDE, LONGITUDE, ADDRESS, SOUND, IMAGE, LINKS " +
                 " FROM TBL_PLACE_DETAIL p " +
                 " , " + PlaceDetailLanguageTable.getTableName(lang) + " OT" +
                 " WHERE p.AREA = OT.AREA AND p.TYPE = OT.TYPE AND p.ID = OT.ID " +

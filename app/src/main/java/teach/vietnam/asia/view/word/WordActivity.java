@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.google.firebase.crash.FirebaseCrash;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 import teach.vietnam.asia.BuildConfig;
 import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.R;
@@ -90,7 +91,7 @@ public class WordActivity extends PurchaseActivity<WordActivity> {
             }
         });
         if (!BuildConfig.DEBUG)
-        FirebaseCrash.logcat(Log.INFO, TAG, "initView");
+            FirebaseCrash.logcat(Log.INFO, TAG, "initView");
 
     }
 
@@ -140,4 +141,8 @@ public class WordActivity extends PurchaseActivity<WordActivity> {
     }
     // ================ Purchase ===========
 
+    @OnClick(R.id.btnBack)
+    public void actionBack() {
+        onBackPressed();
+    }
 }

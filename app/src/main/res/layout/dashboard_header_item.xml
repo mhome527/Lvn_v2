@@ -32,22 +32,22 @@
             android:layout_centerHorizontal="true"
             android:background="@color/transparent"
             android:scaleType="fitXY"
-            android:src="@drawable/bg_cho_ben_thanh" />
+            android:src="@drawable/place_nha_tho_duc_ba" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:background="@drawable/rounded_corner_bottom"
-            android:gravity="center_vertical"
+            android:gravity="center"
             android:orientation="horizontal"
             android:padding="8dp">
 
 
-            <TextView
+            <TextView android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/app_name"
+                android:text="@string/place_vietnam_travel"
                 android:textColor="@color/white" />
         </LinearLayout>
 

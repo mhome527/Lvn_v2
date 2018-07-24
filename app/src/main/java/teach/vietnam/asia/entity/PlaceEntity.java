@@ -12,7 +12,9 @@ public class PlaceEntity extends BaseEntity implements Parcelable {
     public String content;
     public String image;
     public String imgLinks;
-    public String location;
+    public double latitude;
+    public double longitude;
+//    public String location;
     public String address;
     public String sound;
     public int favorite;
@@ -20,6 +22,7 @@ public class PlaceEntity extends BaseEntity implements Parcelable {
     public PlaceEntity() {
 
     }
+
 
     protected PlaceEntity(Parcel in) {
         id = in.readInt();
@@ -30,7 +33,8 @@ public class PlaceEntity extends BaseEntity implements Parcelable {
         content = in.readString();
         image = in.readString();
         imgLinks = in.readString();
-        location = in.readString();
+        latitude = in.readDouble();
+        longitude = in.readDouble();
         address = in.readString();
         sound = in.readString();
         favorite = in.readInt();
@@ -63,7 +67,8 @@ public class PlaceEntity extends BaseEntity implements Parcelable {
         parcel.writeString(content);
         parcel.writeString(image);
         parcel.writeString(imgLinks);
-        parcel.writeString(location);
+        parcel.writeDouble(latitude);
+        parcel.writeDouble(longitude);
         parcel.writeString(address);
         parcel.writeString(sound);
         parcel.writeInt(favorite);

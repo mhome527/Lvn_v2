@@ -39,7 +39,8 @@
                 android:layout_marginLeft="5dp"
                 android:gravity="center"
                 android:maxLines="1"
-                android:text="@string/app_name" />
+                android:text="@string/app_name"
+                android:textColor="@color/white" />
         </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
@@ -68,7 +69,7 @@
                 <RelativeLayout
                     android:id="@+id/rlPlace"
                     android:layout_width="match_parent"
-                    android:layout_height="160dp"
+                    android:layout_height="170dp"
                     android:paddingTop="0dp">
 
                     <teach.vietnam.asia.view.custom.RoundRectCornerImageView
@@ -78,21 +79,23 @@
                         android:layout_centerHorizontal="true"
                         android:background="@color/transparent"
                         android:scaleType="fitXY"
-                        android:src="@drawable/bg_cho_ben_thanh" />
+                        android:src="@drawable/place_dinh_doc_lap" />
 
                     <LinearLayout
+                        android:id="@+id/llLocation"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
                         android:background="@drawable/rounded_corner_bottom"
+                        android:clickable="true"
                         android:gravity="center_vertical"
                         android:orientation="horizontal"
                         android:padding="8dp">
 
                         <ImageView
                             android:id="@+id/imgLocation"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
                             android:layout_marginRight="8dp"
                             android:src="@drawable/ic_location" />
 

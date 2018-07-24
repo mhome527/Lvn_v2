@@ -32,9 +32,9 @@ import teach.vietnam.asia.view.dashboard.language.LanguageAdapter;
 import teach.vietnam.asia.view.dashboard.language.OnItemClickListener;
 import teach.vietnam.asia.view.foods.FoodActivity;
 import teach.vietnam.asia.view.grammar.detail.GrammarDetailActivity;
-import teach.vietnam.asia.view.map.MapActivity;
 import teach.vietnam.asia.view.number.NumberActivity;
 import teach.vietnam.asia.view.phrase.PhrasesActivity;
+import teach.vietnam.asia.view.places.PlaceActivity;
 import teach.vietnam.asia.view.practice.PracticeActivity;
 import teach.vietnam.asia.view.recognizes.RecognizeMainActivity;
 import teach.vietnam.asia.view.translate.TranslateActivity;
@@ -134,52 +134,54 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> implement
 
         switch (pos) {
             case 0:
-//                startActivity2(PlaceActivity.class);
-                startActivity2(MapActivity.class);
+                startActivity2(PlaceActivity.class);
+//                startActivity2(MapActivity.class);
                 break;
 
             case 1:
                 startActivity2(AlphabetActivity.class);
-                screen = "AlphabetActivity";
+//                screen = "AlphabetActivity";
                 break;
             case 2:
                 startActivity2(NumberActivity.class);
-                screen = "NumberActivity";
+//                screen = "NumberActivity";
                 break;
             case 3:
                 startActivity2(BodyActivity.class);
-                screen = "BodyActivity";
+//                screen = "BodyActivity";
                 break;
             case 4:
                 startActivity2(RecognizeMainActivity.class);
-                screen = "RecognizeMainActivity";
+//                screen = "RecognizeMainActivity";
                 break;
 
             case 5:
                 startActivity2(WordActivity.class);
-                screen = "WordActivity";
+//                screen = "WordActivity";
                 break;
             case 6:
                 startActivity2(PhrasesActivity.class);
-                screen = "FoodActivity";
+//                screen = "FoodActivity";
                 break;
             case 7:
                 startActivity2(GrammarDetailActivity.class);
-                screen = "GrammarDetailActivity";
+//                screen = "GrammarDetailActivity";
                 break;
             case 8:
                 startActivity2(FoodActivity.class);
-                screen = "PhrasesActivity";
+//                screen = "PhrasesActivity";
 
                 break;
             case 9:
-                startActivity2(PracticeActivity.class);
+                startActivity2(TranslateActivity.class);
+
                 screen = "PracticeActivity";
                 break;
             case 10:
+                startActivity2(PracticeActivity.class);
+
             default:
-                startActivity2(TranslateActivity.class);
-                screen = "TranslateActivity";
+//                screen = "TranslateActivity";
                 break;
         }
     }
@@ -215,8 +217,8 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> implement
         listData.add(new DashboardEntity(R.drawable.ic_phrase, getString(R.string.title_phrase)));
         listData.add(new DashboardEntity(R.drawable.ic_grammar, getString(R.string.title_grammar)));
         listData.add(new DashboardEntity(R.drawable.menu_food, getString(R.string.title_food)));
-        listData.add(new DashboardEntity(R.drawable.menu_practice, getString(R.string.title_practice)));
         listData.add(new DashboardEntity(R.drawable.menu_translate, getString(R.string.title_translate)));
+        listData.add(new DashboardEntity(R.drawable.menu_practice, getString(R.string.title_practice)));
 //        listData.add(new DashboardEntity(R.drawable.button_word_on, getString(R.string.title_coming_soon)));
     }
 

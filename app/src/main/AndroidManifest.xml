@@ -117,10 +117,12 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".view.placedetail.PlaceDetailActivity"
-            android:parentActivityName=".view.dashboard.DashboardActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".view.map.MapActivity" />
+        <activity
+            android:name=".view.map.MapActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
