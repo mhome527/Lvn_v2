@@ -3,8 +3,8 @@ package teach.vietnam.asia.view.recognizes.test;
 import java.util.List;
 
 import teach.vietnam.asia.entity.RecognizeEntity;
-import teach.vietnam.asia.view.BasePresenter;
-import teach.vietnam.asia.view.ICallback;
+import teach.vietnam.asia.view.base.BasePresenter;
+import teach.vietnam.asia.view.action.ICallback;
 import teach.vietnam.asia.view.recognizes.RecognizeDao;
 
 /**

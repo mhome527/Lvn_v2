@@ -18,8 +18,8 @@ import teach.vietnam.asia.R;
 import teach.vietnam.asia.entity.WordEntity;
 import teach.vietnam.asia.sound.AudioPlayer;
 import teach.vietnam.asia.utils.Log;
-import teach.vietnam.asia.view.BaseActivity;
-import teach.vietnam.asia.view.ICallback;
+import teach.vietnam.asia.view.base.BaseActivity;
+import teach.vietnam.asia.view.action.ICallback;
 import teach.vietnam.asia.view.practice.PracticePagerAdapter;
 
 public class PracticeDetailActivity extends BaseActivity<PracticeDetailActivity> {

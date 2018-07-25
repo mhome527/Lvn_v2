@@ -27,8 +27,8 @@ import teach.vietnam.asia.sound.AudioPlayer;
 import teach.vietnam.asia.sound.IAudioPlayer;
 import teach.vietnam.asia.utils.Common;
 import teach.vietnam.asia.utils.Log;
-import teach.vietnam.asia.view.ICallback;
-import teach.vietnam.asia.view.IClickListener;
+import teach.vietnam.asia.view.action.ICallback;
+import teach.vietnam.asia.view.action.IClickListener;
 import teach.vietnam.asia.view.purchase.PurchaseActivity;
 
 /**

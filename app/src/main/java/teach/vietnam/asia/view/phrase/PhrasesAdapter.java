@@ -11,7 +11,7 @@ import java.util.Locale;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.entity.WordEntity;
 import teach.vietnam.asia.utils.Common;
-import teach.vietnam.asia.view.BaseAdapterView;
+import teach.vietnam.asia.view.base.BaseAdapterView;
 
 /**
  * Created by HuynhTD on 5/10/2017.
@@ -35,17 +35,17 @@ public class PhrasesAdapter extends BaseAdapterView<PhrasesItemHolder> implement
     }
 
     @Override
-    protected int getHeaderLayout() {
+    protected int getHeaderLayout(int viewType) {
         return 0;
     }
 
     @Override
-    protected int getFooterLayout() {
+    protected int getFooterLayout(int viewType) {
         return 0;
     }
 
     @Override
-    protected int getItemLayout() {
+    protected int getItemLayout(int viewType) {
         return R.layout.phrases_item;
     }
 

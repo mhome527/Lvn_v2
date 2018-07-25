@@ -9,7 +9,7 @@ import butterknife.BindView;
 import teach.vietnam.asia.BuildConfig;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.utils.Log;
-import teach.vietnam.asia.view.BaseActivity;
+import teach.vietnam.asia.view.base.BaseActivity;
 
 
 /**

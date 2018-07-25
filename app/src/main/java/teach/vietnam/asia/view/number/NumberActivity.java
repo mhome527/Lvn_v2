@@ -26,7 +26,7 @@ import teach.vietnam.asia.utils.Common;
 import teach.vietnam.asia.utils.Log;
 import teach.vietnam.asia.utils.NumberToWord;
 import teach.vietnam.asia.utils.Utility;
-import teach.vietnam.asia.view.BaseActivity;
+import teach.vietnam.asia.view.base.BaseActivity;
 
 public class NumberActivity extends BaseActivity<NumberActivity> {
 

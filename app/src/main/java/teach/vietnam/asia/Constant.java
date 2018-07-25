@@ -141,6 +141,7 @@ public class Constant {
     public static int TYPE_DATA_FRUIT = 1;
     public static int TYPE_DATA_VEGETABLE = 2;
     public static int TYPE_DATA_PHRASE = 11;
+    public static int TYPE_DATA_PLACE = 100;
 
 
     public enum TYPE_WORD {

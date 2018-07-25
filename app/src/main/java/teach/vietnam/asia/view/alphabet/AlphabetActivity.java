@@ -17,7 +17,7 @@ import teach.vietnam.asia.entity.TblAlphabetEx;
 import teach.vietnam.asia.sound.AudioPlayer;
 import teach.vietnam.asia.utils.Common;
 import teach.vietnam.asia.utils.Log;
-import teach.vietnam.asia.view.BaseActivity;
+import teach.vietnam.asia.view.base.BaseActivity;
 
 public class AlphabetActivity extends BaseActivity<AlphabetActivity> {
 

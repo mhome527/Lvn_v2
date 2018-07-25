@@ -3,8 +3,8 @@ package teach.vietnam.asia.view.practice.detail;
 import java.util.List;
 
 import teach.vietnam.asia.entity.WordEntity;
-import teach.vietnam.asia.view.BasePresenter;
-import teach.vietnam.asia.view.ICallback;
+import teach.vietnam.asia.view.base.BasePresenter;
+import teach.vietnam.asia.view.action.ICallback;
 import teach.vietnam.asia.view.practice.PracticeDao;
 
 /**

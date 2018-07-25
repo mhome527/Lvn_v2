@@ -5,8 +5,8 @@ import java.util.List;
 
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.entity.TblAlphabetEx;
-import teach.vietnam.asia.view.BasePresenter;
-import teach.vietnam.asia.view.ICallback;
+import teach.vietnam.asia.view.base.BasePresenter;
+import teach.vietnam.asia.view.action.ICallback;
 
 /**
  * Created by HuynhTD on 12/21/2016.

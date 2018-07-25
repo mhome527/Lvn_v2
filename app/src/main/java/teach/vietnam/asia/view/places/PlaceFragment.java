@@ -11,8 +11,8 @@ import butterknife.BindView;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.db.table.BaseTable;
 import teach.vietnam.asia.entity.PlaceEntity;
-import teach.vietnam.asia.view.BaseFragment;
-import teach.vietnam.asia.view.ICallback;
+import teach.vietnam.asia.view.base.BaseFragment;
+import teach.vietnam.asia.view.action.ICallback;
 import teach.vietnam.asia.view.placedetail.PlaceDetailActivity;
 
 public class PlaceFragment extends BaseFragment<PlaceActivity> implements IPlaceListener {

@@ -6,8 +6,8 @@ import teach.vietnam.asia.entity.WordEntity;
 import teach.vietnam.asia.sound.AudioPlayer;
 import teach.vietnam.asia.sound.IAudioPlayer;
 import teach.vietnam.asia.utils.Log;
-import teach.vietnam.asia.view.BasePresenter;
-import teach.vietnam.asia.view.ICallback;
+import teach.vietnam.asia.view.base.BasePresenter;
+import teach.vietnam.asia.view.action.ICallback;
 
 /**
  * Created by HuynhTD on 01/19/2017.

@@ -27,7 +27,7 @@ import teach.vietnam.asia.R;
 import teach.vietnam.asia.entity.RecognizeEntity;
 import teach.vietnam.asia.sound.AudioPlayer;
 import teach.vietnam.asia.utils.Log;
-import teach.vietnam.asia.view.ICallback;
+import teach.vietnam.asia.view.action.ICallback;
 import teach.vietnam.asia.view.purchase.PurchaseActivity;
 import teach.vietnam.asia.view.recognizes.MenuRecognizeAdapter;
 

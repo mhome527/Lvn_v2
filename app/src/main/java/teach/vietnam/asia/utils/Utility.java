@@ -20,7 +20,7 @@ import java.util.Random;
 
 import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.R;
-import teach.vietnam.asia.view.BaseActivity;
+import teach.vietnam.asia.view.base.BaseActivity;
 
 public class Utility {
     private static final String TAG = "Utility";

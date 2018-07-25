@@ -5,7 +5,7 @@ import android.widget.TextView;
 
 import butterknife.BindView;
 import teach.vietnam.asia.R;
-import teach.vietnam.asia.view.BaseViewHolder;
+import teach.vietnam.asia.view.base.BaseViewHolder;
 
 /**
  * Created by Administrator on 6/5/2017.

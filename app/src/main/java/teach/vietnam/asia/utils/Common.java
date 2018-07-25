@@ -9,8 +9,8 @@ import android.support.v7.widget.RecyclerView;
 
 import java.text.Normalizer;
 
-import teach.vietnam.asia.view.IClickListener;
-import teach.vietnam.asia.view.RecyclerTouchListener;
+import teach.vietnam.asia.view.action.IClickListener;
+import teach.vietnam.asia.view.custom.RecyclerTouchListener;
 
 //
 //import android.net.ConnectivityManager;

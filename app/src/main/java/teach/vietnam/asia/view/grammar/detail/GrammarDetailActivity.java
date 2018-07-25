@@ -11,7 +11,7 @@ import butterknife.OnClick;
 import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.utils.Log;
-import teach.vietnam.asia.view.BaseActivity;
+import teach.vietnam.asia.view.base.BaseActivity;
 
 public class GrammarDetailActivity extends BaseActivity<GrammarDetailActivity> {
 

@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import teach.vietnam.asia.entity.PlaceEntity;
-import teach.vietnam.asia.view.BasePresenter;
-import teach.vietnam.asia.view.ICallback;
+import teach.vietnam.asia.view.base.BasePresenter;
+import teach.vietnam.asia.view.action.ICallback;
 
 public class PlacePresenter extends BasePresenter<PlaceActivity> {
 

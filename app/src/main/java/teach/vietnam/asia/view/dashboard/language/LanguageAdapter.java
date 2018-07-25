@@ -9,7 +9,7 @@ import java.util.List;
 import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.entity.LanguageEntity;
-import teach.vietnam.asia.view.BaseAdapterView;
+import teach.vietnam.asia.view.base.BaseAdapterView;
 
 /**
  * Created by HuynhTD on 5/31/2017.
@@ -44,17 +44,17 @@ public class LanguageAdapter extends BaseAdapterView<LanguageItemHolder> {
     }
 
     @Override
-    protected int getHeaderLayout() {
+    protected int getHeaderLayout(int viewType) {
         return 0;
     }
 
     @Override
-    protected int getFooterLayout() {
+    protected int getFooterLayout(int viewType) {
         return 0;
     }
 
     @Override
-    protected int getItemLayout() {
+    protected int getItemLayout(int viewType) {
         return R.layout.dialog_language_item;
     }
 

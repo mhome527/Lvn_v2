@@ -1,7 +1,7 @@
 package teach.vietnam.asia.view.placedetail;
 
 import teach.vietnam.asia.entity.PlaceEntity;
-import teach.vietnam.asia.view.BasePresenter;
+import teach.vietnam.asia.view.base.BasePresenter;
 
 public class PlaceDetailPresenter extends BasePresenter<PlaceDetailActivity> {
 

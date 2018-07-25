@@ -14,10 +14,10 @@ import teach.vietnam.asia.entity.WordEntity;
 import teach.vietnam.asia.sound.AudioPlayer;
 import teach.vietnam.asia.utils.Common;
 import teach.vietnam.asia.utils.Log;
-import teach.vietnam.asia.view.BaseFragment;
-import teach.vietnam.asia.view.ICallback;
-import teach.vietnam.asia.view.IClickListener;
-import teach.vietnam.asia.view.RecyclerTouchListener;
+import teach.vietnam.asia.view.base.BaseFragment;
+import teach.vietnam.asia.view.action.ICallback;
+import teach.vietnam.asia.view.action.IClickListener;
+import teach.vietnam.asia.view.custom.RecyclerTouchListener;
 
 
 /**

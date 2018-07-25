@@ -1,4 +1,4 @@
-package teach.vietnam.asia.view;
+package teach.vietnam.asia.view.action;
 
 /**
  * Created by HuynhTD on 10/17/2016.

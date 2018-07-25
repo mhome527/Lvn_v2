@@ -1,10 +1,12 @@
-package teach.vietnam.asia.view;
+package teach.vietnam.asia.view.custom;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+
+import teach.vietnam.asia.view.action.IClickListener;
 
 /**
  * Created by HuynhTD on 10/18/2016.

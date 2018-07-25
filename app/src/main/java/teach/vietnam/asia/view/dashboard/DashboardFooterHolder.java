@@ -2,7 +2,7 @@ package teach.vietnam.asia.view.dashboard;
 
 import android.view.View;
 
-import teach.vietnam.asia.view.BaseViewHolder;
+import teach.vietnam.asia.view.base.BaseViewHolder;
 
 public class DashboardFooterHolder extends BaseViewHolder {
 

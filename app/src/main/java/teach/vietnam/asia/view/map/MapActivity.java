@@ -14,7 +14,7 @@ import butterknife.OnClick;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.db.table.PlaceDetailTable;
 import teach.vietnam.asia.db.table.PlaceTitleLanguageTable;
-import teach.vietnam.asia.view.BaseActivity;
+import teach.vietnam.asia.view.base.BaseActivity;
 
 public class MapActivity extends BaseActivity<MapActivity> implements OnMapReadyCallback {
 

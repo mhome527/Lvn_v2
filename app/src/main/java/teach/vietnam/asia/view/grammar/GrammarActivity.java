@@ -13,7 +13,7 @@ import teach.vietnam.asia.BuildConfig;
 import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.utils.Log;
-import teach.vietnam.asia.view.BaseActivity;
+import teach.vietnam.asia.view.base.BaseActivity;
 import teach.vietnam.asia.view.grammar.detail.GrammarDetailActivity;
 
 public class GrammarActivity extends BaseActivity<GrammarActivity> {

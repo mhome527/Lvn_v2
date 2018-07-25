@@ -7,8 +7,8 @@ import java.util.List;
 import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.entity.WordEntity;
-import teach.vietnam.asia.view.BaseActivity;
-import teach.vietnam.asia.view.BaseAdapter;
+import teach.vietnam.asia.view.base.BaseActivity;
+import teach.vietnam.asia.view.base.BaseAdapter;
 
 /**
  * Created by HuynhTD on 10/17/2016.

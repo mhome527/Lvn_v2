@@ -9,7 +9,7 @@
 //import teach.vietnam.asia.R;
 //import teach.vietnam.asia.sound.AudioPlayer;
 //import teach.vietnam.asia.utils.Log;
-//import teach.vietnam.asia.view.BaseActivity;
+//import teach.vietnam.asia.view.base.BaseActivity;
 //
 //public class ColorActivity extends BaseActivity<ColorActivity> {
 //

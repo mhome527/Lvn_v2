@@ -25,7 +25,7 @@ import teach.vietnam.asia.BuildConfig;
 import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.utils.Log;
-import teach.vietnam.asia.view.ICallback;
+import teach.vietnam.asia.view.action.ICallback;
 import teach.vietnam.asia.view.purchase.PurchaseActivity;
 import teach.vietnam.asia.view.recognizes.test.RecognizeTestActivity;
 

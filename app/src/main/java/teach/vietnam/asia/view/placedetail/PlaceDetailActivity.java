@@ -13,7 +13,7 @@ import teach.vietnam.asia.db.table.PlaceDetailTable;
 import teach.vietnam.asia.db.table.PlaceTitleLanguageTable;
 import teach.vietnam.asia.entity.PlaceEntity;
 import teach.vietnam.asia.utils.Utility;
-import teach.vietnam.asia.view.BaseActivity;
+import teach.vietnam.asia.view.base.BaseActivity;
 import teach.vietnam.asia.view.custom.RoundRectCornerImageView;
 import teach.vietnam.asia.view.map.MapActivity;
 

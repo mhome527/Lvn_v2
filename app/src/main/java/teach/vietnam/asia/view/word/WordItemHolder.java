@@ -10,7 +10,7 @@ import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.entity.WordEntity;
 import teach.vietnam.asia.utils.Utility;
-import teach.vietnam.asia.view.BaseViewHolder;
+import teach.vietnam.asia.view.base.BaseViewHolder;
 
 /**
  * Created by HuynhTD on 12/20/2016.

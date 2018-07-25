@@ -20,8 +20,8 @@ import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.entity.WordEntity;
 import teach.vietnam.asia.utils.Utility;
-import teach.vietnam.asia.view.BaseActivity;
-import teach.vietnam.asia.view.ICallback;
+import teach.vietnam.asia.view.base.BaseActivity;
+import teach.vietnam.asia.view.action.ICallback;
 
 public class SearchWordsActivity extends BaseActivity<SearchWordsActivity> {
 

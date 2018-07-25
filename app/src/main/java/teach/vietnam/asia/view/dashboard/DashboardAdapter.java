@@ -6,8 +6,8 @@ import java.util.List;
 
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.entity.DashboardEntity;
-import teach.vietnam.asia.view.BaseAdapterView;
-import teach.vietnam.asia.view.BaseViewHolder;
+import teach.vietnam.asia.view.base.BaseAdapterView;
+import teach.vietnam.asia.view.base.BaseViewHolder;
 
 public class DashboardAdapter extends BaseAdapterView<BaseViewHolder> {
 
@@ -20,17 +20,17 @@ public class DashboardAdapter extends BaseAdapterView<BaseViewHolder> {
     }
 
     @Override
-    protected int getHeaderLayout() {
+    protected int getHeaderLayout(int viewType) {
         return R.layout.dashboard_header_item;
     }
 
     @Override
-    protected int getFooterLayout() {
+    protected int getFooterLayout(int viewType) {
         return R.layout.dashboard_footer_item;
     }
 
     @Override
-    protected int getItemLayout() {
+    protected int getItemLayout(int viewType) {
         return R.layout.dashboard_item;
     }
 

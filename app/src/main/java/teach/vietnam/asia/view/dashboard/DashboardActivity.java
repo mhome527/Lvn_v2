@@ -1,17 +1,22 @@
 package teach.vietnam.asia.view.dashboard;
 
 import android.app.Dialog;
+import android.content.Intent;
+import android.speech.RecognizerIntent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.firebase.crash.FirebaseCrash;
+import com.quinny898.library.persistentsearch.SearchBox;
+import com.quinny898.library.persistentsearch.SearchResult;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,11 +30,16 @@ import teach.vietnam.asia.entity.DashboardEntity;
 import teach.vietnam.asia.utils.Common;
 import teach.vietnam.asia.utils.Log;
 import teach.vietnam.asia.utils.Utility;
-import teach.vietnam.asia.view.BaseActivity;
+import teach.vietnam.asia.view.base.BaseActivity;
+import teach.vietnam.asia.view.action.ICallback;
 import teach.vietnam.asia.view.alphabet.AlphabetActivity;
 import teach.vietnam.asia.view.body.BodyActivity;
 import teach.vietnam.asia.view.dashboard.language.LanguageAdapter;
 import teach.vietnam.asia.view.dashboard.language.OnItemClickListener;
+import teach.vietnam.asia.view.dashboard.search.IActionSearch;
+import teach.vietnam.asia.view.dashboard.search.SearchBoxEx;
+import teach.vietnam.asia.view.dashboard.search.SearchEntity;
+import teach.vietnam.asia.view.dashboard.search.SearchPresenter;
 import teach.vietnam.asia.view.foods.FoodActivity;
 import teach.vietnam.asia.view.grammar.detail.GrammarDetailActivity;
 import teach.vietnam.asia.view.number.NumberActivity;
@@ -41,7 +51,7 @@ import teach.vietnam.asia.view.translate.TranslateActivity;
 import teach.vietnam.asia.view.word.WordActivity;
 
 
-public class DashboardActivity extends BaseActivity<DashboardActivity> implements IDashboardAction {
+public class DashboardActivity extends BaseActivity<DashboardActivity> implements IDashboardAction, IActionSearch {
 
     private String TAG = "DashboardActivity";
 
@@ -60,8 +70,11 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> implement
 //    @BindView(R.id.toolbar)
 //    Toolbar toolbar;
 
-    @BindView(R.id.recyclerView)
-    RecyclerView recyclerView;
+    @BindView(R.id.searchBox)
+    SearchBoxEx searchBox;
+
+    @BindView(R.id.recyclerView2)
+    RecyclerView recyclerView2;
 
 //    @BindView(R.id.gridView)
 //    GridView gridView;
@@ -73,6 +86,8 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> implement
 
     DashboardAdapter adapter;
 
+    SearchPresenter searchPresenter;
+
     @Override
     protected int getLayout() {
         return R.layout.dashboard_layout;
@@ -81,7 +96,21 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> implement
     @Override
     protected void initView() {
         Log.i(TAG, "initView text: ");
-        setTitle(getString(R.string.title_dashboard));
+//        setTitle(getString(R.string.title_dashboard));
+
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.hide();
+            actionBar.setHomeButtonEnabled(false); // disable the button
+            actionBar.setDisplayHomeAsUpEnabled(false); // remove the left caret
+            actionBar.setDisplayShowHomeEnabled(false); // remove the icon
+            actionBar.setDisplayShowTitleEnabled(false); // remove title
+
+        } else
+            Log.e(TAG, "initView actionBar NULL!!!!");
+
+        searchPresenter = new SearchPresenter(this);
+
         dialogLanguage = new Dialog(this);
         dialogLanguage.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialogLanguage.setContentView(R.layout.dialog_language2_layout);
@@ -90,32 +119,33 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> implement
         Utility.setLanguage(activity);
         createData();
         setupView();
+        initViewSearch();
 
         if (!BuildConfig.DEBUG)
             FirebaseCrash.logcat(Log.INFO, TAG, "initView");
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_dashboard, menu);
-        itemLanguage = menu.findItem(R.id.menuLang);
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.menu_dashboard, menu);
+//        itemLanguage = menu.findItem(R.id.menuLang);
+//
+//        setIconLanguage();
+//
+//        return true;
+//    }
 
-        setIconLanguage();
-
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-
-            case R.id.menuLang:
-                showDialogLanguage();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        switch (item.getItemId()) {
+//
+//            case R.id.menuLang:
+//                showDialogLanguage();
+//                return true;
+//            default:
+//                return super.onOptionsItemSelected(item);
+//        }
+//    }
 
 //    @OnClick(R.id.imgPlace)
 //    public void actionPlace() {
@@ -207,6 +237,17 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> implement
     };
     ////==========
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        //lay text tu voice
+        if (requestCode == SearchBoxEx.VOICE_RECOGNITION_CODE && resultCode == RESULT_OK) {
+            ArrayList<String> matches = data
+                    .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+            searchBox.populateEditText(matches.get(0));
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
     private void createData() {
         listData.clear();
         listData.add(new DashboardEntity(R.drawable.ic_alphabet, getString(R.string.title_alphabet)));
@@ -250,12 +291,12 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> implement
             }
         });
 
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(lLayout);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView2.setHasFixedSize(true);
+        recyclerView2.setLayoutManager(lLayout);
+        recyclerView2.setItemAnimator(new DefaultItemAnimator());
 
         adapter = new DashboardAdapter(listData, this);
-        recyclerView.setAdapter(adapter);
+        recyclerView2.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }
 
@@ -309,4 +350,92 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> implement
     }
 
 
+    // ============= START IActionSearch ==============
+    @Override
+    public void loadData(String keySearch) {
+        searchPresenter.getData(keySearch, new ICallback<List<SearchEntity>>() {
+            @Override
+            public void onCallback(final List<SearchEntity> data) {
+                activity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        searchBox.setData(data);
+                    }
+                });
+            }
+        });
+    }
+
+    @Override
+    public void onSearchClick(SearchEntity entity) {
+        Log.i(TAG, "IActionSearch  onSearchClick:" + entity.vn);
+
+    }
+    // ============= END ================
+
+    private void initViewSearch() {
+        searchBox.setLogoText(getString(R.string.app_name));
+        searchBox.setHint("search something");
+        searchBox.enableVoiceRecognition(this);
+
+        searchBox.setMenuListener(new SearchBox.MenuListener() {
+
+            @Override
+            public void onMenuClick() {
+
+                showDialogLanguage();
+                //Hamburger has been clicked
+//                Toast.makeText(activity, "Menu click", Toast.LENGTH_LONG).show();
+//                if (searchBox.getSearchOpen())
+//                    activity.finish();
+//                onBackPressed();
+
+//                Snackbar.make(searchBox, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+            }
+
+        });
+
+        searchBox.setSearchListener(new SearchBox.SearchListener() {
+
+            @Override
+            public void onSearchOpened() {
+                //Use this to tint the screen
+            }
+
+            @Override
+            public void onSearchClosed() {
+                //Use this to un-tint the screen
+            }
+
+            @Override
+            public void onSearchTermChanged(String term) {
+                //React to the search term changing
+                //Called after it has updated results
+            }
+
+            @Override
+            public void onSearch(String searchTerm) {
+                Toast.makeText(activity, searchTerm + " Searched", Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onResultClick(SearchResult result) {
+                //React to a result being clicked
+                Toast.makeText(activity, result.title + " (title)", Toast.LENGTH_LONG).show();
+
+            }
+
+            @Override
+            public void onSearchCleared() {
+                //Called when the clear button is clicked
+            }
+
+        });
+
+        //duoc goi khi user go text vao o search hoac click vao noi dung da search
+        searchBox.setAction(this);
+//        searchBox.toggleSearch();
+
+    }
 }

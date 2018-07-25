@@ -73,7 +73,7 @@ public class SearchBox extends RelativeLayout {
     private FrameLayout rootLayout;
     private String logoText;
     private ProgressBar pb;
-//    private ArrayList<SearchResult> initialResults;
+    //    private ArrayList<SearchResult> initialResults;
     private boolean searchWithoutSuggestions = true;
     private boolean animateDrawerLogo = true;
 
@@ -136,15 +136,16 @@ public class SearchBox extends RelativeLayout {
 
             @Override
             public void onClick(View v) {
-//                if (searchOpen) {
-//
-//                    toggleSearch();
-//                }
-//                else {
+
+//                if (menuListener != null)
+//                    menuListener.onMenuClick();
+
+                if (searchOpen) {
+                    toggleSearch();
+                } else {
                     if (menuListener != null)
                         menuListener.onMenuClick();
-//                }
-
+                }
 
             }
 
@@ -229,7 +230,7 @@ public class SearchBox extends RelativeLayout {
 //                    if (initialResults != null) {
 //                        setInitialResults();
 //                    } else {
-                        updateResults();
+                    updateResults();
 //                    }
                 }
 
@@ -835,7 +836,7 @@ public class SearchBox extends RelativeLayout {
 //        if (initialResults != null) {
 //            setInitialResults();
 //        } else {
-            updateResults();
+        updateResults();
 //        }
 
         if (listener != null)
@@ -887,9 +888,11 @@ public class SearchBox extends RelativeLayout {
         this.search.setVisibility(View.GONE);
 //        this.lstResults.setVisibility(View.GONE);
         this.recyclerView.setVisibility(View.GONE);
-        if (tint != null && rootLayout != null) {
-            rootLayout.removeView(tint);
-        }
+
+//        if (tint != null && rootLayout != null) {
+//            rootLayout.removeView(tint);
+//        }
+
         if (listener != null)
             listener.onSearchClosed();
         micStateChanged(true);
@@ -983,19 +986,19 @@ public class SearchBox extends RelativeLayout {
     @Override
     public boolean dispatchKeyEvent(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.KEYCODE_BACK && getVisibility() == View.VISIBLE) {
-//            hideCircularly((Activity) getContext());
             if (searchOpen) {
-//                if (TextUtils.isEmpty(getSearchText())) {
-//                    setLogoTextInt(logoText);
-//                }
-//                closeSearch();
-//                return true;
-                return super.dispatchKeyEvent(e);
+                closeSearch();
+                return true;
             }
-//            return true;
         }
-
         return super.dispatchKeyEvent(e);
+
+//        if(e.getKeyCode() == KeyEvent.KEYCODE_BACK && getVisibility() == View.VISIBLE){
+//            hideCircularly((Activity) getContext());
+//            return true;
+//        }
+//
+//        return super.dispatchKeyEvent(e);
     }
 
 

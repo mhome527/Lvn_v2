@@ -18,7 +18,7 @@ import teach.vietnam.asia.utils.IabResult;
 import teach.vietnam.asia.utils.Inventory;
 import teach.vietnam.asia.utils.Log;
 import teach.vietnam.asia.utils.SkuDetails;
-import teach.vietnam.asia.view.BaseActivity;
+import teach.vietnam.asia.view.base.BaseActivity;
 
 /**
  * This class should be the parent of any Activity that wants to do in app purchases

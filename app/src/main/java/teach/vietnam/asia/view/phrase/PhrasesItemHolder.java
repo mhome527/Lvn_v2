@@ -9,7 +9,7 @@ import butterknife.BindView;
 import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.entity.WordEntity;
-import teach.vietnam.asia.view.BaseViewHolder;
+import teach.vietnam.asia.view.base.BaseViewHolder;
 
 /**
  * Created by HuynhTD on 5/10/2017.
