@@ -7,12 +7,13 @@ import android.view.View;
 
 import com.quinny898.library.persistentsearch.SearchBox;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import teach.vietnam.asia.utils.Log;
-import teach.vietnam.asia.view.action.IClickListener;
 
-public class SearchBoxEx extends SearchBox implements IClickListener {
+public class SearchBoxEx extends SearchBox{
+//        implements IClickListener {
     private final String TAG = "SearchBoxEx";
     SearchAdapter adapter;
     IActionSearch iActionSearch;
@@ -51,10 +52,10 @@ public class SearchBoxEx extends SearchBox implements IClickListener {
         this.iActionSearch = iActionSearch;
     }
 
-    public void setData(List<SearchEntity> items) {
+    public void setData(List<SearchGroupData> groups) {
         setAdapter();
-        adapter.setListData(items);
-        if (items.size() > 0) {
+        adapter.setListData(groups);
+        if (groups.size() > 0) {
             adapter.notifyDataSetChanged();
             recyclerView.setVisibility(View.VISIBLE);
         } else {
@@ -65,7 +66,9 @@ public class SearchBoxEx extends SearchBox implements IClickListener {
 
     @Override
     public void setAdapter() {
-        adapter = new SearchAdapter(this);
+        List<SearchGroupData> groups = new ArrayList<>();
+
+        adapter = new SearchAdapter(groups, iActionSearch);
         recyclerView.setAdapter(adapter);
     }
 
@@ -77,15 +80,15 @@ public class SearchBoxEx extends SearchBox implements IClickListener {
 //        iActionSearch.onSearchClick(adapter.getItem(position));
 //    }
 
-    @Override
-    public void actionClick(View view, int position) {
-        iActionSearch.onSearchClick(adapter.getItem(position));
-    }
-
-    @Override
-    public void actionLongClick(View view, int position) {
-        Log.i(TAG, "actionLongClick... pos:" + position);
-
-    }
+//    @Override
+//    public void actionClick(View view, int position) {
+//        iActionSearch.onSearchClick(adapter.getItem(position));
+//    }
+//
+//    @Override
+//    public void actionLongClick(View view, int position) {
+//        Log.i(TAG, "actionLongClick... pos:" + position);
+//
+//    }
     // ===============
 }

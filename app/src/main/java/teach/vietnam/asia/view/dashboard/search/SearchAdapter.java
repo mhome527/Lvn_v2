@@ -2,95 +2,56 @@ package teach.vietnam.asia.view.dashboard.search;
 
 import android.view.View;
 
+import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup;
+
 import java.util.List;
 
-import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.R;
-import teach.vietnam.asia.view.base.BaseAdapterView;
-import teach.vietnam.asia.view.base.BaseViewHolder;
-import teach.vietnam.asia.view.action.IClickListener;
+import teach.vietnam.asia.view.base.BaseExAdapterView;
 
-public class SearchAdapter extends BaseAdapterView<BaseViewHolder> {
-    private static String TAG = "DashboardSearchAdapter";
-    private static final int TYPE_ITEM_PHRASES = 1;
-    private static final int TYPE_ITEM_PLACE = 2;
+public class SearchAdapter extends BaseExAdapterView<SearchHeaderHolder, SearchPlaceItemHolder> {
 
-    private List<SearchEntity> listData;
-    private IClickListener iClickListener;
+    private IActionSearch iActionSearch;
+    List<SearchGroupData> groups;
 
-    public SearchAdapter(IClickListener iClickListener) {
-        this.iClickListener = iClickListener;
+    public SearchAdapter(List<SearchGroupData> groups, IActionSearch iActionSearch) {
+        super(groups);
+        this.iActionSearch = iActionSearch;
+        this.groups = groups;
     }
 
     @Override
-    protected int getHeaderLayout(int viewType) {
-        return 0;
+    protected int getHeaderLayout() {
+        return R.layout.place_item_header;
     }
 
     @Override
-    protected int getFooterLayout(int viewType) {
-        return 0;
+    protected int getItemLayout() {
+        return R.layout.place_item;
     }
 
     @Override
-    protected int getItemLayout(int viewType) {
-        if (viewType == TYPE_ITEM_PHRASES)
-            return R.layout.dashboard_search_word_item;
-        else
-            return R.layout.dashboard_search_place_item;
+    protected SearchHeaderHolder getHeaderView(View view) {
+        return new SearchHeaderHolder(view);
     }
 
     @Override
-    protected BaseViewHolder getHeaderView(View view) {
-        return new SearchWordItemHolder(view, iClickListener);
+    protected SearchPlaceItemHolder getItemView(View view) {
+        return new SearchPlaceItemHolder(view, iActionSearch);
     }
 
     @Override
-    protected BaseViewHolder getFooterView(View view) {
-        return null;
+    protected void onBindHeaderHolder(SearchHeaderHolder holder, int flatPosition, ExpandableGroup group) {
+        holder.tvTitle.setText(group.getTitle());
     }
 
     @Override
-    public int getItemCount() {
-        return getSize();
+    protected void onBindItemHolder(SearchPlaceItemHolder holder, int flatPosition, ExpandableGroup group, int childIndex) {
+        SearchEntity entity = ((SearchGroupData) group).getItems().get(childIndex);
+        holder.bind(entity);
     }
 
-    @Override
-    protected BaseViewHolder getItemView(View view) {
-        return new SearchPlaceItemHolder(view, iClickListener);
-    }
-
-    @Override
-    protected List getListData() {
-        return listData;
-    }
-
-
-    @Override
-    public int getItemViewType(int position) {
-        if (listData == null)
-            return TYPE_ITEM_PHRASES;
-
-        if (listData.get(position).kind == Constant.TYPE_DATA_PLACE)
-            return TYPE_ITEM_PLACE;
-        else
-            return TYPE_ITEM_PHRASES;
-    }
-
-    @Override
-    public void onBindViewHolder(BaseViewHolder holder, int position) {
-        if (holder instanceof SearchWordItemHolder) {
-            ((SearchWordItemHolder) holder).setData(listData.get(position));
-        } else {
-            ((SearchPlaceItemHolder) holder).setData(listData.get(position));
-        }
-    }
-
-    public void setListData(List<SearchEntity> listData) {
-        this.listData = listData;
-    }
-
-    public SearchEntity getItem(int pos) {
-        return listData.get(pos);
+    public void setListData(List<SearchGroupData> groups) {
+        this.groups = groups;
     }
 }

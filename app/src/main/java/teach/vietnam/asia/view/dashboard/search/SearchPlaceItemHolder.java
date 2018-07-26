@@ -6,10 +6,9 @@ import android.widget.TextView;
 
 import butterknife.BindView;
 import teach.vietnam.asia.R;
-import teach.vietnam.asia.view.base.BaseViewHolder;
-import teach.vietnam.asia.view.action.IClickListener;
+import teach.vietnam.asia.view.base.BaseChildExViewHolder;
 
-public class SearchPlaceItemHolder extends BaseViewHolder {
+public class SearchPlaceItemHolder extends BaseChildExViewHolder {
 
     @BindView(R.id.tvVn)
     TextView tvVn;
@@ -22,17 +21,17 @@ public class SearchPlaceItemHolder extends BaseViewHolder {
 
     private SearchEntity entity;
 
-    public SearchPlaceItemHolder(View itemView, final IClickListener iClickListener) {
+    public SearchPlaceItemHolder(View itemView, final IActionSearch iActionSearch) {
         super(itemView);
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                iClickListener.actionClick(view, getAdapterPosition());
+                iActionSearch.onSearchClick(entity);
             }
         });
     }
 
-    public void setData(SearchEntity entity) {
+    public void bind(SearchEntity entity) {
         this.entity = entity;
         tvVn.setText(entity.vn);
         tvOther.setText(entity.ot);

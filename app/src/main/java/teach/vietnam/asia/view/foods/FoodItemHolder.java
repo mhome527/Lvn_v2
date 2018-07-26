@@ -1,44 +1,70 @@
 package teach.vietnam.asia.view.foods;
 
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import butterknife.BindView;
+import butterknife.OnClick;
 import teach.vietnam.asia.BaseApplication;
 import teach.vietnam.asia.R;
-import teach.vietnam.asia.entity.WordEntity;
+import teach.vietnam.asia.entity.FoodEntity;
+import teach.vietnam.asia.sound.AudioPlayer;
 import teach.vietnam.asia.utils.Log;
 import teach.vietnam.asia.utils.Utility;
+import teach.vietnam.asia.view.action.IActionList;
+import teach.vietnam.asia.view.base.BaseViewHolder;
 
 /**
  * Created by HuynhTD on 12/20/2016.
  */
 
-public class FoodItemHolder extends RecyclerView.ViewHolder {
+public class FoodItemHolder extends BaseViewHolder {
 
     private final String TAG = "FoodItemHolder";
-    ImageView imgWord;
-    TextView tvJp;
 
-    public FoodItemHolder(final View itemView) {
+    @BindView(R.id.imgFood)
+    ImageView imgFood;
+
+    @BindView(R.id.tvVn)
+    TextView tvVn;
+
+    @BindView(R.id.tvOther)
+    TextView tvOther;
+
+
+    private AudioPlayer audio;
+    FoodEntity entity;
+
+    public FoodItemHolder(final View itemView, final IActionList iActionList) {
         super(itemView);
-        imgWord = (ImageView) itemView.findViewById(R.id.imgWord);
-        tvJp = (TextView) itemView.findViewById(R.id.tvJp);
+        audio = new AudioPlayer(BaseApplication.getInstance());
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                iActionList.actionClick(getAdapterPosition(), entity);
+            }
+        });
     }
 
-    public void bind(WordEntity entity) {
+    public void bind(FoodEntity entity) {
 //        imgSound.setImageResource(R.drawable.ic_speaker);
+        this.entity = entity;
+        tvVn.setText(entity.name);
+        tvOther.setText(entity.ot);
 
-        tvJp.setText(entity.getVi());
-
-        String strImage = "f_" + entity.getImg()+"_l";
+        String strImage = entity.image;
         Log.i(TAG, "filename:" + strImage);
         int resourceId = Utility.getResourcesID(BaseApplication.getInstance(), strImage);
         if (resourceId > 0) {
-            imgWord.setImageResource(resourceId);
+            imgFood.setImageResource(resourceId);
         }
 
+    }
+
+    @OnClick(R.id.imgSound)
+    public void actionSpeak() {
+        audio.speakWord(entity.name);
     }
 
 }

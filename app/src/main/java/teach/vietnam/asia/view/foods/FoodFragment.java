@@ -1,5 +1,6 @@
 package teach.vietnam.asia.view.foods;
 
+import android.content.Intent;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -8,28 +9,27 @@ import android.view.View;
 import java.util.List;
 
 import butterknife.BindView;
-import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.R;
-import teach.vietnam.asia.entity.WordEntity;
+import teach.vietnam.asia.db.table.FoodDetailTable;
+import teach.vietnam.asia.db.table.FoodTable;
+import teach.vietnam.asia.entity.FoodEntity;
 import teach.vietnam.asia.sound.AudioPlayer;
 import teach.vietnam.asia.utils.Common;
 import teach.vietnam.asia.utils.Log;
-import teach.vietnam.asia.view.base.BaseFragment;
+import teach.vietnam.asia.view.action.IActionList;
 import teach.vietnam.asia.view.action.ICallback;
-import teach.vietnam.asia.view.action.IClickListener;
-import teach.vietnam.asia.view.custom.RecyclerTouchListener;
+import teach.vietnam.asia.view.base.BaseFragment;
+import teach.vietnam.asia.view.food_detail.FoodDetailActivity;
 
 
 /**
  * Created by HuynhTD on 01/19/2017.
  */
 
-public class FoodFragment extends BaseFragment<FoodActivity> {
+public class FoodFragment extends BaseFragment<FoodActivity> implements IActionList {
 
     private final String TAG = "FoodFragment";
     private final String FOLDER = "sound/";
-    //    private View root;
-    public Constant.TYPE_WORD typeWord = Constant.TYPE_WORD.ANIMAL;
 
     @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
@@ -38,10 +38,10 @@ public class FoodFragment extends BaseFragment<FoodActivity> {
     FoodPresenter presenter;
     //    AudioManager audio;
     private AudioPlayer audio;
-    public int kind = 3;
+    public int kind = 1;
 
 
-    List<WordEntity> listData;
+    List<FoodEntity> listData;
 
     @Override
     public int getLayout() {
@@ -52,12 +52,25 @@ public class FoodFragment extends BaseFragment<FoodActivity> {
     public void initView(View root) {
         Log.i(TAG, "initView");
         presenter = new FoodPresenter(activity);
-        adapter = new FoodContentAdapter();
+        adapter = new FoodContentAdapter(this);
         audio = new AudioPlayer(activity);
 
         setupView();
         loadData();
     }
+
+    // ============= Start IActionList
+    @Override
+    public void actionClick(int pos, Object object) {
+        FoodEntity entity = (FoodEntity) object;
+        Intent intent = new Intent(activity, FoodDetailActivity.class);
+        intent.putExtra(FoodTable.COL_NAME, entity.name);
+        intent.putExtra(FoodTable.COL_IMAGE, entity.image);
+        intent.putExtra(FoodDetailTable.COL_OT, entity.ot);
+        intent.putExtra(FoodDetailTable.COL_CONTENT, entity.content);
+        startActivity(intent);
+    }
+    // =========== END IActionList
 
     public void setupView() {
         GridLayoutManager lLayout;
@@ -72,28 +85,29 @@ public class FoodFragment extends BaseFragment<FoodActivity> {
         recyclerView.setAdapter(adapter);
 
         //Add event
-        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(activity, recyclerView, new IClickListener() {
-            @Override
-            public void actionClick(View view, int position) {
-                Log.i(TAG, "actionClick row pos:" + position);
-                activity.setTitleCenter(listData.get(position).getVi());
-
-                audio.speakWord(listData.get(position).getVi());
-
-            }
-
-            @Override
-            public void actionLongClick(View view, int position) {
-                Log.i(TAG, "actionLongClick row pos:" + position);
-            }
-        }));
+//        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(activity, recyclerView, new IClickListener() {
+//            @Override
+//            public void actionClick(View view, int position) {
+//                Log.i(TAG, "actionClick row pos:" + position);
+//                activity.setTitleCenter(listData.get(position).getVi());
+//                audio.speakWord(listData.get(position).name);
+//                Intent intent = new Intent(activity, FoodDetailActivity.class);
+//                startActivity(intent);
+//
+//            }
+//
+//            @Override
+//            public void actionLongClick(View view, int position) {
+//                Log.i(TAG, "actionLongClick row pos:" + position);
+//            }
+//        }));
     }
 
     public void loadData() {
         Log.i(TAG, "loadData getKind():" + kind);
-        presenter.loadData(kind, new ICallback<List<WordEntity>>() {
+        presenter.loadData(kind, new ICallback<List<FoodEntity>>() {
             @Override
-            public void onCallback(List<WordEntity> list) {
+            public void onCallback(List<FoodEntity> list) {
                 listData = list;
                 adapter.setData(listData);
                 activity.runOnUiThread(new Runnable() {
@@ -106,5 +120,6 @@ public class FoodFragment extends BaseFragment<FoodActivity> {
 
         });
     }
+
 
 }

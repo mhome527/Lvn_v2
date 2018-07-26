@@ -25,13 +25,13 @@ public class FoodPagerAdapter extends FragmentStatePagerAdapter {
             case 0:
                 if (tab1 == null)
                     tab1 = new FoodFragment();
-                tab1.kind = 3;
+                tab1.kind = 1; // food
                 return tab1;
             case 1:
             default:
                 if (tab2 == null)
                     tab2 = new FoodFragment();
-                tab2.kind = 31;
+                tab2.kind = 2; // drink
                 return tab2;
 
         }

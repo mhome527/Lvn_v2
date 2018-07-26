@@ -6,38 +6,52 @@ import android.database.Cursor;
 import java.util.List;
 
 import teach.vietnam.asia.db.dao.BaseDao;
-import teach.vietnam.asia.db.table.WordTable;
-import teach.vietnam.asia.entity.WordEntity;
+import teach.vietnam.asia.db.table.FoodDetailTable;
+import teach.vietnam.asia.db.table.FoodTable;
+import teach.vietnam.asia.entity.FoodEntity;
 
 
 /**
  * Created by huynhtran on 5/12/16.
  */
-public class FoodDao extends BaseDao<WordEntity> {
+public class FoodDao extends BaseDao<FoodEntity> {
 
     public FoodDao(Context context) {
         super(context);
     }
 
     @Override
-    public WordEntity fetch(Cursor cursor) {
-        WordEntity entity = new WordEntity();
-        entity.setVi(cursor.getString(cursor.getColumnIndex(WordTable.COL_VI)));
-        entity.setO1(cursor.getString(cursor.getColumnIndex(WordTable.COL_O1)));
-        entity.setO2(cursor.getString(cursor.getColumnIndex(WordTable.COL_O2)));
-        entity.setLevel(cursor.getInt(cursor.getColumnIndex(WordTable.COL_LEVEL)));
-        entity.setKind(cursor.getInt(cursor.getColumnIndex(WordTable.COL_KIND)));
-        entity.setImg(cursor.getString(cursor.getColumnIndex(WordTable.COL_IMG)));
-//        entity.setSound(cursor.getString(cursor.getColumnIndex(WordTable.COL_SOUND)));
+    public FoodEntity fetch(Cursor cursor) {
+        FoodEntity entity = new FoodEntity();
+        entity.area = cursor.getInt(cursor.getColumnIndex(FoodTable.COL_AREA));
+        entity.type = cursor.getInt(cursor.getColumnIndex(FoodTable.COL_TYPE));
+        entity.kind = cursor.getInt(cursor.getColumnIndex(FoodTable.COL_KIND));
+        entity.id = cursor.getInt(cursor.getColumnIndex(FoodTable.COL_ID));
+
+        entity.name = cursor.getString(cursor.getColumnIndex(FoodTable.COL_NAME));
+        entity.image = cursor.getString(cursor.getColumnIndex(FoodTable.COL_IMAGE));
+        entity.ot = cursor.getString(cursor.getColumnIndex(FoodDetailTable.COL_OT));
+        entity.content = cursor.getString(cursor.getColumnIndex(FoodDetailTable.COL_CONTENT));
+
+//        if (cursor.getColumnIndex(BaseTable.COL_ID) > -1)
+
         return entity;
     }
 
-    public static List<WordEntity> getListData(Context context, int kind) {
-        String where = " WHERE " + WordTable.COL_KIND + " = " + kind;
-        String sql = "SELECT * FROM " + WordTable.TABLE_NAME + where
-                + " ORDER BY " + WordTable.COL_VI;
+    public List<FoodEntity> getListData(int type) {
+        String sql = "SELECT V.AREA, V.TYPE, KIND, V.ID, V.NAME, IMAGE, OT, CONTENT " +
+                " FROM TBL_FOOD_VN V, " + FoodDetailTable.getTableName(lang) + " O" +
+                " WHERE V.AREA = O.AREA AND V.TYPE = O.TYPE AND V.ID = O.ID" +
+                " AND V.TYPE=" + type +
+                " ORDER BY V.TYPE, KIND";
+
         FoodDao dao = new FoodDao(context);
         return dao.fetchAll(sql);
+    }
+
+    public static List<FoodEntity> getListData(Context context, int type) {
+        FoodDao dao = new FoodDao(context);
+        return dao.getListData(type);
     }
 
 

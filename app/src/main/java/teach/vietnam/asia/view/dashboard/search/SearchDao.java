@@ -77,6 +77,16 @@ and (vi2 like '%con b%' or o1 like '%たこ%' or o2 like '%ちょ%')
         return fetchAll(sql);
     }
 
+    public List<SearchEntity> getFood(String key) {
+        String sql = "SELECT 0 AREA, 0 TYPE, 0 ID, KIND, vi TITLE, o1 OT1 " +
+                " FROM TBL_VIET_JA" +
+                " WHERE kind in (1,2,3,4, 5, 6, 11, 31)" +
+                " AND (vi2 LIKE '%" + key + "%' OR o1 LIKE '%" + key + "%' OR o2 LIKE '%" + key + "%')" +
+                " ORDER BY kind";
+
+        return fetchAll(sql);
+    }
+
     public List<SearchEntity> getPhrases2(String key) {
         String sql = "SELECT 0 AREA, 0 TYPE, 0 ID, KIND, vi TITLE, o1 OT1 " +
                 " FROM TBL_VIET_JA" +

@@ -13,9 +13,9 @@ public class PlaceTitleLanguageTable {
     public static String getTableName(String lang) {
         String table;
         if (lang.equals(Constant.JA))
-            table = TABLE_NAME_EN; //fixme change table name
+            table = TABLE_NAME_JA;
         else
-            table = TABLE_NAME_EN;
+            table = TABLE_NAME_JA;//fixme change table name
         return table;
     }
 }

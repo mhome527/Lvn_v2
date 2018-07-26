@@ -22,7 +22,7 @@
         android:name=".BaseApplication"
         android:allowBackup="true"
         android:icon="@drawable/icon"
-        android:label="@string/app_name"
+        android:label="@string/vietnamese"
         android:theme="@style/AppTheme">
         <activity
             android:name=".view.dashboard.DashboardActivity"
@@ -60,6 +60,12 @@
             android:parentActivityName=".view.dashboard.DashboardActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".view.food_detail.FoodDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name=".view.grammar.GrammarActivity"
             android:parentActivityName=".view.dashboard.DashboardActivity"

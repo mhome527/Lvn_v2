@@ -30,9 +30,8 @@ import teach.vietnam.asia.entity.DashboardEntity;
 import teach.vietnam.asia.utils.Common;
 import teach.vietnam.asia.utils.Log;
 import teach.vietnam.asia.utils.Utility;
-import teach.vietnam.asia.view.base.BaseActivity;
-import teach.vietnam.asia.view.action.ICallback;
 import teach.vietnam.asia.view.alphabet.AlphabetActivity;
+import teach.vietnam.asia.view.base.BaseActivity;
 import teach.vietnam.asia.view.body.BodyActivity;
 import teach.vietnam.asia.view.dashboard.language.LanguageAdapter;
 import teach.vietnam.asia.view.dashboard.language.OnItemClickListener;
@@ -223,7 +222,7 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> implement
             activity.lang = lang;
             BaseActivity.pref.putStringValue(lang, Constant.TYPE_LANGUAGE);
 //            adapterLanguage.setLang(lang);
-            setIconLanguage();
+//            setIconLanguage();
             Utility.setLanguage(activity);
             ///
 
@@ -301,24 +300,24 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> implement
     }
 
 
-    private void setIconLanguage() {
-        if (lang.equals(Constant.JA))
-            itemLanguage.setIcon(getResources().getDrawable(R.drawable.japan));
-        else if (lang.equals(Constant.KO))
-            itemLanguage.setIcon(getResources().getDrawable(R.drawable.korea));
-        else if (lang.equals(Constant.FR))
-            itemLanguage.setIcon(getResources().getDrawable(R.drawable.france));
-        else if (lang.equals(Constant.RU))
-            itemLanguage.setIcon(getResources().getDrawable(R.drawable.russia));
-        else if (lang.equals(Constant.AR))
-            itemLanguage.setIcon(getResources().getDrawable(R.drawable.arabic));
-        else if (lang.equals(Constant.ZH))
-            itemLanguage.setIcon(getResources().getDrawable(R.drawable.china));
-        else if (lang.equals(Constant.ES))
-            itemLanguage.setIcon(getResources().getDrawable(R.drawable.spanish));
-        else
-            itemLanguage.setIcon(getResources().getDrawable(R.drawable.english));
-    }
+//    private void setIconLanguage() {
+//        if (lang.equals(Constant.JA))
+//            itemLanguage.setIcon(getResources().getDrawable(R.drawable.japan));
+//        else if (lang.equals(Constant.KO))
+//            itemLanguage.setIcon(getResources().getDrawable(R.drawable.korea));
+//        else if (lang.equals(Constant.FR))
+//            itemLanguage.setIcon(getResources().getDrawable(R.drawable.france));
+//        else if (lang.equals(Constant.RU))
+//            itemLanguage.setIcon(getResources().getDrawable(R.drawable.russia));
+//        else if (lang.equals(Constant.AR))
+//            itemLanguage.setIcon(getResources().getDrawable(R.drawable.arabic));
+//        else if (lang.equals(Constant.ZH))
+//            itemLanguage.setIcon(getResources().getDrawable(R.drawable.china));
+//        else if (lang.equals(Constant.ES))
+//            itemLanguage.setIcon(getResources().getDrawable(R.drawable.spanish));
+//        else
+//            itemLanguage.setIcon(getResources().getDrawable(R.drawable.english));
+//    }
 
     private void showDialogLanguage() {
         // custom dialog
@@ -353,17 +352,17 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> implement
     // ============= START IActionSearch ==============
     @Override
     public void loadData(String keySearch) {
-        searchPresenter.getData(keySearch, new ICallback<List<SearchEntity>>() {
-            @Override
-            public void onCallback(final List<SearchEntity> data) {
-                activity.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        searchBox.setData(data);
-                    }
-                });
-            }
-        });
+//        searchPresenter.getData(keySearch, new ICallback<List<SearchEntity>>() {
+//            @Override
+//            public void onCallback(final List<SearchEntity> data) {
+//                activity.runOnUiThread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        searchBox.setData(data);
+//                    }
+//                });
+//            }
+//        });
     }
 
     @Override

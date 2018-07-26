@@ -15,10 +15,12 @@ public class SearchPresenter extends BasePresenter<DashboardActivity> {
         dao = new SearchDao(activity);
     }
 
-    public void getData(final String keySearch, ICallback<List<SearchEntity>> iCallback) {
+    public void getData(final String keySearch, ICallback<List<SearchGroupData>> iCallback) {
         loadData(iCallback, new ILoadData() {
             @Override
             public Object onBackground() {
+
+
                 return dao.getData(keySearch);
             }
         });

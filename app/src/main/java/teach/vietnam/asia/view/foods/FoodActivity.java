@@ -2,10 +2,12 @@ package teach.vietnam.asia.view.foods;
 
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.widget.TextView;
 
 import com.google.firebase.crash.FirebaseCrash;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 import teach.vietnam.asia.BuildConfig;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.utils.Log;
@@ -27,6 +29,9 @@ public class FoodActivity extends BaseActivity<FoodActivity> {
     @BindView(R.id.viewpager)
     ViewPager viewPager;
 
+    @BindView(R.id.toolbarTitle)
+    TextView toolbarTitle;
+
     FoodPagerAdapter adapter;
     int currPage = 0;
 
@@ -39,7 +44,9 @@ public class FoodActivity extends BaseActivity<FoodActivity> {
     protected void initView() {
         Log.i(TAG, "initView");
 
-        setTitleCenter(getString(R.string.title_food));
+//        setTitleCenter(getString(R.string.title_food));
+        toolbarTitle.setText(getString(R.string.title_food));
+
         tabLayout.addTab(tabLayout.newTab().setText(R.string.title_food2));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.title_drink2));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
@@ -66,6 +73,11 @@ public class FoodActivity extends BaseActivity<FoodActivity> {
             }
         });
         if (!BuildConfig.DEBUG)
-        FirebaseCrash.logcat(Log.INFO, TAG, "initView");
+            FirebaseCrash.logcat(Log.INFO, TAG, "initView");
+    }
+
+    @OnClick(R.id.btnBack)
+    public void actionBack() {
+        onBackPressed();
     }
 }

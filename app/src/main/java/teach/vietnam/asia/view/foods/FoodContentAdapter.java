@@ -5,7 +5,8 @@ import android.view.View;
 import java.util.List;
 
 import teach.vietnam.asia.R;
-import teach.vietnam.asia.entity.WordEntity;
+import teach.vietnam.asia.entity.FoodEntity;
+import teach.vietnam.asia.view.action.IActionList;
 import teach.vietnam.asia.view.base.BaseAdapter;
 
 /**
@@ -16,7 +17,12 @@ public class FoodContentAdapter extends BaseAdapter<FoodItemHolder> {
 
     private static String TAG = "FoodContentAdapter";
 
-    private List<WordEntity> listData;
+    private List<FoodEntity> listData;
+    IActionList iActionList;
+
+    public FoodContentAdapter(IActionList iActionList) {
+        this.iActionList = iActionList;
+    }
 
     @Override
     public int getItemLayout() {
@@ -25,7 +31,7 @@ public class FoodContentAdapter extends BaseAdapter<FoodItemHolder> {
 
     @Override
     public FoodItemHolder onCreateView(View view) {
-        return new FoodItemHolder(view);
+        return new FoodItemHolder(view, iActionList);
     }
 
     @Override
@@ -40,7 +46,7 @@ public class FoodContentAdapter extends BaseAdapter<FoodItemHolder> {
         return listData.size();
     }
 
-    public void setData(List<WordEntity> listData) {
+    public void setData(List<FoodEntity> listData) {
         this.listData = listData;
     }
 
