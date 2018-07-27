@@ -4,7 +4,7 @@ import teach.vietnam.asia.Constant;
 
 public class PlaceDetailLanguageTable {
     public static final String TABLE_NAME_EN = "TBL_PLACE_DETAIL_EN";
-    public static final String TABLE_NAME_JP = "TBL_PLACE_DETAIL_JP";
+    public static final String TABLE_NAME_JA = "TBL_PLACE_DETAIL_JA";
 
     public static final String COL_AREA = "AREA";
     public static final String COL_TYPE = "TYPE";
@@ -16,9 +16,9 @@ public class PlaceDetailLanguageTable {
     public static String getTableName(String lang) {
         String table;
         if (lang.equals(Constant.JA))
-            table = TABLE_NAME_JP;
+            table = TABLE_NAME_JA;
         else
-            table = TABLE_NAME_JP;//fixme change table name
+            table = TABLE_NAME_JA;//fixme change table name
         return table;
     }
 }

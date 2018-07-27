@@ -48,7 +48,8 @@ public class FoodActivity extends BaseActivity<FoodActivity> {
         toolbarTitle.setText(getString(R.string.title_food));
 
         tabLayout.addTab(tabLayout.newTab().setText(R.string.title_food2));
-        tabLayout.addTab(tabLayout.newTab().setText(R.string.title_drink2));
+        tabLayout.addTab(tabLayout.newTab().setText(R.string.title_noodles));
+        tabLayout.addTab(tabLayout.newTab().setText(R.string.title_snack));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         adapter = new FoodPagerAdapter

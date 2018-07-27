@@ -12,6 +12,7 @@ public class FoodPagerAdapter extends FragmentStatePagerAdapter {
     int mNumOfTabs;
     FoodFragment tab1;
     FoodFragment tab2;
+    FoodFragment tab3;
 
     public FoodPagerAdapter(FragmentManager fm, int NumOfTabs) {
         super(fm);
@@ -28,11 +29,15 @@ public class FoodPagerAdapter extends FragmentStatePagerAdapter {
                 tab1.kind = 1; // food
                 return tab1;
             case 1:
-            default:
                 if (tab2 == null)
                     tab2 = new FoodFragment();
-                tab2.kind = 2; // drink
+                tab2.kind = 3; // mon nuoc
                 return tab2;
+            default:
+                if (tab3 == null)
+                    tab3 = new FoodFragment();
+                tab3.kind = 2; // drink
+                return tab3;
 
         }
     }
