@@ -20,7 +20,7 @@ public class PlaceDetailDao extends BaseDao<PlaceEntity> {
     @Override
     protected PlaceEntity fetch(Cursor cursor) {
         PlaceEntity entity = new PlaceEntity();
-        entity.group = cursor.getInt(cursor.getColumnIndex(BaseTable.COL_AREA));
+        entity.area = cursor.getInt(cursor.getColumnIndex(BaseTable.COL_AREA));
         entity.type = cursor.getInt(cursor.getColumnIndex(BaseTable.COL_TYPE));
         entity.id = cursor.getInt(cursor.getColumnIndex(BaseTable.COL_ID));
         entity.title = cursor.getString(cursor.getColumnIndex(PlaceTitleTable.COL_TITLE));
@@ -43,7 +43,7 @@ public class PlaceDetailDao extends BaseDao<PlaceEntity> {
         if (cursor.getColumnIndex(PlaceDetailTable.COL_LINKS) > -1)
             entity.imgLinks = cursor.getString(cursor.getColumnIndex(PlaceDetailTable.COL_LINKS));
 
-       if (cursor.getColumnIndex(PlaceDetailTable.COL_ADDRESS) > -1)
+        if (cursor.getColumnIndex(PlaceDetailTable.COL_ADDRESS) > -1)
             entity.address = cursor.getString(cursor.getColumnIndex(PlaceDetailTable.COL_ADDRESS));
 
         return entity;

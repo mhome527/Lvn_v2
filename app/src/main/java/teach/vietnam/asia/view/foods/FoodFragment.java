@@ -10,8 +10,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import teach.vietnam.asia.R;
-import teach.vietnam.asia.db.table.FoodDetailTable;
-import teach.vietnam.asia.db.table.FoodTable;
+import teach.vietnam.asia.db.table.BaseTable;
 import teach.vietnam.asia.entity.FoodEntity;
 import teach.vietnam.asia.sound.AudioPlayer;
 import teach.vietnam.asia.utils.Common;
@@ -64,10 +63,9 @@ public class FoodFragment extends BaseFragment<FoodActivity> implements IActionL
     public void actionClick(int pos, Object object) {
         FoodEntity entity = (FoodEntity) object;
         Intent intent = new Intent(activity, FoodDetailActivity.class);
-        intent.putExtra(FoodTable.COL_NAME, entity.name);
-        intent.putExtra(FoodTable.COL_IMAGE, entity.image);
-        intent.putExtra(FoodDetailTable.COL_OT, entity.ot);
-        intent.putExtra(FoodDetailTable.COL_CONTENT, entity.content);
+        intent.putExtra(BaseTable.COL_ID, entity.id);
+        intent.putExtra(BaseTable.COL_TYPE, entity.type);
+        intent.putExtra(BaseTable.COL_AREA, entity.area);
         startActivity(intent);
     }
     // =========== END IActionList

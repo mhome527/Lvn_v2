@@ -169,6 +169,7 @@
     <string name="title_translate">TRANSLATE</string>
     <string name="title_date">DATES</string>
     <string name="title_recognize">LISTENING</string>
+    <string name="title_place">PLACE</string>
 
     <string name="msg_title_ljp">Japanese for traveler App</string>
     <string name="msg_content_ljp">Do you want to install this application?</string>

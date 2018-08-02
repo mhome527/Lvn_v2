@@ -9,6 +9,7 @@ import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.db.dao.BaseDao;
 import teach.vietnam.asia.db.table.BaseTable;
 import teach.vietnam.asia.db.table.PlaceDetailLanguageTable;
+import teach.vietnam.asia.db.table.PlaceDetailTable;
 import teach.vietnam.asia.db.table.PlaceTitleTable;
 import teach.vietnam.asia.db.table.WordTable;
 
@@ -44,6 +45,9 @@ public class SearchDao extends BaseDao<SearchEntity> {
         entity.vn = cursor.getString(cursor.getColumnIndex(BaseTable.COL_TITLE));
         entity.ot = cursor.getString(cursor.getColumnIndex(BaseTable.COL_OT1));
 
+        if (cursor.getColumnIndex(PlaceDetailTable.COL_IMAGE) > -1)
+            entity.image = cursor.getString(cursor.getColumnIndex(PlaceDetailTable.COL_IMAGE));
+
         return entity;
     }
 
@@ -77,34 +81,43 @@ and (vi2 like '%con b%' or o1 like '%たこ%' or o2 like '%ちょ%')
         return fetchAll(sql);
     }
 
+    /*
+SELECT v.area, v.type, v.kind, v.id, v.name, ot, content
+FROM TBL_FOOD_VN v, TBL_FOOD_DETAIL_JA e
+WHERE v.area = e.area AND v.type = e.type AND v.id = e.id
+AND (v.name like '%CAN%' OR OT like '%ゴイu%')
+ORDER BY v.type, name asc
+     */
     public List<SearchEntity> getFood(String key) {
-        String sql = "SELECT 0 AREA, 0 TYPE, 0 ID, KIND, vi TITLE, o1 OT1 " +
-                " FROM TBL_VIET_JA" +
-                " WHERE kind in (1,2,3,4, 5, 6, 11, 31)" +
-                " AND (vi2 LIKE '%" + key + "%' OR o1 LIKE '%" + key + "%' OR o2 LIKE '%" + key + "%')" +
-                " ORDER BY kind";
+        String sql = "SELECT v.area, v.type, " + Constant.SEARCH_DATA_FOOD + " KIND, v.id, v.name TITLE, ot OT1, IMAGE, content \n" +
+                "FROM TBL_FOOD_VN v, TBL_FOOD_DETAIL_JA e \n" +
+                "WHERE v.area = e.area AND v.type = e.type AND v.id = e.id \n" +
+                "AND (v.name LIKE '%" + key + "%' " +
+                "OR v.NAME_SEARCH LIKE '%" + key + "%' \n" +
+                "OR OT LIKE '%" + key + "%') \n" +
+                "ORDER BY v.type, name asc";
 
         return fetchAll(sql);
     }
 
-    public List<SearchEntity> getPhrases2(String key) {
-        String sql = "SELECT 0 AREA, 0 TYPE, 0 ID, KIND, vi TITLE, o1 OT1 " +
-                " FROM TBL_VIET_JA" +
-                " WHERE kind in (1,2,3,4, 5, 6, 11, 31)" +
-                " AND (vi2 LIKE '%" + key + "%' OR o1 LIKE '%" + key + "%' OR o2 LIKE '%" + key + "%')" +
+    public List<SearchEntity> getPhrases(String key) {
+        String sql = "SELECT 0 AREA, 0 TYPE, 0 ID, " + Constant.SEARCH_DATA_PHRASES + " KIND, vi TITLE, o1 OT1 \n" +
+                " FROM " + WordTable.getTableName(lang) +
+                " WHERE kind in (1,2,3,4, 5, 6, 11, 31) \n" +
+                " AND (vi2 LIKE '%" + key + "%' OR o1 LIKE '%" + key + "%' OR o2 LIKE '%" + key + "%') \n" +
                 " ORDER BY kind";
 
         return fetchAll(sql);
     }
 
     public List<SearchEntity> getPlace(String key) {
-        String sql = " SELECT vn.area AREA, vn.type TYPE, vn.id ID, 100 KIND, vn.title TITLE, OT1 " +
+        String sql = " SELECT vn.area AREA, vn.type TYPE, vn.id ID, " + Constant.SEARCH_DATA_PLACE + " KIND, vn.title TITLE, OT1, IMAGE " +
                 " FROM TBL_PLACE_DETAIL vn, " + PlaceDetailLanguageTable.getTableName(lang) + " ot" +
                 " WHERE vn.area = ot.area AND vn.type = ot.type AND vn.id = ot.id" +
                 " AND " +
                 " ( vn.title2 LIKE '%" + key + "%' " +
-                " OR ot1 like '%" + key + "%' " +
-                " OR search_text LIKE '%" + key + "%'" +
+                " OR ot1 LIKE '%" + key + "%' " +
+                " OR ot2 LIKE '%" + key + "%'" +
                 " )" +
                 " ORDER BY kind";
 

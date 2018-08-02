@@ -144,6 +144,12 @@ public class Constant {
     public static int TYPE_DATA_PLACE = 100;
 
 
+    ////
+    public static int SEARCH_DATA_FOOD = 1;
+    public static int SEARCH_DATA_PHRASES = 2;
+    public static int SEARCH_DATA_PLACE = 3;
+
+
     public enum TYPE_WORD {
         ANIMAL, FRUIT, OTHER
     }

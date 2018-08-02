@@ -27,7 +27,7 @@ public class PlaceAdapter extends BaseExAdapterView<PlaceHeaderHolder, PlaceItem
     }
 
     @Override
-    protected int getItemLayout() {
+    protected int getItemLayout(int viewType) {
         return R.layout.place_item;
     }
 
@@ -37,7 +37,7 @@ public class PlaceAdapter extends BaseExAdapterView<PlaceHeaderHolder, PlaceItem
     }
 
     @Override
-    protected PlaceItemHolder getItemView(View view) {
+    protected PlaceItemHolder getItemView(View view, int viewType) {
         return new PlaceItemHolder(view, iPlaceListener);
     }
 

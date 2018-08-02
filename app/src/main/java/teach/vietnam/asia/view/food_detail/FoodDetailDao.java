@@ -1,9 +1,7 @@
-package teach.vietnam.asia.view.foods;
+package teach.vietnam.asia.view.food_detail;
 
 import android.content.Context;
 import android.database.Cursor;
-
-import java.util.List;
 
 import teach.vietnam.asia.db.dao.BaseDao;
 import teach.vietnam.asia.db.table.FoodDetailTable;
@@ -14,9 +12,9 @@ import teach.vietnam.asia.entity.FoodEntity;
 /**
  * Created by huynhtran on 5/12/16.
  */
-public class FoodDao extends BaseDao<FoodEntity> {
+public class FoodDetailDao extends BaseDao<FoodEntity> {
 
-    public FoodDao(Context context) {
+    public FoodDetailDao(Context context) {
         super(context);
     }
 
@@ -31,27 +29,40 @@ public class FoodDao extends BaseDao<FoodEntity> {
         entity.name = cursor.getString(cursor.getColumnIndex(FoodTable.COL_NAME));
         entity.image = cursor.getString(cursor.getColumnIndex(FoodTable.COL_IMAGE));
         entity.ot = cursor.getString(cursor.getColumnIndex(FoodDetailTable.COL_OT));
-//        entity.content = cursor.getString(cursor.getColumnIndex(FoodDetailTable.COL_CONTENT));
+        entity.content = cursor.getString(cursor.getColumnIndex(FoodDetailTable.COL_CONTENT));
 
 //        if (cursor.getColumnIndex(BaseTable.COL_ID) > -1)
 
         return entity;
     }
 
-    public List<FoodEntity> getListData(int type) {
-        String sql = "SELECT V.AREA, V.TYPE, KIND, V.ID, V.NAME, IMAGE, OT " +
+    public FoodEntity getData(int area, int type, int id) {
+        String sql = "SELECT V.AREA, V.TYPE, KIND, V.ID, V.NAME, IMAGE, OT, CONTENT " +
                 " FROM TBL_FOOD_VN V, " + FoodDetailTable.getTableName(lang) + " O" +
                 " WHERE V.AREA = O.AREA AND V.TYPE = O.TYPE AND V.ID = O.ID" +
+                " AND V.AREA=" + area +
                 " AND V.TYPE=" + type +
+                " AND V.ID=" + id +
                 " ORDER BY V.TYPE, KIND";
 
-        FoodDao dao = new FoodDao(context);
-        return dao.fetchAll(sql);
+        FoodDetailDao dao = new FoodDetailDao(context);
+        return dao.fetch(sql);
     }
 
-    public static List<FoodEntity> getListData(Context context, int type) {
-        FoodDao dao = new FoodDao(context);
-        return dao.getListData(type);
+//    public List<FoodEntity> getListData2(int type) {
+//        String sql = "SELECT V.AREA, V.TYPE, KIND, V.ID, V.NAME, IMAGE, OT, CONTENT " +
+//                " FROM TBL_FOOD_VN V, " + FoodDetailTable.getTableName(lang) + " O" +
+//                " WHERE V.AREA = O.AREA AND V.TYPE = O.TYPE AND V.ID = O.ID" +
+//                " AND V.TYPE=" + type +
+//                " ORDER BY V.TYPE, KIND";
+//
+//        FoodDetailDao dao = new FoodDetailDao(context);
+//        return dao.fetchAll(sql);
+//    }
+
+    public static FoodEntity getData(Context context, int area, int type, int id) {
+        FoodDetailDao dao = new FoodDetailDao(context);
+        return dao.getData(area, type, id);
     }
 
 

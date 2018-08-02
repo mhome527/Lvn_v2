@@ -29,11 +29,11 @@ public class PhrasesItemHolder extends BaseViewHolder {
         super(itemView);
     }
 
-    public void setData(WordEntity item, boolean isSpeak) {
+    public void setData(WordEntity item, boolean isPurchased) {
 
         tvViet.setText(Html.fromHtml(item.getVi()));
         tvOther.setText(Html.fromHtml(item.getO1()));
-        if (isSpeak || item.getNum() < Constant.TRIAL) {
+        if (isPurchased || item.getNum() < Constant.TRIAL) {
             imgSpeak.setImageResource(R.drawable.ic_speaker);
         } else
             imgSpeak.setImageResource(R.drawable.ic_lock);

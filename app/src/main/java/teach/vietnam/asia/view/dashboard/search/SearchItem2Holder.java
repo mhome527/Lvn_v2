@@ -1,14 +1,16 @@
 package teach.vietnam.asia.view.dashboard.search;
 
+import android.text.Html;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import butterknife.BindView;
+import teach.vietnam.asia.BaseApplication;
 import teach.vietnam.asia.R;
+import teach.vietnam.asia.utils.Utility;
 import teach.vietnam.asia.view.base.BaseChildExViewHolder;
 
-public class SearchPlaceItemHolder extends BaseChildExViewHolder {
+public class SearchItem2Holder extends BaseChildExViewHolder {
 
     @BindView(R.id.tvVn)
     TextView tvVn;
@@ -16,12 +18,12 @@ public class SearchPlaceItemHolder extends BaseChildExViewHolder {
     @BindView(R.id.tvOther)
     TextView tvOther;
 
-    @BindView(R.id.imgSpeak)
-    ImageView imgSpeak;
+//    @BindView(R.id.imgSpeak)
+//    ImageView imgSpeak;
 
     private SearchEntity entity;
 
-    public SearchPlaceItemHolder(View itemView, final IActionSearch iActionSearch) {
+    public SearchItem2Holder(View itemView, final IActionSearch iActionSearch) {
         super(itemView);
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,7 +35,9 @@ public class SearchPlaceItemHolder extends BaseChildExViewHolder {
 
     public void bind(SearchEntity entity) {
         this.entity = entity;
-        tvVn.setText(entity.vn);
-        tvOther.setText(entity.ot);
+        tvVn.setText(Html.fromHtml(entity.vn));
+        tvOther.setText(Html.fromHtml(entity.ot));
+
+
     }
 }

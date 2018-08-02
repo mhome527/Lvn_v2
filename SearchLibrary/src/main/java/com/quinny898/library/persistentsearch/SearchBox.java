@@ -85,7 +85,6 @@ public class SearchBox extends RelativeLayout {
     private SearchFilter mSearchFilter;
     private ArrayAdapter<? extends SearchResult> mAdapter;
 
-
     /**
      * Create a new searchbox
      *
@@ -119,13 +118,17 @@ public class SearchBox extends RelativeLayout {
         this.isMic = true;
         this.materialMenu = (MaterialMenuView) findViewById(R.id.material_menu_button);
         this.logo = (TextView) findViewById(R.id.logo);
+
+
         this.search = (EditText) findViewById(R.id.search);
 //		this.lstResults = (ListView) findViewById(R.id.results);
         this.recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
         recyclerView.setLayoutManager(linearLayoutManager);
-        setAdapter();
+
+        //test only
+//        setAdapter();
 
         this.context = context;
         this.pb = (ProgressBar) findViewById(R.id.pb);
@@ -526,7 +529,7 @@ public class SearchBox extends RelativeLayout {
     }
 
     //se override o lop con
-    public void setAdapter() {
+    public void setAdapter(Object groups) {
 
     }
 
@@ -887,6 +890,7 @@ public class SearchBox extends RelativeLayout {
         this.logo.setVisibility(View.VISIBLE);
         this.search.setVisibility(View.GONE);
 //        this.lstResults.setVisibility(View.GONE);
+
         this.recyclerView.setVisibility(View.GONE);
 
 //        if (tint != null && rootLayout != null) {

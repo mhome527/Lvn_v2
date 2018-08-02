@@ -22,7 +22,7 @@ public class PlaceDao extends BaseDao<PlaceEntity> {
     @Override
     protected PlaceEntity fetch(Cursor cursor) {
         PlaceEntity entity = new PlaceEntity();
-        entity.group = cursor.getInt(cursor.getColumnIndex(PlaceTitleTable.COL_AREA));
+        entity.area = cursor.getInt(cursor.getColumnIndex(PlaceTitleTable.COL_AREA));
         entity.type = cursor.getInt(cursor.getColumnIndex(PlaceTitleTable.COL_TYPE));
 
         if (cursor.getColumnIndex(BaseTable.COL_ID) > -1)

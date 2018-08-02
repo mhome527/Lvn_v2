@@ -7,9 +7,10 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import teach.vietnam.asia.BaseApplication;
 import teach.vietnam.asia.R;
-import teach.vietnam.asia.db.table.FoodDetailTable;
-import teach.vietnam.asia.db.table.FoodTable;
+import teach.vietnam.asia.db.table.BaseTable;
+import teach.vietnam.asia.entity.FoodEntity;
 import teach.vietnam.asia.utils.Utility;
+import teach.vietnam.asia.view.action.ICallback;
 import teach.vietnam.asia.view.base.BaseActivity;
 import teach.vietnam.asia.view.custom.RoundRectCornerImageView;
 
@@ -28,10 +29,11 @@ public class FoodDetailActivity extends BaseActivity<FoodDetailActivity> {
     @BindView(R.id.imgFood)
     RoundRectCornerImageView imgFood;
 
-    String name;
-    String ot;
-    String strImage;
-    String content;
+    int area_id;
+    int type;
+    int id;
+
+    FoodDetailPresenter presenter;
 
     @Override
     protected int getLayout() {
@@ -40,14 +42,12 @@ public class FoodDetailActivity extends BaseActivity<FoodDetailActivity> {
 
     @Override
     protected void initView() {
-        name = getIntent().getStringExtra(FoodTable.COL_NAME);
-        strImage = getIntent().getStringExtra(FoodTable.COL_IMAGE);
-        ot = getIntent().getStringExtra(FoodDetailTable.COL_OT);
-        content = getIntent().getStringExtra(FoodDetailTable.COL_CONTENT);
 
+        area_id = getIntent().getIntExtra(BaseTable.COL_AREA, 0);
+        type = getIntent().getIntExtra(BaseTable.COL_TYPE, 0);
+        id = getIntent().getIntExtra(BaseTable.COL_ID, 0);
 
-//        presenter = new PlaceDetailPresenter(activity);
-
+        presenter = new FoodDetailPresenter(this);
         tvContent.setMovementMethod(new ScrollingMovementMethod());
 
         setData();
@@ -63,16 +63,21 @@ public class FoodDetailActivity extends BaseActivity<FoodDetailActivity> {
 
     private void setData() {
 //        setTitle(ot);
-
-        toolbarTitle.setText(ot);
-        tvVn.setText(name);
+        presenter.loadData(area_id, type, id, new ICallback<FoodEntity>() {
+            @Override
+            public void onCallback(FoodEntity entity) {
+                toolbarTitle.setText(entity.ot);
+                tvVn.setText(entity.name);
 //        tvOt.setText(entity.ot);
-        tvContent.setText(content);
+                tvContent.setText(entity.content);
 
-        int resourceId = Utility.getResourcesID(BaseApplication.getInstance(), strImage);
-        if (resourceId > 0) {
-            imgFood.setImageResource(resourceId);
-        }
+                int resourceId = Utility.getResourcesID(BaseApplication.getInstance(), entity.image);
+                if (resourceId > 0) {
+                    imgFood.setImageResource(resourceId);
+                }
+            }
+        });
+
 
     }
 }

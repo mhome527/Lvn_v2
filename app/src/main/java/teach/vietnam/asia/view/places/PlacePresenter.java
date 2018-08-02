@@ -29,8 +29,8 @@ public class PlacePresenter extends BasePresenter<PlaceActivity> {
                     return groups;
 
                 for (PlaceEntity entity : titleGroups) {
-                    items = dao.getPlaceDetail(entity.group, entity.type);
-                    group = new PlaceGroupData(entity.group, entity.type,  entity.title, items);
+                    items = dao.getPlaceDetail(entity.area, entity.type);
+                    group = new PlaceGroupData(entity.area, entity.type,  entity.title, items);
                     groups.add(group);
                 }
 

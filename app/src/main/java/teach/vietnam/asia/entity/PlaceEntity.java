@@ -6,7 +6,7 @@ import android.os.Parcelable;
 public class PlaceEntity extends BaseEntity implements Parcelable {
     public int id;
     public int type;
-    public int group;
+    public int area;
     public String title;
     public String ot;
     public String content;
@@ -27,7 +27,7 @@ public class PlaceEntity extends BaseEntity implements Parcelable {
     protected PlaceEntity(Parcel in) {
         id = in.readInt();
         type = in.readInt();
-        group = in.readInt();
+        area = in.readInt();
         title = in.readString();
         ot = in.readString();
         content = in.readString();
@@ -61,7 +61,7 @@ public class PlaceEntity extends BaseEntity implements Parcelable {
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeInt(id);
         parcel.writeInt(type);
-        parcel.writeInt(group);
+        parcel.writeInt(area);
         parcel.writeString(title);
         parcel.writeString(ot);
         parcel.writeString(content);

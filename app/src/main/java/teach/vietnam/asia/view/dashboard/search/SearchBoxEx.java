@@ -7,16 +7,16 @@ import android.view.View;
 
 import com.quinny898.library.persistentsearch.SearchBox;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import teach.vietnam.asia.utils.Log;
 
-public class SearchBoxEx extends SearchBox{
-//        implements IClickListener {
+public class SearchBoxEx extends SearchBox {
+    //        implements IClickListener {
     private final String TAG = "SearchBoxEx";
-    SearchAdapter adapter;
+    public SearchAdapter adapter;
     IActionSearch iActionSearch;
+    List<SearchGroupData> groups;
 
     public SearchBoxEx(Context context) {
         super(context);
@@ -33,7 +33,8 @@ public class SearchBoxEx extends SearchBox{
                 DividerItemDecoration.VERTICAL);
         recyclerView.addItemDecoration(dividerItemDecoration);
 
-        setAdapter();
+        //test only
+//        setAdapter();
     }
 
 
@@ -42,8 +43,11 @@ public class SearchBoxEx extends SearchBox{
         Log.i(TAG, "updateResults...");
         String searchText = getSearchText();
         if (searchText.trim().equals("")) {
-            adapter.setListData(null);
-            adapter.notifyDataSetChanged();
+            if (adapter != null) {
+                adapter.setListData(null);
+//                adapter.notifyDataSetChanged();
+                recyclerView.setVisibility(View.GONE);
+            }
         } else
             iActionSearch.loadData(searchText);
     }
@@ -53,23 +57,37 @@ public class SearchBoxEx extends SearchBox{
     }
 
     public void setData(List<SearchGroupData> groups) {
-        setAdapter();
-        adapter.setListData(groups);
+        setAdapter(groups);
+//        adapter.setListData(groups);
         if (groups.size() > 0) {
             adapter.notifyDataSetChanged();
             recyclerView.setVisibility(View.VISIBLE);
         } else {
-            recyclerView.setVisibility(View.GONE);
+//            recyclerView.setVisibility(View.GONE);
         }
     }
 
 
     @Override
-    public void setAdapter() {
-        List<SearchGroupData> groups = new ArrayList<>();
+    public void setAdapter(Object object) {
+        groups = (List<SearchGroupData>) object;
 
         adapter = new SearchAdapter(groups, iActionSearch);
         recyclerView.setAdapter(adapter);
+        if (groups.size() > 0)
+            adapter.toggleGroup(groups.size() - 1);
+    }
+
+    public void refresh() {
+        adapter = new SearchAdapter(groups, iActionSearch);
+        recyclerView.setAdapter(adapter);
+    }
+
+    public int getGroupSize() {
+        if (groups == null)
+            return 0;
+        else
+            return groups.size();
     }
 
     // ============== IClickListener ================

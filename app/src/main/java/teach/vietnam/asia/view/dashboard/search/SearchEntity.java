@@ -12,6 +12,7 @@ public class SearchEntity extends BaseEntity implements Parcelable {
     public int kind;
     public String ot;
     public String vn;
+    public String image;
 
     public SearchEntity() {
     }
@@ -23,6 +24,7 @@ public class SearchEntity extends BaseEntity implements Parcelable {
         kind = in.readInt();
         ot = in.readString();
         vn = in.readString();
+        image = in.readString();
     }
 
     public static final Creator<SearchEntity> CREATOR = new Creator<SearchEntity>() {
@@ -50,5 +52,6 @@ public class SearchEntity extends BaseEntity implements Parcelable {
         parcel.writeInt(kind);
         parcel.writeString(ot);
         parcel.writeString(vn);
+        parcel.writeString(image);
     }
 }

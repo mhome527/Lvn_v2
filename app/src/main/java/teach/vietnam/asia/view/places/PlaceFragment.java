@@ -44,7 +44,7 @@ public class PlaceFragment extends BaseFragment<PlaceActivity> implements IPlace
         Intent intent = new Intent(activity, PlaceDetailActivity.class);
         intent.putExtra(BaseTable.COL_ID, entity.id);
         intent.putExtra(BaseTable.COL_TYPE, entity.type);
-        intent.putExtra(BaseTable.COL_AREA, entity.group);
+        intent.putExtra(BaseTable.COL_AREA, entity.area);
         startActivity(intent);
     }
 

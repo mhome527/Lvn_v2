@@ -2,6 +2,7 @@ package teach.vietnam.asia.view.dashboard;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.os.Handler;
 import android.speech.RecognizerIntent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -26,10 +27,12 @@ import butterknife.OnClick;
 import teach.vietnam.asia.BuildConfig;
 import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.R;
+import teach.vietnam.asia.db.table.BaseTable;
 import teach.vietnam.asia.entity.DashboardEntity;
 import teach.vietnam.asia.utils.Common;
 import teach.vietnam.asia.utils.Log;
 import teach.vietnam.asia.utils.Utility;
+import teach.vietnam.asia.view.action.ICallback;
 import teach.vietnam.asia.view.alphabet.AlphabetActivity;
 import teach.vietnam.asia.view.base.BaseActivity;
 import teach.vietnam.asia.view.body.BodyActivity;
@@ -38,11 +41,14 @@ import teach.vietnam.asia.view.dashboard.language.OnItemClickListener;
 import teach.vietnam.asia.view.dashboard.search.IActionSearch;
 import teach.vietnam.asia.view.dashboard.search.SearchBoxEx;
 import teach.vietnam.asia.view.dashboard.search.SearchEntity;
+import teach.vietnam.asia.view.dashboard.search.SearchGroupData;
 import teach.vietnam.asia.view.dashboard.search.SearchPresenter;
+import teach.vietnam.asia.view.food_detail.FoodDetailActivity;
 import teach.vietnam.asia.view.foods.FoodActivity;
 import teach.vietnam.asia.view.grammar.detail.GrammarDetailActivity;
 import teach.vietnam.asia.view.number.NumberActivity;
 import teach.vietnam.asia.view.phrase.PhrasesActivity;
+import teach.vietnam.asia.view.placedetail.PlaceDetailActivity;
 import teach.vietnam.asia.view.places.PlaceActivity;
 import teach.vietnam.asia.view.practice.PracticeActivity;
 import teach.vietnam.asia.view.recognizes.RecognizeMainActivity;
@@ -352,22 +358,70 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> implement
     // ============= START IActionSearch ==============
     @Override
     public void loadData(String keySearch) {
-//        searchPresenter.getData(keySearch, new ICallback<List<SearchEntity>>() {
-//            @Override
-//            public void onCallback(final List<SearchEntity> data) {
+        searchPresenter.getData(keySearch, new ICallback<List<SearchGroupData>>() {
+            @Override
+            public void onCallback(final List<SearchGroupData> data) {
 //                activity.runOnUiThread(new Runnable() {
 //                    @Override
 //                    public void run() {
-//                        searchBox.setData(data);
+                searchBox.setData(data);
 //                    }
 //                });
-//            }
-//        });
+            }
+        });
     }
+
+    @Override
+    public void onSearchHeaderClick(final boolean type, final int pos) {
+
+        if (type == false) {
+            // collapse group
+
+            boolean isCloseAll = false;
+            for (int i = 0; i < searchBox.getGroupSize(); i++) {
+                if (searchBox.adapter.isGroupExpanded(i) == true) { //extended
+                    isCloseAll = true;
+                    break;
+                }
+            }
+
+            //closed all group
+            if (isCloseAll == false) {
+                searchBox.refresh(); // goi ham nay muc dich de resize lai kich thuoc cua list
+            }
+
+        } else {
+            // extend
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    searchBox.adapter.notifyDataSetChanged();
+                    Log.i(TAG, "header click: " + pos + "=" + searchBox.adapter.isGroupExpanded(pos));
+                }
+            }, 100);
+        }
+    }
+
 
     @Override
     public void onSearchClick(SearchEntity entity) {
         Log.i(TAG, "IActionSearch  onSearchClick:" + entity.vn);
+        if (entity.kind == Constant.SEARCH_DATA_PHRASES) {
+
+        } else if (entity.kind == Constant.SEARCH_DATA_FOOD) {
+            Intent intent = new Intent(activity, FoodDetailActivity.class);
+            intent.putExtra(BaseTable.COL_ID, entity.id);
+            intent.putExtra(BaseTable.COL_TYPE, entity.type);
+            intent.putExtra(BaseTable.COL_AREA, entity.area);
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent(activity, PlaceDetailActivity.class);
+            intent.putExtra(BaseTable.COL_ID, entity.id);
+            intent.putExtra(BaseTable.COL_TYPE, entity.type);
+            intent.putExtra(BaseTable.COL_AREA, entity.area);
+            startActivity(intent);
+        }
 
     }
     // ============= END ================
