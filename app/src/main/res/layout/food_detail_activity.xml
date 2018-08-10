@@ -69,12 +69,12 @@
 
                 <teach.vietnam.asia.view.custom.RoundRectCornerImageView
                     android:id="@+id/imgFood"
-                    android:layout_width="match_parent"
-                    android:layout_height="180dp"
+                    android:layout_width="310dp"
+                    android:layout_height="232dp"
                     android:layout_centerHorizontal="true"
                     android:background="@color/transparent"
                     android:scaleType="fitXY"
-                    android:src="@drawable/place_dinh_doc_lap" />
+                    android:src="@drawable/f_chao_vit" />
 
 
                 <ImageView

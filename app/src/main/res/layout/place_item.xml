@@ -32,7 +32,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginBottom="5dp"
                 android:layout_marginRight="25dp"
-                android:background="@drawable/place_nha_tho_duc_ba"
+                android:background="@drawable/place_1_1_tp_ho_chi_minh"
                 android:scaleType="fitXY" />
 
             <RelativeLayout

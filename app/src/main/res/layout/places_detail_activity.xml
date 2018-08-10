@@ -78,8 +78,7 @@
                         android:layout_height="match_parent"
                         android:layout_centerHorizontal="true"
                         android:background="@color/transparent"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/place_dinh_doc_lap" />
+                        android:scaleType="fitXY" />
 
                     <LinearLayout
                         android:id="@+id/llLocation"

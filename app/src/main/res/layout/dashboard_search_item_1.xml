@@ -31,7 +31,7 @@
                 android:layout_height="40dp"
                 android:layout_alignParentTop="true"
                 android:layout_marginRight="5dp"
-                android:background="@drawable/place_nha_tho_duc_ba"
+                android:background="@drawable/place_1_1_tp_ho_chi_minh"
                 android:scaleType="fitXY" />
 
             <RelativeLayout
