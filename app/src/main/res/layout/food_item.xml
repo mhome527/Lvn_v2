@@ -32,7 +32,6 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginBottom="5dp"
                 android:layout_marginRight="25dp"
-                android:background="@drawable/place_1_1_tp_ho_chi_minh"
                 android:scaleType="fitXY" />
 
             <RelativeLayout
@@ -81,12 +80,12 @@
 
             <ImageView
                 android:id="@+id/imgNext"
-                android:layout_width="20dp"
-                android:layout_height="30dp"
+                android:layout_width="15dp"
+                android:layout_height="20dp"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_gravity="center"
-                android:layout_marginRight="5dp"
+                android:layout_marginRight="2dp"
                 android:background="@color/transparent"
                 android:scaleType="fitXY"
                 android:src="@drawable/ic_next" />

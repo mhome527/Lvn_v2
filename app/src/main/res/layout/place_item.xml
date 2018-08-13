@@ -32,7 +32,6 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginBottom="5dp"
                 android:layout_marginRight="25dp"
-                android:background="@drawable/place_1_1_tp_ho_chi_minh"
                 android:scaleType="fitXY" />
 
             <RelativeLayout
@@ -44,36 +43,23 @@
                 android:layout_marginRight="25dp"
                 android:paddingRight="10dp">
 
-                <ImageButton
-                    android:id="@+id/imgSound"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_centerVertical="true"
-                    android:layout_gravity="center"
-                    android:layout_marginRight="10dp"
-                    android:background="@color/transparent"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/ic_speaker" />
-
-
                 <TextView
                     android:id="@+id/tvVn"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_toRightOf="@+id/imgSound"
                     android:layout_weight="1"
-                    android:gravity="left"
+                    android:gravity="center"
                     android:text="@string/app_name"
                     android:textColor="@color/black" />
 
                 <TextView
                     android:id="@+id/tvOther"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tvVn"
                     android:layout_toRightOf="@+id/imgSound"
                     android:layout_weight="1"
-                    android:gravity="left"
+                    android:gravity="center"
                     android:text="@string/app_name"
                     android:textColor="@color/gray" />
 
@@ -81,8 +67,8 @@
 
             <ImageView
                 android:id="@+id/imgNext"
-                android:layout_width="20dp"
-                android:layout_height="30dp"
+                android:layout_width="15dp"
+                android:layout_height="20dp"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_gravity="center"
