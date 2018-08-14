@@ -54,6 +54,9 @@ public class PlaceFragment extends BaseFragment<PlaceActivity> implements IPlace
             public void onCallback(ArrayList<PlaceGroupData> data) {
                 adapter = new PlaceAdapter(data, PlaceFragment.this);
                 recyclerView.setAdapter(adapter);
+
+                if (data != null && data.size() > 0)
+                    adapter.toggleGroup(data.size() - 1);
             }
 
         });

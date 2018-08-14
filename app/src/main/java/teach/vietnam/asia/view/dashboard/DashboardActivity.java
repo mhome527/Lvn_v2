@@ -168,49 +168,50 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> implement
         String screen;
 
         switch (pos) {
+
             case 0:
                 startActivity2(PlaceActivity.class);
 //                startActivity2(MapActivity.class);
                 break;
-
             case 1:
+                startActivity2(FoodActivity.class);
+//                screen = "FoodActivity";
+                break;
+
+            case 2:
                 startActivity2(AlphabetActivity.class);
 //                screen = "AlphabetActivity";
                 break;
-            case 2:
+
+            case 3:
                 startActivity2(NumberActivity.class);
 //                screen = "NumberActivity";
                 break;
-            case 3:
+
+            case 4:
                 startActivity2(BodyActivity.class);
 //                screen = "BodyActivity";
                 break;
-            case 4:
+            case 5:
                 startActivity2(RecognizeMainActivity.class);
 //                screen = "RecognizeMainActivity";
                 break;
 
-            case 5:
+            case 6:
                 startActivity2(WordActivity.class);
 //                screen = "WordActivity";
                 break;
-            case 6:
+            case 7:
                 startActivity2(PhrasesActivity.class);
 //                screen = "FoodActivity";
                 break;
-            case 7:
+            case 8:
                 startActivity2(GrammarDetailActivity.class);
 //                screen = "GrammarDetailActivity";
                 break;
-            case 8:
-                startActivity2(FoodActivity.class);
-//                screen = "PhrasesActivity";
-
-                break;
             case 9:
                 startActivity2(TranslateActivity.class);
-
-                screen = "PracticeActivity";
+//                screen = "PracticeActivity";
                 break;
             case 10:
                 startActivity2(PracticeActivity.class);
@@ -255,6 +256,8 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> implement
 
     private void createData() {
         listData.clear();
+        listData.add(new DashboardEntity(R.drawable.place_1_1_cho_ben_thanh, getString(R.string.place_vietnam_travel)));
+        listData.add(new DashboardEntity(R.drawable.menu_food, getString(R.string.title_food)));
         listData.add(new DashboardEntity(R.drawable.ic_alphabet, getString(R.string.title_alphabet)));
         listData.add(new DashboardEntity(R.drawable.ic_number, getString(R.string.title_counter)));
         listData.add(new DashboardEntity(R.drawable.menu_body, getString(R.string.title_body)));
@@ -262,7 +265,6 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> implement
         listData.add(new DashboardEntity(R.drawable.ic_animal, getString(R.string.title_word)));
         listData.add(new DashboardEntity(R.drawable.ic_phrase, getString(R.string.title_phrase)));
         listData.add(new DashboardEntity(R.drawable.ic_grammar, getString(R.string.title_grammar)));
-        listData.add(new DashboardEntity(R.drawable.menu_food, getString(R.string.title_food)));
         listData.add(new DashboardEntity(R.drawable.menu_translate, getString(R.string.title_translate)));
         listData.add(new DashboardEntity(R.drawable.menu_practice, getString(R.string.title_practice)));
 //        listData.add(new DashboardEntity(R.drawable.button_word_on, getString(R.string.title_coming_soon)));
@@ -273,18 +275,20 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> implement
         GridLayoutManager lLayout;
 
         if (Common.isTablet(activity))
-            lLayout = new GridLayoutManager(activity, 4);
+            lLayout = new GridLayoutManager(activity, 8);
         else
-            lLayout = new GridLayoutManager(activity, 3);
+            lLayout = new GridLayoutManager(activity, 6);
 
         lLayout.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
             @Override
             public int getSpanSize(int position) {
-                if (position == 0) {
+                if (position == 0 || position ==1) {
                     if (Common.isTablet(activity))
-                        return 4;
+                        return 4; //merge 4 cot lai
                     else
-                        return 3;
+                        return 3; //merge 3 cot lai
+
+//                    return 1;
 
                 } else if (position == listData.size() + 1) {
                     if (Common.isTablet(activity))
@@ -292,7 +296,7 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> implement
                     else
                         return 3;
                 } else
-                    return 1;
+                    return 2;
             }
         });
 

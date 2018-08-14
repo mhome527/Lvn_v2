@@ -152,7 +152,7 @@
     <string name="title_alphabet">ALPHABET</string>
     <string name="title_grammar">GRAMMAR</string>
     <string name="title_word">WORDS</string>
-    <string name="title_food2">FOOD</string>
+    <string name="title_food2">CUISINE</string>
     <string name="title_drink2">DRINK</string>
     <string name="title_noodles">noodles</string>
     <string name="title_snack">sweets &amp; SNACK</string>
@@ -174,6 +174,7 @@
     <string name="msg_title_ljp">Japanese for traveler App</string>
     <string name="msg_content_ljp">Do you want to install this application?</string>
 
+    <string name="title_travel">Travel</string>
     <string name="title_button_alphabet">Alphabet</string>
     <string name="title_button_number">Number</string>
     <string name="title_button_phrase">Phrases</string>

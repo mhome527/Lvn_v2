@@ -119,7 +119,7 @@ ORDER BY v.type, name asc
                 " OR ot1 LIKE '%" + key + "%' " +
                 " OR ot2 LIKE '%" + key + "%'" +
                 " )" +
-                " ORDER BY kind";
+                " ORDER BY kind, sort";
 
         return fetchAll(sql);
     }

@@ -21,7 +21,7 @@ public class DashboardAdapter extends BaseAdapterView<BaseViewHolder> {
 
     @Override
     protected int getHeaderLayout(int viewType) {
-        return R.layout.dashboard_header_item;
+        return R.layout.dashboard_header_item_bk;
     }
 
     @Override
@@ -32,6 +32,23 @@ public class DashboardAdapter extends BaseAdapterView<BaseViewHolder> {
     @Override
     protected int getItemLayout(int viewType) {
         return R.layout.dashboard_item;
+    }
+
+    @Override
+    protected int getSize() {
+        if (items == null)
+            return 0;
+        return items.size();
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        if (position == 0 || position == 1)
+            return TYPE_HEADER;
+        else if (position == getSize() - 1 && getFooterLayout(TYPE_FOOTER) > 0)
+            return TYPE_FOOTER;
+        else
+            return TYPE_ITEM;
     }
 
     @Override
@@ -56,7 +73,9 @@ public class DashboardAdapter extends BaseAdapterView<BaseViewHolder> {
 
     @Override
     public void onBindViewHolder(BaseViewHolder holder, int position) {
-        if (holder instanceof DashboardItemHolder)
-            ((DashboardItemHolder) holder).bind(items.get(position - 1));
+        if (holder instanceof DashboardHeaderHolder)
+            ((DashboardHeaderHolder) holder).bind(items.get(position));
+        else if (holder instanceof DashboardItemHolder)
+            ((DashboardItemHolder) holder).bind(items.get(position));
     }
 }

@@ -78,24 +78,24 @@ public class AudioPlayer {
         if (strWord.equals(""))
             return;
 
-        strSound = strWord.split(" ");
+        strSound = strWord.toLowerCase().split(" ");
         speakWord();
 
     }
 
-    public void speakWord(String[] strWord) {
-
-        strSound = strWord;
-        speakWord();
-
-    }
+//    public void speakWord(String[] strWord) {
+//
+//        strSound = strWord;
+//        speakWord();
+//
+//    }
 
     public void speakWord(String strWord, IAudioPlayer iAudioPlayer) {
 
         if (strWord.equals(""))
             return;
         this.iAudioPlayer = iAudioPlayer;
-        strSound = strWord.split(" ");
+        strSound = strWord.toLowerCase().split(" ");
         speakWord();
 
     }

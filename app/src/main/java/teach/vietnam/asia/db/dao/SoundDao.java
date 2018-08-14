@@ -29,6 +29,8 @@ public class SoundDao extends BaseDao<BaseEntity> {
         SoundDao dao = new SoundDao(context);
         String sql = "SELECT " + SoundTable.COL_SOUND + " FROM " + SoundTable.TABLE_NAME + " WHERE " + SoundTable.COL_FILENAME + "='" + name.trim() + "' limit 1";
         BaseEntity entity = dao.fetch(sql);
+        if (entity == null)
+            return "";
         return entity.getText();
     }
 

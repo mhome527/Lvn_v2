@@ -13,10 +13,11 @@
     <!--<string name="action_settings">Settings</string>-->
 
     <!--=============================-->
+    <string name="title_travel">旅行</string>
     <string name="title_alphabet">アルファベット</string>
     <string name="title_grammar">文法</string>
     <string name="title_word">言葉</string>
-    <string name="title_food2">食物</string>
+    <string name="title_food2">料理</string>
     <string name="title_drink2">飲物</string>
     <string name="title_phrase">語句</string>
 
@@ -139,6 +140,10 @@
     <string name="dialog_delete_text">本当に削除してもよろしいですか？</string>-->
     <string name="gender_male">男性</string>
     <string name="gender_female">女性</string>
+
+    <string name="southern">南部</string>
+    <string name="central">中部</string>
+    <string name="northern">北部</string>
 
     <!-- BODY -->
     <string name="head">頭</string>
