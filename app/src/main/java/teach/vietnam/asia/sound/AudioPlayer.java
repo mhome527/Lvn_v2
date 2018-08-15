@@ -8,7 +8,6 @@ import java.util.ArrayList;
 
 import teach.vietnam.asia.BuildConfig;
 import teach.vietnam.asia.db.dao.SoundDao;
-import teach.vietnam.asia.utils.Common;
 import teach.vietnam.asia.utils.Log;
 import teach.vietnam.asia.utils.NumberToWord;
 
@@ -78,7 +77,7 @@ public class AudioPlayer {
         if (strWord.equals(""))
             return;
 
-        strSound = strWord.toLowerCase().split(" ");
+        strSound = strWord.replace("(", "").replace(")", "").toLowerCase().split(" ");
         speakWord();
 
     }
@@ -115,7 +114,7 @@ public class AudioPlayer {
                 if (!number.equals("")) {
                     strNumber = number.split(" ");
                     for (String num : strNumber) {
-                        soundName = Common.getNameSound(num);
+//                        soundName = Common.getNameSound(num);
                         if (!soundName.equals(""))
                             listSound.add("sound/" + soundName + ".mp3");
                     }

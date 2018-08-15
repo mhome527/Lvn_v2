@@ -3,6 +3,7 @@
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="?attr/selectableItemBackground"
     android:clickable="true"
     android:foreground="?android:attr/selectableItemBackground"
@@ -22,48 +23,52 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
             android:paddingLeft="25dp"
-            android:paddingTop="20dp">
+            android:paddingTop="10dp">
+
+            <ImageView
+                android:id="@+id/imgSound"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="0dp"
+
+                android:src="@drawable/ic_speaker" />
+
+            <TextView
+                android:id="@+id/tvVn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/imgSound"
+                android:gravity="left"
+                android:text="@string/app_name"
+                android:textColor="@color/black" />
 
             <ImageView
                 android:id="@+id/imgPlace"
                 android:layout_width="match_parent"
                 android:layout_height="160dp"
-                android:layout_alignParentTop="true"
+                android:layout_below="@+id/imgSound"
                 android:layout_marginBottom="5dp"
                 android:layout_marginRight="25dp"
-                android:scaleType="fitXY" />
+                android:scaleType="fitXY"
+                tools:src="@drawable/place_1_1_cho_ben_thanh" />
 
-            <RelativeLayout
-                android:id="@+id/llHeader"
+
+            <TextView
+                android:id="@+id/tvOther"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/imgPlace"
-                android:layout_marginBottom="10dp"
                 android:layout_marginRight="25dp"
-                android:paddingRight="10dp">
+                android:gravity="center_horizontal"
+                android:text="@string/app_name"
+                android:textColor="@color/gray" />
 
-                <TextView
-                    android:id="@+id/tvVn"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="@string/app_name"
-                    android:textColor="@color/black" />
-
-                <TextView
-                    android:id="@+id/tvOther"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/tvVn"
-                    android:layout_toRightOf="@+id/imgSound"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="@string/app_name"
-                    android:textColor="@color/gray" />
-
-            </RelativeLayout>
 
             <ImageView
                 android:id="@+id/imgNext"

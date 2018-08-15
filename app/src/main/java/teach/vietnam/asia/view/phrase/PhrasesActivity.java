@@ -23,7 +23,6 @@ import teach.vietnam.asia.BuildConfig;
 import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.entity.WordEntity;
-import teach.vietnam.asia.sound.AudioPlayer;
 import teach.vietnam.asia.sound.IAudioPlayer;
 import teach.vietnam.asia.utils.Common;
 import teach.vietnam.asia.utils.Log;
@@ -51,7 +50,7 @@ public class PhrasesActivity extends PurchaseActivity<PhrasesActivity> implement
     @BindView(R.id.tvHint)
     TextView tvHint;
 
-    private AudioPlayer audio;
+//    private AudioPlayer audio;
     private PhrasesPresenter presenter;
     private List<WordEntity> lstData;
     private PhrasesAdapter adapter;
@@ -184,7 +183,7 @@ public class PhrasesActivity extends PurchaseActivity<PhrasesActivity> implement
 
 
     private void initData() {
-        audio = new AudioPlayer(activity);
+//        audio = new AudioPlayer(activity);
 
         presenter.loadData(new ICallback<List<WordEntity>>() {
             @Override

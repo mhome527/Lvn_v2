@@ -9,6 +9,7 @@ import teach.vietnam.asia.BaseApplication;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.db.table.BaseTable;
 import teach.vietnam.asia.entity.FoodEntity;
+import teach.vietnam.asia.sound.AudioPlayer;
 import teach.vietnam.asia.utils.Utility;
 import teach.vietnam.asia.view.action.ICallback;
 import teach.vietnam.asia.view.base.BaseActivity;
@@ -34,6 +35,8 @@ public class FoodDetailActivity extends BaseActivity<FoodDetailActivity> {
     int id;
 
     FoodDetailPresenter presenter;
+    private AudioPlayer audio;
+    FoodEntity entity;
 
     @Override
     protected int getLayout() {
@@ -48,6 +51,8 @@ public class FoodDetailActivity extends BaseActivity<FoodDetailActivity> {
         id = getIntent().getIntExtra(BaseTable.COL_ID, 0);
 
         presenter = new FoodDetailPresenter(this);
+        audio = new AudioPlayer(activity);
+
         tvContent.setMovementMethod(new ScrollingMovementMethod());
 
         setData();
@@ -59,6 +64,10 @@ public class FoodDetailActivity extends BaseActivity<FoodDetailActivity> {
         onBackPressed();
     }
 
+    @OnClick(R.id.imgSound)
+    public void actionSpeak() {
+        audio.speakWord(entity.name);
+    }
     // ============== END CLICK ==============
 
     private void setData() {
@@ -66,6 +75,7 @@ public class FoodDetailActivity extends BaseActivity<FoodDetailActivity> {
         presenter.loadData(area_id, type, id, new ICallback<FoodEntity>() {
             @Override
             public void onCallback(FoodEntity entity) {
+                activity.entity = entity;
                 toolbarTitle.setText(entity.ot);
                 tvVn.setText(entity.name);
 //        tvOt.setText(entity.ot);

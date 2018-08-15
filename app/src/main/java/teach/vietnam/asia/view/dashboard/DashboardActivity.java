@@ -257,7 +257,7 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> implement
     private void createData() {
         listData.clear();
         listData.add(new DashboardEntity(R.drawable.place_1_1_cho_ben_thanh, getString(R.string.place_vietnam_travel)));
-        listData.add(new DashboardEntity(R.drawable.menu_food, getString(R.string.title_food)));
+        listData.add(new DashboardEntity(R.drawable.menu_food, getString(R.string.title_food2)));
         listData.add(new DashboardEntity(R.drawable.ic_alphabet, getString(R.string.title_alphabet)));
         listData.add(new DashboardEntity(R.drawable.ic_number, getString(R.string.title_counter)));
         listData.add(new DashboardEntity(R.drawable.menu_body, getString(R.string.title_body)));

@@ -21,6 +21,9 @@
     <string name="title_drink2">飲物</string>
     <string name="title_phrase">語句</string>
 
+    <string name="title_noodles">麺料理</string>
+    <string name="title_snack">スイーツ＆ ドリンク</string>
+
     <string name="title_animal">動物</string>
     <string name="title_fruit">果物</string>
     <string name="title_other">その他</string>

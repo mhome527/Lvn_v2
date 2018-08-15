@@ -23,6 +23,7 @@ public class Constant {
     //        public static final String SKU = "android.test.purchased";
     public static final int PURCHASE_REQUEST_CODE = 1080;
     public static final boolean ITEM_PURCHASED = true;
+    public static final String TRIAL_APP = "staging";
     /// ===========
 
     ////

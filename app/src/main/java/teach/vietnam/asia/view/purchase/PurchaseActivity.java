@@ -46,10 +46,17 @@ public abstract class PurchaseActivity<T> extends BaseActivity<T> implements Iab
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.i(TAG, "onCreate");
-        billingHelper = new IabHelper(this, Constant.BASE_64_KEY);
-        billingHelper.startSetup(this);
+
+        if (BuildConfig.FLAVOR.equals(Constant.TRIAL_APP)) {
+
+            billingHelper = new IabHelper(this, Constant.BASE_64_KEY);
+            billingHelper.startSetup(this);
+        } else {
+            isPurchased = true;
+        }
+
         if (!BuildConfig.DEBUG)
-        FirebaseCrash.logcat(Log.INFO, TAG, "onCreate");
+            FirebaseCrash.logcat(Log.INFO, TAG, "onCreate");
 
         super.onCreate(savedInstanceState);
     }
@@ -66,8 +73,11 @@ public abstract class PurchaseActivity<T> extends BaseActivity<T> implements Iab
     }
 
     protected boolean getItemPurchased() {
-        Log.i(TAG, "getItemPurchased ...");        if (!BuildConfig.DEBUG)
-        FirebaseCrash.logcat(Log.INFO, TAG, "getItemPurchased");
+        Log.i(TAG, "getItemPurchased ...");
+//        if (!BuildConfig.DEBUG)
+//            FirebaseCrash.logcat(Log.INFO, TAG, "getItemPurchased");
+        if (billingHelper == null)
+            return false;
 
         List<String> list = new ArrayList<>();
         list.add(Constant.SKU);
@@ -126,7 +136,8 @@ public abstract class PurchaseActivity<T> extends BaseActivity<T> implements Iab
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK && requestCode == Constant.PURCHASE_REQUEST_CODE) {
-            billingHelper.handleActivityResult(requestCode, resultCode, data);
+            if (billingHelper != null)
+                billingHelper.handleActivityResult(requestCode, resultCode, data);
         } else {
             Log.e(TAG, "onActivityResult Fail!!!!!!!!!!!");
         }

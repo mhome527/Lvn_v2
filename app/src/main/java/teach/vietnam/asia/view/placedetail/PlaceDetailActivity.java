@@ -12,6 +12,7 @@ import teach.vietnam.asia.db.table.BaseTable;
 import teach.vietnam.asia.db.table.PlaceDetailTable;
 import teach.vietnam.asia.db.table.PlaceTitleLanguageTable;
 import teach.vietnam.asia.entity.PlaceEntity;
+import teach.vietnam.asia.sound.AudioPlayer;
 import teach.vietnam.asia.utils.Utility;
 import teach.vietnam.asia.view.base.BaseActivity;
 import teach.vietnam.asia.view.custom.RoundRectCornerImageView;
@@ -44,6 +45,8 @@ public class PlaceDetailActivity extends BaseActivity<PlaceDetailActivity> {
 
     PlaceEntity entity;
     PlaceDetailPresenter presenter;
+    private AudioPlayer audio;
+
 
     @Override
     protected int getLayout() {
@@ -57,6 +60,7 @@ public class PlaceDetailActivity extends BaseActivity<PlaceDetailActivity> {
         id = getIntent().getIntExtra(BaseTable.COL_ID, 0);
 
         presenter = new PlaceDetailPresenter(activity);
+        audio = new AudioPlayer(activity);
 
         tvContent.setMovementMethod(new ScrollingMovementMethod());
 
@@ -67,6 +71,11 @@ public class PlaceDetailActivity extends BaseActivity<PlaceDetailActivity> {
     @OnClick(R.id.btnBack)
     public void actionBack() {
         onBackPressed();
+    }
+
+    @OnClick(R.id.imgSound)
+    public void actionSpeak() {
+        audio.speakWord(entity.title);
     }
 
     @OnClick(R.id.llLocation)
