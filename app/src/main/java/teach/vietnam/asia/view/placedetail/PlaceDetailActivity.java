@@ -2,23 +2,26 @@ package teach.vietnam.asia.view.placedetail;
 
 import android.content.Intent;
 import android.text.method.ScrollingMovementMethod;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 import teach.vietnam.asia.BaseApplication;
+import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.db.table.BaseTable;
 import teach.vietnam.asia.db.table.PlaceDetailTable;
 import teach.vietnam.asia.db.table.PlaceTitleLanguageTable;
 import teach.vietnam.asia.entity.PlaceEntity;
 import teach.vietnam.asia.sound.AudioPlayer;
+import teach.vietnam.asia.utils.Log;
 import teach.vietnam.asia.utils.Utility;
-import teach.vietnam.asia.view.base.BaseActivity;
 import teach.vietnam.asia.view.custom.RoundRectCornerImageView;
 import teach.vietnam.asia.view.map.MapActivity;
+import teach.vietnam.asia.view.purchase.PurchaseActivity;
 
-public class PlaceDetailActivity extends BaseActivity<PlaceDetailActivity> {
+public class PlaceDetailActivity extends PurchaseActivity<PlaceDetailActivity> {
     private final String TAG = "PlaceDetailActivity";
 
     @BindView(R.id.toolbarTitle)
@@ -38,6 +41,9 @@ public class PlaceDetailActivity extends BaseActivity<PlaceDetailActivity> {
 
     @BindView(R.id.imgPlace)
     RoundRectCornerImageView imgPlace;
+
+    @BindView(R.id.imgSound)
+    ImageView imgSound;
 
     int area_id;
     int type;
@@ -64,6 +70,11 @@ public class PlaceDetailActivity extends BaseActivity<PlaceDetailActivity> {
 
         tvContent.setMovementMethod(new ScrollingMovementMethod());
 
+        if (isPurchased) {
+            imgSound.setImageResource(R.drawable.ic_speaker);
+        } else
+            imgSound.setImageResource(R.drawable.ic_lock);
+        
         getData();
     }
 
@@ -75,7 +86,10 @@ public class PlaceDetailActivity extends BaseActivity<PlaceDetailActivity> {
 
     @OnClick(R.id.imgSound)
     public void actionSpeak() {
-        audio.speakWord(entity.title);
+        if (isPurchased)
+            audio.speakWord(entity.title);
+        else
+            purchaseItem();
     }
 
     @OnClick(R.id.llLocation)
@@ -88,6 +102,35 @@ public class PlaceDetailActivity extends BaseActivity<PlaceDetailActivity> {
         startActivity(intent);
     }
     // ============== END CLICK ==============
+
+    //======================== Start Purchase =========================
+
+    @Override
+    protected void dealWithIabSetupSuccess() {
+        if (getItemPurchased() == Constant.ITEM_PURCHASED) {
+            Log.i(TAG, "WithIabSetupSuccess...item purchased");
+            isPurchased = true;
+
+            activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    imgSound.setImageResource(R.drawable.ic_speaker);
+                }
+            });
+
+
+        } else {
+            Log.i(TAG, "WithIabSetupSuccess item not purchase");
+            isPurchased = false;
+        }
+    }
+
+    @Override
+    protected void dealWithIabSetupFailure() {
+        Log.e(TAG, "dealWithIabSetupFailure ====================== ERROR ==================");
+    }
+    //========================END  Purchase =========================
+
 
     private void getData() {
         entity = presenter.getData(area_id, type, id);

@@ -23,6 +23,7 @@ public class PlaceFragment extends BaseFragment<PlaceActivity> implements IPlace
 
     public int area = 1;
     PlaceAdapter adapter;
+    public boolean isPurchased;
 
     @Override
     public int getLayout() {
@@ -41,18 +42,22 @@ public class PlaceFragment extends BaseFragment<PlaceActivity> implements IPlace
     @Override
     public void onChildClick(PlaceEntity entity) {
 //        activity.startActivity2(PlaceDetailActivity.class);
-        Intent intent = new Intent(activity, PlaceDetailActivity.class);
-        intent.putExtra(BaseTable.COL_ID, entity.id);
-        intent.putExtra(BaseTable.COL_TYPE, entity.type);
-        intent.putExtra(BaseTable.COL_AREA, entity.area);
-        startActivity(intent);
+        if (entity != null) {
+            Intent intent = new Intent(activity, PlaceDetailActivity.class);
+            intent.putExtra(BaseTable.COL_ID, entity.id);
+            intent.putExtra(BaseTable.COL_TYPE, entity.type);
+            intent.putExtra(BaseTable.COL_AREA, entity.area);
+            startActivity(intent);
+        } else {
+            activity.purchaseItem();
+        }
     }
 
     private void loadData() {
         activity.presenter.getData(area, new ICallback<ArrayList<PlaceGroupData>>() {
             @Override
             public void onCallback(ArrayList<PlaceGroupData> data) {
-                adapter = new PlaceAdapter(data, PlaceFragment.this);
+                adapter = new PlaceAdapter(isPurchased, data, PlaceFragment.this);
                 recyclerView.setAdapter(adapter);
 
                 if (data != null && data.size() > 0)

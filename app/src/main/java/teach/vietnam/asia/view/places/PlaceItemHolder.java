@@ -24,12 +24,18 @@ public class PlaceItemHolder extends BaseChildExViewHolder {
     @BindView(R.id.tvOther)
     TextView tvOther;
 
+    @BindView(R.id.imgSound)
+    ImageView imgSound;
+
     PlaceEntity entity;
     private AudioPlayer audio;
+    boolean isPurchased;
+    IPlaceListener iPlaceListener;
 
-    public PlaceItemHolder(View itemView, final IPlaceListener iPlaceListener) {
+    public PlaceItemHolder(View itemView, boolean isPurchased,  final IPlaceListener iPlaceListener) {
         super(itemView);
         audio = new AudioPlayer(BaseApplication.getInstance());
+        this.iPlaceListener = iPlaceListener;
 
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,7 +47,12 @@ public class PlaceItemHolder extends BaseChildExViewHolder {
 
     @OnClick(R.id.imgSound)
     public void actionSpeak() {
-        audio.speakWord(entity.title);
+        if (isPurchased)
+            audio.speakWord(entity.title);
+        else
+            iPlaceListener.onChildClick(null);
+
+
     }
 
     public void bind(PlaceEntity entity) {
@@ -54,5 +65,10 @@ public class PlaceItemHolder extends BaseChildExViewHolder {
             resourceId = Utility.getResourcesID(BaseApplication.getInstance(), "place_cho_ben_thanh");
         }
         imgPlace.setImageResource(resourceId);
+
+        if (isPurchased) {
+            imgSound.setImageResource(R.drawable.ic_speaker);
+        } else
+            imgSound.setImageResource(R.drawable.ic_lock);
     }
 }

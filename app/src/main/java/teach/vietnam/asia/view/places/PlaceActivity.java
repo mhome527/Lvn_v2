@@ -13,11 +13,12 @@ import com.google.firebase.crash.FirebaseCrash;
 import butterknife.BindView;
 import butterknife.OnClick;
 import teach.vietnam.asia.BuildConfig;
+import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.utils.Log;
-import teach.vietnam.asia.view.base.BaseActivity;
+import teach.vietnam.asia.view.purchase.PurchaseActivity;
 
-public class PlaceActivity extends BaseActivity<PlaceActivity> {
+public class PlaceActivity extends PurchaseActivity<PlaceActivity> {
     private final String TAG = "PlaceActivity";
 
 
@@ -70,7 +71,7 @@ public class PlaceActivity extends BaseActivity<PlaceActivity> {
         tabLayout.addTab(tabLayout.newTab().setText(R.string.northern));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
-        adapter = new PlacePagerAdapter(getSupportFragmentManager());
+        adapter = new PlacePagerAdapter(isPurchased, getSupportFragmentManager());
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -99,4 +100,35 @@ public class PlaceActivity extends BaseActivity<PlaceActivity> {
     public void actionBack() {
         onBackPressed();
     }
+
+    //======================== Start Purchase =========================
+
+    @Override
+    protected void dealWithIabSetupSuccess() {
+        if (getItemPurchased() == Constant.ITEM_PURCHASED) {
+            Log.i(TAG, "WithIabSetupSuccess...item purchased");
+            isPurchased = true;
+            if (adapter == null)
+                return;
+
+            adapter.isPurchased = isPurchased;
+            activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    adapter.notifyDataSetChanged();
+                }
+            });
+
+
+        } else {
+            Log.i(TAG, "WithIabSetupSuccess item not purchase");
+            isPurchased = false;
+        }
+    }
+
+    @Override
+    protected void dealWithIabSetupFailure() {
+        Log.e(TAG, "dealWithIabSetupFailure ====================== ERROR ==================");
+    }
+    //========================END  Purchase =========================
 }

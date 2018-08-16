@@ -61,6 +61,9 @@ public class FoodDetailActivity extends PurchaseActivity<FoodDetailActivity> {
 
         tvContent.setMovementMethod(new ScrollingMovementMethod());
 
+        if(type == 1)
+            isPurchased = true; //audio free page 1
+
         if (isPurchased) {
             imgSound.setImageResource(R.drawable.ic_speaker);
         } else

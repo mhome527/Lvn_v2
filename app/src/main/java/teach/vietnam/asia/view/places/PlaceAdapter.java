@@ -14,11 +14,13 @@ public class PlaceAdapter extends BaseExAdapterView<PlaceHeaderHolder, PlaceItem
 
     private IPlaceListener iPlaceListener;
     List<PlaceGroupData> groups;
+    public boolean isPurchased;
 
-    public PlaceAdapter(List<PlaceGroupData> groups, IPlaceListener iPlaceListener) {
+    public PlaceAdapter(boolean isPurchased, List<PlaceGroupData> groups, IPlaceListener iPlaceListener) {
         super(groups);
         this.iPlaceListener = iPlaceListener;
         this.groups = groups;
+        this.isPurchased = isPurchased;
     }
 
     @Override
@@ -38,7 +40,7 @@ public class PlaceAdapter extends BaseExAdapterView<PlaceHeaderHolder, PlaceItem
 
     @Override
     protected PlaceItemHolder getItemView(View view, int viewType) {
-        return new PlaceItemHolder(view, iPlaceListener);
+        return new PlaceItemHolder(view, isPurchased, iPlaceListener);
     }
 
     @Override
