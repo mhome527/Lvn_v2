@@ -19,9 +19,11 @@ public class FoodContentAdapter extends BaseAdapter<FoodItemHolder> {
 
     private List<FoodEntity> listData;
     IActionList iActionList;
+    public boolean isPurchased;
 
-    public FoodContentAdapter(IActionList iActionList) {
+    public FoodContentAdapter(boolean isPurchased, IActionList iActionList) {
         this.iActionList = iActionList;
+        this.isPurchased = isPurchased;
     }
 
     @Override
@@ -31,7 +33,7 @@ public class FoodContentAdapter extends BaseAdapter<FoodItemHolder> {
 
     @Override
     public FoodItemHolder onCreateView(View view) {
-        return new FoodItemHolder(view, iActionList);
+        return new FoodItemHolder(view, isPurchased, iActionList);
     }
 
     @Override

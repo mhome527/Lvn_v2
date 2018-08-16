@@ -9,6 +9,7 @@ import com.quinny898.library.persistentsearch.SearchBox;
 
 import java.util.List;
 
+import teach.vietnam.asia.R;
 import teach.vietnam.asia.utils.Log;
 
 public class SearchBoxEx extends SearchBox {
@@ -17,6 +18,7 @@ public class SearchBoxEx extends SearchBox {
     public SearchAdapter adapter;
     IActionSearch iActionSearch;
     List<SearchGroupData> groups;
+    public boolean isPurchased = false; //chua mua
 
     public SearchBoxEx(Context context) {
         super(context);
@@ -33,6 +35,7 @@ public class SearchBoxEx extends SearchBox {
                 DividerItemDecoration.VERTICAL);
         recyclerView.addItemDecoration(dividerItemDecoration);
 
+        setHint(context.getString(R.string.hint_search));
         //test only
 //        setAdapter();
     }
@@ -56,7 +59,8 @@ public class SearchBoxEx extends SearchBox {
         this.iActionSearch = iActionSearch;
     }
 
-    public void setData(List<SearchGroupData> groups) {
+    public void setData(List<SearchGroupData> groups, boolean isPurchased) {
+        this.isPurchased = isPurchased;
         setAdapter(groups);
 //        adapter.setListData(groups);
         if (groups.size() > 0) {
@@ -72,14 +76,14 @@ public class SearchBoxEx extends SearchBox {
     public void setAdapter(Object object) {
         groups = (List<SearchGroupData>) object;
 
-        adapter = new SearchAdapter(groups, iActionSearch);
+        adapter = new SearchAdapter(isPurchased, groups, iActionSearch);
         recyclerView.setAdapter(adapter);
         if (groups.size() > 0)
             adapter.toggleGroup(groups.size() - 1);
     }
 
     public void refresh() {
-        adapter = new SearchAdapter(groups, iActionSearch);
+        adapter = new SearchAdapter(isPurchased, groups, iActionSearch);
         recyclerView.setAdapter(adapter);
     }
 

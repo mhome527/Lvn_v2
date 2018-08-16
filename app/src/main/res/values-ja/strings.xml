@@ -22,7 +22,7 @@
     <string name="title_phrase">語句</string>
 
     <string name="title_noodles">麺料理</string>
-    <string name="title_snack">スイーツ＆ ドリンク</string>
+    <string name="title_snack">スイーツ＆\nドリンク</string>
 
     <string name="title_animal">動物</string>
     <string name="title_fruit">果物</string>
@@ -34,6 +34,9 @@
     <string name="title_translate">翻訳</string>
     <string name="title_date">年月日</string>
     <string name="title_recognize">聞き取り</string>
+
+
+    <string name="hint_search">ベトナム語たまは日本語で検索</string>
 
     <!--=============================-->
 

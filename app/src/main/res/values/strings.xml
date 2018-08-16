@@ -155,9 +155,8 @@
     <string name="title_food2">CUISINE</string>
     <string name="title_drink2">DRINK</string>
     <string name="title_noodles">noodles</string>
-    <string name="title_snack">sweets &amp; SNACK</string>
+    <string name="title_snack">SWEETS&amp; SNACK</string>
     <string name="title_phrase">PHRASE</string>
-
 
     <string name="title_animal">ANIMAL</string>
     <string name="title_fruit">FRUITS</string>
@@ -182,6 +181,8 @@
     <string name="title_button_house">House</string>
     <string name="title_button_grammar">Grammar</string>
     <string name="title_button_date">Date</string>
+
+    <string name="hint_search">Search by Vietnamese or English</string>
 
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>

@@ -13,7 +13,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.google.firebase.crash.FirebaseCrash;
 import com.quinny898.library.persistentsearch.SearchBox;
@@ -51,12 +50,13 @@ import teach.vietnam.asia.view.phrase.PhrasesActivity;
 import teach.vietnam.asia.view.placedetail.PlaceDetailActivity;
 import teach.vietnam.asia.view.places.PlaceActivity;
 import teach.vietnam.asia.view.practice.PracticeActivity;
+import teach.vietnam.asia.view.purchase.PurchaseActivity;
 import teach.vietnam.asia.view.recognizes.RecognizeMainActivity;
 import teach.vietnam.asia.view.translate.TranslateActivity;
 import teach.vietnam.asia.view.word.WordActivity;
 
 
-public class DashboardActivity extends BaseActivity<DashboardActivity> implements IDashboardAction, IActionSearch {
+public class DashboardActivity extends PurchaseActivity<DashboardActivity> implements IDashboardAction, IActionSearch {
 
     private String TAG = "DashboardActivity";
 
@@ -242,13 +242,46 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> implement
         }
     };
     ////==========
+    //======================== Start Purchase =========================
+
+    @Override
+    protected void dealWithIabSetupSuccess() {
+        if (getItemPurchased() == Constant.ITEM_PURCHASED) {
+            Log.i(TAG, "WithIabSetupSuccess...item purchased");
+            isPurchased = true;
+            if (adapter == null)
+                return;
+
+            searchBox.adapter.isPurchased = isPurchased;
+//            adapter.setPurchased(isPurchased);
+            activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    searchBox.adapter.notifyDataSetChanged();
+                }
+            });
+
+            /// Test only
+//            if (BuildConfig.DEBUG)
+//                clearPurchaseTest();
+
+        } else {
+            Log.i(TAG, "WithIabSetupSuccess item not purchase");
+            isPurchased = false;
+        }
+    }
+
+    @Override
+    protected void dealWithIabSetupFailure() {
+        Log.e(TAG, "dealWithIabSetupFailure ====================== ERROR ==================");
+    }
+    //========================END  Purchase =========================
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         //lay text tu voice
         if (requestCode == SearchBoxEx.VOICE_RECOGNITION_CODE && resultCode == RESULT_OK) {
-            ArrayList<String> matches = data
-                    .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+            ArrayList<String> matches = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
             searchBox.populateEditText(matches.get(0));
         }
         super.onActivityResult(requestCode, resultCode, data);
@@ -282,7 +315,7 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> implement
         lLayout.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
             @Override
             public int getSpanSize(int position) {
-                if (position == 0 || position ==1) {
+                if (position == 0 || position == 1) {
                     if (Common.isTablet(activity))
                         return 4; //merge 4 cot lai
                     else
@@ -368,7 +401,7 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> implement
 //                activity.runOnUiThread(new Runnable() {
 //                    @Override
 //                    public void run() {
-                searchBox.setData(data);
+                searchBox.setData(data, isPurchased);
 //                    }
 //                });
             }
@@ -401,7 +434,7 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> implement
                 @Override
                 public void run() {
                     searchBox.adapter.notifyDataSetChanged();
-                    Log.i(TAG, "header click: " + pos + "=" + searchBox.adapter.isGroupExpanded(pos));
+//                    Log.i(TAG, "header click: " + pos + "=" + searchBox.adapter.isGroupExpanded(pos));
                 }
             }, 100);
         }
@@ -411,20 +444,21 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> implement
     @Override
     public void onSearchClick(SearchEntity entity) {
         Log.i(TAG, "IActionSearch  onSearchClick:" + entity.vn);
-        if (entity.kind == Constant.SEARCH_DATA_PHRASES) {
 
-        } else if (entity.kind == Constant.SEARCH_DATA_FOOD) {
+        if (entity.kind == Constant.SEARCH_DATA_FOOD) {
             Intent intent = new Intent(activity, FoodDetailActivity.class);
             intent.putExtra(BaseTable.COL_ID, entity.id);
             intent.putExtra(BaseTable.COL_TYPE, entity.type);
             intent.putExtra(BaseTable.COL_AREA, entity.area);
             startActivity(intent);
-        } else {
+        } else if (entity.kind == Constant.SEARCH_DATA_PLACE) {
             Intent intent = new Intent(activity, PlaceDetailActivity.class);
             intent.putExtra(BaseTable.COL_ID, entity.id);
             intent.putExtra(BaseTable.COL_TYPE, entity.type);
             intent.putExtra(BaseTable.COL_AREA, entity.area);
             startActivity(intent);
+        } else if (entity.kind == Constant.SEARCH_DATA_PHRASES) {
+            purchaseItem();
         }
 
     }
@@ -432,7 +466,7 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> implement
 
     private void initViewSearch() {
         searchBox.setLogoText(getString(R.string.app_name));
-        searchBox.setHint("search something");
+        searchBox.setHint(activity.getString(R.string.hint_search));
         searchBox.enableVoiceRecognition(this);
 
         searchBox.setMenuListener(new SearchBox.MenuListener() {
@@ -473,14 +507,13 @@ public class DashboardActivity extends BaseActivity<DashboardActivity> implement
 
             @Override
             public void onSearch(String searchTerm) {
-                Toast.makeText(activity, searchTerm + " Searched", Toast.LENGTH_LONG).show();
+//                Toast.makeText(activity, searchTerm + " Searched", Toast.LENGTH_LONG).show();
             }
 
             @Override
             public void onResultClick(SearchResult result) {
                 //React to a result being clicked
-                Toast.makeText(activity, result.title + " (title)", Toast.LENGTH_LONG).show();
-
+//                Toast.makeText(activity, result.title + " (title)", Toast.LENGTH_LONG).show();
             }
 
             @Override

@@ -8,6 +8,7 @@ import java.util.List;
 import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.db.dao.BaseDao;
 import teach.vietnam.asia.db.table.BaseTable;
+import teach.vietnam.asia.db.table.FoodDetailTable;
 import teach.vietnam.asia.db.table.PlaceDetailLanguageTable;
 import teach.vietnam.asia.db.table.PlaceDetailTable;
 import teach.vietnam.asia.db.table.PlaceTitleTable;
@@ -90,7 +91,7 @@ ORDER BY v.type, name asc
      */
     public List<SearchEntity> getFood(String key) {
         String sql = "SELECT v.area, v.type, " + Constant.SEARCH_DATA_FOOD + " KIND, v.id, v.name TITLE, ot OT1, IMAGE, content \n" +
-                "FROM TBL_FOOD_VN v, TBL_FOOD_DETAIL_JA e \n" +
+                "FROM TBL_FOOD_VN v, " + FoodDetailTable.getTableName(lang) + " e \n" +
                 "WHERE v.area = e.area AND v.type = e.type AND v.id = e.id \n" +
                 "AND (v.name LIKE '%" + key + "%' " +
                 "OR v.NAME_SEARCH LIKE '%" + key + "%' \n" +
@@ -103,7 +104,7 @@ ORDER BY v.type, name asc
     public List<SearchEntity> getPhrases(String key) {
         String sql = "SELECT 0 AREA, 0 TYPE, 0 ID, " + Constant.SEARCH_DATA_PHRASES + " KIND, vi TITLE, o1 OT1 \n" +
                 " FROM " + WordTable.getTableName(lang) +
-                " WHERE kind in (1,2,3,4, 5, 6, 11, 31) \n" +
+                " WHERE kind in (1, 2, 3, 4, 5, 6, 11, 31) \n" +
                 " AND (vi2 LIKE '%" + key + "%' OR o1 LIKE '%" + key + "%' OR o2 LIKE '%" + key + "%') \n" +
                 " ORDER BY kind";
 

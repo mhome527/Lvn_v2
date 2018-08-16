@@ -42,6 +42,8 @@ public class FoodFragment extends BaseFragment<FoodActivity> implements IActionL
 
     List<FoodEntity> listData;
 
+    public boolean isPurchased;
+
     @Override
     public int getLayout() {
         return R.layout.word_content_layout;
@@ -51,7 +53,7 @@ public class FoodFragment extends BaseFragment<FoodActivity> implements IActionL
     public void initView(View root) {
         Log.i(TAG, "initView");
         presenter = new FoodPresenter(activity);
-        adapter = new FoodContentAdapter(this);
+        adapter = new FoodContentAdapter(isPurchased, this);
         audio = new AudioPlayer(activity);
 
         setupView();
@@ -61,12 +63,16 @@ public class FoodFragment extends BaseFragment<FoodActivity> implements IActionL
     // ============= Start IActionList
     @Override
     public void actionClick(int pos, Object object) {
-        FoodEntity entity = (FoodEntity) object;
-        Intent intent = new Intent(activity, FoodDetailActivity.class);
-        intent.putExtra(BaseTable.COL_ID, entity.id);
-        intent.putExtra(BaseTable.COL_TYPE, entity.type);
-        intent.putExtra(BaseTable.COL_AREA, entity.area);
-        startActivity(intent);
+        if (pos == 0 && object == null) {
+            activity.purchaseItem();
+        } else {
+            FoodEntity entity = (FoodEntity) object;
+            Intent intent = new Intent(activity, FoodDetailActivity.class);
+            intent.putExtra(BaseTable.COL_ID, entity.id);
+            intent.putExtra(BaseTable.COL_TYPE, entity.type);
+            intent.putExtra(BaseTable.COL_AREA, entity.area);
+            startActivity(intent);
+        }
     }
     // =========== END IActionList
 

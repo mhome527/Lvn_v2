@@ -367,6 +367,8 @@ public class SearchBox extends RelativeLayout {
      * Toggle the searchbox's open/closed state manually
      */
     public void toggleSearch() {
+        if (BuildConfig.DEBUG)
+            Log.i("SearchBox", "toggleSearch  searchOpenValue:" + searchOpen);
         if (searchOpen) {
             if (TextUtils.isEmpty(getSearchText())) {
                 setLogoTextInt(logoText);
@@ -493,10 +495,17 @@ public class SearchBox extends RelativeLayout {
      * @param match Matches
      */
     public void populateEditText(String match) {
+        if (BuildConfig.DEBUG)
+            Log.i("SearchBox", "populateEditText get text from voice  text:" + match);
+
         toggleSearch();
+
         String text = match.trim();
         setSearchString(text);
-        search(text);
+
+
+
+//        search(text);
     }
 
     /***
@@ -785,6 +794,9 @@ public class SearchBox extends RelativeLayout {
     }
 
     private void search(SearchResult result, boolean resultClicked) {
+        if (BuildConfig.DEBUG)
+            Log.i("SearchBox", "search  resultClicked: " + resultClicked);
+
         if (!searchWithoutSuggestions && getNumberOfResults() == 0) return;
         setSearchString(result.title);
         if (!TextUtils.isEmpty(getSearchText())) {
@@ -929,7 +941,6 @@ public class SearchBox extends RelativeLayout {
         search(option, false);
 
     }
-
 
 //    public static class SearchAdapter extends ArrayAdapter<SearchResult> {
 //        private boolean mAnimate;

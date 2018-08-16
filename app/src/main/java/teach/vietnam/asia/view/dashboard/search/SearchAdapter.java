@@ -18,11 +18,13 @@ public class SearchAdapter extends BaseExAdapterView<SearchHeaderHolder, BaseChi
 
     private IActionSearch iActionSearch;
     List<SearchGroupData> groups;
+    public boolean isPurchased = false; // chua mua
 
-    public SearchAdapter(List<SearchGroupData> groups, IActionSearch iActionSearch) {
+    public SearchAdapter(boolean isPurchased, List<SearchGroupData> groups, IActionSearch iActionSearch) {
         super(groups);
         this.iActionSearch = iActionSearch;
         this.groups = groups;
+        this.isPurchased = isPurchased;
     }
 
     @Override
@@ -48,7 +50,7 @@ public class SearchAdapter extends BaseExAdapterView<SearchHeaderHolder, BaseChi
         if (viewType == VIEW_TYPE_CHILD_1)
             return new SearchItem1Holder(view, iActionSearch);
         else
-            return new SearchItem2Holder(view, iActionSearch);
+            return new SearchItem2Holder(view, isPurchased, iActionSearch);
     }
 
     @Override
