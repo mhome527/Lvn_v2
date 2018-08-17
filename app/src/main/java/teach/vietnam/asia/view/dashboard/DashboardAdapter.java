@@ -21,7 +21,7 @@ public class DashboardAdapter extends BaseAdapterView<BaseViewHolder> {
 
     @Override
     protected int getHeaderLayout(int viewType) {
-        return R.layout.dashboard_header_item_bk;
+        return R.layout.dashboard_header_item;
     }
 
     @Override

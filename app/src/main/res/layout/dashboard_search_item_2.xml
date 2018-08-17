@@ -22,6 +22,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/white"
             android:paddingLeft="8dp"
             android:paddingTop="8dp">
 
@@ -37,13 +38,13 @@
                 android:src="@drawable/ic_speaker" />
 
             <!--<ImageView-->
-                <!--android:id="@+id/imgPlace"-->
-                <!--android:layout_width="40dp"-->
-                <!--android:layout_height="40dp"-->
-                <!--android:layout_alignParentTop="true"-->
-                <!--android:layout_marginRight="5dp"-->
-                <!--android:background="@drawable/place_nha_tho_duc_ba"-->
-                <!--android:scaleType="fitXY" />-->
+            <!--android:id="@+id/imgPlace"-->
+            <!--android:layout_width="40dp"-->
+            <!--android:layout_height="40dp"-->
+            <!--android:layout_alignParentTop="true"-->
+            <!--android:layout_marginRight="5dp"-->
+            <!--android:background="@drawable/place_nha_tho_duc_ba"-->
+            <!--android:scaleType="fitXY" />-->
 
             <RelativeLayout
                 android:id="@+id/llHeader"
