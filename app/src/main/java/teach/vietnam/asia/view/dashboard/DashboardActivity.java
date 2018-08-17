@@ -2,6 +2,7 @@ package teach.vietnam.asia.view.dashboard;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.speech.RecognizerIntent;
 import android.support.v7.app.ActionBar;
@@ -60,6 +61,8 @@ public class DashboardActivity extends PurchaseActivity<DashboardActivity> imple
 
     private String TAG = "DashboardActivity";
 
+    private final String STATE_KEY_SEARCH = "KEY_SEARCH";
+    private final String STATE_SEARCH_OPENED = "SEARCH_OPENED";
     List<DashboardEntity> listData;
 
 
@@ -93,6 +96,9 @@ public class DashboardActivity extends PurchaseActivity<DashboardActivity> imple
 
     SearchPresenter searchPresenter;
 
+    String stateKeySearch = "";
+    boolean isSearchOpen = false;
+
     @Override
     protected int getLayout() {
         return R.layout.dashboard_layout;
@@ -102,6 +108,7 @@ public class DashboardActivity extends PurchaseActivity<DashboardActivity> imple
     protected void initView() {
         Log.i(TAG, "initView text: ");
 //        setTitle(getString(R.string.title_dashboard));
+
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -126,11 +133,63 @@ public class DashboardActivity extends PurchaseActivity<DashboardActivity> imple
         setupView();
         initViewSearch();
 
+        if (savedInstanceState != null) {
+            Log.i(TAG, "initview savedInstanceState NOT NULL");
+//            stateKeySearch = savedInstanceState.getString(STATE_KEY_SEARCH);
+//            if(stateKeySearch!=null && !stateKeySearch.trim().equals("")){
+//                searchBox.populateEditText(stateKeySearch);
+//            }
+        } else {
+            stateKeySearch = "";
+        }
+
         if (!BuildConfig.DEBUG)
             FirebaseCrash.logcat(Log.INFO, TAG, "initView");
     }
 
-//    @Override
+    ///////////// xu ly truong hop activity tu huy khi qua man hinh khac
+
+    // invoked when the activity may be temporarily destroyed, save the instance state here
+//this method will be called before onstop
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+//        outState.putString(STATE_KEY, activityState);
+        Log.i(TAG, "onSaveInstanceState");
+//        outState.putString(STATE_KEY_SEARCH, searchBox.getSearchText());
+//        if (searchBox.getSearchOpen())
+        boolean searchState = searchBox.getSearchOpen();
+        outState.putBoolean(STATE_SEARCH_OPENED, searchState);
+        outState.putString(STATE_KEY_SEARCH, searchBox.getSearchText());
+//            stateKeySearch = searchBox.getSearchText();
+
+
+        // call superclass to save any view hierarchy
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+//        mTextView.setText(savedInstanceState.getString(STATE_KEY));
+        Log.i(TAG, "onRestoreInstanceState");
+        stateKeySearch = savedInstanceState.getString(STATE_KEY_SEARCH);
+
+//        if (stateKeySearch != null && !stateKeySearch.trim().equals("")) {
+//        searchBox.setSearchString(stateKeySearch);
+        boolean searchState = savedInstanceState.getBoolean(STATE_SEARCH_OPENED);
+        if (searchState)
+            searchBox.populateEditText(stateKeySearch);
+//        }
+//        stateKeySearch = "";
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i(TAG, "onDestroy!!!!!");
+    }
+
+    //    @Override
 //    public boolean onCreateOptionsMenu(Menu menu) {
 //        getMenuInflater().inflate(R.menu.menu_dashboard, menu);
 //        itemLanguage = menu.findItem(R.id.menuLang);
@@ -227,11 +286,17 @@ public class DashboardActivity extends PurchaseActivity<DashboardActivity> imple
         @Override
         public void onItemClick(String lang) {
             activity.lang = lang;
+
             BaseActivity.pref.putStringValue(lang, Constant.TYPE_LANGUAGE);
 //            adapterLanguage.setLang(lang);
 //            setIconLanguage();
+
             Utility.setLanguage(activity);
             ///
+
+            searchPresenter = new SearchPresenter(activity);
+            searchBox.setLogoText(getString(R.string.app_name));
+            searchBox.setHint(activity.getString(R.string.hint_search));
 
             ///
             createData();
@@ -252,12 +317,15 @@ public class DashboardActivity extends PurchaseActivity<DashboardActivity> imple
             if (adapter == null)
                 return;
 
-            searchBox.adapter.isPurchased = isPurchased;
+
 //            adapter.setPurchased(isPurchased);
             activity.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    searchBox.adapter.notifyDataSetChanged();
+                    if (searchBox != null && searchBox.adapter != null) {
+                        searchBox.adapter.isPurchased = isPurchased;
+                        searchBox.adapter.notifyDataSetChanged();
+                    }
                 }
             });
 

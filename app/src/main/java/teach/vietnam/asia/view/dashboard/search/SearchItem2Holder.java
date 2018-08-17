@@ -33,8 +33,10 @@ public class SearchItem2Holder extends BaseChildExViewHolder {
             @Override
             public void onClick(View view) {
                 if (isPurchased) {
+                    String str = entity.vn.replaceAll("\\?", "").replaceAll("\\.", "").replaceAll("!", "").replaceAll(",", "");
+                    str = android.text.Html.fromHtml(str).toString();
                     audio = new AudioPlayer(BaseApplication.getInstance());
-                    audio.speakWord(entity.vn);
+                    audio.speakWord(str);
                 } else {
                     iActionSearch.onSearchClick(entity);
                 }

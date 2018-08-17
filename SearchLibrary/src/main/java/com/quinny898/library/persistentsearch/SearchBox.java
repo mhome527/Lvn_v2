@@ -381,7 +381,8 @@ public class SearchBox extends RelativeLayout {
 
 
     public boolean getSearchOpen() {
-        return getVisibility() == VISIBLE;
+//        return getVisibility() == VISIBLE;
+        return getVisibility() == GONE;
     }
 
     /***

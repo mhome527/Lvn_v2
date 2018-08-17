@@ -1,5 +1,6 @@
 package teach.vietnam.asia.view.places;
 
+import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.TabLayout;
@@ -21,6 +22,7 @@ import teach.vietnam.asia.view.purchase.PurchaseActivity;
 public class PlaceActivity extends PurchaseActivity<PlaceActivity> {
     private final String TAG = "PlaceActivity";
 
+    private final String STATE_PURCHASED = "STATE_PURCHASED";
 
     @BindView(R.id.coordinator)
     CoordinatorLayout coordinator;
@@ -66,6 +68,10 @@ public class PlaceActivity extends PurchaseActivity<PlaceActivity> {
 
         presenter = new PlacePresenter(this);
 
+        if (savedInstanceState != null) {
+            isPurchased = savedInstanceState.getBoolean(STATE_PURCHASED);
+        }
+
         tabLayout.addTab(tabLayout.newTab().setText(R.string.southern));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.central));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.northern));
@@ -101,6 +107,23 @@ public class PlaceActivity extends PurchaseActivity<PlaceActivity> {
         onBackPressed();
     }
 
+    // invoked when the activity may be temporarily destroyed, save the instance state here
+//this method will be called before onstop
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        Log.i(TAG, "onSaveInstanceState");
+        outState.putBoolean(STATE_PURCHASED, isPurchased);
+
+
+        // call superclass to save any view hierarchy
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        Log.i(TAG, "onRestoreInstanceState");
+    }
+
     //======================== Start Purchase =========================
 
     @Override
@@ -111,11 +134,13 @@ public class PlaceActivity extends PurchaseActivity<PlaceActivity> {
             if (adapter == null)
                 return;
 
-            adapter.isPurchased = isPurchased;
             activity.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    adapter.notifyDataSetChanged();
+                    if (adapter != null) {
+                        adapter.setPurchased(isPurchased);
+                        adapter.notifyDataSetChanged();
+                    }
                 }
             });
 

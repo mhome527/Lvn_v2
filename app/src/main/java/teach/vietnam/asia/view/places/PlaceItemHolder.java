@@ -36,6 +36,12 @@ public class PlaceItemHolder extends BaseChildExViewHolder {
         super(itemView);
         audio = new AudioPlayer(BaseApplication.getInstance());
         this.iPlaceListener = iPlaceListener;
+        this.isPurchased = isPurchased;
+
+        if (isPurchased) {
+            imgSound.setImageResource(R.drawable.ic_speaker);
+        } else
+            imgSound.setImageResource(R.drawable.ic_lock);
 
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,9 +72,9 @@ public class PlaceItemHolder extends BaseChildExViewHolder {
         }
         imgPlace.setImageResource(resourceId);
 
-        if (isPurchased) {
-            imgSound.setImageResource(R.drawable.ic_speaker);
-        } else
-            imgSound.setImageResource(R.drawable.ic_lock);
+//        if (isPurchased) {
+//            imgSound.setImageResource(R.drawable.ic_speaker);
+//        } else
+//            imgSound.setImageResource(R.drawable.ic_lock);
     }
 }

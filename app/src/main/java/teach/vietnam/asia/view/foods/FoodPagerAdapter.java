@@ -52,4 +52,24 @@ public class FoodPagerAdapter extends FragmentStatePagerAdapter {
     public int getCount() {
         return mNumOfTabs;
     }
+
+    public void setPurchased(boolean isPurchased) {
+        this.isPurchased = isPurchased;
+        if (tab1 != null) {
+            tab1.isPurchased = isPurchased;
+            if (tab1.adapter != null)
+                tab1.adapter.notifyDataSetChanged();
+        }
+
+        if (tab2 != null) {
+            tab2.isPurchased = isPurchased;
+            if (tab2.adapter != null)
+                tab2.adapter.notifyDataSetChanged();
+        }
+        if (tab3 != null) {
+            tab3.isPurchased = isPurchased;
+            if (tab3.adapter != null)
+                tab3.adapter.notifyDataSetChanged();
+        }
+    }
 }

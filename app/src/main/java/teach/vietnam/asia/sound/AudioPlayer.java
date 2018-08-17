@@ -78,6 +78,8 @@ public class AudioPlayer {
             return;
 
         strSound = strWord.replace("(", "").replace(")", "").toLowerCase().split(" ");
+        stopAll();
+
         speakWord();
 
     }

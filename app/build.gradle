@@ -17,8 +17,8 @@ android {
         applicationId "teach.vietnam.asia"
         minSdkVersion 19
         targetSdkVersion 28
-        versionCode 32
-        versionName "3.2.0"
+        versionCode 33
+        versionName "3.3.0"
         multiDexEnabled true
 //        externalNativeBuild {
 //            testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"

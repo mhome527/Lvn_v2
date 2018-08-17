@@ -61,10 +61,7 @@ public class FoodDetailActivity extends PurchaseActivity<FoodDetailActivity> {
 
         tvContent.setMovementMethod(new ScrollingMovementMethod());
 
-        if(type == 1)
-            isPurchased = true; //audio free page 1
-
-        if (isPurchased) {
+        if (isPurchased || type == 1) {
             imgSound.setImageResource(R.drawable.ic_speaker);
         } else
             imgSound.setImageResource(R.drawable.ic_lock);
@@ -81,7 +78,7 @@ public class FoodDetailActivity extends PurchaseActivity<FoodDetailActivity> {
 
     @OnClick(R.id.imgSound)
     public void actionSpeak() {
-        if (isPurchased)
+        if (isPurchased || type == 1)
             audio.speakWord(entity.name);
         else
             purchaseItem();

@@ -67,7 +67,7 @@ and (vi2 like '%con b%' or o1 like '%たこ%' or o2 like '%ちょ%')
         String sql = "SELECT 0 AREA, 0 TYPE, 0 ID, KIND, vi TITLE, o1 OT1 " +
                 " FROM " + WordTable.getTableName(lang) +
                 " WHERE kind IN (1, 2, 3, 4, 5, 6, 11, 31)" +
-                " AND (vi2 LIKE '%" + key + "%' OR o1 LIKE '%" + key + "%' OR o2 LIKE '%" + key + "%')" +
+                " AND (vi2 LIKE '%" + key + "%' OR o2 LIKE '%" + key + "%')" +
                 " UNION ALL " +
                 " SELECT vn.area AREA, vn.type TYPE, vn.id ID, " + Constant.TYPE_DATA_PLACE + " KIND, vn.title TITLE, OT1 " +
                 " FROM TBL_PLACE_DETAIL vn, " + PlaceDetailLanguageTable.getTableName(lang) + " ot" +
@@ -118,7 +118,7 @@ ORDER BY v.type, name asc
                 " AND " +
                 " ( vn.title2 LIKE '%" + key + "%' " +
                 " OR ot1 LIKE '%" + key + "%' " +
-                " OR ot2 LIKE '%" + key + "%'" +
+                " OR search_text LIKE '%" + key + "%'" +
                 " )" +
                 " ORDER BY kind, sort";
 
