@@ -8,6 +8,7 @@ import android.view.View;
 import java.util.ArrayList;
 
 import butterknife.BindView;
+import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.db.table.BaseTable;
 import teach.vietnam.asia.entity.PlaceEntity;
@@ -47,6 +48,7 @@ public class PlaceFragment extends BaseFragment<PlaceActivity> implements IPlace
             intent.putExtra(BaseTable.COL_ID, entity.id);
             intent.putExtra(BaseTable.COL_TYPE, entity.type);
             intent.putExtra(BaseTable.COL_AREA, entity.area);
+            intent.putExtra(Constant.TRIAL_APP, entity.favorite);
             startActivity(intent);
         } else {
             activity.purchaseItem();

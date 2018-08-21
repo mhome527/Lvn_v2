@@ -7,6 +7,7 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.OnClick;
 import teach.vietnam.asia.BaseApplication;
+import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.entity.PlaceEntity;
 import teach.vietnam.asia.sound.AudioPlayer;
@@ -32,20 +33,18 @@ public class PlaceItemHolder extends BaseChildExViewHolder {
     boolean isPurchased;
     IPlaceListener iPlaceListener;
 
-    public PlaceItemHolder(View itemView, boolean isPurchased,  final IPlaceListener iPlaceListener) {
+    public PlaceItemHolder(View itemView, boolean isPurchased, final IPlaceListener iPlaceListener) {
         super(itemView);
         audio = new AudioPlayer(BaseApplication.getInstance());
         this.iPlaceListener = iPlaceListener;
         this.isPurchased = isPurchased;
 
-        if (isPurchased) {
-            imgSound.setImageResource(R.drawable.ic_speaker);
-        } else
-            imgSound.setImageResource(R.drawable.ic_lock);
-
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (getAdapterPosition() <= Constant.TRIAL)
+                    entity.favorite = 1;
+
                 iPlaceListener.onChildClick(entity);
             }
         });
@@ -53,7 +52,7 @@ public class PlaceItemHolder extends BaseChildExViewHolder {
 
     @OnClick(R.id.imgSound)
     public void actionSpeak() {
-        if (isPurchased)
+        if (isPurchased || getAdapterPosition() <= Constant.TRIAL)
             audio.speakWord(entity.title);
         else
             iPlaceListener.onChildClick(null);
@@ -71,6 +70,11 @@ public class PlaceItemHolder extends BaseChildExViewHolder {
             resourceId = Utility.getResourcesID(BaseApplication.getInstance(), "place_cho_ben_thanh");
         }
         imgPlace.setImageResource(resourceId);
+
+        if (isPurchased || getAdapterPosition() <= Constant.TRIAL) {
+            imgSound.setImageResource(R.drawable.ic_speaker);
+        } else
+            imgSound.setImageResource(R.drawable.ic_lock);
 
 //        if (isPurchased) {
 //            imgSound.setImageResource(R.drawable.ic_speaker);

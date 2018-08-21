@@ -48,6 +48,7 @@ public class PlaceDetailActivity extends PurchaseActivity<PlaceDetailActivity> {
     int area_id;
     int type;
     int id;
+    int trial;
 
     PlaceEntity entity;
     PlaceDetailPresenter presenter;
@@ -64,17 +65,18 @@ public class PlaceDetailActivity extends PurchaseActivity<PlaceDetailActivity> {
         area_id = getIntent().getIntExtra(BaseTable.COL_AREA, 0);
         type = getIntent().getIntExtra(BaseTable.COL_TYPE, 0);
         id = getIntent().getIntExtra(BaseTable.COL_ID, 0);
+        trial = getIntent().getIntExtra(Constant.TRIAL_APP, 0);
 
         presenter = new PlaceDetailPresenter(activity);
         audio = new AudioPlayer(activity);
 
         tvContent.setMovementMethod(new ScrollingMovementMethod());
 
-        if (isPurchased) {
+        if (isPurchased || trial == 1) {
             imgSound.setImageResource(R.drawable.ic_speaker);
         } else
             imgSound.setImageResource(R.drawable.ic_lock);
-        
+
         getData();
     }
 
@@ -86,7 +88,7 @@ public class PlaceDetailActivity extends PurchaseActivity<PlaceDetailActivity> {
 
     @OnClick(R.id.imgSound)
     public void actionSpeak() {
-        if (isPurchased)
+        if (isPurchased || trial == 1)
             audio.speakWord(entity.title);
         else
             purchaseItem();
