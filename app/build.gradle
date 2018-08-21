@@ -5,8 +5,8 @@ android {
         release2 {
             keyAlias 'lvn'
             storeFile file('D:/mydata/git/Lvn_v2/lvn.jks')
-            keyPassword '81private'
-            storePassword '81private'
+            keyPassword 'xxp'
+            storePassword 'xxp'
         }
     }
     compileSdkVersion 28
