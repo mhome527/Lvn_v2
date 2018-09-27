@@ -1,11 +1,13 @@
 package teach.vietnam.asia.view.dashboard;
 
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.speech.RecognizerIntent;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -13,6 +15,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 
 import com.google.firebase.crash.FirebaseCrash;
@@ -224,7 +228,7 @@ public class DashboardActivity extends PurchaseActivity<DashboardActivity> imple
 
     @Override
     public void onItemClick(int pos) {
-        String screen;
+//        String screen;
 
         switch (pos) {
 
@@ -274,7 +278,11 @@ public class DashboardActivity extends PurchaseActivity<DashboardActivity> imple
                 break;
             case 10:
                 startActivity2(PracticeActivity.class);
-
+                break;
+            case -1:
+                //Privacy policy
+                showPrivacyPolicy();
+                break;
             default:
 //                screen = "TranslateActivity";
                 break;
@@ -383,11 +391,18 @@ public class DashboardActivity extends PurchaseActivity<DashboardActivity> imple
         lLayout.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
             @Override
             public int getSpanSize(int position) {
-                if (position == 0 || position == 1) {
+                if (position == 0 || position == 1 ) {
                     if (Common.isTablet(activity))
                         return 4; //merge 4 cot lai
                     else
                         return 3; //merge 3 cot lai
+
+//                    return 1;
+                }  else if (position == 10) {
+                    if (Common.isTablet(activity))
+                        return 8; //merge 4 cot lai
+                    else
+                        return 6; //merge 3 cot lai
 
 //                    return 1;
 
@@ -595,5 +610,31 @@ public class DashboardActivity extends PurchaseActivity<DashboardActivity> imple
         searchBox.setAction(this);
 //        searchBox.toggleSearch();
 
+    }
+
+    private void showPrivacyPolicy() {
+        AlertDialog.Builder alert = new AlertDialog.Builder(activity);
+//        alert.setTitle("Privacy Policy");
+
+        WebView wv = new WebView(this);
+//        wv.loadUrl("https://sites.google.com/view/learnvietnamesevoice/home");
+        wv.loadUrl("file:///android_asset/policy.html");
+        wv.setWebViewClient(new WebViewClient() {
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                view.loadUrl(url);
+
+                return true;
+            }
+        });
+
+        alert.setView(wv);
+        alert.setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int id) {
+                dialog.dismiss();
+            }
+        });
+        alert.show();
     }
 }

@@ -58,7 +58,7 @@ public class DashboardAdapter extends BaseAdapterView<BaseViewHolder> {
 
     @Override
     protected BaseViewHolder getFooterView(View view) {
-        return new DashboardFooterHolder(view);
+        return new DashboardFooterHolder(view, iDashboardAction);
     }
 
     @Override

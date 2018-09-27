@@ -6,7 +6,7 @@ android {
             keyAlias 'lvn'
             storeFile file('D:/mydata/git/Lvn_v2/lvn.jks')
             keyPassword 'xxp'
-            storePassword 'xxp'
+            storePassword '81p'
         }
     }
     compileSdkVersion 28
@@ -17,8 +17,8 @@ android {
         applicationId "teach.vietnam.asia"
         minSdkVersion 19
         targetSdkVersion 28
-        versionCode 34
-        versionName "3.3.1"
+        versionCode 35
+        versionName "3.3.2"
         multiDexEnabled true
 //        externalNativeBuild {
 //            testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
