@@ -193,32 +193,6 @@ public class DashboardActivity extends PurchaseActivity<DashboardActivity> imple
         Log.i(TAG, "onDestroy!!!!!");
     }
 
-    //    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.menu_dashboard, menu);
-//        itemLanguage = menu.findItem(R.id.menuLang);
-//
-//        setIconLanguage();
-//
-//        return true;
-//    }
-
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        switch (item.getItemId()) {
-//
-//            case R.id.menuLang:
-//                showDialogLanguage();
-//                return true;
-//            default:
-//                return super.onOptionsItemSelected(item);
-//        }
-//    }
-
-//    @OnClick(R.id.imgPlace)
-//    public void actionPlace() {
-//        startActivity2(PlaceActivity.class);
-//    }
 
     @OnClick(R.id.llOtherApp)
     public void actionOtherApp() {
@@ -425,32 +399,8 @@ public class DashboardActivity extends PurchaseActivity<DashboardActivity> imple
         adapter.notifyDataSetChanged();
     }
 
-
-//    private void setIconLanguage() {
-//        if (lang.equals(Constant.JA))
-//            itemLanguage.setIcon(getResources().getDrawable(R.drawable.japan));
-//        else if (lang.equals(Constant.KO))
-//            itemLanguage.setIcon(getResources().getDrawable(R.drawable.korea));
-//        else if (lang.equals(Constant.FR))
-//            itemLanguage.setIcon(getResources().getDrawable(R.drawable.france));
-//        else if (lang.equals(Constant.RU))
-//            itemLanguage.setIcon(getResources().getDrawable(R.drawable.russia));
-//        else if (lang.equals(Constant.AR))
-//            itemLanguage.setIcon(getResources().getDrawable(R.drawable.arabic));
-//        else if (lang.equals(Constant.ZH))
-//            itemLanguage.setIcon(getResources().getDrawable(R.drawable.china));
-//        else if (lang.equals(Constant.ES))
-//            itemLanguage.setIcon(getResources().getDrawable(R.drawable.spanish));
-//        else
-//            itemLanguage.setIcon(getResources().getDrawable(R.drawable.english));
-//    }
-
     private void showDialogLanguage() {
         // custom dialog
-
-
-//        dialog.setCancelable(false);
-//        dialog.setTitle("Language");
 
         Button dialogButton = (Button) dialogLanguage.findViewById(R.id.btnChangeLang);
         dialogButton.setOnClickListener(new View.OnClickListener() {
@@ -614,7 +564,6 @@ public class DashboardActivity extends PurchaseActivity<DashboardActivity> imple
 
     private void showPrivacyPolicy() {
         AlertDialog.Builder alert = new AlertDialog.Builder(activity);
-//        alert.setTitle("Privacy Policy");
 
         WebView wv = new WebView(this);
 //        wv.loadUrl("https://sites.google.com/view/learnvietnamesevoice/home");
@@ -623,7 +572,6 @@ public class DashboardActivity extends PurchaseActivity<DashboardActivity> imple
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 view.loadUrl(url);
-
                 return true;
             }
         });
