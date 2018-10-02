@@ -26,6 +26,11 @@ public class Constant {
     public static final String TRIAL_APP = "staging";
     /// ===========
 
+    public static final String FIREBASE_BUCKET = "gs://learnvn-361d2.appspot.com";
+    public static final String FIREBASE_PLACE_LINK = "place_link/area_%1$s/type_%2$s_id_%3$s.txt";
+    public static final String FIREBASE_PLACE_PATH = "place/area_%1$s/type_%2$s/%3$s/";
+
+
     ////
 //    final static public String MY_TEXT;
 

@@ -1,5 +1,6 @@
 package teach.vietnam.asia.view.phrase;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 
@@ -19,6 +20,26 @@ public class PhrasesDao extends BaseDao<WordEntity> {
 
     public PhrasesDao(Context context) {
         super(context);
+    }
+
+    @Override
+    protected String getTableName() {
+        return null;
+    }
+
+    @Override
+    protected ContentValues getContentValues(WordEntity entity) {
+        return null;
+    }
+
+    @Override
+    protected String whereClause() {
+        return null;
+    }
+
+    @Override
+    protected String[] whereArgs(WordEntity entity) {
+        return new String[0];
     }
 
     @Override

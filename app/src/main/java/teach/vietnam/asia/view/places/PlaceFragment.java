@@ -58,7 +58,7 @@ public class PlaceFragment extends BaseFragment<PlaceActivity> implements IPlace
     private void loadData() {
         activity.presenter.getData(area, new ICallback<ArrayList<PlaceGroupData>>() {
             @Override
-            public void onCallback(ArrayList<PlaceGroupData> data) {
+            public void onComplete(ArrayList<PlaceGroupData> data) {
                 adapter = new PlaceAdapter(isPurchased, data, PlaceFragment.this);
                 recyclerView.setAdapter(adapter);
 

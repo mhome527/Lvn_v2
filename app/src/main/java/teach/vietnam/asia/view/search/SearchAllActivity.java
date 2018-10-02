@@ -124,7 +124,7 @@ public class SearchAllActivity extends BaseActivity<SearchAllActivity> {
 
         presenter.loadDataAll(new ICallback<List<WordEntity>>() {
             @Override
-            public void onCallback(List<WordEntity> data) {
+            public void onComplete(List<WordEntity> data) {
                 if (data != null && data.size() > 0) {
                     adapter = new SearchAllAdapter(SearchAllActivity.this, data);
                     lstSearch.setAdapter(adapter);

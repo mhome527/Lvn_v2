@@ -235,7 +235,7 @@ public class RecognizeTestActivity extends PurchaseActivity<RecognizeTestActivit
 
         presenter.loadGroup(new ICallback<List<String>>() {
             @Override
-            public void onCallback(List<String> data) {
+            public void onComplete(List<String> data) {
                 amount = data.size();
                 if (amount > 0) {
                     Log.i(TAG, "loadGroup size:" + amount);

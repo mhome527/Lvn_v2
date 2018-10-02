@@ -9,6 +9,7 @@ public class PlaceTitleTable {
     public static final String COL_SORT = "SORT";
 //    public static final String COL_LOCATION = "LOCATION";
     public static final String COL_SOUND = "SOUND";
+
 }
 
 /*

@@ -53,7 +53,7 @@ public class PlaceItemHolder extends BaseChildExViewHolder {
     @OnClick(R.id.imgSound)
     public void actionSpeak() {
         if (isPurchased || getAdapterPosition() <= Constant.TRIAL)
-            audio.speakWord(entity.title);
+            audio.speakWord(entity.vn);
         else
             iPlaceListener.onChildClick(null);
 
@@ -62,8 +62,8 @@ public class PlaceItemHolder extends BaseChildExViewHolder {
 
     public void bind(PlaceEntity entity) {
         this.entity = entity;
-        tvVn.setText(entity.title);
-        tvOther.setText(entity.ot);
+        tvVn.setText(entity.vn);
+        tvOther.setText(entity.ot1);
 
         int resourceId = Utility.getResourcesID(BaseApplication.getInstance(), entity.image);
         if (resourceId < 0) {

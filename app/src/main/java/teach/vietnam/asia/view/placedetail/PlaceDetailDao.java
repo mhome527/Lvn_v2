@@ -1,5 +1,6 @@
 package teach.vietnam.asia.view.placedetail;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 
@@ -18,13 +19,36 @@ public class PlaceDetailDao extends BaseDao<PlaceEntity> {
     }
 
     @Override
+    protected String getTableName() {
+        return null;
+    }
+
+    @Override
+    protected ContentValues getContentValues(PlaceEntity entity) {
+        return null;
+    }
+
+    @Override
+    protected String whereClause() {
+        return null;
+    }
+
+    @Override
+    protected String[] whereArgs(PlaceEntity entity) {
+        return new String[0];
+    }
+
+    @Override
     protected PlaceEntity fetch(Cursor cursor) {
         PlaceEntity entity = new PlaceEntity();
         entity.area = cursor.getInt(cursor.getColumnIndex(BaseTable.COL_AREA));
         entity.type = cursor.getInt(cursor.getColumnIndex(BaseTable.COL_TYPE));
         entity.id = cursor.getInt(cursor.getColumnIndex(BaseTable.COL_ID));
-        entity.title = cursor.getString(cursor.getColumnIndex(PlaceTitleTable.COL_TITLE));
-        entity.ot = cursor.getString(cursor.getColumnIndex(PlaceTitleLanguageTable.COL_OT1));
+        entity.vn = cursor.getString(cursor.getColumnIndex(PlaceTitleTable.COL_TITLE));
+        entity.ot1 = cursor.getString(cursor.getColumnIndex(PlaceTitleLanguageTable.COL_OT1));
+
+        if (cursor.getColumnIndex(PlaceDetailTable.COL_OT2) > -1)
+            entity.ot2 = cursor.getString(cursor.getColumnIndex(PlaceDetailTable.COL_OT2));
 
         if (cursor.getColumnIndex(PlaceDetailTable.COL_LATITUDE) > -1)
             entity.latitude = cursor.getDouble(cursor.getColumnIndex(PlaceDetailTable.COL_LATITUDE));

@@ -86,10 +86,6 @@ public class WordFragment extends BaseFragment<WordActivity> {
                 }
             }
 
-            @Override
-            public void actionLongClick(View view, int position) {
-                Log.i(TAG, "actionLongClick row pos:" + position);
-            }
         }));
     }
 
@@ -97,7 +93,7 @@ public class WordFragment extends BaseFragment<WordActivity> {
         Log.i(TAG, "loadData getKind():" + getKind());
         presenter.loadData(getKind(), new ICallback<List<WordEntity>>() {
             @Override
-            public void onCallback(List<WordEntity> list) {
+            public void onComplete(List<WordEntity> list) {
                 listData = list;
                 adapter.setData(listData);
                 activity.runOnUiThread(new Runnable() {

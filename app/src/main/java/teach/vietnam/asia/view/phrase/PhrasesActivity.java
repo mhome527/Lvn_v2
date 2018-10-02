@@ -154,10 +154,6 @@ public class PhrasesActivity extends PurchaseActivity<PhrasesActivity> implement
 
     }
 
-    @Override
-    public void actionLongClick(View view, int position) {
-
-    }
 
     ///==== END IClickListener
 
@@ -187,7 +183,7 @@ public class PhrasesActivity extends PurchaseActivity<PhrasesActivity> implement
 
         presenter.loadData(new ICallback<List<WordEntity>>() {
             @Override
-            public void onCallback(List<WordEntity> data) {
+            public void onComplete(List<WordEntity> data) {
                 if (isFinishing()) {
                     return;
                 }

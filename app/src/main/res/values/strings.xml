@@ -191,4 +191,5 @@
     <string name="msg_error_purchase">Sorry In App Billing isn\'t available on your device</string>
     <string name="place_vietnam_travel">Vietnam Travel</string>
     <string name="title_privacy_policy">Privacy Policy</string>
+    <string name="title_more">more</string>
 </resources>

@@ -7,8 +7,9 @@ public class PlaceEntity extends BaseEntity implements Parcelable {
     public int id;
     public int type;
     public int area;
-    public String title;
-    public String ot;
+    public String vn;
+    public String ot1;
+    public String ot2;
     public String content;
     public String image;
     public String imgLinks;
@@ -28,8 +29,9 @@ public class PlaceEntity extends BaseEntity implements Parcelable {
         id = in.readInt();
         type = in.readInt();
         area = in.readInt();
-        title = in.readString();
-        ot = in.readString();
+        vn = in.readString();
+        ot1 = in.readString();
+        ot2 = in.readString();
         content = in.readString();
         image = in.readString();
         imgLinks = in.readString();
@@ -62,8 +64,9 @@ public class PlaceEntity extends BaseEntity implements Parcelable {
         parcel.writeInt(id);
         parcel.writeInt(type);
         parcel.writeInt(area);
-        parcel.writeString(title);
-        parcel.writeString(ot);
+        parcel.writeString(vn);
+        parcel.writeString(ot1);
+        parcel.writeString(ot2);
         parcel.writeString(content);
         parcel.writeString(image);
         parcel.writeString(imgLinks);

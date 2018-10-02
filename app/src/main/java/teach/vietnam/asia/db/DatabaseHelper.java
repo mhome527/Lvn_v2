@@ -142,6 +142,31 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    public static int updateData(Context context, String table_name, ContentValues values, String whereClause, String[] whereArgs) {
+        DatabaseHelper.getInstance(context);
+        db.beginTransaction();
+        try {
+            int result = db.update(table_name, values, whereClause, whereArgs);
+            Log.i(TAG, " \n update " + table_name + " success; result:" + result + "," +
+                    " \n where: " + DatabaseHelper.formatWhere(whereClause, whereArgs));
+
+            db.setTransactionSuccessful();
+            return result;
+        } catch (Exception e) {
+            Log.e(TAG, "Error updateData: " + e.getMessage());
+            return -1;
+        } finally {
+            db.endTransaction();
+        }
+    }
+
+    private static String formatWhere(String WhereClause, String[] whereArgs) {
+        String clause = WhereClause;
+        for (String str : whereArgs) {
+            clause = clause.replace("?", str);
+        }
+        return clause;
+    }
     // be sure to call this method by: DatabaseHelper.getInstance.closeConnecion() when application is closed by    somemeans most likely
     // onDestroy method of application
     public synchronized void closeConnecion() {

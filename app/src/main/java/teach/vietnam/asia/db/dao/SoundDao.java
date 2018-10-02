@@ -1,5 +1,6 @@
 package teach.vietnam.asia.db.dao;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 
@@ -16,6 +17,26 @@ public class SoundDao extends BaseDao<BaseEntity> {
 
     public SoundDao(Context context) {
         super(context);
+    }
+
+    @Override
+    protected String getTableName() {
+        return SoundTable.TABLE_NAME;
+    }
+
+    @Override
+    protected ContentValues getContentValues(BaseEntity entity) {
+        return null;
+    }
+
+    @Override
+    protected String whereClause() {
+        return null;
+    }
+
+    @Override
+    protected String[] whereArgs(BaseEntity entity) {
+        return new String[0];
     }
 
     @Override

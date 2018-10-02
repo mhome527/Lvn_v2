@@ -153,4 +153,5 @@
 
     <string name="test">테스트</string>
     <string name="learn">배우</string>
+    <string name="title_more">더보기</string>
 </resources>

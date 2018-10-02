@@ -11,8 +11,12 @@ public class PlaceDetailTable extends BaseTable {
     public static final String COL_TITLE = "TITLE";
     public static final String COL_SORT = "SORT";
     public static final String COL_IMAGE = "IMAGE";
+    public static final String COL_IMAGE2 = "IMAGE2";
     public static final String COL_LINKS = "LINKS";
     public static final String COL_LATITUDE = "LATITUDE";
     public static final String COL_LONGITUDE = "LONGITUDE";
     public static final String COL_ADDRESS = "ADDRESS";
+
+    public static final String COL_OT2 = "OT2";
+
 }

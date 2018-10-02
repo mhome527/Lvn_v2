@@ -198,7 +198,7 @@ public class PracticeDetailActivity extends BaseActivity<PracticeDetailActivity>
 
         presenter.loadMaxLevel(kind, new ICallback<Integer>() {
             @Override
-            public void onCallback(Integer data) {
+            public void onComplete(Integer data) {
                 if (data != null)
                     max_level = data;
                 if (max_level > 0) {
@@ -220,7 +220,7 @@ public class PracticeDetailActivity extends BaseActivity<PracticeDetailActivity>
         Log.i(TAG, "loadData kind:" + kind + "; level:" + level);
         presenter.loadData(kind, level, new ICallback<List<WordEntity>>() {
             @Override
-            public void onCallback(List<WordEntity> data) {
+            public void onComplete(List<WordEntity> data) {
 //                if (!isFinishing()) {
 //                    progressDialog.dismiss();
 //                }

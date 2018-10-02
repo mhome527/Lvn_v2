@@ -1,5 +1,6 @@
 package teach.vietnam.asia.db.dao;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.util.Log;
@@ -27,8 +28,14 @@ public abstract class BaseDao<T extends BaseEntity> {
             lang = context.getString(R.string.language);
 
     }
+    
+    protected abstract String getTableName();
 
-//    protected abstract ContentValues getContentValues(T entity);
+    protected abstract ContentValues getContentValues(T entity);
+
+    protected abstract String whereClause();
+
+    protected abstract String[] whereArgs(T entity);
 
     protected abstract T fetch(Cursor cursor);
 
@@ -150,6 +157,18 @@ public abstract class BaseDao<T extends BaseEntity> {
         }
         return listData;
     }
+
+    protected int updateRow(String tableName, ContentValues data, String where) {
+        Log.i(TAG, "update data: " + where);
+        return DatabaseHelper.updateData(context, tableName, data, where);
+    }
+
+    protected int updateRow(T entity) {
+//        Log.i(TAG, "update data: " + where);
+//        return DatabaseHelper.updateData(context, tableName, data, where);
+        return DatabaseHelper.updateData(context, getTableName(), getContentValues(entity), whereClause(), whereArgs(entity));
+    }
+
 
 //    protected SQLiteDatabase getDB(){
 //        return DatabaseHelper.getInstance(context).getDB();

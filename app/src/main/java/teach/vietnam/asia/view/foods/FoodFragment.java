@@ -111,7 +111,7 @@ public class FoodFragment extends BaseFragment<FoodActivity> implements IActionL
         Log.i(TAG, "loadData getKind():" + kind);
         presenter.loadData(kind, new ICallback<List<FoodEntity>>() {
             @Override
-            public void onCallback(List<FoodEntity> list) {
+            public void onComplete(List<FoodEntity> list) {
                 listData = list;
                 adapter.setData(listData);
                 activity.runOnUiThread(new Runnable() {

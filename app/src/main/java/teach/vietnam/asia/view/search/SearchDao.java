@@ -1,5 +1,6 @@
 package teach.vietnam.asia.view.search;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 
@@ -19,6 +20,26 @@ public class SearchDao extends BaseDao<WordEntity> {
 
     public SearchDao(Context context) {
         super(context);
+    }
+
+    @Override
+    protected String getTableName() {
+        return null;
+    }
+
+    @Override
+    protected ContentValues getContentValues(WordEntity entity) {
+        return null;
+    }
+
+    @Override
+    protected String whereClause() {
+        return null;
+    }
+
+    @Override
+    protected String[] whereArgs(WordEntity entity) {
+        return new String[0];
     }
 
     @Override

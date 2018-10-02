@@ -11,7 +11,7 @@ public class DashboardFooterHolder extends BaseViewHolder {
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                iDashboardAction.onItemClick(-1);
+                iDashboardAction.onItemClick(getAdapterPosition());
             }
         });
     }

@@ -1,5 +1,6 @@
 package teach.vietnam.asia.view.dashboard.search;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 
@@ -18,6 +19,26 @@ import teach.vietnam.asia.db.table.WordTable;
 public class SearchDao extends BaseDao<SearchEntity> {
     public SearchDao(Context context) {
         super(context);
+    }
+
+    @Override
+    protected String getTableName() {
+        return null;
+    }
+
+    @Override
+    protected ContentValues getContentValues(SearchEntity entity) {
+        return null;
+    }
+
+    @Override
+    protected String whereClause() {
+        return null;
+    }
+
+    @Override
+    protected String[] whereArgs(SearchEntity entity) {
+        return new String[0];
     }
 
     public int id;

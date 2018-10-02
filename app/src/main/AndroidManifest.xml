@@ -148,6 +148,8 @@
             android:name=".view.map.MapActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".view.image.ImageActivity" />
+        <activity android:name=".view.placeimage.PlaceImageActivity" />
 
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"

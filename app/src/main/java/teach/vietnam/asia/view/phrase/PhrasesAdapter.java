@@ -12,12 +12,13 @@ import teach.vietnam.asia.R;
 import teach.vietnam.asia.entity.WordEntity;
 import teach.vietnam.asia.utils.Common;
 import teach.vietnam.asia.view.base.BaseAdapterView;
+import teach.vietnam.asia.view.base.BaseViewHolder;
 
 /**
  * Created by HuynhTD on 5/10/2017.
  */
 
-public class PhrasesAdapter extends BaseAdapterView<PhrasesItemHolder> implements Filterable {
+public class PhrasesAdapter extends BaseAdapterView<BaseViewHolder> implements Filterable {
     private List<WordEntity> listData;
     private List<WordEntity> mFilteredList;
 
@@ -30,44 +31,30 @@ public class PhrasesAdapter extends BaseAdapterView<PhrasesItemHolder> implement
 
     @Override
     protected List getListData() {
-//        return listData;
         return mFilteredList;
     }
 
     @Override
-    protected int getHeaderLayout(int viewType) {
-        return 0;
-    }
-
-    @Override
-    protected int getFooterLayout(int viewType) {
-        return 0;
-    }
-
-    @Override
     protected int getItemLayout(int viewType) {
-        return R.layout.phrases_item;
+        if (viewType == TYPE_ITEM)
+            return R.layout.phrases_item;
+        else
+            return -1;
+
     }
 
     @Override
-    protected PhrasesItemHolder getHeaderView(View view) {
-        return null;
+    protected BaseViewHolder getItemView(View view, int viewType) {
+         if (viewType == TYPE_ITEM)
+            return new PhrasesItemHolder(view);
+        else
+            return new BaseViewHolder(view);
     }
 
     @Override
-    protected PhrasesItemHolder getFooterView(View view) {
-        return null;
-    }
-
-    @Override
-    protected PhrasesItemHolder getItemView(View view) {
-        return new PhrasesItemHolder(view);
-    }
-
-
-    @Override
-    public void onBindViewHolder(PhrasesItemHolder holder, int position) {
-        holder.setData(this.mFilteredList.get(position), isPurchased);
+    public void onBindViewHolder(BaseViewHolder holder, int position) {
+        if (holder instanceof PhrasesItemHolder)
+            ((PhrasesItemHolder) holder).setData(this.mFilteredList.get(position), isPurchased);
     }
 
     @Override

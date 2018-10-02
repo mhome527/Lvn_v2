@@ -5,6 +5,5 @@ package teach.vietnam.asia.view.action;
  */
 
 public interface ICallback<T> {
-    void onCallback(T data);
-//    void onFail(String err);
+    void onComplete(T data);
 }

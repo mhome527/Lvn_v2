@@ -1,5 +1,6 @@
 package teach.vietnam.asia.view.recognizes;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 
@@ -17,6 +18,26 @@ public class RecognizeDao extends BaseDao<RecognizeEntity> {
 
     public RecognizeDao(Context context) {
         super(context);
+    }
+
+    @Override
+    protected String getTableName() {
+        return null;
+    }
+
+    @Override
+    protected ContentValues getContentValues(RecognizeEntity entity) {
+        return null;
+    }
+
+    @Override
+    protected String whereClause() {
+        return null;
+    }
+
+    @Override
+    protected String[] whereArgs(RecognizeEntity entity) {
+        return new String[0];
     }
 
     @Override

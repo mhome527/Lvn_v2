@@ -10,12 +10,13 @@ import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.entity.LanguageEntity;
 import teach.vietnam.asia.view.base.BaseAdapterView;
+import teach.vietnam.asia.view.base.BaseViewHolder;
 
 /**
  * Created by HuynhTD on 5/31/2017.
  */
 
-public class LanguageAdapter extends BaseAdapterView<LanguageItemHolder> {
+public class LanguageAdapter extends BaseAdapterView<BaseViewHolder> {
 
     List<LanguageEntity> items;
     String currLang;
@@ -44,38 +45,26 @@ public class LanguageAdapter extends BaseAdapterView<LanguageItemHolder> {
     }
 
     @Override
-    protected int getHeaderLayout(int viewType) {
-        return 0;
-    }
-
-    @Override
-    protected int getFooterLayout(int viewType) {
-        return 0;
-    }
-
-    @Override
     protected int getItemLayout(int viewType) {
-        return R.layout.dialog_language_item;
+        if (viewType == TYPE_ITEM)
+            return R.layout.dialog_language_item;
+        else
+            return -1;
+
     }
 
     @Override
-    protected LanguageItemHolder getHeaderView(View view) {
-        return null;
+    protected BaseViewHolder getItemView(View view, int viewType) {
+        if (viewType == TYPE_ITEM)
+            return new LanguageItemHolder(view);
+        else
+            return new BaseViewHolder(view);
     }
 
     @Override
-    protected LanguageItemHolder getFooterView(View view) {
-        return null;
-    }
-
-    @Override
-    protected LanguageItemHolder getItemView(View view) {
-        return new LanguageItemHolder(view);
-    }
-
-    @Override
-    public void onBindViewHolder(LanguageItemHolder holder, int position) {
-        holder.setData(items.get(position), currLang, onItemClickListener);
+    public void onBindViewHolder(BaseViewHolder holder, int i) {
+        if (holder instanceof LanguageItemHolder)
+            ((LanguageItemHolder) holder).setData(items.get(i), currLang, onItemClickListener);
     }
 
     ////
@@ -95,5 +84,6 @@ public class LanguageAdapter extends BaseAdapterView<LanguageItemHolder> {
         this.currLang = currLang;
         notifyDataSetChanged();
     }
+
 
 }

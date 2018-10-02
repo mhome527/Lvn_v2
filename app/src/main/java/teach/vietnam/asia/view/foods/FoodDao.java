@@ -1,5 +1,6 @@
 package teach.vietnam.asia.view.foods;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 
@@ -18,6 +19,26 @@ public class FoodDao extends BaseDao<FoodEntity> {
 
     public FoodDao(Context context) {
         super(context);
+    }
+
+    @Override
+    protected String getTableName() {
+        return null;
+    }
+
+    @Override
+    protected ContentValues getContentValues(FoodEntity entity) {
+        return null;
+    }
+
+    @Override
+    protected String whereClause() {
+        return null;
+    }
+
+    @Override
+    protected String[] whereArgs(FoodEntity entity) {
+        return new String[0];
     }
 
     @Override

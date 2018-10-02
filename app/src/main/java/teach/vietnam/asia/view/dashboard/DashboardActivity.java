@@ -27,7 +27,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.OnClick;
 import teach.vietnam.asia.BuildConfig;
 import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.R;
@@ -194,8 +193,7 @@ public class DashboardActivity extends PurchaseActivity<DashboardActivity> imple
     }
 
 
-    @OnClick(R.id.llOtherApp)
-    public void actionOtherApp() {
+    public void showOtherApp() {
         Utility.installVnApp(activity);
     }
 
@@ -253,9 +251,16 @@ public class DashboardActivity extends PurchaseActivity<DashboardActivity> imple
             case 10:
                 startActivity2(PracticeActivity.class);
                 break;
-            case -1:
+            case 11:
                 //Privacy policy
                 showPrivacyPolicy();
+                break;
+            case 12:
+//                if (BuildConfig.DEBUG) {
+//                    startActivity2(AndroidDatabaseManager.class);
+//                } else {
+                showOtherApp();
+//                }
                 break;
             default:
 //                screen = "TranslateActivity";
@@ -365,14 +370,14 @@ public class DashboardActivity extends PurchaseActivity<DashboardActivity> imple
         lLayout.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
             @Override
             public int getSpanSize(int position) {
-                if (position == 0 || position == 1 ) {
+                if (position == 0 || position == 1) {
                     if (Common.isTablet(activity))
                         return 4; //merge 4 cot lai
                     else
                         return 3; //merge 3 cot lai
 
 //                    return 1;
-                }  else if (position == 10) {
+                } else if (position == listData.size() || position == listData.size() + 1) {
                     if (Common.isTablet(activity))
                         return 8; //merge 4 cot lai
                     else
@@ -380,13 +385,14 @@ public class DashboardActivity extends PurchaseActivity<DashboardActivity> imple
 
 //                    return 1;
 
-                } else if (position == listData.size() + 1) {
-                    if (Common.isTablet(activity))
-                        return 4;
-                    else
-                        return 3;
-                } else
+//                } else if (position == listData.size() + 1) {
+//                    if (Common.isTablet(activity))
+//                        return 4;
+//                    else
+//                        return 3;
+                } else {
                     return 2;
+                }
             }
         });
 
@@ -430,7 +436,7 @@ public class DashboardActivity extends PurchaseActivity<DashboardActivity> imple
     public void loadData(String keySearch) {
         searchPresenter.getData(keySearch, new ICallback<List<SearchGroupData>>() {
             @Override
-            public void onCallback(final List<SearchGroupData> data) {
+            public void onComplete(final List<SearchGroupData> data) {
 //                activity.runOnUiThread(new Runnable() {
 //                    @Override
 //                    public void run() {

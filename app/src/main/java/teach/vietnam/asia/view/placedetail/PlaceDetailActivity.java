@@ -2,6 +2,7 @@ package teach.vietnam.asia.view.placedetail;
 
 import android.content.Intent;
 import android.text.method.ScrollingMovementMethod;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,8 +18,10 @@ import teach.vietnam.asia.entity.PlaceEntity;
 import teach.vietnam.asia.sound.AudioPlayer;
 import teach.vietnam.asia.utils.Log;
 import teach.vietnam.asia.utils.Utility;
+import teach.vietnam.asia.view.action.ICallback;
 import teach.vietnam.asia.view.custom.RoundRectCornerImageView;
 import teach.vietnam.asia.view.map.MapActivity;
+import teach.vietnam.asia.view.placeimage.PlaceImageActivity;
 import teach.vietnam.asia.view.purchase.PurchaseActivity;
 
 public class PlaceDetailActivity extends PurchaseActivity<PlaceDetailActivity> {
@@ -38,6 +41,9 @@ public class PlaceDetailActivity extends PurchaseActivity<PlaceDetailActivity> {
 
     @BindView(R.id.tvContent)
     TextView tvContent;
+
+    @BindView(R.id.tvMore)
+    TextView tvMore;
 
     @BindView(R.id.imgPlace)
     RoundRectCornerImageView imgPlace;
@@ -89,7 +95,7 @@ public class PlaceDetailActivity extends PurchaseActivity<PlaceDetailActivity> {
     @OnClick(R.id.imgSound)
     public void actionSpeak() {
         if (isPurchased || trial == 1)
-            audio.speakWord(entity.title);
+            audio.speakWord(entity.vn);
         else
             purchaseItem();
     }
@@ -97,12 +103,32 @@ public class PlaceDetailActivity extends PurchaseActivity<PlaceDetailActivity> {
     @OnClick(R.id.llLocation)
     public void actionLocation() {
         Intent intent = new Intent(activity, MapActivity.class);
-        intent.putExtra(PlaceDetailTable.COL_TITLE, entity.title);
-        intent.putExtra(PlaceTitleLanguageTable.COL_OT1, entity.ot);
+        intent.putExtra(PlaceDetailTable.COL_TITLE, entity.vn);
+        intent.putExtra(PlaceTitleLanguageTable.COL_OT1, entity.ot1);
         intent.putExtra(PlaceDetailTable.COL_LATITUDE, entity.latitude);
         intent.putExtra(PlaceDetailTable.COL_LONGITUDE, entity.longitude);
         startActivity(intent);
     }
+
+    @OnClick(R.id.imgPlace)
+    public void actionMorePlace() {
+        if (entity.imgLinks != null && !entity.imgLinks.equals("")) {
+            Intent i = new Intent(activity, PlaceImageActivity.class);
+            i.putExtra(BaseTable.COL_AREA, entity.area);
+            i.putExtra(BaseTable.COL_TYPE, entity.type);
+            i.putExtra(BaseTable.COL_ID, entity.id);
+            i.putExtra(BaseTable.COL_TITLE, entity.ot1);
+            i.putExtra(BaseTable.COL_SEARCH_TEXT, entity.imgLinks);
+            startActivity(i);
+        }
+    }
+
+    @OnClick(R.id.tvMore)
+    public void actionTvMore(){
+        actionMorePlace();
+    }
+
+
     // ============== END CLICK ==============
 
     //======================== Start Purchase =========================
@@ -136,10 +162,10 @@ public class PlaceDetailActivity extends PurchaseActivity<PlaceDetailActivity> {
 
     private void getData() {
         entity = presenter.getData(area_id, type, id);
-        setTitle(entity.ot);
+        setTitle(entity.ot1);
 
-        toolbarTitle.setText(entity.ot);
-        tvVn.setText(entity.title);
+        toolbarTitle.setText(entity.ot1);
+        tvVn.setText(entity.vn);
 //        tvOt.setText(entity.ot);
         tvAddress.setText(entity.address);
         tvContent.setText(entity.content);
@@ -148,6 +174,21 @@ public class PlaceDetailActivity extends PurchaseActivity<PlaceDetailActivity> {
         if (resourceId > 0) {
             imgPlace.setImageResource(resourceId);
         }
+
+        if (entity.imgLinks == null || entity.imgLinks.equals("")) {
+            tvMore.setVisibility(View.GONE);
+        } else {
+            tvMore.setVisibility(View.VISIBLE);
+        }
+
+        // get list link from server
+        presenter.downloadLink(entity, new ICallback() {
+            @Override
+            public void onComplete(Object o) {
+                if (entity.imgLinks != null && !entity.imgLinks.equals(""))
+                    tvMore.setVisibility(View.VISIBLE);
+            }
+        });
 
     }
 }

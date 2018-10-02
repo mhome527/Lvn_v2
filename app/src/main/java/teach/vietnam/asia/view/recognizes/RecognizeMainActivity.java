@@ -197,7 +197,7 @@ public class RecognizeMainActivity extends PurchaseActivity<RecognizeMainActivit
 
         presenter.loadGroup(new ICallback<List<String>>() {
             @Override
-            public void onCallback(List<String> data) {
+            public void onComplete(List<String> data) {
                 int num = data.size();
                 if (num > 0) {
                     Log.i(TAG, "loadGroup size:" + num);

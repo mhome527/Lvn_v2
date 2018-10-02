@@ -14,5 +14,6 @@ public class BaseTable {
     public static final String COL_OT1 = "OT1";
 
     public static final String COL_TITLE = "TITLE";
+    public static final String COL_SEARCH_TEXT = "SEARCH_TEXT";
 
 }

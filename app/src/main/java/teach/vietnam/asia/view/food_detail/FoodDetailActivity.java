@@ -117,7 +117,7 @@ public class FoodDetailActivity extends PurchaseActivity<FoodDetailActivity> {
 //        setTitle(ot);
         presenter.loadData(area_id, type, id, new ICallback<FoodEntity>() {
             @Override
-            public void onCallback(FoodEntity entity) {
+            public void onComplete(FoodEntity entity) {
                 activity.entity = entity;
                 toolbarTitle.setText(entity.ot);
                 tvVn.setText(entity.name);

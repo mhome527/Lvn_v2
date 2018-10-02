@@ -8,6 +8,4 @@ import android.view.View;
 
 public interface IClickListener {
     void actionClick(View view, int position);
-
-    void actionLongClick(View view, int position);
 }
