@@ -74,13 +74,13 @@ public class PlaceDetailDao extends BaseDao<PlaceEntity> {
     }
 
     public PlaceEntity getPlaceDetail(int area, int type, int id) {
-        String sql = "SELECT p.AREA, p.TYPE, p.id, TITLE, OT1, CONTENT, LATITUDE, LONGITUDE, ADDRESS, SOUND, IMAGE, LINKS " +
-                " FROM TBL_PLACE_DETAIL p " +
+        String sql = "\n\nSELECT p.AREA, p.TYPE, p.id, TITLE, OT1, CONTENT, LATITUDE, LONGITUDE, ADDRESS, SOUND, IMAGE, LINKS " +
+                "\n FROM TBL_PLACE_DETAIL p " +
                 " , " + PlaceDetailLanguageTable.getTableName(lang) + " OT" +
-                " WHERE p.AREA = OT.AREA AND p.TYPE = OT.TYPE AND p.ID = OT.ID " +
-                " AND p.AREA=" + area + " AND p.TYPE= " + type +
-                " AND p.id=" + id +
-                " ORDER BY SORT ASC";
+                "\n WHERE p.AREA = OT.AREA AND p.TYPE = OT.TYPE AND p.ID = OT.ID " +
+                "\n AND p.AREA=" + area + " AND p.TYPE= " + type +
+                "\n AND p.id=" + id +
+                "\n ORDER BY SORT ASC\n\n";
 
         return fetch(sql);
     }

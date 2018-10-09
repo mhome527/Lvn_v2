@@ -40,7 +40,7 @@ public class PlaceImageAdapter extends BaseAdapterView<BaseViewHolder> {
 
     @Override
     protected List getListData() {
-        return null;
+        return images;
     }
 
 

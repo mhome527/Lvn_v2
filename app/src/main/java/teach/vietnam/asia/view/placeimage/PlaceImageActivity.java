@@ -1,6 +1,7 @@
 package teach.vietnam.asia.view.placeimage;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -9,11 +10,14 @@ import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import teach.vietnam.asia.BuildConfig;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.db.table.BaseTable;
 import teach.vietnam.asia.view.action.IClickListener;
 import teach.vietnam.asia.view.base.BaseActivity;
 import teach.vietnam.asia.view.image.ImageActivity;
+
+import static teach.vietnam.asia.BaseApplication.mFirebaseAnalytics;
 
 public class PlaceImageActivity extends BaseActivity<PlaceImageActivity> implements IClickListener {
 
@@ -55,6 +59,15 @@ public class PlaceImageActivity extends BaseActivity<PlaceImageActivity> impleme
         recyclerView.setAdapter(adapter);
 
 //        adapter.notifyDataSetChanged();
+
+        if (!BuildConfig.DEBUG) {
+            Bundle params = new Bundle();
+            String screen = "PlaceImageActivity";
+            // [START custom_event]
+            params.putString("Name", screen);
+            params.putString("Name2", screen + "_" + lang);
+            mFirebaseAnalytics.logEvent("SCREEN2", params);
+        }
     }
 
     @OnClick(R.id.btnBack)

@@ -29,7 +29,7 @@ public class PlaceDao extends BaseDao<PlaceEntity> {
     protected ContentValues getContentValues(PlaceEntity entity) {
         ContentValues cv = new ContentValues();
         cv.put(PlaceDetailTable.COL_FAVORITE, entity.favorite);
-        cv.put(PlaceDetailTable.COL_IMAGE2, entity.imgLinks);
+        cv.put(PlaceDetailTable.COL_LINKS, entity.imgLinks);
         return cv;
     }
 

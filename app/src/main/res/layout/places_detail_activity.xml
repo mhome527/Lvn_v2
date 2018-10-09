@@ -77,15 +77,15 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="bottom"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginRight="5dp"
                         android:layout_marginTop="8dp"
+                        android:layout_marginRight="5dp"
                         android:src="@drawable/ic_speaker" />
 
                     <TextView
                         android:id="@+id/tvVn"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
+                        android:layout_marginTop="5dp"
                         android:layout_toRightOf="@+id/imgSound"
                         android:gravity="center_vertical"
                         android:padding="5dp"
@@ -100,11 +100,10 @@
                         android:layout_below="@+id/imgSound"
                         android:layout_centerHorizontal="true"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
                         android:layout_marginTop="8dp"
+                        android:layout_marginRight="10dp"
                         android:background="@color/transparent"
-                        android:scaleType="fitXY"
-                      />
+                        android:scaleType="fitXY" />
                     <!--android:src="@drawable/bg_nha_tho_duc_ba"-->
                     <TextView
                         android:id="@+id/tvMore"
@@ -112,21 +111,33 @@
                         android:layout_height="wrap_content"
                         android:layout_above="@+id/line"
                         android:layout_alignParentRight="true"
-                        android:layout_marginBottom="5dp"
                         android:layout_marginRight="20dp"
+                        android:layout_marginBottom="5dp"
+                        android:shadowColor="@color/white"
+                        android:shadowDx="2"
+                        android:shadowDy="2"
+                        android:shadowRadius="2"
                         android:text="@string/title_more"
                         android:textColor="@color/blue"
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
+                    <ProgressBar
+                        android:id="@+id/progressBar"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_above="@+id/line"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginBottom="5dp" />
 
                     <View
                         android:id="@+id/line"
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:layout_below="@+id/imgPlace"
-                        android:layout_marginBottom="0dp"
                         android:layout_marginTop="10dp"
+                        android:layout_marginBottom="0dp"
                         android:background="#22000000" />
 
                     <LinearLayout
@@ -138,9 +149,9 @@
                         android:clickable="true"
                         android:gravity="center_vertical"
                         android:orientation="horizontal"
-                        android:paddingBottom="10dp"
                         android:paddingLeft="10dp"
-                        android:paddingTop="8dp">
+                        android:paddingTop="8dp"
+                        android:paddingBottom="10dp">
 
                         <ImageView
                             android:id="@+id/imgLocation"

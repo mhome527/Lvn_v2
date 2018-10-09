@@ -74,7 +74,7 @@ public class PlaceItemHolder extends BaseChildExViewHolder {
         if (isPurchased || getAdapterPosition() <= Constant.TRIAL) {
             imgSound.setImageResource(R.drawable.ic_speaker);
         } else
-            imgSound.setImageResource(R.drawable.ic_lock);
+            imgSound.setImageResource(R.drawable.ic_lock2);
 
 //        if (isPurchased) {
 //            imgSound.setImageResource(R.drawable.ic_speaker);

@@ -1,6 +1,7 @@
 package teach.vietnam.asia.view.image;
 
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.bumptech.glide.load.DataSource;
@@ -13,11 +14,14 @@ import com.jsibbold.zoomage.ZoomageView;
 import butterknife.BindView;
 import butterknife.OnClick;
 import teach.vietnam.asia.BaseApplication;
+import teach.vietnam.asia.BuildConfig;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.db.table.BaseTable;
 import teach.vietnam.asia.utils.GlideApp;
 import teach.vietnam.asia.utils.Log;
 import teach.vietnam.asia.view.base.BaseActivity;
+
+import static teach.vietnam.asia.BaseApplication.mFirebaseAnalytics;
 
 public class ImageActivity extends BaseActivity<ImageActivity> {
 
@@ -34,6 +38,15 @@ public class ImageActivity extends BaseActivity<ImageActivity> {
 
         String link = getIntent().getStringExtra(BaseTable.COL_TITLE);
         setData(link);
+
+        if (!BuildConfig.DEBUG) {
+            Bundle params = new Bundle();
+            String screen = "ImageActivity";
+            // [START custom_event]
+            params.putString("Name", screen);
+            params.putString("Name2", screen + "_" + lang);
+            mFirebaseAnalytics.logEvent("SCREEN2", params);
+        }
     }
 
     @OnClick(R.id.imgClose)

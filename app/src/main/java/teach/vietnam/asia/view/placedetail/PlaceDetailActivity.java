@@ -1,14 +1,17 @@
 package teach.vietnam.asia.view.placedetail;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 import teach.vietnam.asia.BaseApplication;
+import teach.vietnam.asia.BuildConfig;
 import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.db.table.BaseTable;
@@ -23,6 +26,8 @@ import teach.vietnam.asia.view.custom.RoundRectCornerImageView;
 import teach.vietnam.asia.view.map.MapActivity;
 import teach.vietnam.asia.view.placeimage.PlaceImageActivity;
 import teach.vietnam.asia.view.purchase.PurchaseActivity;
+
+import static teach.vietnam.asia.BaseApplication.mFirebaseAnalytics;
 
 public class PlaceDetailActivity extends PurchaseActivity<PlaceDetailActivity> {
     private final String TAG = "PlaceDetailActivity";
@@ -44,6 +49,9 @@ public class PlaceDetailActivity extends PurchaseActivity<PlaceDetailActivity> {
 
     @BindView(R.id.tvMore)
     TextView tvMore;
+
+    @BindView(R.id.progressBar)
+    ProgressBar progressBar;
 
     @BindView(R.id.imgPlace)
     RoundRectCornerImageView imgPlace;
@@ -68,6 +76,7 @@ public class PlaceDetailActivity extends PurchaseActivity<PlaceDetailActivity> {
 
     @Override
     protected void initView() {
+
         area_id = getIntent().getIntExtra(BaseTable.COL_AREA, 0);
         type = getIntent().getIntExtra(BaseTable.COL_TYPE, 0);
         id = getIntent().getIntExtra(BaseTable.COL_ID, 0);
@@ -81,9 +90,11 @@ public class PlaceDetailActivity extends PurchaseActivity<PlaceDetailActivity> {
         if (isPurchased || trial == 1) {
             imgSound.setImageResource(R.drawable.ic_speaker);
         } else
-            imgSound.setImageResource(R.drawable.ic_lock);
+            imgSound.setImageResource(R.drawable.ic_lock2);
 
         getData();
+
+
     }
 
     // ================ CLICK ================
@@ -124,7 +135,7 @@ public class PlaceDetailActivity extends PurchaseActivity<PlaceDetailActivity> {
     }
 
     @OnClick(R.id.tvMore)
-    public void actionTvMore(){
+    public void actionTvMore() {
         actionMorePlace();
     }
 
@@ -177,18 +188,33 @@ public class PlaceDetailActivity extends PurchaseActivity<PlaceDetailActivity> {
 
         if (entity.imgLinks == null || entity.imgLinks.equals("")) {
             tvMore.setVisibility(View.GONE);
+            progressBar.setVisibility(View.VISIBLE);
         } else {
             tvMore.setVisibility(View.VISIBLE);
+            progressBar.setVisibility(View.GONE);
         }
 
         // get list link from server
         presenter.downloadLink(entity, new ICallback() {
             @Override
             public void onComplete(Object o) {
-                if (entity.imgLinks != null && !entity.imgLinks.equals(""))
+                if (entity.imgLinks != null && !entity.imgLinks.equals("")) {
                     tvMore.setVisibility(View.VISIBLE);
+                    progressBar.setVisibility(View.GONE);
+                }
             }
         });
+
+        if (!BuildConfig.DEBUG) {
+            Bundle params = new Bundle();
+            String screen = "PlaceDetailActivity";
+            // [START custom_event]
+            params.putString("Name", screen);
+            params.putString("Name2", screen + "_" + lang);
+            params.putString("Place", entity.vn + "");
+            params.putString("Place2", entity.vn + "_" + lang);
+            mFirebaseAnalytics.logEvent("SCREEN2", params);
+        }
 
     }
 }

@@ -1,5 +1,6 @@
 package teach.vietnam.asia.view.food_detail;
 
+import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -7,6 +8,7 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.OnClick;
 import teach.vietnam.asia.BaseApplication;
+import teach.vietnam.asia.BuildConfig;
 import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.db.table.BaseTable;
@@ -17,6 +19,8 @@ import teach.vietnam.asia.utils.Utility;
 import teach.vietnam.asia.view.action.ICallback;
 import teach.vietnam.asia.view.custom.RoundRectCornerImageView;
 import teach.vietnam.asia.view.purchase.PurchaseActivity;
+
+import static teach.vietnam.asia.BaseApplication.mFirebaseAnalytics;
 
 public class FoodDetailActivity extends PurchaseActivity<FoodDetailActivity> {
     private final String TAG = "FoodDetailActivity";
@@ -64,10 +68,18 @@ public class FoodDetailActivity extends PurchaseActivity<FoodDetailActivity> {
         if (isPurchased || type == 1) {
             imgSound.setImageResource(R.drawable.ic_speaker);
         } else
-            imgSound.setImageResource(R.drawable.ic_lock);
-
+            imgSound.setImageResource(R.drawable.ic_lock2);
 
         setData();
+
+        if (!BuildConfig.DEBUG) {
+            Bundle params = new Bundle();
+            String screen = "FoodDetailActivity";
+            // [START custom_event]
+            params.putString("Name", screen);
+            params.putString("Name2", screen + "_" + lang);
+            mFirebaseAnalytics.logEvent("SCREEN2", params);
+        }
     }
 
     // ================ CLICK ================

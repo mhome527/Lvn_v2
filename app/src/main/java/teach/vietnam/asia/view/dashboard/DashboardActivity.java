@@ -19,7 +19,6 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
 
-import com.google.firebase.crash.FirebaseCrash;
 import com.quinny898.library.persistentsearch.SearchBox;
 import com.quinny898.library.persistentsearch.SearchResult;
 
@@ -58,6 +57,8 @@ import teach.vietnam.asia.view.purchase.PurchaseActivity;
 import teach.vietnam.asia.view.recognizes.RecognizeMainActivity;
 import teach.vietnam.asia.view.translate.TranslateActivity;
 import teach.vietnam.asia.view.word.WordActivity;
+
+import static teach.vietnam.asia.BaseApplication.mFirebaseAnalytics;
 
 
 public class DashboardActivity extends PurchaseActivity<DashboardActivity> implements IDashboardAction, IActionSearch {
@@ -146,8 +147,8 @@ public class DashboardActivity extends PurchaseActivity<DashboardActivity> imple
             stateKeySearch = "";
         }
 
-        if (!BuildConfig.DEBUG)
-            FirebaseCrash.logcat(Log.INFO, TAG, "initView");
+//        if (!BuildConfig.DEBUG)
+//            FirebaseCrash.logcat(Log.INFO, TAG, "initView");
     }
 
     ///////////// xu ly truong hop activity tu huy khi qua man hinh khac
@@ -200,71 +201,83 @@ public class DashboardActivity extends PurchaseActivity<DashboardActivity> imple
 
     @Override
     public void onItemClick(int pos) {
-//        String screen;
+        Bundle params = new Bundle();
+        String screen;
 
         switch (pos) {
 
             case 0:
                 startActivity2(PlaceActivity.class);
+                screen = "PlaceActivity";
 //                startActivity2(MapActivity.class);
                 break;
             case 1:
                 startActivity2(FoodActivity.class);
-//                screen = "FoodActivity";
+                screen = "FoodActivity";
                 break;
 
             case 2:
                 startActivity2(AlphabetActivity.class);
-//                screen = "AlphabetActivity";
+                screen = "AlphabetActivity";
                 break;
 
             case 3:
                 startActivity2(NumberActivity.class);
-//                screen = "NumberActivity";
+                screen = "NumberActivity";
                 break;
 
             case 4:
                 startActivity2(BodyActivity.class);
-//                screen = "BodyActivity";
+                screen = "BodyActivity";
                 break;
             case 5:
                 startActivity2(RecognizeMainActivity.class);
-//                screen = "RecognizeMainActivity";
+                screen = "RecognizeMainActivity";
                 break;
 
             case 6:
                 startActivity2(WordActivity.class);
-//                screen = "WordActivity";
+                screen = "WordActivity";
                 break;
             case 7:
                 startActivity2(PhrasesActivity.class);
-//                screen = "FoodActivity";
+                screen = "FoodActivity";
                 break;
             case 8:
                 startActivity2(GrammarDetailActivity.class);
-//                screen = "GrammarDetailActivity";
+                screen = "GrammarDetailActivity";
                 break;
             case 9:
                 startActivity2(TranslateActivity.class);
-//                screen = "PracticeActivity";
+                screen = "TranslateActivity";
                 break;
             case 10:
                 startActivity2(PracticeActivity.class);
+                screen = "PracticeActivity";
                 break;
             case 11:
                 //Privacy policy
                 showPrivacyPolicy();
+                screen = "SHOW_POLICY";
                 break;
             case 12:
-//                if (BuildConfig.DEBUG) {
+//                if (BuildConfig.DEBUG)
 //                    startActivity2(AndroidDatabaseManager.class);
-//                } else {
+//                else
                 showOtherApp();
-//                }
+                screen = "SHOW_JP_APP";
+
                 break;
             default:
-//                screen = "TranslateActivity";
+                screen = "SHOW_SOMETHING";
                 break;
+        }
+
+        if (!BuildConfig.DEBUG) {
+            // [START custom_event]
+            params.putString("Name", screen);
+            params.putString("Name2", screen + "_" + lang);
+            mFirebaseAnalytics.logEvent("SCREEN2", params);
         }
     }
     ////// ======================================== /////////
@@ -531,6 +544,14 @@ public class DashboardActivity extends PurchaseActivity<DashboardActivity> imple
             @Override
             public void onSearchOpened() {
                 //Use this to tint the screen
+                if (!BuildConfig.DEBUG) {
+                    Bundle params = new Bundle();
+                    String screen = "SearchDashboard";
+                    // [START custom_event]
+                    params.putString("Name", screen);
+                    params.putString("Name2", screen + "_" + lang);
+                    mFirebaseAnalytics.logEvent("SCREEN2", params);
+                }
             }
 
             @Override

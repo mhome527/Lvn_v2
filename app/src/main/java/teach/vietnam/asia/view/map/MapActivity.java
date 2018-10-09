@@ -1,5 +1,6 @@
 package teach.vietnam.asia.view.map;
 
+import android.os.Bundle;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -11,10 +12,13 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import teach.vietnam.asia.BuildConfig;
 import teach.vietnam.asia.R;
 import teach.vietnam.asia.db.table.PlaceDetailTable;
 import teach.vietnam.asia.db.table.PlaceTitleLanguageTable;
 import teach.vietnam.asia.view.base.BaseActivity;
+
+import static teach.vietnam.asia.BaseApplication.mFirebaseAnalytics;
 
 public class MapActivity extends BaseActivity<MapActivity> implements OnMapReadyCallback {
 
@@ -51,6 +55,15 @@ public class MapActivity extends BaseActivity<MapActivity> implements OnMapReady
 
         toolbarTitle.setText(ot);
         mapFragment.getMapAsync(this);
+
+        if (!BuildConfig.DEBUG) {
+            Bundle params = new Bundle();
+            String screen = "MapActivity";
+            // [START custom_event]
+            params.putString("Name", screen);
+            params.putString("Name2", screen + "_" + lang);
+            mFirebaseAnalytics.logEvent("SCREEN2", params);
+        }
 
     }
 

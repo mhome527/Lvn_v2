@@ -71,7 +71,7 @@ public class FoodItemHolder extends BaseViewHolder {
         if (isPurchased) {
             imgSound.setImageResource(R.drawable.ic_speaker);
         } else
-            imgSound.setImageResource(R.drawable.ic_lock);
+            imgSound.setImageResource(R.drawable.ic_lock2);
 
     }
 
