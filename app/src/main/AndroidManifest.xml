@@ -26,7 +26,8 @@
         android:allowBackup="true"
         android:icon="@drawable/icon"
         android:label="@string/vietnamese"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
         <activity
             android:name=".view.dashboard.DashboardActivity"
             android:screenOrientation="portrait"
