@@ -57,7 +57,9 @@
     <string name="msg_premium_app">Playストアからプロのバージョンをインストールしてください。</string>
     <string name="msg_title_premium">プロのバージョンにアップグレードして下さい。</string>
     <string name="install">インストール</string>
-    <string name="number">number</string>
+    <string name="number">番号</string>
+    <string name="hint_number">番号を記入￥</string>
+
     <string name="level">Level</string>
     <string name="talk_number">Please talk number</string>
 

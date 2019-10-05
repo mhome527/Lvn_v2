@@ -48,6 +48,7 @@
     <string name="gender_male">male</string>
     <string name="gender_female">female</string>
     <string name="number">number</string>
+    <string name="hint_number">Enter a number</string>
     <string name="level">Level</string>
     <string name="talk_number">Please talk number</string>
     <string name="search">search</string>

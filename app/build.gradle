@@ -4,9 +4,9 @@ android {
     signingConfigs {
         release2 {
             keyAlias 'lvn'
-            storeFile file('D:/mydata/git/Lvn_v2/lvn.jks')
-            keyPassword 'xxp'
-            storePassword 'xxp'
+            storeFile file('../lvn.jks')
+            keyPassword '81private'
+            storePassword '81private'
         }
     }
     compileSdkVersion 28
@@ -17,8 +17,8 @@ android {
         applicationId "teach.vietnam.asia"
         minSdkVersion 19
         targetSdkVersion 28
-        versionCode 36
-        versionName "3.3.3"
+        versionCode 40
+        versionName "3.3.7"
         multiDexEnabled true
 //        externalNativeBuild {
 //            testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -37,7 +37,7 @@ android {
             minifyEnabled true
 //            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 //            proguardFile '/Volumes/Data_Primary/MyProject/Dropbox/prj/Lvn/LVN_SD/proguard-project.txt'
-            proguardFile 'D:/mydata/git/Lvn_v2/proguard-project.txt'
+            proguardFile '../proguard-project.txt'
             signingConfig signingConfigs.release2
         }
         debug {
@@ -45,7 +45,7 @@ android {
             minifyEnabled false
 //            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 //            proguardFile '/Volumes/Data_Primary/MyProject/Dropbox/prj/Lvn/LVN_SD/proguard-project.txt'
-            proguardFile 'D:/mydata/git/Lvn_v2/proguard-project.txt'
+            proguardFile '../proguard-project.txt'
 
         }
     }

@@ -34,36 +34,37 @@
         android:visibility="visible"
         tools:listitem="@layout/dashboard_item" />
 
-    <!--<LinearLayout-->
-        <!--android:id="@+id/llOtherApp"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignParentBottom="true"-->
-        <!--android:layout_gravity="bottom"-->
-        <!--android:layout_marginTop="5dp"-->
-        <!--android:background="@color/colorPrimaryDark2"-->
-        <!--android:gravity="center_vertical"-->
-        <!--android:orientation="horizontal"-->
-        <!--android:padding="8dp">-->
 
-        <!--<ImageView-->
-            <!--android:layout_width="30dp"-->
-            <!--android:layout_height="30dp"-->
-            <!--android:layout_marginRight="10dp"-->
-            <!--android:src="@drawable/ic_ljp" />-->
+    <LinearLayout
+        android:id="@+id/llOtherApp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/btn_other_app_selector"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingTop="0dp"
+        android:paddingBottom="0dp">
 
-        <!--<TextView-->
-            <!--android:layout_width="0dp"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_weight="1"-->
-            <!--android:text="@string/msg_title_ljp"-->
-            <!--android:textColor="@color/crimson"-->
-            <!--android:textStyle="bold" />-->
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/ic_ljp" />
 
-        <!--<ImageView-->
-            <!--android:layout_width="15dp"-->
-            <!--android:layout_height="15dp"-->
-            <!--android:src="@drawable/ic_arrow_right" />-->
-    <!--</LinearLayout>-->
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/msg_title_ljp"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginRight="0dp"
+            android:src="@drawable/ic_arrow_right" />
+    </LinearLayout>
 
 </RelativeLayout>

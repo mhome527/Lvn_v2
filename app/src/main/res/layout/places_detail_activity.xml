@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     android:background="?attr/selectableItemBackground"
     android:foreground="?android:attr/selectableItemBackground"
+    xmlns:tools="http://schemas.android.com/tools"
+
     android:orientation="vertical">
 
     <android.support.design.widget.AppBarLayout
@@ -96,14 +98,15 @@
                     <teach.vietnam.asia.view.custom.RoundRectCornerImageView
                         android:id="@+id/imgPlace"
                         android:layout_width="match_parent"
-                        android:layout_height="170dp"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
                         android:layout_below="@+id/imgSound"
                         android:layout_centerHorizontal="true"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="8dp"
                         android:layout_marginRight="10dp"
                         android:background="@color/transparent"
-                        android:scaleType="fitXY" />
+                        />
                     <!--android:src="@drawable/bg_nha_tho_duc_ba"-->
                     <TextView
                         android:id="@+id/tvMore"

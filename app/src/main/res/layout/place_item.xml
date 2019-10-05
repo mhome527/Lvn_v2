@@ -52,11 +52,11 @@
             <ImageView
                 android:id="@+id/imgPlace"
                 android:layout_width="match_parent"
-                android:layout_height="160dp"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/imgSound"
                 android:layout_marginRight="25dp"
                 android:layout_marginBottom="5dp"
-                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
                 tools:src="@drawable/place_1_1_cho_ben_thanh" />
 
 

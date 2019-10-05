@@ -12,7 +12,6 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.webkit.WebView;
@@ -26,6 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 import teach.vietnam.asia.BuildConfig;
 import teach.vietnam.asia.Constant;
 import teach.vietnam.asia.R;
@@ -70,28 +70,12 @@ public class DashboardActivity extends PurchaseActivity<DashboardActivity> imple
     List<DashboardEntity> listData;
 
 
-//    @BindView(R.id.coordinator)
-//    CoordinatorLayout coordinator;
-//
-//    @BindView(R.id.appBar)
-//    AppBarLayout appBar;
-//
-//    @BindView(R.id.toolbarTitle)
-//    TextView toolbarTitle;
-//
-//    @BindView(R.id.toolbar)
-//    Toolbar toolbar;
-
     @BindView(R.id.searchBox)
     SearchBoxEx searchBox;
 
     @BindView(R.id.recyclerView2)
     RecyclerView recyclerView2;
 
-//    @BindView(R.id.gridView)
-//    GridView gridView;
-
-    MenuItem itemLanguage;
 
     LanguageAdapter adapterLanguage;
     Dialog dialogLanguage;
@@ -101,7 +85,6 @@ public class DashboardActivity extends PurchaseActivity<DashboardActivity> imple
     SearchPresenter searchPresenter;
 
     String stateKeySearch = "";
-    boolean isSearchOpen = false;
 
     @Override
     protected int getLayout() {
@@ -194,6 +177,7 @@ public class DashboardActivity extends PurchaseActivity<DashboardActivity> imple
     }
 
 
+    @OnClick(R.id.llOtherApp)
     public void showOtherApp() {
         Utility.installVnApp(activity);
     }
@@ -260,14 +244,11 @@ public class DashboardActivity extends PurchaseActivity<DashboardActivity> imple
                 showPrivacyPolicy();
                 screen = "SHOW_POLICY";
                 break;
-            case 12:
-//                if (BuildConfig.DEBUG)
-//                    startActivity2(AndroidDatabaseManager.class);
-//                else
-                showOtherApp();
-                screen = "SHOW_JP_APP";
-
-                break;
+//            case 12:
+//                showOtherApp();
+//                screen = "SHOW_JP_APP";
+//
+//                break;
             default:
                 screen = "SHOW_SOMETHING";
                 break;
@@ -288,14 +269,13 @@ public class DashboardActivity extends PurchaseActivity<DashboardActivity> imple
             activity.lang = lang;
 
             BaseActivity.pref.putStringValue(lang, Constant.TYPE_LANGUAGE);
-//            adapterLanguage.setLang(lang);
-//            setIconLanguage();
 
             Utility.setLanguage(activity);
             ///
 
             searchPresenter = new SearchPresenter(activity);
-            searchBox.setLogoText(getString(R.string.app_name));
+//            searchBox.setLogoText(getString(R.string.app_name));
+            searchBox.setLogoText(getString(R.string.search));
             searchBox.setHint(activity.getString(R.string.hint_search));
 
             ///
@@ -517,7 +497,8 @@ public class DashboardActivity extends PurchaseActivity<DashboardActivity> imple
     // ============= END ================
 
     private void initViewSearch() {
-        searchBox.setLogoText(getString(R.string.app_name));
+//        searchBox.setLogoText(getString(R.string.app_name));
+        searchBox.setLogoText(getString(R.string.search));
         searchBox.setHint(activity.getString(R.string.hint_search));
         searchBox.enableVoiceRecognition(this);
 

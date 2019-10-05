@@ -32,7 +32,7 @@
             android:layout_toLeftOf="@+id/imgRecording"
             android:layout_toRightOf="@+id/imgSpeak"
             android:gravity="center"
-            android:hint="@string/number"
+            android:hint="@string/hint_number"
             android:inputType="number"
             android:textSize="22sp" />
 
