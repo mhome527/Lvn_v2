@@ -4,19 +4,8 @@
     <string name="app_name">VN Pronunciation</string>
     <string name="db_value">7</string>
     <string name="db_value_rc">3</string>
-    <string name="language">en</string>
+    <string name="language">km-rKH</string>
     <!--<string name="language">fr</string>-->
-    <string name="vietnamese">Vietnamese</string>
-    <string name="tiengviet">Tiếng Việt</string>
-    <string name="japanese">日本語</string>
-    <string name="korea">한국어</string>
-    <string name="france">français</string>
-    <string name="russia">русский</string>
-    <string name="english">English</string>
-    <string name="chinese">中文</string>
-    <string name="arabic">العَرَبِيَّة</string>
-    <string name="spanish">Español</string>
-    <string name="cambodia">ជនជាតិខ្មែរ</string>
 
     <string name="adUnitId">ca-app-pub-2668784685856471/6937421141</string>
     <!--<string name="action_settings">Settings</string>-->
@@ -54,9 +43,9 @@
     <string name="talk_number">Please talk number</string>
     <string name="search">search</string>
 
-    <string name="southern">Southern</string>
-    <string name="central">Central</string>
-    <string name="northern">Northern</string>
+    <string name="southern">ភាគខាងត្បូង</string>
+    <string name="central">តំបន់កណ្តាល</string>
+    <string name="northern">ភាគខាងជើង</string>
 
     <!-- BODY -->
     <string name="head">head</string>
@@ -151,25 +140,25 @@
     <string name="title_activity_main2">Main2Activity</string>
 
     <string name="title_dashboard">Learn Vietnamese</string>
-    <string name="title_alphabet">ALPHABET</string>
-    <string name="title_grammar">GRAMMAR</string>
+    <string name="title_alphabet">អក្ខរក្រម</string>
+    <string name="title_grammar">វេយ្យាករណ៍</string>
     <string name="title_word">WORDS</string>
-    <string name="title_food2">CUISINE</string>
+    <string name="title_food2">អាហារ</string>
     <string name="title_drink2">DRINK</string>
     <string name="title_noodles">noodles</string>
     <string name="title_snack">SWEETS&amp; SNACK</string>
-    <string name="title_phrase">PHRASE</string>
+    <string name="title_phrase">ឃ្លា</string>
 
     <string name="title_animal">ANIMAL</string>
     <string name="title_fruit">FRUITS</string>
     <string name="title_other">OTHER</string>
-    <string name="title_counter">COUNTER</string>
+    <string name="title_counter">រាប់លេខ</string>
     <string name="title_body">BODY</string>
     <string name="title_food">FOODS</string>
-    <string name="title_practice">PRACTICE</string>
-    <string name="title_translate">TRANSLATE</string>
+    <string name="title_practice">អនុវត្ត</string>
+    <string name="title_translate">បកប្រែប្រយោគ</string>
     <string name="title_date">DATES</string>
-    <string name="title_recognize">LISTENING</string>
+    <string name="title_recognize">ស្តាប់</string>
     <string name="title_place">PLACE</string>
 
     <string name="msg_title_ljp">Japanese for traveler App</string>

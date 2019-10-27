@@ -42,8 +42,8 @@ public class Constant {
 //    }
 
     //    public static final String DB_NAME = "VN.db";
-    public static final String DB_NAME_V2 = "VN_V2.db";
-    public static final int DATABASE_VERSION = 101;
+    public static final String DB_NAME_V2 = "VN_V23.db";
+    public static final int DATABASE_VERSION = 102;
 
     //    public static final String JSON_WORDS_NAME;
     public static final String JSON_RECOGNIZE_NAME;
@@ -77,6 +77,7 @@ public class Constant {
     public static final String AR = "ar";
     public static final String ZH = "zh";
     public static final String ES = "es";
+    public static final String KM = "km-rKH";
 
 //    public static final String REC_JA = "rec_ja.txt";
 //    public static final String REC_KO = "rec_ko.txt";
@@ -122,7 +123,7 @@ public class Constant {
 //            isPro = false;
     }
 
-    public static final String KEY_UPDATE = "db_update_6"; // gia tri khac se delete database cu
+    public static final String KEY_UPDATE = "db_update_83"; // gia tri khac se delete database cu
     //    public static final String KEY_SOUND = "key_sound";
 //    public static final String VALUE_SOUND = "sound_7"; //gia tri tang khi file Mapname.txt thay doi.
     //

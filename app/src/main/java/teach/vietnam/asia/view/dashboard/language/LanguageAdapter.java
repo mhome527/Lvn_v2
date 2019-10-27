@@ -78,6 +78,7 @@ public class LanguageAdapter extends BaseAdapterView<BaseViewHolder> {
         items.add(new LanguageEntity(Constant.AR, context.getString(R.string.arabic), R.drawable.arabic));
         items.add(new LanguageEntity(Constant.ZH, context.getString(R.string.chinese), R.drawable.china));
         items.add(new LanguageEntity(Constant.ES, context.getString(R.string.spanish), R.drawable.spanish));
+        items.add(new LanguageEntity(Constant.KM, context.getString(R.string.cambodia), R.drawable.cambodia));
     }
 
     public void setLang(String currLang) {
